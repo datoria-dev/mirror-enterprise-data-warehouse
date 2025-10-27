@@ -1,0 +1,79 @@
+[
+  {
+    "CONFIG_ID":2,
+    "TABLE_NAME":"change_request",
+    "IS_ENABLED":true,
+    "SYNC_FREQUENCY_MINUTES":30,
+    "LAST_SYNC_TIMESTAMP":null,
+    "INCREMENTAL_FIELD":"sys_updated_on",
+    "NOTES":"Priority 1: Change management",
+    "CREATED_TIMESTAMP":"2025-10-24T18:43:20.346Z",
+    "UPDATED_TIMESTAMP":"2025-10-24T18:43:20.346Z"
+  },
+  {
+    "CONFIG_ID":4,
+    "TABLE_NAME":"cmdb_ci",
+    "IS_ENABLED":true,
+    "SYNC_FREQUENCY_MINUTES":60,
+    "LAST_SYNC_TIMESTAMP":null,
+    "INCREMENTAL_FIELD":"sys_updated_on",
+    "NOTES":"Priority 1: CMDB items",
+    "CREATED_TIMESTAMP":"2025-10-24T18:43:20.346Z",
+    "UPDATED_TIMESTAMP":"2025-10-24T18:43:20.346Z"
+  },
+  {
+    "CONFIG_ID":7,
+    "TABLE_NAME":"cmdb_rel_ci",
+    "IS_ENABLED":true,
+    "SYNC_FREQUENCY_MINUTES":60,
+    "LAST_SYNC_TIMESTAMP":null,
+    "INCREMENTAL_FIELD":"sys_updated_on",
+    "NOTES":"Priority 2: CMDB relationships",
+    "CREATED_TIMESTAMP":"2025-10-24T18:43:20.346Z",
+    "UPDATED_TIMESTAMP":"2025-10-24T18:43:20.346Z"
+  },
+  {
+    "CONFIG_ID":1,
+    "TABLE_NAME":"incident",
+    "IS_ENABLED":true,
+    "SYNC_FREQUENCY_MINUTES":15,
+    "LAST_SYNC_TIMESTAMP":null,
+    "INCREMENTAL_FIELD":"sys_updated_on",
+    "NOTES":"Priority 1: Incident management",
+    "CREATED_TIMESTAMP":"2025-10-24T18:43:20.346Z",
+    "UPDATED_TIMESTAMP":"2025-10-24T18:43:20.346Z"
+  },
+  {
+    "CONFIG_ID":3,
+    "TABLE_NAME":"problem",
+    "IS_ENABLED":true,
+    "SYNC_FREQUENCY_MINUTES":30,
+    "LAST_SYNC_TIMESTAMP":null,
+    "INCREMENTAL_FIELD":"sys_updated_on",
+    "NOTES":"Priority 2: Problem management",
+    "CREATED_TIMESTAMP":"2025-10-24T18:43:20.346Z",
+    "UPDATED_TIMESTAMP":"2025-10-24T18:43:20.346Z"
+  },
+  {
+    "CONFIG_ID":5,
+    "TABLE_NAME":"sys_user",
+    "IS_ENABLED":true,
+    "SYNC_FREQUENCY_MINUTES":240,
+    "LAST_SYNC_TIMESTAMP":null,
+    "INCREMENTAL_FIELD":"sys_updated_on",
+    "NOTES":"Priority 1: Users",
+    "CREATED_TIMESTAMP":"2025-10-24T18:43:20.346Z",
+    "UPDATED_TIMESTAMP":"2025-10-24T18:43:20.346Z"
+  },
+  {
+    "CONFIG_ID":6,
+    "TABLE_NAME":"sys_user_group",
+    "IS_ENABLED":true,
+    "SYNC_FREQUENCY_MINUTES":240,
+    "LAST_SYNC_TIMESTAMP":null,
+    "INCREMENTAL_FIELD":"sys_updated_on",
+    "NOTES":"Priority 2: User groups",
+    "CREATED_TIMESTAMP":"2025-10-24T18:43:20.346Z",
+    "UPDATED_TIMESTAMP":"2025-10-24T18:43:20.346Z"
+  }
+]

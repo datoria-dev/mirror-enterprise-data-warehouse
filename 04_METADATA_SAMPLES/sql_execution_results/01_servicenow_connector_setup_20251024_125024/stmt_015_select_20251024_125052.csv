@@ -1,0 +1,3 @@
+SCHEMA_NAME,SCHEMA_OWNER,RETENTION_TIME,COMMENT
+CONNECTOR_METADATA,_DEV_TRANSFORMATION_OWNER,30,"Connector configuration, sync status, and metadata"
+RAW_DATA,_DEV_TRANSFORMATION_OWNER,7,Raw ServiceNow tables synced by native connector

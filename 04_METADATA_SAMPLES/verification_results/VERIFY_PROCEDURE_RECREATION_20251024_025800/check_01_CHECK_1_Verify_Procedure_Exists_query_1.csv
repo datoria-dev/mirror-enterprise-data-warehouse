@@ -1,0 +1,2 @@
+created_on,name,schema_name,is_builtin,is_aggregate,is_ansi,min_num_arguments,max_num_arguments,arguments,description,catalog_name,is_table_function,valid_for_clustering,is_secure,secrets,external_access_integrations
+2025-10-24 05:45:27.552000+00:00,SP_REFRESH_METADATA,METADATA,N,N,N,0,0,SP_REFRESH_METADATA() RETURN VARCHAR,user-defined procedure,DEV_TRANSFORMATION,N,N,N,,

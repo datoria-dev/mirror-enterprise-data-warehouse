@@ -1,0 +1,180 @@
+{
+  "script_name": "GENERATE_ERD_FROM_METADATA.sql",
+  "execution_timestamp": "2025-10-24T04:19:01.257726",
+  "total_statements": 21,
+  "successful_statements": 4,
+  "failed_statements": 17,
+  "total_duration_seconds": 1.397651,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.331909,
+      "rows": 1,
+      "preview": "USE ROLE DEV_DEVELOPER;"
+    },
+    {
+      "statement_num": 2,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.36118,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 3,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.382726,
+      "rows": 1,
+      "preview": "USE SCHEMA METADATA;"
+    },
+    {
+      "statement_num": 4,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "000904 (42000): SQL compilation error: error line 8 at position 4\ninvalid identifier 'TR.FULL_TABLE_NAME'",
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_TABLE_CATALOG AS SELECT     tr.SERVICE_NAME,     sc.SERVICE_CATEGORY, "
+    },
+    {
+      "statement_num": 5,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_TABLE_CATALOG' does not exist or not authorized.",
+      "preview": "SELECT * FROM VW_ERD_TABLE_CATALOG;"
+    },
+    {
+      "statement_num": 6,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "000904 (42000): SQL compilation error: error line 3 at position 4\ninvalid identifier 'CM.SERVICE_NAME'",
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_COLUMN_DETAILS AS SELECT     cm.SERVICE_NAME,     tr.DATA_LAYER,     t"
+    },
+    {
+      "statement_num": 7,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_COLUMN_DETAILS' does not exist or not authorized.",
+      "preview": "SELECT * FROM VW_ERD_COLUMN_DETAILS;"
+    },
+    {
+      "statement_num": 8,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "000904 (42000): SQL compilation error: error line 4 at position 8\ninvalid identifier 'CM.SERVICE_NAME'",
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_RELATIONSHIPS AS WITH potential_fks AS (     SELECT DISTINCT         c"
+    },
+    {
+      "statement_num": 9,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_RELATIONSHIPS' does not exist or not authorized.",
+      "preview": "SELECT * FROM VW_ERD_RELATIONSHIPS;"
+    },
+    {
+      "statement_num": 10,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "000904 (42000): SQL compilation error: error line 10 at position 4\ninvalid identifier 'COLUMN_COUNT'",
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_METADATA_REPOSITORY AS SELECT     'METADATA_REPOSITORY' as DIAGRAM_NAM"
+    },
+    {
+      "statement_num": 11,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_METADATA_REPOSITORY' does not exist or not authorized.",
+      "preview": "SELECT * FROM VW_ERD_METADATA_REPOSITORY;"
+    },
+    {
+      "statement_num": 12,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "000904 (42000): SQL compilation error: error line 6 at position 8\ninvalid identifier 'FULL_TABLE_NAME'",
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_DATA_LINEAGE AS WITH landing_tables AS (     SELECT         SERVICE_NA"
+    },
+    {
+      "statement_num": 13,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_DATA_LINEAGE' does not exist or not authorized.",
+      "preview": "SELECT * FROM VW_ERD_DATA_LINEAGE;"
+    },
+    {
+      "statement_num": 14,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "000904 (42000): SQL compilation error: error line 10 at position 14\ninvalid identifier 'TR.BYTES'",
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_BY_SERVICE AS SELECT     tr.SERVICE_NAME,     sc.SERVICE_CATEGORY,    "
+    },
+    {
+      "statement_num": 15,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_BY_SERVICE' does not exist or not authorized.",
+      "preview": "SELECT * FROM VW_ERD_BY_SERVICE;"
+    },
+    {
+      "statement_num": 16,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.321836,
+      "rows": 4,
+      "csv_file": "stmt_016_select_20251024_041859.csv",
+      "json_file": "stmt_016_select_20251024_041859.json",
+      "preview": "SELECT     'erDiagram' as MERMAID_HEADER UNION ALL SELECT     '    ' || TABLE_NAME || ' {' as MERMAI"
+    },
+    {
+      "statement_num": 17,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_COLUMN_DETAILS' does not exist or not authorized.",
+      "preview": "SELECT     '        ' || DATA_TYPE || ' ' || COLUMN_NAME as MERMAID_COLUMN FROM VW_ERD_COLUMN_DETAIL"
+    },
+    {
+      "statement_num": 18,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_RELATIONSHIPS' does not exist or not authorized.",
+      "preview": "SELECT     '    ' || SOURCE_TABLE || ' ||--o{ ' || TARGET_TABLE || ' : \"' || FK_COLUMN || '\"' as MER"
+    },
+    {
+      "statement_num": 19,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "000904 (42000): SQL compilation error: error line 7 at position 4\ninvalid identifier 'TR.FULL_TABLE_NAME'",
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_COMPLETE_EXPORT AS SELECT     tr.SERVICE_NAME,     sc.SERVICE_CATEGORY"
+    },
+    {
+      "statement_num": 20,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_COMPLETE_EXPORT' does not exist or not authorized.",
+      "preview": "SELECT * FROM VW_ERD_COMPLETE_EXPORT;"
+    },
+    {
+      "statement_num": 21,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ERD_RELATIONSHIPS' does not exist or not authorized.",
+      "preview": "SELECT     '=== ERD GENERATION SUMMARY ===' as SECTION,     '' as VALUE UNION ALL SELECT 'Total Serv"
+    }
+  ]
+}

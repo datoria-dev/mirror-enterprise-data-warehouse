@@ -1,0 +1,8 @@
+METRIC,VALUE,UNIT
+Total Services Detected,20,
+Total Tables Loaded,180,tables
+Total Columns Loaded,2206,columns
+Total Statistics Created,180,snapshots
+Execution Duration,9,seconds
+Total Rows in All Tables,32587645,rows
+Execution Status,SUCCESS,

@@ -1,0 +1,191 @@
+[
+  {
+    "SERVICE_NAME":"ServiceNow",
+    "SERVICE_DESCRIPTION":"IT Service Management and asset inventory",
+    "SERVICE_CATEGORY":"Asset Management",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Daily",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Zscaler",
+    "SERVICE_DESCRIPTION":"Secure web gateway and cloud security",
+    "SERVICE_CATEGORY":"Cloud Security",
+    "IS_ACTIVE":false,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Proofpoint",
+    "SERVICE_DESCRIPTION":"Email security and threat protection",
+    "SERVICE_CATEGORY":"Email Security",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Cisco_AMP",
+    "SERVICE_DESCRIPTION":"Advanced malware protection",
+    "SERVICE_CATEGORY":"Endpoint Protection",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"CrowdStrike",
+    "SERVICE_DESCRIPTION":"Endpoint Detection and Response (EDR) platform",
+    "SERVICE_CATEGORY":"Endpoint Protection",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Defender",
+    "SERVICE_DESCRIPTION":"Microsoft Defender endpoint security",
+    "SERVICE_CATEGORY":"Endpoint Protection",
+    "IS_ACTIVE":false,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"McAfee",
+    "SERVICE_DESCRIPTION":"Endpoint security and threat protection",
+    "SERVICE_CATEGORY":"Endpoint Protection",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"SentinelOne",
+    "SERVICE_DESCRIPTION":"Endpoint Detection and Response (EDR)",
+    "SERVICE_CATEGORY":"Endpoint Protection",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Sophos",
+    "SERVICE_DESCRIPTION":"Endpoint protection and EDR",
+    "SERVICE_CATEGORY":"Endpoint Protection",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Symantec",
+    "SERVICE_DESCRIPTION":"Antivirus and endpoint protection",
+    "SERVICE_CATEGORY":"Endpoint Protection",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Trellix",
+    "SERVICE_DESCRIPTION":"EDR and threat detection",
+    "SERVICE_CATEGORY":"Endpoint Protection",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"TrendMicro",
+    "SERVICE_DESCRIPTION":"Threat protection and endpoint security",
+    "SERVICE_CATEGORY":"Endpoint Protection",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Hourly",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Ancon",
+    "SERVICE_DESCRIPTION":"Identity and access management",
+    "SERVICE_CATEGORY":"Identity & Access",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Daily",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Leviat",
+    "SERVICE_DESCRIPTION":"Privileged access and user monitoring",
+    "SERVICE_CATEGORY":"Identity & Access",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Daily",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Splunk",
+    "SERVICE_DESCRIPTION":"Security Information and Event Management",
+    "SERVICE_CATEGORY":"SIEM",
+    "IS_ACTIVE":false,
+    "REFRESH_FREQUENCY":"Real-time",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"BitSight",
+    "SERVICE_DESCRIPTION":"Security posture rating and benchmarking",
+    "SERVICE_CATEGORY":"Threat Intelligence",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Daily",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"CybelAngel",
+    "SERVICE_DESCRIPTION":"Cyber threat intelligence and data leak detection",
+    "SERVICE_CATEGORY":"Threat Intelligence",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Daily",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Intel_Threats",
+    "SERVICE_DESCRIPTION":"Aggregated threat intelligence",
+    "SERVICE_CATEGORY":"Threat Intelligence",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Daily",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"ZeroFox",
+    "SERVICE_DESCRIPTION":"External threat monitoring and brand protection",
+    "SERVICE_CATEGORY":"Threat Intelligence",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Daily",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Qualys",
+    "SERVICE_DESCRIPTION":"Vulnerability scanning and assessment",
+    "SERVICE_CATEGORY":"Vulnerability Management",
+    "IS_ACTIVE":true,
+    "REFRESH_FREQUENCY":"Daily",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  },
+  {
+    "SERVICE_NAME":"Tenable",
+    "SERVICE_DESCRIPTION":"Vulnerability assessment and management",
+    "SERVICE_CATEGORY":"Vulnerability Management",
+    "IS_ACTIVE":false,
+    "REFRESH_FREQUENCY":"Daily",
+    "CREATED_DATE":"2025-10-24T05:33:26.728Z",
+    "EXPORTED_AT":"2025-10-24T06:07:32.894Z"
+  }
+]

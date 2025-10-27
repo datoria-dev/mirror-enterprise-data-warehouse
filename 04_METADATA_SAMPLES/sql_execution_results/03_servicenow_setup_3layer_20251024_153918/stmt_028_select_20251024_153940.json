@@ -1,0 +1,20 @@
+[
+  {
+    "LAYER":"Bronze Layer",
+    "SCHEMA_NAME":"DEV_LANDING.SERVICENOW",
+    "OBJECTS":"2 tables (CONNECTOR_SYNC_LOG, CONNECTOR_CONFIG)",
+    "NOTES":"7 ServiceNow tables to be created by Native Connector"
+  },
+  {
+    "LAYER":"Silver Layer",
+    "SCHEMA_NAME":"DEV_TRANSFORMATION.SERVICENOW",
+    "OBJECTS":"4 tables (INCIDENTS, CHANGE_REQUESTS, USERS, CONFIGURATION_ITEMS)",
+    "NOTES":"Business logic and transformations"
+  },
+  {
+    "LAYER":"Gold Layer",
+    "SCHEMA_NAME":"DEV_REPORTING.SERVICENOW",
+    "OBJECTS":"5 views (VW_ACTIVE_INCIDENTS, VW_INCIDENT_METRICS_BY_PRIORITY, etc.)",
+    "NOTES":"Analytics and reporting"
+  }
+]

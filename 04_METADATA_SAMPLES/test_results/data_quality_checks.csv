@@ -1,0 +1,5 @@
+CHECK_NAME,ISSUE_COUNT
+⚠️  Tables Without Columns,0
+⚠️  Tables With Zero Rows,102
+⚠️  Columns Without Data Type,0
+⚠️  Unknown Service Tables,0

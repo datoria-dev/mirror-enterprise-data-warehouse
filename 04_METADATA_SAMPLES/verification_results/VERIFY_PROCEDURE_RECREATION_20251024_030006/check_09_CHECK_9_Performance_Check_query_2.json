@@ -1,0 +1,27 @@
+[
+  {
+    "METRIC":"Average Execution Duration",
+    "VALUE":8.33,
+    "UNIT":"seconds"
+  },
+  {
+    "METRIC":"Min Execution Duration",
+    "VALUE":8.0,
+    "UNIT":"seconds"
+  },
+  {
+    "METRIC":"Max Execution Duration",
+    "VALUE":9.0,
+    "UNIT":"seconds"
+  },
+  {
+    "METRIC":"Tables Per Second (Latest)",
+    "VALUE":22.5,
+    "UNIT":"tables\/sec"
+  },
+  {
+    "METRIC":"Columns Per Second (Latest)",
+    "VALUE":275.75,
+    "UNIT":"columns\/sec"
+  }
+]

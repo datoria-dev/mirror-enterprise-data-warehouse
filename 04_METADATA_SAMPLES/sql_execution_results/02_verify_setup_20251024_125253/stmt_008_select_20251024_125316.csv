@@ -1,0 +1,5 @@
+VERIFICATION_ITEM,STATUS
+✅ RAW_DATA schema created,PASS ✅
+✅ CONNECTOR_METADATA schema created,PASS ✅
+✅ CONNECTOR_INSTALLATION_LOG table created,PASS ✅
+✅ Installation log has records,PASS ✅ (4 records)

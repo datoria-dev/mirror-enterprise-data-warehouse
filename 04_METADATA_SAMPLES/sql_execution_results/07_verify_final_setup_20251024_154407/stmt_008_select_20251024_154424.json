@@ -1,0 +1,12 @@
+[
+  {
+    "LAYER":"DEV_TRANSFORMATION.SERVICENOW",
+    "OBJECT_TYPE":"Tables",
+    "COUNT":10
+  },
+  {
+    "LAYER":"DEV_REPORTING.SERVICENOW",
+    "OBJECT_TYPE":"Views",
+    "COUNT":6
+  }
+]

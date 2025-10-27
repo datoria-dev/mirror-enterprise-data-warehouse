@@ -1,0 +1,322 @@
+# ========================================
+# SNOWFLAKE SECURITY_ANALYTICS PROJECT - .gitignore
+# ========================================
+
+# ============== SENSITIVE DATA ==============
+# Environment and credentials - NEVER COMMIT
+.env
+*.env
+.env.*
+!.env.example
+03_CONFIG/.env
+credentials.json
+secrets.yaml
+*_credentials.txt
+
+# Snowflake configuration
+*.snowflake
+snowsql_config.json
+
+# Personal data
+Fuad*.pdf
+Profile.pdf
+*Resume*.pdf
+
+# ============== PYTHON ==============
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# ============== OUTPUT FILES ==============
+# Excel exports
+*.xlsx
+!*_template.xlsx
+!*_example.xlsx
+*.xlsx~
+~$*.xlsx
+*.xlsm
+*.xls
+
+# Query results and logs
+05_QUERY_RESULTS/*.json
+05_QUERY_RESULTS/*.txt
+!05_QUERY_RESULTS/README.md
+
+# Analysis results
+04_OUTPUT/analysis_results/*.json
+04_OUTPUT/erd_diagrams/*.png
+04_OUTPUT/erd_diagrams/*.svg
+04_OUTPUT/excel_exports/*.xlsx
+
+# Generated ERDs
+*.dot.png
+*.dot.svg
+*_erd.png
+*_erd.svg
+
+# Logs
+*.log
+*.log.*
+05_LOGS/*.log
+05_LOGS/*.txt
+logs/
+extraction_log_*.txt
+
+# ============== POWERBI ==============
+# Power BI files (large binary files)
+08_POWERBI_DASHBOARDS/**/*.pbix
+06_SOURCE_DATA/*.pbix
+
+# Power BI temp files
+*.pbids
+*.pbix.tmp
+
+# ============== OFFICE FILES ==============
+# Temporary Office files
+~$*.doc*
+~$*.xls*
+~$*.ppt*
+
+# PowerPoint files (can be large)
+*.pptx
+*.ppt
+!*_template.pptx
+
+# PDF files (documentation can be large)
+*.pdf
+!README.pdf
+!ARCHITECTURE.pdf
+
+# ============== OS FILES ==============
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============== IDE / EDITORS ==============
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vi/Vim
+*.swp
+*.swo
+*.swn
+*~
+
+# Emacs
+\#*\#
+.\#*
+
+# ============== ARCHIVES ==============
+# Compressed files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+*.xz
+
+# ============== BACKUP FILES ==============
+*.bak
+*.backup
+*.old
+*.orig
+*.copy
+*_backup*
+*_old*
+
+# SQL backups
+*_backup.sql
+*_old.sql
+
+# ============== TEMPORARY FILES ==============
+*.tmp
+*.temp
+*.cache
+nul
+
+# ============== DATABASE ==============
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# ============== SNOWFLAKE SPECIFIC ==============
+# Snowflake query history exports
+query_history_*.csv
+
+# Snowflake warehouse monitoring
+warehouse_usage_*.csv
+
+# ============== DEVELOPMENT TOOLS ==============
+# Development tool logs and folders
+.devtools/*.log
+.claude/
+
+# ============== PROJECT SPECIFIC ==============
+# Archive directories (keep structure, ignore large files)
+99_ARCHIVE/**/*.xlsx
+99_ARCHIVE/**/*.json
+99_ARCHIVE/**/*.log
+99_ARCHIVE/**/*.txt
+99_ARCHIVE/**/*.pdf
+99_ARCHIVE/**/*.png
+99_ARCHIVE/**/*.svg
+
+# Keep archive README files
+!99_ARCHIVE/**/README.md
+
+# Source data (large files)
+06_SOURCE_DATA/*.xlsx
+06_SOURCE_DATA/*.csv
+06_SOURCE_DATA/*.json
+
+# Streamlit cache
+07_STREAMLIT_APPS/**/__pycache__/
+07_STREAMLIT_APPS/.streamlit/
+
+# ============== SECURITY ==============
+# SSH keys
+id_rsa
+id_rsa.pub
+*.pem
+*.key
+*.crt
+*.cer
+
+# API keys and tokens
+.api_keys
+api_keys.txt
+tokens.txt
+
+# ============== NODE / NPM (if applicable) ==============
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# ============== DOCKER (if applicable) ==============
+*.dockerignore
+docker-compose.override.yml
+
+# ============== GITHUB SPECIFIC ==============
+# GitHub Actions cache
+.github/workflows/cache/
+
+# ============== KEEP THESE PATTERNS ==============
+# Important: Use ! to negate patterns and force-include specific files
+
+# Keep example/template files
+!*_example.*
+!*_template.*
+!*.example.*
+
+# Keep README files everywhere
+!README.md
+!README.txt
+
+# Keep .gitignore in subdirectories
+!.gitignore
+
+# Keep requirements files
+!requirements.txt
+!requirements/*.txt
+
+# Keep configuration examples
+!config.example.*
+!.env.example
+
+# Keep SQL scripts (core deliverables)
+!01_SQL_SCRIPTS/**/*.sql
+!FINAL_DELIVERABLES/**/*.sql
+
+# Keep Python scripts (core deliverables)
+!02_PYTHON_SCRIPTS/**/*.py
+!FINAL_DELIVERABLES/**/*.py
+
+# Keep Streamlit apps
+!07_STREAMLIT_APPS/**/*.py
+
+# Keep markdown documentation
+!**/*.md
+
+# ============== END ==============

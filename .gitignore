@@ -1,0 +1,36 @@
+# Credentials
+*.env
+config.json
+credentials.json
+snowflake_config.json
+
+# Logs
+*.log
+logs/
+deployment_logs/
+execution_logs/
+
+# Temporary files
+*.tmp
+*.bak
+~$*
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files (use synthetic data only)
+data/*.csv
+data/*.json
+!data/sample_*

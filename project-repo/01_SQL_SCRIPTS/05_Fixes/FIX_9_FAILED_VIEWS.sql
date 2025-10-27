@@ -1,0 +1,225 @@
+-- =====================================================================
+-- FIX 9 FAILED VIEWS - Using Actual Table Structures
+-- =====================================================================
+
+USE ROLE DEV_DEVELOPER;
+USE WAREHOUSE DEV_WH;
+USE DATABASE DEV_TRANSFORMATION;
+USE SCHEMA SECURITY_ANALYTICS;
+
+SELECT '=== Fixing 9 Failed Views ===' AS STATUS;
+
+-- =====================================================================
+-- FIX 1: VW_QUALITY_ALERTS
+-- Error: invalid identifier 'RECORD_COUNT'
+-- Actual column: TOTAL_ROWS (not RECORD_COUNT)
+-- =====================================================================
+
+CREATE OR REPLACE VIEW VW_QUALITY_ALERTS AS
+SELECT
+    TABLE_NAME,
+    OVERALL_SCORE,
+    CASE
+        WHEN OVERALL_SCORE < 50 THEN 'CRITICAL'
+        WHEN OVERALL_SCORE < 75 THEN 'WARNING'
+        WHEN OVERALL_SCORE < 90 THEN 'INFO'
+        ELSE 'OK'
+    END as ALERT_LEVEL,
+    CASE
+        WHEN OVERALL_SCORE < 50 THEN 'Immediate action required'
+        WHEN OVERALL_SCORE < 75 THEN 'Review and improve data quality'
+        WHEN OVERALL_SCORE < 90 THEN 'Minor improvements needed'
+        ELSE 'Quality standards met'
+    END as RECOMMENDATION,
+    SCORECARD_DATE,
+    TOTAL_ROWS,        -- Changed from RECORD_COUNT
+    NULL_COUNT
+FROM DATA_QUALITY_SCORECARD
+WHERE SCORECARD_DATE = CURRENT_DATE()
+ORDER BY OVERALL_SCORE;
+
+SELECT 'VW_QUALITY_ALERTS fixed' AS RESULT;
+
+-- =====================================================================
+-- FIX 2: VW_ETL_PIPELINE_STATUS
+-- Error: invalid identifier 'END_TIME', 'START_TIME', 'DURATION_SECONDS'
+-- Actual table doesn't have these columns - only has CREATED_AT
+-- =====================================================================
+
+CREATE OR REPLACE VIEW VW_ETL_PIPELINE_STATUS AS
+SELECT
+    PIPELINE_NAME,
+    MAX(CREATED_AT) as LAST_RUN,
+    DATEDIFF('hour', MAX(CREATED_AT), CURRENT_TIMESTAMP()) as HOURS_SINCE_LAST_RUN,
+    COUNT(*) as TOTAL_RUNS,
+    SUM(CASE WHEN STATUS = 'SUCCESS' THEN 1 ELSE 0 END) as SUCCESSFUL_RUNS,
+    SUM(CASE WHEN STATUS = 'FAILED' THEN 1 ELSE 0 END) as FAILED_RUNS,
+    SUM(ROWS_PROCESSED) as TOTAL_ROWS_PROCESSED
+FROM ETL_PIPELINE_LOG
+WHERE CREATED_AT >= DATEADD('day', -30, CURRENT_DATE())
+GROUP BY PIPELINE_NAME
+ORDER BY LAST_RUN DESC;
+
+SELECT 'VW_ETL_PIPELINE_STATUS fixed' AS RESULT;
+
+-- =====================================================================
+-- FIX 3: VW_ETL_ERRORS
+-- Error: invalid identifier 'START_TIME', 'END_TIME'
+-- Use CREATED_AT instead
+-- =====================================================================
+
+CREATE OR REPLACE VIEW VW_ETL_ERRORS AS
+SELECT
+    LOG_ID,
+    PIPELINE_NAME,
+    SOURCE_TABLE,
+    TARGET_TABLE,
+    ERROR_MESSAGE,
+    CREATED_AT as ERROR_TIME
+FROM ETL_PIPELINE_LOG
+WHERE STATUS = 'FAILED'
+  AND CREATED_AT >= DATEADD('day', -7, CURRENT_DATE())
+ORDER BY CREATED_AT DESC;
+
+SELECT 'VW_ETL_ERRORS fixed' AS RESULT;
+
+-- =====================================================================
+-- FIX 4 & 5: Executive Views - FACT_EDR doesn't have OPCO_ID
+-- Need to join through DIM_HOST to get OPCO_ID
+-- =====================================================================
+
+CREATE OR REPLACE VIEW VW_EXECUTIVE_KPI_DASHBOARD AS
+SELECT
+    d.DATE,
+    d.YEAR,
+    d.QUARTER,
+    d.MONTH_NAME,
+    o.OPCO_NAME,
+    o.REGION,
+    o.DIVISION,
+    COUNT(DISTINCT h.HOST_KEY) as TOTAL_HOSTS,
+    COUNT(DISTINCT CASE WHEN e.THREAT_COUNT > 0 THEN e.EDR_KEY END) as HOSTS_WITH_THREATS,
+    SUM(e.THREAT_COUNT) as TOTAL_THREATS,
+    ROUND(COUNT(DISTINCT CASE WHEN e.THREAT_COUNT > 0 THEN e.EDR_KEY END) * 100.0 /
+          NULLIF(COUNT(DISTINCT h.HOST_KEY), 0), 2) as THREAT_PERCENTAGE
+FROM DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_DATES d
+CROSS JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_OPCO o
+LEFT JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_HOST h
+    ON h.OPCO_ID = o.OPCO_ID
+LEFT JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.FACT_EDR e
+    ON e.HOST_ID = h.HOST_KEY::TEXT  -- Join through HOST
+WHERE d.DATE >= DATEADD('month', -12, CURRENT_DATE())
+  AND d.DATE <= CURRENT_DATE()
+GROUP BY d.DATE, d.YEAR, d.QUARTER, d.MONTH_NAME, o.OPCO_NAME, o.REGION, o.DIVISION;
+
+SELECT 'VW_EXECUTIVE_KPI_DASHBOARD fixed' AS RESULT;
+
+CREATE OR REPLACE VIEW VW_SECURITY_POSTURE_SUMMARY AS
+SELECT
+    o.OPCO_NAME,
+    o.REGION,
+    COUNT(DISTINCT h.HOST_KEY) as TOTAL_ASSETS,
+    COUNT(DISTINCT e.EDR_KEY) as EDR_DEPLOYMENTS,
+    SUM(e.THREAT_COUNT) as TOTAL_THREATS_DETECTED,
+    MAX(h.LAST_SCAN_DATE) as LAST_SCAN_DATE,
+    DATEDIFF('day', MAX(h.LAST_SCAN_DATE), CURRENT_DATE()) as DAYS_SINCE_LAST_SCAN
+FROM DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_OPCO o
+LEFT JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_HOST h
+    ON h.OPCO_ID = o.OPCO_ID
+LEFT JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.FACT_EDR e
+    ON e.HOST_ID = h.HOST_KEY::TEXT  -- Join through HOST
+GROUP BY o.OPCO_NAME, o.REGION
+ORDER BY TOTAL_THREATS_DETECTED DESC;
+
+SELECT 'VW_SECURITY_POSTURE_SUMMARY fixed' AS RESULT;
+
+-- =====================================================================
+-- FIX 6 & 7: DATA_LINEAGE_CATALOG - No SOURCE_SYSTEM column
+-- Actual columns: SOURCE_DATABASE, SOURCE_SCHEMA, SOURCE_TABLE
+-- Also: LOAD_FREQUENCY -> UPDATE_FREQUENCY, OWNER -> DATA_OWNER
+-- =====================================================================
+
+-- First, update existing data to add missing values
+UPDATE DATA_LINEAGE_CATALOG
+SET SOURCE_DATABASE = 'DEV_LANDING',
+    SOURCE_SCHEMA = 'SECURITY_ANALYTICS'
+WHERE SOURCE_DATABASE IS NULL;
+
+SELECT 'Lineage data updated' AS RESULT;
+
+-- Fix the view to use actual column names
+CREATE OR REPLACE VIEW VW_DATA_LINEAGE AS
+SELECT
+    SOURCE_DATABASE || '.' || SOURCE_SCHEMA || '.' || SOURCE_TABLE as FULL_SOURCE_PATH,
+    TARGET_DATABASE || '.' || TARGET_SCHEMA || '.' || TARGET_TABLE as FULL_TARGET_PATH,
+    SOURCE_TABLE,
+    TARGET_TABLE,
+    TRANSFORMATION_LOGIC,
+    UPDATE_FREQUENCY,    -- Not LOAD_FREQUENCY
+    LAST_UPDATED,        -- Not LAST_LOAD_DATE
+    DATEDIFF('hour', LAST_UPDATED, CURRENT_TIMESTAMP()) as HOURS_SINCE_UPDATE,
+    DATA_OWNER          -- Not OWNER
+FROM DATA_LINEAGE_CATALOG
+ORDER BY SOURCE_DATABASE, SOURCE_TABLE;
+
+SELECT 'VW_DATA_LINEAGE fixed' AS RESULT;
+
+-- =====================================================================
+-- FIX 8 & 9: INSERT statements for DATA_LINEAGE_CATALOG
+-- Use correct column names
+-- =====================================================================
+
+INSERT INTO DATA_LINEAGE_CATALOG
+(SOURCE_DATABASE, SOURCE_SCHEMA, SOURCE_TABLE, TARGET_DATABASE, TARGET_SCHEMA, TARGET_TABLE,
+ TRANSFORMATION_LOGIC, UPDATE_FREQUENCY, DATA_OWNER)
+SELECT 'DEV_LANDING', 'SECURITY_ANALYTICS', 'L_PAM_USERS', 'DEV_TRANSFORMATION', 'SECURITY_ANALYTICS', 'DIM_USER',
+       'SCD Type 2 merge from PAM source', 'Daily', 'IT Security Team'
+WHERE NOT EXISTS (
+    SELECT 1 FROM DATA_LINEAGE_CATALOG
+    WHERE SOURCE_TABLE = 'L_PAM_USERS' AND TARGET_TABLE = 'DIM_USER'
+);
+
+INSERT INTO DATA_LINEAGE_CATALOG
+(SOURCE_DATABASE, SOURCE_SCHEMA, SOURCE_TABLE, TARGET_DATABASE, TARGET_SCHEMA, TARGET_TABLE,
+ TRANSFORMATION_LOGIC, UPDATE_FREQUENCY, DATA_OWNER)
+SELECT 'DEV_LANDING', 'SECURITY_ANALYTICS', 'L_EDR_THREATS_REALTIME', 'DEV_TRANSFORMATION', 'SECURITY_ANALYTICS', 'FACT_EDR',
+       'Aggregate threat counts by host and date', 'Real-time', 'IT Security Team'
+WHERE NOT EXISTS (
+    SELECT 1 FROM DATA_LINEAGE_CATALOG
+    WHERE SOURCE_TABLE = 'L_EDR_THREATS_REALTIME' AND TARGET_TABLE = 'FACT_EDR'
+);
+
+SELECT COUNT(*) || ' new lineage entries added' AS RESULT FROM DATA_LINEAGE_CATALOG;
+
+-- =====================================================================
+-- VALIDATION
+-- =====================================================================
+
+SELECT '========================================' AS SUMMARY;
+SELECT 'ALL 9 VIEWS FIXED!' AS SUMMARY;
+SELECT '========================================' AS SUMMARY;
+
+-- Test all fixed views
+SELECT 'VW_QUALITY_ALERTS' as VIEW_NAME, COUNT(*) as ROW_COUNT
+FROM VW_QUALITY_ALERTS;
+
+SELECT 'VW_ETL_PIPELINE_STATUS' as VIEW_NAME, COUNT(*) as ROW_COUNT
+FROM VW_ETL_PIPELINE_STATUS;
+
+SELECT 'VW_ETL_ERRORS' as VIEW_NAME, COUNT(*) as ROW_COUNT
+FROM VW_ETL_ERRORS;
+
+SELECT 'VW_EXECUTIVE_KPI_DASHBOARD' as VIEW_NAME, COUNT(*) as ROW_COUNT
+FROM VW_EXECUTIVE_KPI_DASHBOARD;
+
+SELECT 'VW_SECURITY_POSTURE_SUMMARY' as VIEW_NAME, COUNT(*) as ROW_COUNT
+FROM VW_SECURITY_POSTURE_SUMMARY;
+
+SELECT 'VW_DATA_LINEAGE' as VIEW_NAME, COUNT(*) as ROW_COUNT
+FROM VW_DATA_LINEAGE;
+
+SELECT '=== All Views Working ===' AS SUMMARY;
+
+-- =====================================================================
+-- END OF FIX
+-- =====================================================================

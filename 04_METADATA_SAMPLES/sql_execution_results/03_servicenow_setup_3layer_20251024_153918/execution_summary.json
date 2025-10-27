@@ -1,0 +1,252 @@
+{
+  "script_name": "03_servicenow_setup_3layer.sql",
+  "execution_timestamp": "2025-10-24T15:39:40.992426",
+  "total_statements": 29,
+  "successful_statements": 14,
+  "failed_statements": 15,
+  "total_duration_seconds": 4.611023,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.389975,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_LANDING;"
+    },
+    {
+      "statement_num": 2,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on database 'DEV_LANDING'.",
+      "preview": "CREATE SCHEMA IF NOT EXISTS SERVICENOW     DATA_RETENTION_TIME_IN_DAYS = 7     COMMENT = 'Raw Servic"
+    },
+    {
+      "statement_num": 3,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (02000): SQL compilation error:\nSchema 'DEV_LANDING.SERVICENOW' does not exist or not authorized.",
+      "preview": "GRANT USAGE ON SCHEMA DEV_LANDING.SERVICENOW TO ROLE DEV_DEVELOPER;"
+    },
+    {
+      "statement_num": 4,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 11 at position 12 unexpected '='.",
+      "preview": "CREATE TABLE IF NOT EXISTS DEV_LANDING.SERVICENOW.CONNECTOR_SYNC_LOG (     sync_id INTEGER AUTOINCRE"
+    },
+    {
+      "statement_num": 5,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 11 at position 12 unexpected '='.",
+      "preview": "CREATE TABLE IF NOT EXISTS DEV_LANDING.SERVICENOW.CONNECTOR_CONFIG (     config_id INTEGER AUTOINCRE"
+    },
+    {
+      "statement_num": 6,
+      "type": "INSERT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (02000): SQL compilation error:\nSchema 'DEV_LANDING.SERVICENOW' does not exist or not authorized.",
+      "preview": "INSERT INTO DEV_LANDING.SERVICENOW.CONNECTOR_CONFIG     (table_name, is_enabled, sync_frequency_minu"
+    },
+    {
+      "statement_num": 7,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.500681,
+      "rows": 1,
+      "csv_file": "stmt_007_select_20251024_153934.csv",
+      "json_file": "stmt_007_select_20251024_153934.json",
+      "preview": "SELECT '\u2705 DEV_LANDING.SERVICENOW schema created' AS status;"
+    },
+    {
+      "statement_num": 8,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (02000): SQL compilation error:\nSchema 'DEV_LANDING.SERVICENOW' does not exist or not authorized.",
+      "preview": "SELECT * FROM DEV_LANDING.SERVICENOW.CONNECTOR_CONFIG ORDER BY table_name;"
+    },
+    {
+      "statement_num": 9,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.295544,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 10,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.435731,
+      "rows": 1,
+      "preview": "CREATE SCHEMA IF NOT EXISTS SERVICENOW     DATA_RETENTION_TIME_IN_DAYS = 30     COMMENT = 'Transform"
+    },
+    {
+      "statement_num": 11,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.2641,
+      "rows": 1,
+      "preview": "GRANT USAGE ON SCHEMA DEV_TRANSFORMATION.SERVICENOW TO ROLE DEV_DEVELOPER;"
+    },
+    {
+      "statement_num": 12,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 23 at position 12 unexpected '='.",
+      "preview": "CREATE TABLE IF NOT EXISTS DEV_TRANSFORMATION.SERVICENOW.INCIDENTS (     incident_number VARCHAR(100"
+    },
+    {
+      "statement_num": 13,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 22 at position 12 unexpected '='.",
+      "preview": "CREATE TABLE IF NOT EXISTS DEV_TRANSFORMATION.SERVICENOW.CHANGE_REQUESTS (     change_number VARCHAR"
+    },
+    {
+      "statement_num": 14,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 16 at position 12 unexpected '='.",
+      "preview": "CREATE TABLE IF NOT EXISTS DEV_TRANSFORMATION.SERVICENOW.USERS (     user_id VARCHAR(100) PRIMARY KE"
+    },
+    {
+      "statement_num": 15,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 15 at position 12 unexpected '='.",
+      "preview": "CREATE TABLE IF NOT EXISTS DEV_TRANSFORMATION.SERVICENOW.CONFIGURATION_ITEMS (     ci_sys_id VARCHAR"
+    },
+    {
+      "statement_num": 16,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.271976,
+      "rows": 1,
+      "csv_file": "stmt_016_select_20251024_153936.csv",
+      "json_file": "stmt_016_select_20251024_153936.json",
+      "preview": "SELECT '\u2705 DEV_TRANSFORMATION.SERVICENOW schema created' AS status;"
+    },
+    {
+      "statement_num": 17,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.248768,
+      "rows": 0,
+      "preview": "SHOW TABLES IN SCHEMA DEV_TRANSFORMATION.SERVICENOW;"
+    },
+    {
+      "statement_num": 18,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.298443,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_REPORTING;"
+    },
+    {
+      "statement_num": 19,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.470465,
+      "rows": 1,
+      "preview": "CREATE SCHEMA IF NOT EXISTS SERVICENOW     COMMENT = 'ServiceNow analytics and reporting views (Gold"
+    },
+    {
+      "statement_num": 20,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.327836,
+      "rows": 1,
+      "preview": "GRANT USAGE ON SCHEMA DEV_REPORTING.SERVICENOW TO ROLE DEV_DEVELOPER;"
+    },
+    {
+      "statement_num": 21,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.SERVICENOW.INCIDENTS' does not exist or not authorized.",
+      "preview": "CREATE OR REPLACE VIEW DEV_REPORTING.SERVICENOW.VW_ACTIVE_INCIDENTS AS SELECT     incident_number,  "
+    },
+    {
+      "statement_num": 22,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.SERVICENOW.INCIDENTS' does not exist or not authorized.",
+      "preview": "CREATE OR REPLACE VIEW DEV_REPORTING.SERVICENOW.VW_INCIDENT_METRICS_BY_PRIORITY AS SELECT     priori"
+    },
+    {
+      "statement_num": 23,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.SERVICENOW.CHANGE_REQUESTS' does not exist or not authorized.",
+      "preview": "CREATE OR REPLACE VIEW DEV_REPORTING.SERVICENOW.VW_CHANGE_CALENDAR AS SELECT     change_number,     "
+    },
+    {
+      "statement_num": 24,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.SERVICENOW.CONFIGURATION_ITEMS' does not exist or not authorized.",
+      "preview": "CREATE OR REPLACE VIEW DEV_REPORTING.SERVICENOW.VW_CMDB_INVENTORY AS SELECT     ci_class,     catego"
+    },
+    {
+      "statement_num": 25,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.SERVICENOW.USERS' does not exist or not authorized.",
+      "preview": "CREATE OR REPLACE VIEW DEV_REPORTING.SERVICENOW.VW_USER_ACTIVITY AS SELECT     u.user_name,     u.em"
+    },
+    {
+      "statement_num": 26,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.267621,
+      "rows": 1,
+      "csv_file": "stmt_026_select_20251024_153940.csv",
+      "json_file": "stmt_026_select_20251024_153940.json",
+      "preview": "SELECT '\u2705 DEV_REPORTING.SERVICENOW schema created' AS status;"
+    },
+    {
+      "statement_num": 27,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.26927,
+      "rows": 0,
+      "preview": "SHOW VIEWS IN SCHEMA DEV_REPORTING.SERVICENOW;"
+    },
+    {
+      "statement_num": 28,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.307567,
+      "rows": 3,
+      "csv_file": "stmt_028_select_20251024_153940.csv",
+      "json_file": "stmt_028_select_20251024_153940.json",
+      "preview": "SELECT 'Bronze Layer' AS layer, 'DEV_LANDING.SERVICENOW' AS schema_name,        '2 tables (CONNECTOR"
+    },
+    {
+      "statement_num": 29,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.263046,
+      "rows": 1,
+      "csv_file": "stmt_029_select_20251024_153940.csv",
+      "json_file": "stmt_029_select_20251024_153940.json",
+      "preview": "SELECT '\u2705 Setup complete! See script comments for next steps.' AS final_status;"
+    }
+  ]
+}

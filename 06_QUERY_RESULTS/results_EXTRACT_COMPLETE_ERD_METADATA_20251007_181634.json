@@ -1,0 +1,4025 @@
+{
+  "file": "EXTRACT_COMPLETE_ERD_METADATA.sql",
+  "executed_at": "2025-10-07T18:16:08.181439",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "-- =====================================================================\n-- SUMMARY: Object counts a...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== ARCHITECTURE SUMMARY ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "SELECT\n    'DEV_LANDING' as DATABASE_NAME,\n    (SELECT COUNT(*) FROM DEV_LANDING.INFORMATION_SCHEMA....",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.INFORMATION_SCHEMA.TASKS' does not exist or not authorized."
+    },
+    {
+      "num": 5,
+      "sql": "-- =====================================================================\n-- LAYER 1: DEV_LANDING - C...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 1: DEV_LANDING - TABLES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "USE DATABASE DEV_LANDING;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 7,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 8,
+      "sql": "SELECT\n    'LANDING' as LAYER,\n    'TABLE' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,\n    ROW_CO...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_ALUNGRIFFITHS",
+          "ROW_COUNT": "640",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_AMAT",
+          "ROW_COUNT": "16939",
+          "SIZE_MB": "0.47",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_ANCON",
+          "ROW_COUNT": "842",
+          "SIZE_MB": "0.02",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_APG",
+          "ROW_COUNT": "6656",
+          "SIZE_MB": "0.21",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_ASHGROVE",
+          "ROW_COUNT": "1282",
+          "SIZE_MB": "0.04",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_BELGIUM",
+          "ROW_COUNT": "767",
+          "SIZE_MB": "0.02",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_CRHPP_NET",
+          "ROW_COUNT": "6",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_CRH_CORP",
+          "ROW_COUNT": "20",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_CRH_NET",
+          "ROW_COUNT": "10",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_CRH_UNI_COM",
+          "ROW_COUNT": "915",
+          "SIZE_MB": "0.03",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_DD_MM_YYYY",
+          "ROW_COUNT": "12179",
+          "SIZE_MB": "0.30",
+          "COMMENT": "List of computers with European-format dates, containing over 12,000 records. Data Category: Active Directory Table.(AD DD-MM-YYYY)."
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_DENMARK",
+          "ROW_COUNT": "724",
+          "SIZE_MB": "0.02",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_DEV_CRH_UNI_NET",
+          "ROW_COUNT": "158",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_EMAT",
+          "ROW_COUNT": "6650",
+          "SIZE_MB": "0.14",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_EMAT_CRHPP_NET",
+          "ROW_COUNT": "101",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_EMAT_HCL",
+          "ROW_COUNT": "34040",
+          "SIZE_MB": "2.05",
+          "COMMENT": "Computers EMAT HCL, containing over 34,000 records. Data Category: Active Directory Table."
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_EU_CRH_CORP_NET",
+          "ROW_COUNT": "404",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_FERROBETON_COMPUTE",
+          "ROW_COUNT": "215",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_FERROBETON_SERVERS",
+          "ROW_COUNT": "9",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_LEVIAT",
+          "ROW_COUNT": "2996",
+          "SIZE_MB": "0.07",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_MM_DD_YYYY",
+          "ROW_COUNT": "43335",
+          "SIZE_MB": "1.31",
+          "COMMENT": "List of computers with American-format dates, containing over 44,000 records. Data Category: Active Directory Table. (AMP MM-DD-YYYY)."
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_NETHERLANDS",
+          "ROW_COUNT": "251",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_NORTHSTONE",
+          "ROW_COUNT": "738",
+          "SIZE_MB": "0.02",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_PHILIPINES",
+          "ROW_COUNT": "1033",
+          "SIZE_MB": "0.03",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_POLISH_COMPUTERS",
+          "ROW_COUNT": "1202",
+          "SIZE_MB": "0.03",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_POLISH_SERVERS",
+          "ROW_COUNT": "76",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_SLOVAKIA",
+          "ROW_COUNT": "94",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_TARMAC",
+          "ROW_COUNT": "4790",
+          "SIZE_MB": "0.10",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_UBAB",
+          "ROW_COUNT": "242",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_COMPUTERS_UKRAINE",
+          "ROW_COUNT": "342",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AD_USERS",
+          "ROW_COUNT": "46504",
+          "SIZE_MB": "5.39",
+          "COMMENT": "List of user accounts with over 46,000 records. Data Category: Active Directory Table."
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AG_MVISION_SERVERS",
+          "ROW_COUNT": "215",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AG_MVISION_WORKSTATIONS",
+          "ROW_COUNT": "969",
+          "SIZE_MB": "0.05",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AG_SECURE_ENDPOINT_SERVERS",
+          "ROW_COUNT": "198",
+          "SIZE_MB": "0.02",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AG_SECURE_ENDPOINT_WORKSTATIONS",
+          "ROW_COUNT": "994",
+          "SIZE_MB": "0.09",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AMAT",
+          "ROW_COUNT": "15905",
+          "SIZE_MB": "1.59",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AMAT_MVISION_SERVERS",
+          "ROW_COUNT": "1462",
+          "SIZE_MB": "0.08",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AMAT_MVISION_WORKSTATIONS",
+          "ROW_COUNT": "12813",
+          "SIZE_MB": "0.63",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AMAT_SECURE_ENDPOINT_SERVERS",
+          "ROW_COUNT": "1338",
+          "SIZE_MB": "0.10",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AMAT_SECURE_ENDPOINT_WORKSTATION",
+          "ROW_COUNT": "14011",
+          "SIZE_MB": "1.17",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AMP_DD_MM_YYYY",
+          "ROW_COUNT": "32671",
+          "SIZE_MB": "0.67",
+          "COMMENT": "Data protection events logged by day-month-year, with over 22,000 records. Data Category: Security Tool Table (AMP DD-MM-YYYY)."
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AMP_MM_DD_YYYY",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "AMP security data with American-format dates with 0 records. Data Category: Security Tool Table. (AMP MM-DD-YYYY)."
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AMP_VERSIONS",
+          "ROW_COUNT": "38",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "ANCON",
+          "ROW_COUNT": "995",
+          "SIZE_MB": "0.11",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "APG_AMP",
+          "ROW_COUNT": "4644",
+          "SIZE_MB": "0.53",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "APG_ENS_PRODUCT_DEPLOYMENT",
+          "ROW_COUNT": "292",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "AV_TREND",
+          "ROW_COUNT": "107",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Security trends related to AV with 543 records. Data Category: Security Tool Table (AV_Trend)."
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "BITSIGHTFINDINGS",
+          "ROW_COUNT": "1219",
+          "SIZE_MB": "0.06",
+          "COMMENT": "Security findings from BitSight with over 1,200 records. Data Category: Security Tool Table."
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "BOL_CROWDSTRIKE",
+          "ROW_COUNT": "1203",
+          "SIZE_MB": "0.22",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "BOL_CROWDSTRIKE_OLD",
+          "ROW_COUNT": "1113",
+          "SIZE_MB": "0.22",
+          "COMMENT": null
+        }
+      ],
+      "error": null,
+      "row_count": 141
+    },
+    {
+      "num": 9,
+      "sql": "SELECT '=== LAYER 1: DEV_LANDING - VIEWS ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 1: DEV_LANDING - VIEWS ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 10,
+      "sql": "SELECT\n    'LANDING' as LAYER,\n    'VIEW' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,\n    COMMENT...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "QUALYS_CONSOLIDATED",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "SYMANTEC_CONSOLIDATED",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ACCOUNT_SECURITY_STATUS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LANDING_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LEVIAT_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LEVIAT_SECURITY_ALERTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_OBJECTS_SUMMARY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_PASSWORD_HEALTH",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SOURCE_SYSTEM_HEALTH",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "V_SNOWCLI_REFERENCE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "LANDING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "V_SNOWFLAKE_EQUIVALENTS",
+          "COMMENT": null
+        }
+      ],
+      "error": null,
+      "row_count": 11
+    },
+    {
+      "num": 11,
+      "sql": "-- =====================================================================\n-- LAYER 2: DEV_TRANSFORMAT...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 2: DEV_TRANSFORMATION - DIMENSION TABLES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 12,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 13,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 14,
+      "sql": "SELECT\n    'TRANSFORMATION' as LAYER,\n    'DIMENSION' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_ANCON_USERS",
+          "ROW_COUNT": "995",
+          "SIZE_MB": "0.09",
+          "COMMENT": "User dimension for Ancon system users including authentication and account status"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_AV_OPCO",
+          "ROW_COUNT": "108",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Operating company dimension for antivirus deployment tracking"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "ROW_COUNT": "7",
+          "SIZE_MB": "0.00",
+          "COMMENT": "BitSight risk assessment dimension with external security posture metrics"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_CISCO_AMP",
+          "ROW_COUNT": "4948",
+          "SIZE_MB": "0.10",
+          "COMMENT": "Core table for Cisco AMP endpoint data"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_CLOSE_CODE_MAPPING",
+          "ROW_COUNT": "6",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "ROW_COUNT": "3609",
+          "SIZE_MB": "0.14",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_CROWDSTRIKE_VERSIONS",
+          "ROW_COUNT": "13",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_CYBELANGEL_ALERTS",
+          "ROW_COUNT": "196",
+          "SIZE_MB": "0.02",
+          "COMMENT": "CybelAngel security alert dimension with threat intelligence findings"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_DATES",
+          "ROW_COUNT": "10000",
+          "SIZE_MB": "0.10",
+          "COMMENT": "Date dimension table containing all calendar dates with various date attributes for time-based analysis"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "ROW_COUNT": "8210",
+          "SIZE_MB": "0.53",
+          "COMMENT": "Microsoft Defender endpoint dimension with security status and compliance information"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_FARRANS_ENDPOINTS",
+          "ROW_COUNT": "741",
+          "SIZE_MB": "0.02",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_FIXED_VULNERABILITIES",
+          "ROW_COUNT": "56345",
+          "SIZE_MB": "3.50",
+          "COMMENT": "Resolved vulnerability dimension tracking remediated security issues"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_HARDWARE_INVENTORY",
+          "ROW_COUNT": "21997",
+          "SIZE_MB": "1.15",
+          "COMMENT": "Hardware inventory dimension with device specifications and deployment details"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_HOST",
+          "ROW_COUNT": "1662",
+          "SIZE_MB": "0.03",
+          "COMMENT": "Host dimension containing all servers, workstations, and computing devices tracked across security platforms"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_HOST_ASSETS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_LEVIAT_LIST_USERS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_LEVIAT_USERS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_MCAFEE_ENDPOINTS",
+          "ROW_COUNT": "292",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_OPCO",
+          "ROW_COUNT": "3",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Operating company master dimension with organizational hierarchy"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_QUALYS_SEVERITY",
+          "ROW_COUNT": "5",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_QUALYS_VULNERABILITIES",
+          "ROW_COUNT": "210435",
+          "SIZE_MB": "7.75",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_SENTINEL_VERSIONS",
+          "ROW_COUNT": "38",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_SNOW_DEVICES",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "ServiceNow CMDB device dimension with asset management information"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_SOPHOS_ENDPOINTS",
+          "ROW_COUNT": "741",
+          "SIZE_MB": "0.02",
+          "COMMENT": "Silver layer - Sophos endpoint master data"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_SPLUNK_HOSTS",
+          "ROW_COUNT": "4913",
+          "SIZE_MB": "0.05",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_SYMANTEC_ENDPOINTS",
+          "ROW_COUNT": "22571",
+          "SIZE_MB": "1.26",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_TRELLIX_ENDPOINTS",
+          "ROW_COUNT": "34235",
+          "SIZE_MB": "0.69",
+          "COMMENT": "Silver layer - Trellix endpoint master data"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_TRENDMICRO_VERSIONS",
+          "ROW_COUNT": "6",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_USER",
+          "ROW_COUNT": "1",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Unified user dimension from multiple sources (AD, HR, PAM)"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_VULNERABILITY",
+          "ROW_COUNT": "631305",
+          "SIZE_MB": "10.47",
+          "COMMENT": "Dimension table for Qualys vulnerabilities"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_ZEROFOX_ASSETS",
+          "ROW_COUNT": "121",
+          "SIZE_MB": "0.11",
+          "COMMENT": "ZeroFox monitored digital assets"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "DIMENSION",
+          "OBJECT_NAME": "DIM_ZSCALER_ENDPOINTS",
+          "ROW_COUNT": "24984",
+          "SIZE_MB": "0.95",
+          "COMMENT": null
+        }
+      ],
+      "error": null,
+      "row_count": 32
+    },
+    {
+      "num": 15,
+      "sql": "SELECT '=== LAYER 2: DEV_TRANSFORMATION - FACT TABLES ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 2: DEV_TRANSFORMATION - FACT TABLES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 16,
+      "sql": "SELECT\n    'TRANSFORMATION' as LAYER,\n    'FACT' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,\n    ...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_AV_HEALTH",
+          "ROW_COUNT": "107",
+          "SIZE_MB": "0.01",
+          "COMMENT": "Fact table for antivirus health metrics"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_BITSIGHT_FINDINGS",
+          "ROW_COUNT": "1219",
+          "SIZE_MB": "0.07",
+          "COMMENT": "Fact table for BitSight security findings"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_CYBELANGEL_THREATS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Fact table for CybelAngel external threat detections"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_DEFENDER_THREATS",
+          "ROW_COUNT": "1",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Fact table for Microsoft Defender threat detections"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_EDR",
+          "ROW_COUNT": "20",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Fact table for Endpoint Detection and Response metrics"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_FARRANS_HEALTH",
+          "ROW_COUNT": "741",
+          "SIZE_MB": "0.02",
+          "COMMENT": "Fact table for Farrans endpoint health monitoring"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_INCIDENTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_LEVIAT_SECURITY_EVENTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_PATCHES",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_QUALYS",
+          "ROW_COUNT": "20",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Fact table for Qualys vulnerability data (detailed)"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_QUALYS_HOST_SCANS",
+          "ROW_COUNT": "833",
+          "SIZE_MB": "0.03",
+          "COMMENT": "Fact table for Qualys vulnerability scan results"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_REMEDIATION_EVENTS",
+          "ROW_COUNT": "697086",
+          "SIZE_MB": "18.73",
+          "COMMENT": "Fact table tracking vulnerability remediation activities and timelines"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_SCAN_EVENTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Security scan execution and results"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "ROW_COUNT": "4188",
+          "SIZE_MB": "0.17",
+          "COMMENT": "Fact table for Sentinel endpoint security events"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_SPLUNK_ALERTS",
+          "ROW_COUNT": "16436",
+          "SIZE_MB": "0.63",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_SPLUNK_ALERTS_WEEKLY",
+          "ROW_COUNT": "16436",
+          "SIZE_MB": "0.67",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_SYMANTEC_THREATS",
+          "ROW_COUNT": "1261614",
+          "SIZE_MB": "9.95",
+          "COMMENT": "Symantec detected threats and malware"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_THREAT_INTEL_EVENTS",
+          "ROW_COUNT": "1065690",
+          "SIZE_MB": "3.51",
+          "COMMENT": "Threat intelligence alerts and indicators"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_THREAT_INTEL_SUMMARY",
+          "ROW_COUNT": "542",
+          "SIZE_MB": "0.02",
+          "COMMENT": "Aggregated threat intelligence metrics"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_TRENDMICRO_ENDPOINTS",
+          "ROW_COUNT": "267",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_VULN_SCAN",
+          "ROW_COUNT": "17483409",
+          "SIZE_MB": "188.37",
+          "COMMENT": "Fact table for vulnerability scans"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_ZEROFOX_ALERTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "FACT",
+          "OBJECT_NAME": "FACT_ZSCALER_THREATS",
+          "ROW_COUNT": "4802616",
+          "SIZE_MB": "75.69",
+          "COMMENT": "Zscaler cloud security threats"
+        }
+      ],
+      "error": null,
+      "row_count": 23
+    },
+    {
+      "num": 17,
+      "sql": "SELECT '=== LAYER 2: DEV_TRANSFORMATION - OTHER TABLES ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 2: DEV_TRANSFORMATION - OTHER TABLES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 18,
+      "sql": "SELECT\n    'TRANSFORMATION' as LAYER,\n    'TABLE' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,\n   ...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "BUSINESS_RULE_VIOLATIONS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "DATA_DICTIONARY",
+          "ROW_COUNT": "15",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "DATA_LINEAGE_CATALOG",
+          "ROW_COUNT": "10",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "DATA_QUALITY_RULES",
+          "ROW_COUNT": "3",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "DATA_QUALITY_SCORECARD",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "EMPTY_TABLES_REPORT",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "ETL_ERROR_LOG",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "ETL_LOG",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "ETL_ORCHESTRATION_LOG",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "ETL_PIPELINE_LOG",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_ANCON_USERS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Full change history for ANCON user records"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_BITSIGHT_FINDINGS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_CISCO_AMP",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "CDC history for Cisco AMP endpoint changes"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_CROWDSTRIKE_ENDPOINTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_CROWDSTRIKE_VERSIONS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_CYBELANGEL_ALERTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_CYBELANGEL_THREATS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_DEFENDER_ENDPOINTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_FARRANS_ENDPOINTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_FIXED_VULNERABILITIES",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_HOSTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_LEVIAT_USERS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_MCAFEE_ENDPOINTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_QUALYS_HOST",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Change history for Qualys host data"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_QUALYS_VULN",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Change history for Qualys vulnerability data"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_SENTINEL_CHANGES",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_SNOW",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_SOPHOS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Change tracking for Sophos endpoints"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_SPLUNK_ALERTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_SPLUNK_HOSTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_STOCK_REPORT",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_SYMANTEC_ENDPOINTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_THREAT_INTEL_EVENTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_THREAT_INTEL_SUMMARY",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_TRELLIX",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": "Change tracking for Trellix endpoints"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_TRENDMICRO_CHANGES",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_ZEROFOX_ALERTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_ZEROFOX_ASSETS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_ZSCALER_ENDPOINTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HIST_ZSCALER_THREATS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HOSTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HOST_DIM",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "LEVIAT",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "MONITORING_ALERTS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "PERFORMANCE_BENCHMARKS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "QUALYS_CONSOLIDATED",
+          "ROW_COUNT": "17483409",
+          "SIZE_MB": "221.67",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "QUALYS_CONSOLIDATED_DIM",
+          "ROW_COUNT": "833",
+          "SIZE_MB": "0.03",
+          "COMMENT": "Consolidated dimensional table combining Qualys host OS information and vulnerability knowledge base data. Designed to support security analytics, compliance reporting, and vulnerability management workflows."
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "QUALYS_HOST_DATA",
+          "ROW_COUNT": "833",
+          "SIZE_MB": "0.04",
+          "COMMENT": "Core host OS data from Qualys"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "QUALYS_KB_CONSOLIDATED",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "QUALYS_OS_CONSOLIDATED",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        }
+      ],
+      "error": null,
+      "row_count": 62
+    },
+    {
+      "num": 19,
+      "sql": "SELECT '=== LAYER 2: DEV_TRANSFORMATION - VIEWS ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 2: DEV_TRANSFORMATION - VIEWS ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 20,
+      "sql": "SELECT\n    'TRANSFORMATION' as LAYER,\n    'VIEW' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,\n    ...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "CISCO_AMP_DATA",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "CLOSE_CODE_MAPPING",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "CROWDSTRIKE_ENDPOINTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "CROWDSTRIKE_VERSIONS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "DATA_QUALITY_RESULTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "SENTINEL_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "TRENDMICRO_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ACCOUNT_SECURITY_STATUS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ALERT_ANALYSIS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ANCON_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ANCON_KEY_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ANCON_SECURITY_ALERTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ANCON_USER_STATUS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_AV_COMPLIANCE_STATUS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_AV_HEALTH_TREND",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_AV_REGIONAL_HEALTH",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_BITSIGHT_CURRENT_FINDINGS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_BITSIGHT_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_BITSIGHT_SECURITY_ALERTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CISCO_AMP_COMPLIANCE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CISCO_AMP_REPORT",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_COST_OPTIMIZATION_RECOMMENDATIONS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CRITICAL_ALERTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CROWDSTRIKE_COMPLIANCE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CROWDSTRIKE_REPORT",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_ACTIVE_THREATS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_ALERT_SUMMARY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_CRITICAL_ALERTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DAILY_THREAT_SUMMARY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DATA_DICTIONARY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DATA_FRESHNESS_MONITOR",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DATA_LINEAGE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DATA_MODEL_HEALTH_DASHBOARD",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DATA_QUALITY_DIM_COMPLETENESS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DATA_QUALITY_EMPTY_FACTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DATA_QUALITY_MONITOR",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_ALERTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_COMPLIANCE_SUMMARY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_ENDPOINT_STATUS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEVICE_OS_COMPLIANCE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DIMENSION_SCD_STATUS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DOMAIN_PROTECTION_STATUS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_EMPTY_TABLES_ANALYSIS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ENDPOINT_SECURITY_STATUS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_END_TO_END_DATA_FLOW",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ETL_DASHBOARD",
+          "COMMENT": "ETL pipeline execution and status monitoring"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ETL_ERRORS",
+          "COMMENT": null
+        }
+      ],
+      "error": null,
+      "row_count": 50
+    },
+    {
+      "num": 21,
+      "sql": "SELECT '=== LAYER 2: DEV_TRANSFORMATION - STORED PROCEDURES ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 2: DEV_TRANSFORMATION - STORED PROCEDURES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 22,
+      "sql": "SELECT\n    'TRANSFORMATION' as LAYER,\n    'PROCEDURE' as OBJECT_TYPE,\n    PROCEDURE_NAME as OBJECT_N...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_CALCULATE_DATA_QUALITY_SCORE",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_DAILY_HEALTH_CHECK",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_DATA_QUALITY_ALERTS",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_LOAD_DEFENDER_THREATS",
+          "ARGUMENT_SIGNATURE": "(BATCH_DATE VARCHAR, MODE VARCHAR)",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_LOAD_DIM_HOST_INCREMENTAL",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_LOAD_FACT_QUALYS_INCREMENTAL",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_MERGE_DIM_HOST_SCD2",
+          "ARGUMENT_SIGNATURE": "(P_HOST_ID VARCHAR, P_HOSTNAME VARCHAR)",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_PROCESS_ALL_SCD_CHANGES",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_RECONCILE_ALL_SOURCES",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_RECONCILE_CROWDSTRIKE",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_RECONCILE_QUALYS",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_RECONCILE_SENTINEL_ONE",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_RECONCILE_TENABLE",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_RECONCILE_ZEROFOX",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_RUN_DATA_QUALITY_CHECKS",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        }
+      ],
+      "error": null,
+      "row_count": 15
+    },
+    {
+      "num": 23,
+      "sql": "SELECT '=== LAYER 2: DEV_TRANSFORMATION - TASKS ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 2: DEV_TRANSFORMATION - TASKS ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 24,
+      "sql": "SELECT\n    'TRANSFORMATION' as LAYER,\n    'TASK' as OBJECT_TYPE,\n    TASK_NAME as OBJECT_NAME,\n    S...",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.INFORMATION_SCHEMA.TASKS' does not exist or not authorized."
+    },
+    {
+      "num": 25,
+      "sql": "-- =====================================================================\n-- LAYER 3: DEV_REPORTING -...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 3: DEV_REPORTING - TABLES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 26,
+      "sql": "USE DATABASE DEV_REPORTING;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 27,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 28,
+      "sql": "SELECT\n    'REPORTING' as LAYER,\n    'TABLE' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,\n    ROW_...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "BOL_CROWDSTRIKE",
+          "ROW_COUNT": "1203",
+          "SIZE_MB": "0.22",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "DASHBOARD_ACCESS_AUDIT",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "FIXEDVULNERABILITIES",
+          "ROW_COUNT": "46349",
+          "SIZE_MB": "12.65",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "HOSTS",
+          "ROW_COUNT": "84745",
+          "SIZE_MB": "7.10",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "KB",
+          "ROW_COUNT": "131106",
+          "SIZE_MB": "40.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "KPI_DEFINITIONS",
+          "ROW_COUNT": "5",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "PROJECTS_OVERVIEW",
+          "ROW_COUNT": "3840",
+          "SIZE_MB": "0.13",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "REPORT_EXECUTION_LOG",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "R_COMPLIANCE_SCORECARD",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "R_EXECUTIVE_DASHBOARD",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "R_INCIDENT_TRENDS",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "R_VULNERABILITY_SUMMARY",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "S1_VERSIONS",
+          "ROW_COUNT": "103",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "TBL_DATA_QUALITY_METRICS",
+          "ROW_COUNT": "7",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "TBL_DATA_QUALITY_SCORES",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "TBL_KPI_MASTER",
+          "ROW_COUNT": "3",
+          "SIZE_MB": "0.01",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "USER_REPORT_FAVORITES",
+          "ROW_COUNT": "0",
+          "SIZE_MB": "0.00",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "VULNERABILITIES",
+          "ROW_COUNT": "980867",
+          "SIZE_MB": "26.07",
+          "COMMENT": null
+        }
+      ],
+      "error": null,
+      "row_count": 18
+    },
+    {
+      "num": 29,
+      "sql": "SELECT '=== LAYER 3: DEV_REPORTING - VIEWS (Part 1) ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 3: DEV_REPORTING - VIEWS (Part 1) ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 30,
+      "sql": "SELECT\n    'REPORTING' as LAYER,\n    'VIEW' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,\n    COMME...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_AGENT_COVERAGE",
+          "COMMENT": "Security client deployment coverage"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ANCON_ACCOUNT_COMPLIANCE",
+          "COMMENT": "User-level account compliance status based on password age, failed logins, and inactivity"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ANCON_COMPLIANCE_SETTINGS",
+          "COMMENT": "Centralized compliance thresholds for ANCON metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ANCON_SECURITY_ALERTS",
+          "COMMENT": "Proactive security alerts for SOC team integration"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ANCON_SECURITY_METRICS",
+          "COMMENT": "Aggregated security metrics for dashboards updated daily"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_AV_COMPLIANCE_SETTINGS",
+          "COMMENT": "Compliance thresholds for EDR metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_AV_CURRENT_EDR_COMPLIANCE",
+          "COMMENT": "Current month EDR compliance status per OPCO with gap analysis"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_AV_EXECUTIVE_SUMMARY",
+          "COMMENT": "Aggregated security posture for executive dashboards"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_AV_HEALTH_BREAKDOWN",
+          "COMMENT": "Component-level analysis of EDR health factors"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_AV_REGIONAL_TREND",
+          "COMMENT": "3-month rolling average EDR coverage by region"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_BITSIGHT_CRITICAL_FINDINGS",
+          "COMMENT": "Critical findings for vendors with remediation recommendations"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_BITSIGHT_RISK_COMPLIANCE",
+          "COMMENT": "Vendor risk status against Metric #3 target (\u2264 Medium)"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_BITSIGHT_RISK_TREND",
+          "COMMENT": "Monthly trend of critical findings across vendors"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_BITSIGHT_RISK_VECTOR_ANALYSIS",
+          "COMMENT": "Analysis of risk vectors across vendor ecosystem"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_BITSIGHT_VENDOR_RISK",
+          "COMMENT": "Aggregated risk metrics per vendor domain"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CISCO_AMP_COMPLIANCE_SETTINGS",
+          "COMMENT": "Compliance thresholds for EDR metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CISCO_AMP_COVERAGE",
+          "COMMENT": "Daily EDR coverage status against target (\u226598%), including active and inactive endpoints"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CISCO_AMP_ENDPOINT_HEALTH",
+          "COMMENT": "Endpoint health status with version and activity analysis"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CISCO_AMP_OS_COVERAGE",
+          "COMMENT": "EDR coverage breakdown by operating system"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CISCO_AMP_VERSION_COMPLIANCE",
+          "COMMENT": "Agent version distribution and compliance status"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CROWDSTRIKE_CLOUD_COVERAGE",
+          "COMMENT": "EDR coverage breakdown by cloud provider"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CROWDSTRIKE_COMPLIANCE_SETTINGS",
+          "COMMENT": "Compliance thresholds for EDR metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CROWDSTRIKE_COVERAGE",
+          "COMMENT": "Daily EDR coverage status against target (\u226598%)"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CROWDSTRIKE_ENDPOINT_RISK",
+          "COMMENT": "Endpoint risk analysis with EOL detection"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CROWDSTRIKE_USER_ACTIVITY",
+          "COMMENT": "User login activity and stale account detection"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CROWDSTRIKE_VERSION_COMPLIANCE",
+          "COMMENT": "Sensor version compliance and EOL tracking"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_COMPLIANCE_SETTINGS",
+          "COMMENT": "Compliance thresholds for data exposure metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_CRITICAL_EXPOSURES",
+          "COMMENT": "Unresolved high-severity data exposure alerts"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_EXPOSURE_TREND",
+          "COMMENT": "Monthly trend of data exposure volume"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_REMEDIATION_PERFORMANCE",
+          "COMMENT": "Threat remediation performance metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_RISK_SUMMARY",
+          "COMMENT": "Aggregated data exposure metrics by category and severity"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_CYBELANGEL_SOURCE_ANALYSIS",
+          "COMMENT": "Analysis of data exposure sources"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_AGENT_HEALTH",
+          "COMMENT": "Health status of EDR agents across all systems"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_COMPLIANCE_THRESHOLDS",
+          "COMMENT": "Compliance thresholds for DefenderAV metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_DEVICE_COMPLIANCE",
+          "COMMENT": "Detailed compliance status of all endpoints"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_EDR_COVERAGE",
+          "COMMENT": "EDR agent deployment coverage across all systems"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_OS_SECURITY",
+          "COMMENT": "Security status summary by operating system platform"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_RANSOMWARE_TRACKING",
+          "COMMENT": "Ransomware incident tracking and days since last event"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_RESPONSE_METRICS",
+          "COMMENT": "Threat detection and response performance metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_DEFENDER_THREAT_SUMMARY",
+          "COMMENT": "Aggregated threat detection metrics by type"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FARRANS_COMPLIANCE_STATUS",
+          "COMMENT": "Detailed protection compliance status"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FARRANS_COMPLIANCE_THRESHOLDS",
+          "COMMENT": "Compliance thresholds for Farrans metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FARRANS_HEALTH_SUMMARY",
+          "COMMENT": "Aggregated endpoint health status metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FARRANS_INACTIVE_ALERTS",
+          "COMMENT": "Inactive endpoints requiring security attention"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FARRANS_OS_PROTECTION",
+          "COMMENT": "Protection status by operating system platform"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FARRANS_PROTECTION_COVERAGE",
+          "COMMENT": "Endpoint protection deployment coverage"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FARRANS_USER_ACTIVITY",
+          "COMMENT": "User activity patterns on endpoints"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FIXEDVULN_AGE_ANALYSIS",
+          "COMMENT": "Analysis of vulnerability age before remediation"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FIXEDVULN_COMPLIANCE_THRESHOLDS",
+          "COMMENT": "Compliance thresholds for vulnerability management"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FIXEDVULN_EFFICIENCY_TRENDS",
+          "COMMENT": "Remediation efficiency trends over time"
+        }
+      ],
+      "error": null,
+      "row_count": 50
+    },
+    {
+      "num": 31,
+      "sql": "SELECT '=== LAYER 3: DEV_REPORTING - VIEWS (Part 2) ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 3: DEV_REPORTING - VIEWS (Part 2) ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 32,
+      "sql": "SELECT\n    'REPORTING' as LAYER,\n    'VIEW' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,\n    COMME...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FIXEDVULN_OS_TRENDS",
+          "COMMENT": "Vulnerability trends by operating system"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FIXEDVULN_RECURRING_ISSUES",
+          "COMMENT": "Frequently recurring vulnerabilities requiring attention"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FIXEDVULN_REMEDIATION_PERFORMANCE",
+          "COMMENT": "Vulnerability remediation performance by severity"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FIXEDVULN_TOP_ASSETS",
+          "COMMENT": "Assets with the highest vulnerability counts"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_FIXEDVULN_TYPE_ANALYSIS",
+          "COMMENT": "Vulnerability analysis by type and severity"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_SYMANTEC_EDR_COVERAGE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_SYMANTEC_ENDPOINT_HEALTH",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_SYMANTEC_HIGH_RISK_ENDPOINTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_SYMANTEC_RANSOMWARE_TIMELINE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_SYMANTEC_THREAT_SUMMARY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_THREATINTEL_ASSET_PERFORMANCE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_THREATINTEL_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_THREATINTEL_MONTHLY_TRENDS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_THREATINTEL_RECENT_CRITICAL",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_THREATINTEL_SOURCE_ANALYSIS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_THREATINTEL_TAKEDOWN_EFFECTIVENESS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRELLIX_AGENT_HEALTH",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRELLIX_AMCORE_COMPLIANCE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRELLIX_COMMUNICATION_STATUS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRELLIX_EDR_COVERAGE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRELLIX_SECURITY_ALERTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRENDMICRO_AGENT_HEALTH",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRENDMICRO_ALERTS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRENDMICRO_COMPLIANCE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRENDMICRO_EDR_COVERAGE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_TRENDMICRO_SECURITY_UPDATES",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_ZEROFOX_ALERT_TRENDS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_ZEROFOX_ASSET_EXPOSURE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_ZEROFOX_DATA_QUALITY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_ZEROFOX_DOMAIN_PROTECTION",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_ZEROFOX_RESPONSE_PERFORMANCE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_GOLD_ZEROFOX_THREAT_ACTORS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_HARDWARE_INVENTORY_SUMMARY",
+          "COMMENT": "Summary of hardware inventory status and compliance"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_HOSTS_BU_COMPLIANCE",
+          "COMMENT": "Business unit compliance summary"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_HOSTS_CLOUD_ASSETS",
+          "COMMENT": "Cloud-hosted asset inventory"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_HOSTS_COMPLIANCE_THRESHOLDS",
+          "COMMENT": "Compliance thresholds for asset management"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_HOSTS_INVENTORY_COMPLETENESS",
+          "COMMENT": "Asset inventory record completeness metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_HOSTS_OS_DISTRIBUTION",
+          "COMMENT": "Asset distribution by operating system"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_HOSTS_SCAN_COVERAGE",
+          "COMMENT": "Vulnerability scanning coverage metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_HOSTS_SCAN_PERFORMANCE",
+          "COMMENT": "Scanning performance trends"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_HOSTS_SECURITY_RISKS",
+          "COMMENT": "Asset security risk analysis"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_INVENTORY_COMPLIANCE_SETTINGS",
+          "COMMENT": "Compliance thresholds for inventory metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LEVIAT_ACCOUNT_HEALTH",
+          "COMMENT": "User account health metrics including locked status, password age, and inactivity"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LEVIAT_ACTIVITY_TRENDS",
+          "COMMENT": "Account activity patterns and trends"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LEVIAT_EXECUTIVE_SUMMARY",
+          "COMMENT": "Executive-level summary of account security metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LEVIAT_PASSWORD_COMPLIANCE",
+          "COMMENT": "Compliance with password policies by business unit"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LEVIAT_SECURITY_ALERTS",
+          "COMMENT": "Active security alerts by category and business unit"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LEVIAT_SECURITY_EVENTS",
+          "COMMENT": "Aggregated security events including failed logons and lockouts"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_LICENSE_COMPLIANCE",
+          "COMMENT": "Operating system license compliance status"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_MCAFEE_AGENT_HEALTH",
+          "COMMENT": "Agent health and version compliance metrics"
+        }
+      ],
+      "error": null,
+      "row_count": 50
+    },
+    {
+      "num": 33,
+      "sql": "SELECT '=== LAYER 3: DEV_REPORTING - VIEWS (Part 3) ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 3: DEV_REPORTING - VIEWS (Part 3) ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 34,
+      "sql": "SELECT\n    'REPORTING' as LAYER,\n    'VIEW' as OBJECT_TYPE,\n    TABLE_NAME as OBJECT_NAME,\n    COMME...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_MCAFEE_EDR_COVERAGE",
+          "COMMENT": "EDR coverage and compliance status metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_MCAFEE_EXECUTIVE_SUMMARY",
+          "COMMENT": "Executive-level endpoint security summary"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_MCAFEE_PATCH_COMPLIANCE",
+          "COMMENT": "Endpoint patch compliance status"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_MCAFEE_SECURITY_ALERTS",
+          "COMMENT": "Security alerts summary by category"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_OBJECTS_SUMMARY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_OBJECT_COUNTS_DEV",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_OBJECT_INVENTORY",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_OBJECT_INVENTORY_DEV",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_OS_DISTRIBUTION",
+          "COMMENT": "Operating system version distribution across inventory"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_POWERBI_EXECUTIVE_DASHBOARD",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_QUALYS_EXECUTIVE_SUMMARY",
+          "COMMENT": "Executive-level vulnerability management summary"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_QUALYS_HOST_COMPLIANCE",
+          "COMMENT": "Host compliance status based on scan results"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_QUALYS_PATCH_COMPLIANCE",
+          "COMMENT": "Patch compliance status for vulnerabilities"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_QUALYS_SCAN_COVERAGE",
+          "COMMENT": "Vulnerability scan coverage metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_QUALYS_VULNERABILITY_SUMMARY",
+          "COMMENT": "Vulnerability severity and exposure analysis"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_REPORT_PERFORMANCE_METRICS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SENTINEL_ACTIVITY_ANALYSIS",
+          "COMMENT": "Endpoint activity patterns and trends"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SENTINEL_AGENT_COMPLIANCE",
+          "COMMENT": "Agent version compliance analysis"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SENTINEL_EDR_COVERAGE",
+          "COMMENT": "EDR coverage and agent health metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SENTINEL_EXECUTIVE_SUMMARY",
+          "COMMENT": "Executive-level endpoint security summary"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SENTINEL_SECURITY_STATUS",
+          "COMMENT": "Endpoint security status summary"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SNOW_COMPLIANCE_STATUS",
+          "COMMENT": "Device compliance status by environment and type"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SNOW_EXECUTIVE_SUMMARY",
+          "COMMENT": "Executive-level device inventory summary"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SNOW_INVENTORY_COMPLETENESS",
+          "COMMENT": "Asset inventory record completeness metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SNOW_OS_DISTRIBUTION",
+          "COMMENT": "Device distribution by operating system and version"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SNOW_SECURITY_COVERAGE",
+          "COMMENT": "Security scope coverage metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SOPHOS_ENDPOINT_HEALTH",
+          "COMMENT": "Endpoint health and protection status metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SOPHOS_EXECUTIVE_SUMMARY",
+          "COMMENT": "Executive-level endpoint security summary"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SOPHOS_OS_PROTECTION",
+          "COMMENT": "Protection status by operating system"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SOPHOS_SECURITY_ALERTS",
+          "COMMENT": "Security alerts summary by category"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SOPHOS_USER_ACTIVITY",
+          "COMMENT": "Endpoint activity analysis by last user"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SPLUNK_ALERT_RESPONSE",
+          "COMMENT": "SOC alert response performance metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SPLUNK_ALERT_TRENDS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SPLUNK_ALERT_TRENDS_FLEXIBLE",
+          "COMMENT": "Alert volume trends - Flexible version"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SPLUNK_ALERT_TRENDS_SIMPLE",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SPLUNK_ANALYSIS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SPLUNK_EXECUTIVE_SUMMARY",
+          "COMMENT": "Executive-level SIEM monitoring summary"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SPLUNK_LOG_COVERAGE",
+          "COMMENT": "SIEM log source coverage metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SPLUNK_RESOLUTION_EFFECTIVENESS",
+          "COMMENT": "Alert resolution effectiveness analysis"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_STALE_INVENTORY_ALERTS",
+          "COMMENT": "Devices with stale scans or inactive status"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_SYMANTEC_ANALYSIS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ZSCALER_AGENT_HEALTH",
+          "COMMENT": "Zscaler agent health compliance status"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ZSCALER_ANALYSIS",
+          "COMMENT": null
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ZSCALER_COMPLIANCE_SETTINGS",
+          "COMMENT": "Compliance thresholds for Zscaler metrics"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ZSCALER_DEPLOYMENT_COVERAGE",
+          "COMMENT": "Zscaler agent deployment coverage across all systems and SOX systems"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ZSCALER_ENDPOINT_RISK",
+          "COMMENT": "Zscaler endpoint risk exposure analysis"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ZSCALER_SECURITY_ALERTS",
+          "COMMENT": "Active Zscaler security alerts"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "VW_ZSCALER_THREAT_SUMMARY",
+          "COMMENT": "Daily Zscaler threat activity summary"
+        }
+      ],
+      "error": null,
+      "row_count": 48
+    },
+    {
+      "num": 35,
+      "sql": "SELECT '=== LAYER 3: DEV_REPORTING - STORED PROCEDURES ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 3: DEV_REPORTING - STORED PROCEDURES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 36,
+      "sql": "SELECT\n    'REPORTING' as LAYER,\n    'PROCEDURE' as OBJECT_TYPE,\n    PROCEDURE_NAME as OBJECT_NAME,\n...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "EXTRACT_VIEWS_WITH_SAMPLES",
+          "ARGUMENT_SIGNATURE": "(DATABASE_NAME VARCHAR, SCHEMA_NAME VARCHAR)",
+          "PROCEDURE_LANGUAGE": "JAVASCRIPT"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_CALCULATE_ALL_KPIS",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_CALCULATE_DATA_QUALITY",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_CALCULATE_KPI_CRITICAL_VULNS",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_CALCULATE_KPI_ENDPOINT_COVERAGE",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_CALCULATE_KPI_MTTR",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_CALCULATE_KPI_SECURITY_SCORE",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_CALCULATE_KPI_THREAT_DETECTION",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_REFRESH_REPORTING_LAYER",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        },
+        {
+          "LAYER": "REPORTING",
+          "OBJECT_TYPE": "PROCEDURE",
+          "OBJECT_NAME": "SP_UPDATE_COMPLIANCE_SCORECARD",
+          "ARGUMENT_SIGNATURE": "()",
+          "PROCEDURE_LANGUAGE": "SQL"
+        }
+      ],
+      "error": null,
+      "row_count": 10
+    },
+    {
+      "num": 37,
+      "sql": "-- =====================================================================\n-- KEY DIMENSION TABLES - D...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== KEY DIMENSIONS - DIM_OPCO ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 38,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 39,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 40,
+      "sql": "SELECT 'DIM_OPCO' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMNS...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "OPCO_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "OPCO_CODE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "OPCO_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "REGION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "DIVISION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "COUNTRY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "IS_ACTIVE",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "CREATED_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 8
+    },
+    {
+      "num": 41,
+      "sql": "SELECT '=== KEY DIMENSIONS - DIM_HOST ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== KEY DIMENSIONS - DIM_HOST ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 42,
+      "sql": "SELECT 'DIM_HOST' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMNS...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "HOST_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "HOST_TRACKING_METHOD",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "HOST_OS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "INSCOPE",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "LAST_SCAN_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "DW_LOAD_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "OPCO_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "PRIMARY_USER_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 8
+    },
+    {
+      "num": 43,
+      "sql": "SELECT '=== KEY DIMENSIONS - DIM_DATES ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== KEY DIMENSIONS - DIM_DATES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 44,
+      "sql": "SELECT 'DIM_DATES' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMN...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "DAY_OF_WEEK",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "DAY_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "MONTH_NUM",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "MONTH_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "YEAR",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "QUARTER",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "WEEK_OF_YEAR",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 8
+    },
+    {
+      "num": 45,
+      "sql": "SELECT '=== KEY DIMENSIONS - DIM_USER ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== KEY DIMENSIONS - DIM_USER ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 46,
+      "sql": "SELECT 'DIM_USER' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMNS...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "USER_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "USER_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "EMAIL",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "DISPLAY_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "DEPARTMENT",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "IS_ACTIVE",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "CREATED_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 7
+    },
+    {
+      "num": 47,
+      "sql": "-- =====================================================================\n-- KEY FACT TABLES - Detail...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== KEY FACTS - FACT_EDR ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 48,
+      "sql": "SELECT 'FACT_EDR' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMNS...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "EDR_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "DATE_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "HOST_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "ENDPOINT_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "EDR_PLATFORM",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "AGENT_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "AGENT_STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "LAST_SEEN_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "THREAT_COUNT",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 10
+    },
+    {
+      "num": 49,
+      "sql": "SELECT '=== KEY FACTS - FACT_QUALYS ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== KEY FACTS - FACT_QUALYS ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 50,
+      "sql": "SELECT 'FACT_QUALYS' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLU...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "QUALYS_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "DATE_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "HOST_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "VULN_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "CVE_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "VULN_TITLE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "SEVERITY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "CVSS_SCORE",
+          "DATA_TYPE": "FLOAT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "CRITICAL_VULNS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "HIGH_VULNS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "MEDIUM_VULNS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "LOW_VULNS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "TOTAL_VULNERABILITIES",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "OLDEST_CRITICAL_VULN_AGE_DAYS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "FIRST_DETECTED_DATE",
+          "DATA_TYPE": "DATE",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "IS_EXPLOITED_IN_WILD",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 17
+    },
+    {
+      "num": 51,
+      "sql": "-- =====================================================================\n-- ALL RELATIONSHIPS (PKs &...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== ALL PRIMARY KEYS ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 52,
+      "sql": "SELECT\n    TABLE_NAME,\n    CONSTRAINT_NAME as PK_NAME\nFROM DEV_TRANSFORMATION.INFORMATION_SCHEMA.TAB...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "BUSINESS_RULE_VIOLATIONS",
+          "PK_NAME": "SYS_CONSTRAINT_d7622720-f928-4364-b856-55ac7b4aedcc"
+        },
+        {
+          "TABLE_NAME": "DATA_DICTIONARY",
+          "PK_NAME": "SYS_CONSTRAINT_e9318577-05bd-485f-928c-cb8907ced63f"
+        },
+        {
+          "TABLE_NAME": "DATA_LINEAGE_CATALOG",
+          "PK_NAME": "SYS_CONSTRAINT_3736c61b-d817-4005-b56b-220e1e60e98e"
+        },
+        {
+          "TABLE_NAME": "DATA_QUALITY_RULES",
+          "PK_NAME": "SYS_CONSTRAINT_f9b11cfe-e0a5-43df-9627-8fe708325bd9"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "PK_NAME": "SYS_CONSTRAINT_ade6c731-4cf5-4958-b375-24aa74b612e6"
+        },
+        {
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "PK_NAME": "SYS_CONSTRAINT_b2b9dda5-13d0-4749-bae8-31361f4861e0"
+        },
+        {
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "PK_NAME": "SYS_CONSTRAINT_e3d0f813-bed3-4aaf-9744-9591a8708025"
+        },
+        {
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "PK_NAME": "SYS_CONSTRAINT_cfd3108c-e8b0-451a-bfe9-7253b8976bda"
+        },
+        {
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "PK_NAME": "SYS_CONSTRAINT_01ee7cd6-7767-44f5-831b-cd4e71f9efd0"
+        },
+        {
+          "TABLE_NAME": "DIM_CROWDSTRIKE_VERSIONS",
+          "PK_NAME": "SYS_CONSTRAINT_cc9fe9eb-dbdc-40ac-8f4f-c506f06c281b"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "PK_NAME": "SYS_CONSTRAINT_7c7e579c-bf03-475b-a709-2627a375d3da"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "PK_NAME": "PK_DIM_DATES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "PK_NAME": "SYS_CONSTRAINT_9548420f-1950-47d6-8447-dc89418779ac"
+        },
+        {
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "PK_NAME": "SYS_CONSTRAINT_adc52d4b-5f89-465d-a0ba-453b58c5ae12"
+        },
+        {
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "PK_NAME": "SYS_CONSTRAINT_49d23797-6825-48af-8e42-b8e56b26b09e"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "PK_NAME": "SYS_CONSTRAINT_2267681d-a711-475f-8417-ba7c5f2cda33"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "PK_NAME": "SYS_CONSTRAINT_db048608-61d4-49de-885b-9c027c782c54"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST_ASSETS",
+          "PK_NAME": "SYS_CONSTRAINT_8d118836-0b92-414a-9a31-93acbae263f5"
+        },
+        {
+          "TABLE_NAME": "DIM_LEVIAT_LIST_USERS",
+          "PK_NAME": "SYS_CONSTRAINT_2ce9fa8f-404d-4621-b64c-4bc29df0b6a3"
+        },
+        {
+          "TABLE_NAME": "DIM_LEVIAT_USERS",
+          "PK_NAME": "SYS_CONSTRAINT_f2d395bc-25b7-43ee-b9de-6d6a567247d9"
+        },
+        {
+          "TABLE_NAME": "DIM_MCAFEE_ENDPOINTS",
+          "PK_NAME": "SYS_CONSTRAINT_3851c5c0-b85e-438b-b57c-3d08cbfcfc61"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "PK_NAME": "SYS_CONSTRAINT_bc5ef3de-de33-4ac3-9f2c-17acbff85248"
+        },
+        {
+          "TABLE_NAME": "DIM_QUALYS_SEVERITY",
+          "PK_NAME": "PK_DIM_QUALYS_SEVERITY"
+        },
+        {
+          "TABLE_NAME": "DIM_QUALYS_VULNERABILITIES",
+          "PK_NAME": "PK_DIM_QUALYS_VULNERABILITIES"
+        },
+        {
+          "TABLE_NAME": "DIM_SENTINEL_VERSIONS",
+          "PK_NAME": "SYS_CONSTRAINT_506969f3-7702-480d-8847-7bdcbd08b13c"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "PK_NAME": "SYS_CONSTRAINT_9bc8de6c-6f4c-40ac-9f1e-f15020444d9d"
+        },
+        {
+          "TABLE_NAME": "DIM_SOPHOS_ENDPOINTS",
+          "PK_NAME": "SYS_CONSTRAINT_fef62632-4fa1-45f5-a7d6-abe502a12793"
+        },
+        {
+          "TABLE_NAME": "DIM_SPLUNK_HOSTS",
+          "PK_NAME": "SYS_CONSTRAINT_6419c46a-0296-44cd-bd83-a9a68da092bb"
+        },
+        {
+          "TABLE_NAME": "DIM_SYMANTEC_ENDPOINTS",
+          "PK_NAME": "SYS_CONSTRAINT_cdc14658-e1c2-44c9-9e54-f0a30e7c98f6"
+        },
+        {
+          "TABLE_NAME": "DIM_TRELLIX_ENDPOINTS",
+          "PK_NAME": "SYS_CONSTRAINT_badb0b14-b43a-44a2-a596-a501123f927b"
+        },
+        {
+          "TABLE_NAME": "DIM_TRENDMICRO_VERSIONS",
+          "PK_NAME": "SYS_CONSTRAINT_b0944b44-36e2-4ae5-9520-9d92638cc36f"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "PK_NAME": "SYS_CONSTRAINT_78aa64a4-5351-4c33-8db3-d58bd877ac0d"
+        },
+        {
+          "TABLE_NAME": "DIM_VULNERABILITY",
+          "PK_NAME": "SYS_CONSTRAINT_a0a319c5-2ff5-4532-a4c4-0760460ab842"
+        },
+        {
+          "TABLE_NAME": "DIM_ZEROFOX_ASSETS",
+          "PK_NAME": "SYS_CONSTRAINT_d2bc34e5-dd04-49db-ad69-c9e32d49ef63"
+        },
+        {
+          "TABLE_NAME": "DIM_ZSCALER_ENDPOINTS",
+          "PK_NAME": "SYS_CONSTRAINT_23737a03-e722-4c75-a2c9-83daaf9b9de7"
+        },
+        {
+          "TABLE_NAME": "EMPTY_TABLES_REPORT",
+          "PK_NAME": "SYS_CONSTRAINT_51614c2e-7fa6-4afa-abfa-050d2cd9a31b"
+        },
+        {
+          "TABLE_NAME": "ETL_ERROR_LOG",
+          "PK_NAME": "SYS_CONSTRAINT_c384970d-a043-4d93-9331-be23c9a314a2"
+        },
+        {
+          "TABLE_NAME": "ETL_LOG",
+          "PK_NAME": "SYS_CONSTRAINT_6d2335e8-c6ac-40c9-b595-87cbdcd2e25f"
+        },
+        {
+          "TABLE_NAME": "ETL_ORCHESTRATION_LOG",
+          "PK_NAME": "SYS_CONSTRAINT_4a4bdbad-bb94-4da2-bb9b-849c18a385d5"
+        },
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "PK_NAME": "SYS_CONSTRAINT_ef59479a-45b0-47f9-b07f-e051d4ea853b"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "PK_NAME": "SYS_CONSTRAINT_4633d829-2b6d-4679-bff2-9d19abb122ab"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "PK_NAME": "SYS_CONSTRAINT_5848f719-2b11-4d16-b2ad-29d6def04831"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "PK_NAME": "SYS_CONSTRAINT_13f08dbe-c166-4299-8dd9-66ff68188bf1"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "PK_NAME": "SYS_CONSTRAINT_eba5b0eb-a13d-40fe-9d06-f686bd5205cd"
+        },
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "PK_NAME": "SYS_CONSTRAINT_8f016373-481f-4c92-9dcf-bf6e8f82b51a"
+        },
+        {
+          "TABLE_NAME": "FACT_INCIDENTS",
+          "PK_NAME": "SYS_CONSTRAINT_83020f82-dabd-4125-b7b7-b55015030cad"
+        },
+        {
+          "TABLE_NAME": "FACT_LEVIAT_SECURITY_EVENTS",
+          "PK_NAME": "SYS_CONSTRAINT_001b8b3c-09a0-46b9-a327-7aaa2c882e25"
+        },
+        {
+          "TABLE_NAME": "FACT_PATCHES",
+          "PK_NAME": "SYS_CONSTRAINT_8933d89b-b260-4e2c-8099-7f45ed2b7450"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "PK_NAME": "SYS_CONSTRAINT_da1c5f4b-1087-41e5-8a21-7d10d694f1df"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS_HOST_SCANS",
+          "PK_NAME": "PK_FACT_QUALYS_HOST_SCANS"
+        }
+      ],
+      "error": null,
+      "row_count": 72
+    },
+    {
+      "num": 53,
+      "sql": "SELECT '=== ALL FOREIGN KEYS ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== ALL FOREIGN KEYS ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 54,
+      "sql": "SELECT\n    TABLE_NAME,\n    CONSTRAINT_NAME as FK_NAME\nFROM DEV_TRANSFORMATION.INFORMATION_SCHEMA.TAB...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "FK_NAME": "SYS_CONSTRAINT_316eed9c-f8dc-4796-9ed5-b1aa6d995c2a"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "FK_NAME": "FK_BITSIGHT_FINDINGS_RISK_VECTOR"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "FK_NAME": "FK_CYBELANGEL_ALERT"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "FK_NAME": "SYS_CONSTRAINT_b483d57f-9541-4112-8410-327ccaa429b7"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "FK_NAME": "SYS_CONSTRAINT_a976c77a-92f2-422d-86ff-8e9285daba04"
+        },
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "FK_NAME": "SYS_CONSTRAINT_d4c348c3-29b1-4b79-9f39-c473accd6d04"
+        },
+        {
+          "TABLE_NAME": "FACT_LEVIAT_SECURITY_EVENTS",
+          "FK_NAME": "SYS_CONSTRAINT_4ecc3082-e85a-4a23-bea2-c308c46be058"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "FK_NAME": "FK_REMEDIATION_EVENTS_ASSET"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "FK_NAME": "SYS_CONSTRAINT_59a712f7-370b-4cdc-a4b8-093b4704bb40"
+        },
+        {
+          "TABLE_NAME": "FACT_SCAN_EVENTS",
+          "FK_NAME": "SYS_CONSTRAINT_1a837367-8635-4aa8-b543-ffe12a5926fa"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "FK_NAME": "SYS_CONSTRAINT_42a63b51-9721-40ec-ad4a-54358dc4dccc"
+        },
+        {
+          "TABLE_NAME": "FACT_SYMANTEC_THREATS",
+          "FK_NAME": "SYS_CONSTRAINT_aa619af0-f24d-4634-bea4-dfb97de67fbf"
+        },
+        {
+          "TABLE_NAME": "FACT_TRENDMICRO_ENDPOINTS",
+          "FK_NAME": "SYS_CONSTRAINT_4f4add3b-3315-4858-a2de-d7dd3a89aeeb"
+        },
+        {
+          "TABLE_NAME": "FACT_VULN_SCAN",
+          "FK_NAME": "SYS_CONSTRAINT_306c9961-300d-444e-9821-54aaab305c28"
+        },
+        {
+          "TABLE_NAME": "FACT_VULN_SCAN",
+          "FK_NAME": "SYS_CONSTRAINT_d3217656-3e4f-4965-be07-4b1400d9f1f2"
+        },
+        {
+          "TABLE_NAME": "FACT_ZEROFOX_ALERTS",
+          "FK_NAME": "SYS_CONSTRAINT_db19597b-d79c-41c4-9ef5-651ff9b2efe5"
+        },
+        {
+          "TABLE_NAME": "FACT_ZSCALER_THREATS",
+          "FK_NAME": "SYS_CONSTRAINT_61a7e1e8-03cc-46c4-b1aa-c35f16bca8be"
+        }
+      ],
+      "error": null,
+      "row_count": 17
+    },
+    {
+      "num": 55,
+      "sql": "SELECT '=== COMPLETE METADATA EXTRACTION DONE ===' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== COMPLETE METADATA EXTRACTION DONE ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

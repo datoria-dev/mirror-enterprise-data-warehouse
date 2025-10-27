@@ -1,0 +1,332 @@
+{
+  "file": "FIX_9_FAILED_VIEWS.sql",
+  "executed_at": "2025-10-07T17:58:34.160430",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "SELECT '=== Fixing 9 Failed Views ===' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== Fixing 9 Failed Views ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "-- =====================================================================\n-- FIX 1: VW_QUALITY_ALERTS...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_QUALITY_ALERTS successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 7,
+      "sql": "SELECT 'VW_QUALITY_ALERTS fixed' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "VW_QUALITY_ALERTS fixed"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 8,
+      "sql": "-- =====================================================================\n-- FIX 2: VW_ETL_PIPELINE_S...",
+      "success": false,
+      "rows": [],
+      "error": "000008 (0A000): Actual statement count 5 did not match the desired statement count 1."
+    },
+    {
+      "num": 9,
+      "sql": "SELECT 'VW_EXECUTIVE_KPI_DASHBOARD fixed' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "VW_EXECUTIVE_KPI_DASHBOARD fixed"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 10,
+      "sql": "CREATE OR REPLACE VIEW VW_SECURITY_POSTURE_SUMMARY AS\nSELECT\n    o.OPCO_NAME,\n    o.REGION,\n    COUN...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_SECURITY_POSTURE_SUMMARY successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 11,
+      "sql": "SELECT 'VW_SECURITY_POSTURE_SUMMARY fixed' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "VW_SECURITY_POSTURE_SUMMARY fixed"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 12,
+      "sql": "-- =====================================================================\n-- FIX 6 & 7: DATA_LINEAGE_...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows updated": "0",
+          "number of multi-joined rows updated": "0"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 13,
+      "sql": "SELECT 'Lineage data updated' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Lineage data updated"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 14,
+      "sql": "-- Fix the view to use actual column names\nCREATE OR REPLACE VIEW VW_DATA_LINEAGE AS\nSELECT\n    SOUR...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_DATA_LINEAGE successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 15,
+      "sql": "SELECT 'VW_DATA_LINEAGE fixed' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "VW_DATA_LINEAGE fixed"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 16,
+      "sql": "-- =====================================================================\n-- FIX 8 & 9: INSERT statem...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 17,
+      "sql": "INSERT INTO DATA_LINEAGE_CATALOG\n(SOURCE_DATABASE, SOURCE_SCHEMA, SOURCE_TABLE, TARGET_DATABASE, TAR...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 18,
+      "sql": "SELECT COUNT(*) || ' new lineage entries added' AS RESULT FROM DATA_LINEAGE_CATALOG;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "10 new lineage entries added"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 19,
+      "sql": "-- =====================================================================\n-- VALIDATION\n-- ==========...",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 20,
+      "sql": "SELECT 'ALL 9 VIEWS FIXED!' AS SUMMARY;",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "ALL 9 VIEWS FIXED!"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 21,
+      "sql": "SELECT '========================================' AS SUMMARY;",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 22,
+      "sql": "-- Test all fixed views\nSELECT 'VW_QUALITY_ALERTS' as VIEW_NAME, COUNT(*) as ROW_COUNT\nFROM VW_QUALI...",
+      "success": true,
+      "rows": [
+        {
+          "VIEW_NAME": "VW_QUALITY_ALERTS",
+          "ROW_COUNT": "0"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 23,
+      "sql": "SELECT 'VW_ETL_PIPELINE_STATUS' as VIEW_NAME, COUNT(*) as ROW_COUNT\nFROM VW_ETL_PIPELINE_STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "VIEW_NAME": "VW_ETL_PIPELINE_STATUS",
+          "ROW_COUNT": "117"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 24,
+      "sql": "SELECT 'VW_ETL_ERRORS' as VIEW_NAME, COUNT(*) as ROW_COUNT\nFROM VW_ETL_ERRORS;",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_ETL_ERRORS' does not exist or not authorized."
+    },
+    {
+      "num": 25,
+      "sql": "SELECT 'VW_EXECUTIVE_KPI_DASHBOARD' as VIEW_NAME, COUNT(*) as ROW_COUNT\nFROM VW_EXECUTIVE_KPI_DASHBO...",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_EXECUTIVE_KPI_DASHBOARD' does not exist or not authorized."
+    },
+    {
+      "num": 26,
+      "sql": "SELECT 'VW_SECURITY_POSTURE_SUMMARY' as VIEW_NAME, COUNT(*) as ROW_COUNT\nFROM VW_SECURITY_POSTURE_SU...",
+      "success": true,
+      "rows": [
+        {
+          "VIEW_NAME": "VW_SECURITY_POSTURE_SUMMARY",
+          "ROW_COUNT": "3"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 27,
+      "sql": "SELECT 'VW_DATA_LINEAGE' as VIEW_NAME, COUNT(*) as ROW_COUNT\nFROM VW_DATA_LINEAGE;",
+      "success": true,
+      "rows": [
+        {
+          "VIEW_NAME": "VW_DATA_LINEAGE",
+          "ROW_COUNT": "10"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 28,
+      "sql": "SELECT '=== All Views Working ===' AS SUMMARY;",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "=== All Views Working ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

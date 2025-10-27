@@ -1,0 +1,119 @@
+digraph ITSECKPI_Complete {
+    rankdir=LR;
+    node [shape=rectangle, style=filled];
+
+    // Styling
+    graph [fontname="Arial", fontsize=12, bgcolor="white"];
+    node [fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+
+    // Title
+    labelloc="t";
+    label="ITSECKPI Complete Data Model\nGenerated: 2025-10-06";
+
+    // Subgraphs for different table types
+    subgraph cluster_dimensions {
+        label="Dimension Tables";
+        style=filled;
+        color=lightgrey;
+        node [fillcolor=lightblue];
+
+        "DIM_ANCON_USERS" [label="DIM_ANCON_USERS\n(995 rows)"];
+        "DIM_AV_OPCO" [label="DIM_AV_OPCO\n(108 rows)"];
+        "DIM_BITSIGHT_RISK_VECTORS" [label="DIM_BITSIGHT_RISK_VECTORS\n(7 rows)"];
+        "DIM_CYBELANGEL_ALERTS" [label="DIM_CYBELANGEL_ALERTS\n(196 rows)"];
+        "DIM_DATES" [label="DIM_DATES\n(10,000 rows)"];
+        "DIM_DEFENDER_ENDPOINTS" [label="DIM_DEFENDER_ENDPOINTS\n(8,210 rows)"];
+        "DIM_FARRANS_ENDPOINTS" [label="DIM_FARRANS_ENDPOINTS\n(741 rows)"];
+        "DIM_FIXED_VULNERABILITIES" [label="DIM_FIXED_VULNERABILITIES\n(56,345 rows)"];
+        "DIM_HARDWARE_INVENTORY" [label="DIM_HARDWARE_INVENTORY\n(21,997 rows)"];
+        "DIM_HOST" [label="DIM_HOST\n(1,662 rows)"];
+        "DIM_HOST_ASSETS" [label="DIM_HOST_ASSETS\n(0 rows)"];
+        "DIM_LEVIAT_LIST_USERS" [label="DIM_LEVIAT_LIST_USERS\n(0 rows)"];
+        "DIM_LEVIAT_USERS" [label="DIM_LEVIAT_USERS\n(0 rows)"];
+        "DIM_MCAFEE_ENDPOINTS" [label="DIM_MCAFEE_ENDPOINTS\n(292 rows)"];
+        "DIM_QUALYS_SEVERITY" [label="DIM_QUALYS_SEVERITY\n(5 rows)"];
+        "DIM_QUALYS_VULNERABILITIES" [label="DIM_QUALYS_VULNERABILITIES\n(210,435 rows)"];
+        "DIM_SENTINEL_VERSIONS" [label="DIM_SENTINEL_VERSIONS\n(38 rows)"];
+        "DIM_SNOW_DEVICES" [label="DIM_SNOW_DEVICES\n(0 rows)"];
+        "DIM_SOPHOS_ENDPOINTS" [label="DIM_SOPHOS_ENDPOINTS\n(741 rows)"];
+        "DIM_SPLUNK_HOSTS" [label="DIM_SPLUNK_HOSTS\n(4,913 rows)"];
+        "DIM_SYMANTEC_ENDPOINTS" [label="DIM_SYMANTEC_ENDPOINTS\n(22,571 rows)"];
+        "DIM_TRELLIX_ENDPOINTS" [label="DIM_TRELLIX_ENDPOINTS\n(34,235 rows)"];
+        "DIM_TRENDMICRO_VERSIONS" [label="DIM_TRENDMICRO_VERSIONS\n(6 rows)"];
+        "DIM_VULNERABILITY" [label="DIM_VULNERABILITY\n(631,305 rows)"];
+        "DIM_ZEROFOX_ASSETS" [label="DIM_ZEROFOX_ASSETS\n(121 rows)"];
+        "DIM_ZSCALER_ENDPOINTS" [label="DIM_ZSCALER_ENDPOINTS\n(24,984 rows)"];
+    }
+
+    subgraph cluster_facts {
+        label="Fact Tables";
+        style=filled;
+        color=lightgrey;
+        node [fillcolor=lightyellow];
+
+        "FACT_AV_HEALTH" [label="FACT_AV_HEALTH\n(107 rows)"];
+        "FACT_BITSIGHT_FINDINGS" [label="FACT_BITSIGHT_FINDINGS\n(1,219 rows)"];
+        "FACT_CYBELANGEL_THREATS" [label="FACT_CYBELANGEL_THREATS\n(0 rows)"];
+        "FACT_DEFENDER_THREATS" [label="FACT_DEFENDER_THREATS\n(1 rows)"];
+        "FACT_FARRANS_HEALTH" [label="FACT_FARRANS_HEALTH\n(741 rows)"];
+        "FACT_LEVIAT_SECURITY_EVENTS" [label="FACT_LEVIAT_SECURITY_EVENTS\n(0 rows)"];
+        "FACT_QUALYS_HOST_SCANS" [label="FACT_QUALYS_HOST_SCANS\n(833 rows)"];
+        "FACT_REMEDIATION_EVENTS" [label="FACT_REMEDIATION_EVENTS\n(697,086 rows)"];
+        "FACT_SCAN_EVENTS" [label="FACT_SCAN_EVENTS\n(0 rows)"];
+        "FACT_SENTINEL_ENDPOINTS" [label="FACT_SENTINEL_ENDPOINTS\n(4,188 rows)"];
+        "FACT_SPLUNK_ALERTS" [label="FACT_SPLUNK_ALERTS\n(16,436 rows)"];
+        "FACT_SPLUNK_ALERTS_WEEKLY" [label="FACT_SPLUNK_ALERTS_WEEKLY\n(16,436 rows)"];
+        "FACT_SYMANTEC_THREATS" [label="FACT_SYMANTEC_THREATS\n(1,261,614 rows)"];
+        "FACT_THREAT_INTEL_EVENTS" [label="FACT_THREAT_INTEL_EVENTS\n(1,065,690 rows)"];
+        "FACT_THREAT_INTEL_SUMMARY" [label="FACT_THREAT_INTEL_SUMMARY\n(542 rows)"];
+        "FACT_TRENDMICRO_ENDPOINTS" [label="FACT_TRENDMICRO_ENDPOINTS\n(267 rows)"];
+        "FACT_VULN_SCAN" [label="FACT_VULN_SCAN\n(17,483,409 rows)"];
+        "FACT_ZEROFOX_ALERTS" [label="FACT_ZEROFOX_ALERTS\n(0 rows)"];
+        "FACT_ZSCALER_THREATS" [label="FACT_ZSCALER_THREATS\n(4,802,616 rows)"];
+    }
+
+    subgraph cluster_supporting {
+        label="Supporting Tables";
+        style=filled;
+        color=lightgrey;
+        node [fillcolor=lightgreen];
+
+        "CISCO_AMP_DATA" [label="CISCO_AMP_DATA\n(4,948 rows)"];
+        "CLOSE_CODE_MAPPING" [label="CLOSE_CODE_MAPPING\n(6 rows)"];
+        "CROWDSTRIKE_ENDPOINTS" [label="CROWDSTRIKE_ENDPOINTS\n(3,609 rows)"];
+        "CROWDSTRIKE_VERSIONS" [label="CROWDSTRIKE_VERSIONS\n(13 rows)"];
+        "DATA_DICTIONARY" [label="DATA_DICTIONARY\n(4 rows)"];
+        "DATA_QUALITY_RESULTS" [label="DATA_QUALITY_RESULTS\n(0 rows)"];
+        "DATA_QUALITY_SCORECARD" [label="DATA_QUALITY_SCORECARD\n(19 rows)"];
+        "ETL_ERROR_LOG" [label="ETL_ERROR_LOG\n(0 rows)"];
+        "ETL_LOG" [label="ETL_LOG\n(0 rows)"];
+        "ETL_PIPELINE_LOG" [label="ETL_PIPELINE_LOG\n(0 rows)"];
+        "HIST_ANCON_USERS" [label="HIST_ANCON_USERS\n(0 rows)"];
+        "HIST_BITSIGHT_FINDINGS" [label="HIST_BITSIGHT_FINDINGS\n(0 rows)"];
+        "HIST_CISCO_AMP" [label="HIST_CISCO_AMP\n(0 rows)"];
+        "HIST_CROWDSTRIKE_ENDPOINTS" [label="HIST_CROWDSTRIKE_ENDPOINTS\n(0 rows)"];
+        "HIST_CROWDSTRIKE_VERSIONS" [label="HIST_CROWDSTRIKE_VERSIONS\n(0 rows)"];
+        "HIST_CYBELANGEL_ALERTS" [label="HIST_CYBELANGEL_ALERTS\n(0 rows)"];
+        "HIST_CYBELANGEL_THREATS" [label="HIST_CYBELANGEL_THREATS\n(0 rows)"];
+        "HIST_DEFENDER_ENDPOINTS" [label="HIST_DEFENDER_ENDPOINTS\n(0 rows)"];
+        "HIST_FARRANS_ENDPOINTS" [label="HIST_FARRANS_ENDPOINTS\n(0 rows)"];
+        "HIST_FIXED_VULNERABILITIES" [label="HIST_FIXED_VULNERABILITIES\n(0 rows)"];
+    }
+
+    // Relationships
+    "FACT_AV_HEALTH" -> "DIM_HOST" [label="HOST_ID"];
+    "FACT_AV_HEALTH" -> "DIM_AV_PRODUCTS" [label="AV_PRODUCT_ID"];
+    "FACT_AV_OPCO" -> "DIM_OPCO" [label="OPCO_ID"];
+    "FACT_AV_OPCO" -> "DIM_AV_PRODUCTS" [label="AV_PRODUCT_ID"];
+    "FACT_BITSIGHT_FINDINGS" -> "DIM_BITSIGHT_CATEGORIES" [label="CATEGORY_ID"];
+    "FACT_BITSIGHT_RISK_VECTORS" -> "DIM_BITSIGHT_CATEGORIES" [label="CATEGORY_ID"];
+    "FACT_CYBELANGEL_THREATS" -> "DIM_CYBELANGEL_ALERTS" [label="ALERT_ID"];
+    "FACT_DEFENDER_ENDPOINTS" -> "DIM_HOST" [label="HOST_ID"];
+    "FACT_FIXED_VULNERABILITIES" -> "DIM_QUALYS_VULN" [label="VULN_ID"];
+    "FACT_FIXED_VULNERABILITIES" -> "DIM_HOST" [label="HOST_ID"];
+    "FACT_HOST_ASSETS" -> "DIM_HOST" [label="HOST_ID"];
+    "FACT_QUALYS" -> "DIM_HOST" [label="HOST_ID"];
+    "FACT_QUALYS" -> "DIM_QUALYS_VULN" [label="VULN_ID"];
+    "FACT_REMEDIATION_EVENTS" -> "DIM_HOST" [label="HOST_ID"];
+}

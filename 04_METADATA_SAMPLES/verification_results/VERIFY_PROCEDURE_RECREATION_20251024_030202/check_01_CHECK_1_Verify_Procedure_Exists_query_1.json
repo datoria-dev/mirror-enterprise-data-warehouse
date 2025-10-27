@@ -1,0 +1,20 @@
+[
+  {
+    "created_on":"2025-10-24T05:45:27.552Z",
+    "name":"SP_REFRESH_METADATA",
+    "schema_name":"METADATA",
+    "is_builtin":"N",
+    "is_aggregate":"N",
+    "is_ansi":"N",
+    "min_num_arguments":0,
+    "max_num_arguments":0,
+    "arguments":"SP_REFRESH_METADATA() RETURN VARCHAR",
+    "description":"user-defined procedure",
+    "catalog_name":"DEV_TRANSFORMATION",
+    "is_table_function":"N",
+    "valid_for_clustering":"N",
+    "is_secure":"N",
+    "secrets":"",
+    "external_access_integrations":""
+  }
+]

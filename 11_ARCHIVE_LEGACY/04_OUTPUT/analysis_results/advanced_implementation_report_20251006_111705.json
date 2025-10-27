@@ -1,0 +1,30 @@
+{
+  "tasks_created": [
+    {
+      "name": "TASK_DAILY_HEALTH_CHECK",
+      "status": "CREATED"
+    },
+    {
+      "name": "TASK_DATA_QUALITY_MONITOR",
+      "status": "CREATED"
+    },
+    {
+      "name": "TASK_ETL_PIPELINE_MONITOR",
+      "status": "CREATED"
+    }
+  ],
+  "views_created": [
+    "VW_ETL_DASHBOARD",
+    "VW_DATA_FRESHNESS_MONITOR",
+    "VW_MASTER_CONTROL_PANEL"
+  ],
+  "procedures_created": [],
+  "benchmarks_run": [
+    {
+      "name": "Simple Dimension Query",
+      "time_ms": 319.445,
+      "rows": 1662
+    }
+  ],
+  "errors": []
+}

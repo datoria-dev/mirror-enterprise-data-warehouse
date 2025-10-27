@@ -1,0 +1,2672 @@
+{
+  "file": "DISCOVER_CURRENT_STRUCTURE.sql",
+  "executed_at": "2025-10-07T16:53:35.451581",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "-- =====================================================================\n-- SECTION 1: LIST ALL TABL...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== ALL TABLES IN SCHEMA ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "SELECT\n    TABLE_CATALOG,\n    TABLE_SCHEMA,\n    TABLE_NAME,\n    TABLE_TYPE,\n    ROW_COUNT,\n    BYTES...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "BUSINESS_RULE_VIOLATIONS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DATA_DICTIONARY",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "4",
+          "BYTES": "3584"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DATA_LINEAGE_CATALOG",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "8",
+          "BYTES": "4608"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DATA_QUALITY_RULES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "3",
+          "BYTES": "3072"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DATA_QUALITY_SCORECARD",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "19",
+          "BYTES": "3072"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "995",
+          "BYTES": "98816"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "108",
+          "BYTES": "2560"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "7",
+          "BYTES": "2048"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "4948",
+          "BYTES": "100352"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_CLOSE_CODE_MAPPING",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "6",
+          "BYTES": "2048"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "3609",
+          "BYTES": "148480"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_VERSIONS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "13",
+          "BYTES": "2048"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "196",
+          "BYTES": "20992"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_DATES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "10000",
+          "BYTES": "107008"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "8210",
+          "BYTES": "553984"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "741",
+          "BYTES": "18944"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "56345",
+          "BYTES": "3671552"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "21997",
+          "BYTES": "1209856"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_HOST",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1662",
+          "BYTES": "31232"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_HOST_ASSETS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_LEVIAT_LIST_USERS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_LEVIAT_USERS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_MCAFEE_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "292",
+          "BYTES": "8192"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_OPCO",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "3",
+          "BYTES": "3072"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_QUALYS_SEVERITY",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "5",
+          "BYTES": "4608"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_QUALYS_VULNERABILITIES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "210435",
+          "BYTES": "8131072"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_SENTINEL_VERSIONS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "38",
+          "BYTES": "2048"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_SOPHOS_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "741",
+          "BYTES": "26112"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_SPLUNK_HOSTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "4913",
+          "BYTES": "56320"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_SYMANTEC_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "22571",
+          "BYTES": "1325056"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_TRELLIX_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "34235",
+          "BYTES": "722944"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_TRENDMICRO_VERSIONS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "6",
+          "BYTES": "1024"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_USER",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1",
+          "BYTES": "2560"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_VULNERABILITY",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "631305",
+          "BYTES": "10981888"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_ZEROFOX_ASSETS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "121",
+          "BYTES": "112640"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "DIM_ZSCALER_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "24984",
+          "BYTES": "997376"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "EMPTY_TABLES_REPORT",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "ETL_ERROR_LOG",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "ETL_LOG",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "ETL_ORCHESTRATION_LOG",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "ETL_PIPELINE_LOG",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "107",
+          "BYTES": "7680"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1219",
+          "BYTES": "71680"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1",
+          "BYTES": "2560"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "FACT_EDR",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "20",
+          "BYTES": "3584"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "741",
+          "BYTES": "17408"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "FACT_INCIDENTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "TABLE_CATALOG": "DEV_TRANSFORMATION",
+          "TABLE_SCHEMA": "SECURITY_ANALYTICS",
+          "TABLE_NAME": "FACT_LEVIAT_SECURITY_EVENTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        }
+      ],
+      "error": null,
+      "row_count": 225
+    },
+    {
+      "num": 7,
+      "sql": "-- =====================================================================\n-- SECTION 2: DIMENSION TAB...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== DIMENSION TABLE STRUCTURES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 8,
+      "sql": "-- DIM_DATES\nSELECT 'DIM_DATES' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "DAY_OF_WEEK",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "DAY_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "MONTH_NUM",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "MONTH_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "YEAR",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "QUARTER",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "COLUMN_NAME": "WEEK_OF_YEAR",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 8
+    },
+    {
+      "num": 9,
+      "sql": "-- DIM_HOST\nSELECT 'DIM_HOST' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SC...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "HOST_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "HOST_TRACKING_METHOD",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "HOST_OS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "INSCOPE",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "LAST_SCAN_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "DW_LOAD_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "OPCO_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "COLUMN_NAME": "PRIMARY_USER_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 8
+    },
+    {
+      "num": 10,
+      "sql": "-- DIM_ANCON_USERS\nSELECT 'DIM_ANCON_USERS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM ...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "USERNAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "EMAIL_ADDRESS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "FIRST_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "LAST_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "DISPLAY_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "ACCOUNT_IS_LOCKED_OUT",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "DISABLED",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "EXPIRATION_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_AGE_DAYS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_EXPIRATION_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_LAST_CHANGED",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_NEVER_EXPIRES",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_NOT_REQUIRED",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "USER_CANNOT_CHANGE_PASSWORD",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "MUST_CHANGE_PASSWORD",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "BAD_PASSWORD_ATTEMPTS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 20
+    },
+    {
+      "num": 11,
+      "sql": "-- DIM_DEFENDER_ENDPOINTS\nSELECT 'DIM_DEFENDER_ENDPOINTS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "DEVICE_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "DEVICE_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "MANAGED_BY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "OWNERSHIP",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "COMPLIANCE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "OS_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "DEVICE_STATE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "PRIMARY_USER_UPN",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "LAST_STATUS_UPDATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 11
+    },
+    {
+      "num": 12,
+      "sql": "-- DIM_SNOW_DEVICES\nSELECT 'DIM_SNOW_DEVICES' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFRO...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "COMPUTER_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "MANUFACTURER",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "MODEL",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "BIOS_SERIAL",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "DEVICE_TYPE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "ENVIRONMENT",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "LOCATION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "CLASSIFICATION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "IN_SCOPE",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "PROCESSOR_TYPE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "PHYSICAL_PROCESSORS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "PROCESSOR_CORES",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "LOGICAL_PROCESSORS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "DOMAIN_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "OS_PRODUCT_KEY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "OS_LICENSE_KEY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "IAAS_LICENSED",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "ORGANIZATION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "MOST_FREQUENT_USER",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "LAST_SCANNED",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "CLIENT_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "CLIENT_CONFIGURATION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "MSI_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 26
+    },
+    {
+      "num": 13,
+      "sql": "-- DIM_CYBELANGEL_ALERTS\nSELECT 'DIM_CYBELANGEL_ALERTS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NU...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "ALERT_KEY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "INCIDENT_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "SOURCE_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "CATEGORY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "CLIENT",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "COUNTRY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "DETECTION_DATE",
+          "DATA_TYPE": "DATE",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "HOSTNAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "INCIDENT_TYPE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "IP_ADDRESS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "SEVERITY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "SOURCE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "THREAT",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "URL",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "VOLUME_OF_DETECTED_DATA",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "TAGS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "STATUS_BOOLEAN",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "STATUS_CHECKING_DATE",
+          "DATA_TYPE": "DATE",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 20
+    },
+    {
+      "num": 14,
+      "sql": "-- DIM_HARDWARE_INVENTORY\nSELECT 'DIM_HARDWARE_INVENTORY' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "COMPUTER_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "MANUFACTURER",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "MODEL",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "BIOS_SERIAL_NUMBER",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "DEVICE_TYPE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "PROCESSOR_TYPE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "PROCESSORS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "PROCESSOR_CORES",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "LOGICAL_PROCESSORS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "DOMAIN_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "OS_LICENSE_KEY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "IAAS_LICENSED_OS",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "ORGANISATION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "MOST_FREQUENT_USER",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "LAST_SCANNED",
+          "DATA_TYPE": "DATE",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "CLIENT_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "CLIENT_CONFIGURATION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "MSI_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 21
+    },
+    {
+      "num": 15,
+      "sql": "-- DIM_FIXED_VULNERABILITIES\nSELECT 'DIM_FIXED_VULNERABILITIES' AS TABLE_NAME, COLUMN_NAME, DATA_TYP...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "COLUMN_NAME": "QID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "COLUMN_NAME": "TYPE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "COLUMN_NAME": "SEVERITY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "COLUMN_NAME": "TITLE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "COLUMN_NAME": "DESCRIPTION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 6
+    },
+    {
+      "num": 16,
+      "sql": "-- DIM_FARRANS_ENDPOINTS\nSELECT 'DIM_FARRANS_ENDPOINTS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NU...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "COLUMN_NAME": "ENDPOINT_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "COLUMN_NAME": "IP_ADDRESSES",
+          "DATA_TYPE": "ARRAY",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "COLUMN_NAME": "OS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "COLUMN_NAME": "PROTECTION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 5
+    },
+    {
+      "num": 17,
+      "sql": "-- DIM_BITSIGHT_RISK_VECTORS\nSELECT 'DIM_BITSIGHT_RISK_VECTORS' AS TABLE_NAME, COLUMN_NAME, DATA_TYP...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "COLUMN_NAME": "RISK_VECTOR_LABEL",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "COLUMN_NAME": "CATEGORY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "COLUMN_NAME": "RECOMMENDED_ACTION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 3
+    },
+    {
+      "num": 18,
+      "sql": "-- DIM_AV_OPCO\nSELECT 'DIM_AV_OPCO' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMAT...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "COLUMN_NAME": "OPCO_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "COLUMN_NAME": "REGION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "COLUMN_NAME": "CATEGORY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 3
+    },
+    {
+      "num": 19,
+      "sql": "-- DIM_OPCO\nSELECT 'DIM_OPCO' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SC...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "OPCO_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "OPCO_CODE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "OPCO_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "REGION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "DIVISION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "COUNTRY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "IS_ACTIVE",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "COLUMN_NAME": "CREATED_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 8
+    },
+    {
+      "num": 20,
+      "sql": "-- DIM_USER\nSELECT 'DIM_USER' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SC...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "USER_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "USER_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "EMAIL",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "DISPLAY_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "DEPARTMENT",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "IS_ACTIVE",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "COLUMN_NAME": "CREATED_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 7
+    },
+    {
+      "num": 21,
+      "sql": "-- =====================================================================\n-- SECTION 3: FACT TABLES -...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== FACT TABLE STRUCTURES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 22,
+      "sql": "-- FACT_REMEDIATION_EVENTS\nSELECT 'FACT_REMEDIATION_EVENTS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, I...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "EVENT_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "ASSET_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "QID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "FIRST_FOUND",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "LAST_FOUND",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "LAST_FIXED",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "TIMES_FOUND",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "TIMES_REOPENED",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "REMEDIATION_DAYS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "LAST_SCAN",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "OS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 13
+    },
+    {
+      "num": 23,
+      "sql": "-- FACT_SENTINEL_ENDPOINTS\nSELECT 'FACT_SENTINEL_ENDPOINTS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, I...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "ENDPOINT_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "IP_ADDRESS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "LAST_LOGGED_IN_USER",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "LAST_ACTIVE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "AGENT_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "VERSION_RELEASE_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "DOMAIN",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "CONSOLE_VISIBLE_IP",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "DEVICE_TYPE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "OS_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "UPDATE_STATUS",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 12
+    },
+    {
+      "num": 24,
+      "sql": "-- FACT_DEFENDER_THREATS\nSELECT 'FACT_DEFENDER_THREATS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NU...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "COLUMN_NAME": "THREAT_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "COLUMN_NAME": "DEVICE_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "COLUMN_NAME": "THREAT_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "COLUMN_NAME": "THREAT_TYPE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "COLUMN_NAME": "THREAT_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "COLUMN_NAME": "DETECTION_SOURCE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "COLUMN_NAME": "FILE_PATH",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 8
+    },
+    {
+      "num": 25,
+      "sql": "-- FACT_CYBELANGEL_THREATS\nSELECT 'FACT_CYBELANGEL_THREATS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, I...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "THREAT_KEY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "ALERT_KEY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "THREAT_DATE",
+          "DATA_TYPE": "DATE",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "THREAT_TYPE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "VOLUME_BINS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "VOLUME_DOCUMENTS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "VOLUME_DOMAINS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "VOLUME_EMAILS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "VOLUME_PASSWORDS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "DETECTED_DATA_SAMPLE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "KEYWORDS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "RISKS_OVERVIEW",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "INVESTIGATION_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 14
+    },
+    {
+      "num": 26,
+      "sql": "-- FACT_QUALYS_HOST_SCANS\nSELECT 'FACT_QUALYS_HOST_SCANS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_QUALYS_HOST_SCANS",
+          "COLUMN_NAME": "HOST_TRACKING_METHOD",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS_HOST_SCANS",
+          "COLUMN_NAME": "HOST_OS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS_HOST_SCANS",
+          "COLUMN_NAME": "INSCOPE",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS_HOST_SCANS",
+          "COLUMN_NAME": "LAST_SCAN_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS_HOST_SCANS",
+          "COLUMN_NAME": "HOST_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 5
+    },
+    {
+      "num": 27,
+      "sql": "-- FACT_AV_HEALTH\nSELECT 'FACT_AV_HEALTH' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM IN...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "COLUMN_NAME": "OPCO_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "COLUMN_NAME": "REPORT_MONTH",
+          "DATA_TYPE": "DATE",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "COLUMN_NAME": "AV_INSTALLED_PCT",
+          "DATA_TYPE": "FLOAT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "COLUMN_NAME": "OLD_SIGNATURES_PCT",
+          "DATA_TYPE": "FLOAT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "COLUMN_NAME": "OLD_CLIENT_VERSION_PCT",
+          "DATA_TYPE": "FLOAT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "COLUMN_NAME": "HOST_FIREWALL_PCT",
+          "DATA_TYPE": "FLOAT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "COLUMN_NAME": "AV_HEALTH_SCORE",
+          "DATA_TYPE": "FLOAT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 8
+    },
+    {
+      "num": 28,
+      "sql": "-- FACT_BITSIGHT_FINDINGS\nSELECT 'FACT_BITSIGHT_FINDINGS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "FINDING_KEY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "TAGS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "DOMAIN_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "DETAILS_GRADE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "LAST_SEEN",
+          "DATA_TYPE": "DATE",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "RISK_VECTOR_LABEL",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "FINDING",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "EVIDENCE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "AFFECTS_RATING",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "SEVERITY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 11
+    },
+    {
+      "num": 29,
+      "sql": "-- FACT_FARRANS_HEALTH\nSELECT 'FACT_FARRANS_HEALTH' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLAB...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "COLUMN_NAME": "HEALTH_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "COLUMN_NAME": "ENDPOINT_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "COLUMN_NAME": "HEALTH_STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "COLUMN_NAME": "LAST_USER",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "COLUMN_NAME": "LAST_ACTIVE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 6
+    },
+    {
+      "num": 30,
+      "sql": "-- FACT_EDR (from our base tables)\nSELECT 'FACT_EDR' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLA...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "EDR_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "DATE_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "HOST_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "ENDPOINT_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "EDR_PLATFORM",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "AGENT_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "AGENT_STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "LAST_SEEN_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "THREAT_COUNT",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 10
+    },
+    {
+      "num": 31,
+      "sql": "-- FACT_QUALYS (from our base tables)\nSELECT 'FACT_QUALYS' AS TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "QUALYS_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "DATE_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "HOST_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "VULN_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "CVE_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "VULN_TITLE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "SEVERITY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "CVSS_SCORE",
+          "DATA_TYPE": "FLOAT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "CRITICAL_VULNS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "HIGH_VULNS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "MEDIUM_VULNS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "LOW_VULNS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "TOTAL_VULNERABILITIES",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "OLDEST_CRITICAL_VULN_AGE_DAYS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "FIRST_DETECTED_DATE",
+          "DATA_TYPE": "DATE",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "IS_EXPLOITED_IN_WILD",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 17
+    },
+    {
+      "num": 32,
+      "sql": "-- =====================================================================\n-- SECTION 4: EXISTING CONS...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== EXISTING PRIMARY KEYS ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 33,
+      "sql": "SELECT\n    TABLE_NAME,\n    CONSTRAINT_NAME,\n    CONSTRAINT_TYPE\nFROM INFORMATION_SCHEMA.TABLE_CONSTR...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "BUSINESS_RULE_VIOLATIONS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_d7622720-f928-4364-b856-55ac7b4aedcc",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DATA_LINEAGE_CATALOG",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_3736c61b-d817-4005-b56b-220e1e60e98e",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DATA_QUALITY_RULES",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_f9b11cfe-e0a5-43df-9627-8fe708325bd9",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_ade6c731-4cf5-4958-b375-24aa74b612e6",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_b2b9dda5-13d0-4749-bae8-31361f4861e0",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_e3d0f813-bed3-4aaf-9744-9591a8708025",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_cfd3108c-e8b0-451a-bfe9-7253b8976bda",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_01ee7cd6-7767-44f5-831b-cd4e71f9efd0",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_CROWDSTRIKE_VERSIONS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_cc9fe9eb-dbdc-40ac-8f4f-c506f06c281b",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_7c7e579c-bf03-475b-a709-2627a375d3da",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_DATES",
+          "CONSTRAINT_NAME": "PK_DIM_DATES",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_9548420f-1950-47d6-8447-dc89418779ac",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_adc52d4b-5f89-465d-a0ba-453b58c5ae12",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_49d23797-6825-48af-8e42-b8e56b26b09e",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_2267681d-a711-475f-8417-ba7c5f2cda33",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_db048608-61d4-49de-885b-9c027c782c54",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_HOST_ASSETS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_8d118836-0b92-414a-9a31-93acbae263f5",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_LEVIAT_LIST_USERS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_2ce9fa8f-404d-4621-b64c-4bc29df0b6a3",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_LEVIAT_USERS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_f2d395bc-25b7-43ee-b9de-6d6a567247d9",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_MCAFEE_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_3851c5c0-b85e-438b-b57c-3d08cbfcfc61",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_OPCO",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_bc5ef3de-de33-4ac3-9f2c-17acbff85248",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_QUALYS_SEVERITY",
+          "CONSTRAINT_NAME": "PK_DIM_QUALYS_SEVERITY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_QUALYS_VULNERABILITIES",
+          "CONSTRAINT_NAME": "PK_DIM_QUALYS_VULNERABILITIES",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_SENTINEL_VERSIONS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_506969f3-7702-480d-8847-7bdcbd08b13c",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_9bc8de6c-6f4c-40ac-9f1e-f15020444d9d",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_SOPHOS_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_fef62632-4fa1-45f5-a7d6-abe502a12793",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_SPLUNK_HOSTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_6419c46a-0296-44cd-bd83-a9a68da092bb",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_SYMANTEC_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_cdc14658-e1c2-44c9-9e54-f0a30e7c98f6",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_TRELLIX_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_badb0b14-b43a-44a2-a596-a501123f927b",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_TRENDMICRO_VERSIONS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_b0944b44-36e2-4ae5-9520-9d92638cc36f",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_USER",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_78aa64a4-5351-4c33-8db3-d58bd877ac0d",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_VULNERABILITY",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_a0a319c5-2ff5-4532-a4c4-0760460ab842",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_ZEROFOX_ASSETS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_d2bc34e5-dd04-49db-ad69-c9e32d49ef63",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "DIM_ZSCALER_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_23737a03-e722-4c75-a2c9-83daaf9b9de7",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "EMPTY_TABLES_REPORT",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_51614c2e-7fa6-4afa-abfa-050d2cd9a31b",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "ETL_ERROR_LOG",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_c384970d-a043-4d93-9331-be23c9a314a2",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "ETL_LOG",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_6d2335e8-c6ac-40c9-b595-87cbdcd2e25f",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "ETL_ORCHESTRATION_LOG",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_4a4bdbad-bb94-4da2-bb9b-849c18a385d5",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_ef59479a-45b0-47f9-b07f-e051d4ea853b",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_4633d829-2b6d-4679-bff2-9d19abb122ab",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_5848f719-2b11-4d16-b2ad-29d6def04831",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_13f08dbe-c166-4299-8dd9-66ff68188bf1",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_EDR",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_eba5b0eb-a13d-40fe-9d06-f686bd5205cd",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_8f016373-481f-4c92-9dcf-bf6e8f82b51a",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_INCIDENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_83020f82-dabd-4125-b7b7-b55015030cad",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_LEVIAT_SECURITY_EVENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_001b8b3c-09a0-46b9-a327-7aaa2c882e25",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_PATCHES",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_8933d89b-b260-4e2c-8099-7f45ed2b7450",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_da1c5f4b-1087-41e5-8a21-7d10d694f1df",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_QUALYS_HOST_SCANS",
+          "CONSTRAINT_NAME": "PK_FACT_QUALYS_HOST_SCANS",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_06ef600a-c3b5-46a8-9be2-35155e075282",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        }
+      ],
+      "error": null,
+      "row_count": 70
+    },
+    {
+      "num": 34,
+      "sql": "SELECT '=== EXISTING FOREIGN KEYS ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== EXISTING FOREIGN KEYS ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 35,
+      "sql": "SELECT\n    TABLE_NAME,\n    CONSTRAINT_NAME,\n    CONSTRAINT_TYPE\nFROM INFORMATION_SCHEMA.TABLE_CONSTR...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_316eed9c-f8dc-4796-9ed5-b1aa6d995c2a",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "CONSTRAINT_NAME": "FK_BITSIGHT_FINDINGS_RISK_VECTOR",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "CONSTRAINT_NAME": "FK_CYBELANGEL_ALERT",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_b483d57f-9541-4112-8410-327ccaa429b7",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_a976c77a-92f2-422d-86ff-8e9285daba04",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_d4c348c3-29b1-4b79-9f39-c473accd6d04",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_LEVIAT_SECURITY_EVENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_4ecc3082-e85a-4a23-bea2-c308c46be058",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "CONSTRAINT_NAME": "FK_REMEDIATION_EVENTS_ASSET",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_59a712f7-370b-4cdc-a4b8-093b4704bb40",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_SCAN_EVENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_1a837367-8635-4aa8-b543-ffe12a5926fa",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_42a63b51-9721-40ec-ad4a-54358dc4dccc",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_SYMANTEC_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_aa619af0-f24d-4634-bea4-dfb97de67fbf",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_TRENDMICRO_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_4f4add3b-3315-4858-a2de-d7dd3a89aeeb",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_VULN_SCAN",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_d3217656-3e4f-4965-be07-4b1400d9f1f2",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_VULN_SCAN",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_306c9961-300d-444e-9821-54aaab305c28",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_ZEROFOX_ALERTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_db19597b-d79c-41c4-9ef5-651ff9b2efe5",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "TABLE_NAME": "FACT_ZSCALER_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_61a7e1e8-03cc-46c4-b1aa-c35f16bca8be",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        }
+      ],
+      "error": null,
+      "row_count": 17
+    },
+    {
+      "num": 36,
+      "sql": "SELECT '=== EXISTING UNIQUE CONSTRAINTS ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== EXISTING UNIQUE CONSTRAINTS ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 37,
+      "sql": "SELECT\n    TABLE_NAME,\n    CONSTRAINT_NAME,\n    CONSTRAINT_TYPE\nFROM INFORMATION_SCHEMA.TABLE_CONSTR...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_4729f1fa-0317-4938-ab4c-9ef5eafc01e5",
+          "CONSTRAINT_TYPE": "UNIQUE"
+        },
+        {
+          "TABLE_NAME": "DIM_VULNERABILITY",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_34a03adf-a3be-4185-8937-24a96630d08e",
+          "CONSTRAINT_TYPE": "UNIQUE"
+        }
+      ],
+      "error": null,
+      "row_count": 2
+    },
+    {
+      "num": 38,
+      "sql": "-- =====================================================================\n-- SECTION 5: CHECK IMPLEME...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== IMPLEMENTATION_LOG STRUCTURE ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 39,
+      "sql": "SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMNS\nWHERE TABLE_SCHEMA = 'ITS...",
+      "success": true,
+      "rows": [
+        {
+          "COLUMN_NAME": "LOG_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "EXECUTION_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "PHASE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "ACTION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 5
+    },
+    {
+      "num": 40,
+      "sql": "SELECT '=== DISCOVERY COMPLETE ===' AS SECTION;",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== DISCOVERY COMPLETE ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

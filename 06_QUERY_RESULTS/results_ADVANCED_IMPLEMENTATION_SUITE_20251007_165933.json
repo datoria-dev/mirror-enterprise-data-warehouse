@@ -1,0 +1,380 @@
+{
+  "file": "FINAL_DELIVERABLES\\_ARCHIVE_2025_10_06\\04_SQL_Scripts\\ADVANCED_IMPLEMENTATION_SUITE.sql",
+  "executed_at": "2025-10-07T16:59:20.890276",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "-- =====================================================================\n-- SECTION 1: SCHEDULED MON...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_DAILY_HEALTH_CHECK successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "-- 1.2 Create Task for Data Quality Monitoring (every 4 hours)\nCREATE OR REPLACE TASK TASK_DATA_QUAL...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_DATA_QUALITY_MONITOR successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "-- 1.3 Create Task for ETL Pipeline Monitoring\nCREATE OR REPLACE TASK TASK_ETL_PIPELINE_MONITOR\n    ...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 17 at position 49 unexpected '<EOF>'."
+    },
+    {
+      "num": 6,
+      "sql": "-- Send alert if critical tables are stale\n    IF (SELECT COUNT(*) FROM VW_ETL_PIPELINE_STATUS\n     ...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'IF'."
+    },
+    {
+      "num": 7,
+      "sql": "END IF;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 8,
+      "sql": "END;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 9,
+      "sql": "-- 1.4 Create Task for Weekly Performance Analysis\nCREATE OR REPLACE TASK TASK_WEEKLY_PERFORMANCE_AN...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 15 at position 6 unexpected '<EOF>'."
+    },
+    {
+      "num": 10,
+      "sql": "INSERT INTO PERFORMANCE_METRICS_HISTORY\n    SELECT\n        DATE_TRUNC('WEEK', CURRENT_DATE()),\n     ...",
+      "success": false,
+      "rows": [],
+      "error": "002003 (02000): SQL compilation error:\nSchema 'SNOWFLAKE.ACCOUNT_USAGE' does not exist or not authorized."
+    },
+    {
+      "num": 11,
+      "sql": "END;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 12,
+      "sql": "-- Enable all tasks\nALTER TASK TASK_DAILY_HEALTH_CHECK RESUME;",
+      "success": false,
+      "rows": [],
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 13,
+      "sql": "ALTER TASK TASK_DATA_QUALITY_MONITOR RESUME;",
+      "success": false,
+      "rows": [],
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 14,
+      "sql": "ALTER TASK TASK_ETL_PIPELINE_MONITOR RESUME;",
+      "success": false,
+      "rows": [],
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 15,
+      "sql": "ALTER TASK TASK_WEEKLY_PERFORMANCE_ANALYSIS RESUME;",
+      "success": false,
+      "rows": [],
+      "error": "002003 (02000): SQL compilation error:\nTask 'DEV_TRANSFORMATION.SECURITY_ANALYTICS.TASK_WEEKLY_PERFORMANCE_ANALYSIS' does not exist or not authorized."
+    },
+    {
+      "num": 16,
+      "sql": "-- =====================================================================\n-- SECTION 2: PERFORMANCE B...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table PERFORMANCE_BENCHMARKS successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 17,
+      "sql": "-- 2.2 Create Benchmark Procedure\nCREATE OR REPLACE PROCEDURE SP_RUN_PERFORMANCE_BENCHMARKS()\nRETURN...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nparse error line 7 at position 29 near '<EOF>'.\nsyntax error line 5 at position 1 unexpected '$'."
+    },
+    {
+      "num": 18,
+      "sql": "end_time TIMESTAMP_NTZ;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'end_time'."
+    },
+    {
+      "num": 19,
+      "sql": "row_count NUMBER;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'row_count'."
+    },
+    {
+      "num": 20,
+      "sql": "v_message VARCHAR DEFAULT '';",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_message'."
+    },
+    {
+      "num": 21,
+      "sql": "BEGIN\n    -- Benchmark 1: Simple dimension lookup\n    start_time := CURRENT_TIMESTAMP();",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 3 at position 38 unexpected '<EOF>'."
+    },
+    {
+      "num": 22,
+      "sql": "SELECT COUNT(*) INTO row_count\n    FROM DIM_HOST\n    WHERE HOST_ID IS NOT NULL;",
+      "success": false,
+      "rows": [],
+      "error": "001138 (42601): SQL compilation error: error line 1 at position 0 INTO clause is not allowed in this context"
+    },
+    {
+      "num": 23,
+      "sql": "end_time := CURRENT_TIMESTAMP();",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'end_time'."
+    },
+    {
+      "num": 24,
+      "sql": "INSERT INTO PERFORMANCE_BENCHMARKS\n    (BENCHMARK_NAME, QUERY_TEXT, EXECUTION_TIME_MS, ROWS_RETURNED...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 6 at position 30\ninvalid identifier 'START_TIME'"
+    },
+    {
+      "num": 25,
+      "sql": "-- Benchmark 2: Fact-Dimension Join\n    start_time := CURRENT_TIMESTAMP();",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'start_time'."
+    },
+    {
+      "num": 26,
+      "sql": "SELECT COUNT(*) INTO row_count\n    FROM FACT_REMEDIATION_EVENTS f\n    JOIN DIM_HOST h ON f.HOST_ID =...",
+      "success": false,
+      "rows": [],
+      "error": "001138 (42601): SQL compilation error: error line 1 at position 0 INTO clause is not allowed in this context"
+    },
+    {
+      "num": 27,
+      "sql": "end_time := CURRENT_TIMESTAMP();",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'end_time'."
+    },
+    {
+      "num": 28,
+      "sql": "INSERT INTO PERFORMANCE_BENCHMARKS\n    (BENCHMARK_NAME, QUERY_TEXT, EXECUTION_TIME_MS, ROWS_RETURNED...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 6 at position 30\ninvalid identifier 'START_TIME'"
+    },
+    {
+      "num": 29,
+      "sql": "-- Benchmark 3: Complex Multi-Table Join\n    start_time := CURRENT_TIMESTAMP();",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'start_time'."
+    },
+    {
+      "num": 30,
+      "sql": "SELECT COUNT(*) INTO row_count\n    FROM FACT_REMEDIATION_EVENTS f\n    JOIN DIM_HOST h ON f.HOST_ID =...",
+      "success": false,
+      "rows": [],
+      "error": "001138 (42601): SQL compilation error: error line 1 at position 0 INTO clause is not allowed in this context"
+    },
+    {
+      "num": 31,
+      "sql": "end_time := CURRENT_TIMESTAMP();",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'end_time'."
+    },
+    {
+      "num": 32,
+      "sql": "INSERT INTO PERFORMANCE_BENCHMARKS\n    (BENCHMARK_NAME, QUERY_TEXT, EXECUTION_TIME_MS, ROWS_RETURNED...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 6 at position 30\ninvalid identifier 'START_TIME'"
+    },
+    {
+      "num": 33,
+      "sql": "-- Benchmark 4: Aggregation Query\n    start_time := CURRENT_TIMESTAMP();",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'start_time'."
+    },
+    {
+      "num": 34,
+      "sql": "SELECT COUNT(*) INTO row_count\n    FROM (\n        SELECT\n            h.HOST_NAME,\n            COUNT(...",
+      "success": false,
+      "rows": [],
+      "error": "001138 (42601): SQL compilation error: error line 1 at position 0 INTO clause is not allowed in this context"
+    },
+    {
+      "num": 35,
+      "sql": "end_time := CURRENT_TIMESTAMP();",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'end_time'."
+    },
+    {
+      "num": 36,
+      "sql": "INSERT INTO PERFORMANCE_BENCHMARKS\n    (BENCHMARK_NAME, QUERY_TEXT, EXECUTION_TIME_MS, ROWS_RETURNED...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 6 at position 30\ninvalid identifier 'START_TIME'"
+    },
+    {
+      "num": 37,
+      "sql": "v_message := 'Benchmarks completed. Check PERFORMANCE_BENCHMARKS table for results.';",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_message'."
+    },
+    {
+      "num": 38,
+      "sql": "RETURN v_message;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'RETURN'."
+    },
+    {
+      "num": 39,
+      "sql": "END;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 40,
+      "sql": "$$;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nparse error line 1 at position 3 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'."
+    },
+    {
+      "num": 41,
+      "sql": "-- 2.3 Create Performance Comparison View\nCREATE OR REPLACE VIEW VW_PERFORMANCE_COMPARISON AS\nSELECT...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_PERFORMANCE_COMPARISON successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 42,
+      "sql": "-- =====================================================================\n-- SECTION 3: COMPREHENSIVE...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table DATA_DICTIONARY successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 43,
+      "sql": "-- 3.2 Populate Data Dictionary with Key Tables\nINSERT INTO DATA_DICTIONARY\n(TABLE_NAME, COLUMN_NAME...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "15"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 44,
+      "sql": "-- 3.3 Create Data Dictionary View\nCREATE OR REPLACE VIEW VW_DATA_DICTIONARY AS\nSELECT\n    dd.TABLE_...",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.INFORMATION_SCHEMA.KEY_COLUMN_USAGE' does not exist or not authorized."
+    },
+    {
+      "num": 45,
+      "sql": "-- =====================================================================\n-- SECTION 4: DATA QUALITY ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table DATA_QUALITY_SCORECARD successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 46,
+      "sql": "-- 4.2 Create Quality Scoring Procedure\nCREATE OR REPLACE PROCEDURE SP_CALCULATE_QUALITY_SCORES()\nRE...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nparse error line 7 at position 33 near '<EOF>'.\nsyntax error line 5 at position 1 unexpected '$'."
+    },
+    {
+      "num": 47,
+      "sql": "BEGIN\n    -- Clear today's scores\n    DELETE FROM DATA_QUALITY_SCORECARD\n    WHERE SCORECARD_DATE = ...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 32 at position 0 unexpected '$$;\n\n-- 4.3 Create Quality Trend View\nCREATE OR REPLACE VIEW VW_QUALITY_SCORE_TREND AS\nSELECT\n    SCORECARD_DATE,\n    AVG(OVERALL_SCORE) as AVG_QUALITY_SCORE,\n    MIN(OVERALL_SCORE) as MIN_QUALITY_SCORE,\n    MAX(OVERALL_SCORE) as MAX_QUALITY_SCORE,\n    COUNT(DISTINCT TABLE_NAME) as TABLES_MEASURED\nFROM DATA_QUALITY_SCORECARD\nGROUP BY SCORECARD_DATE\nORDER BY SCORECARD_DATE DESC\nLIMIT 30;\n\n-- 4.4 Create Quality Alert View\nCREATE OR REPLACE VIEW VW_QUALITY_ALERTS AS\nSELECT\n    TABLE_NAME,\n    OVERALL_SCORE,\n    CASE\n        WHEN OVERALL_SCORE < 50 THEN 'CRITICAL'\n        WHEN OVERALL_SCORE < 75 THEN 'WARNING'\n        WHEN OVERALL_SCORE < 90 THEN 'INFO'\n        ELSE 'OK'\n    END as ALERT_LEVEL,\n    CASE\n        WHEN OVERALL_SCORE < 50 THEN 'Immediate action required'\n        WHEN OVERALL_SCORE < 75 THEN 'Review and improve data quality'\n        WHEN OVERALL_SCORE < 90 THEN 'Minor improvements needed'\n        ELSE 'Quality standards met'\n    END as RECOMMENDATION\nFROM DATA_QUALITY_SCORECARD\nWHERE SCORECARD_DATE = CURRENT_DATE()\nORDER BY OVERALL_SCORE;\n\n-- =====================================================================\n-- SECTION 5: ETL MONITORING FRAMEWORK\n-- =====================================================================\n\n-- 5.1 Create ETL Log Table\nCREATE OR REPLACE TABLE ETL_PIPELINE_LOG (\n    LOG_ID NUMBER AUTOINCREMENT,\n    PIPELINE_NAME VARCHAR(100),\n    SOURCE_TABLE VARCHAR(100),\n    TARGET_TABLE VARCHAR(100),\n    ROWS_PROCESSED NUMBER,\n    ROWS_INSERTED NUMBER,\n    ROWS_UPDATED NUMBER,\n    ROWS_DELETED NUMBER,\n    START_TIME TIMESTAMP_NTZ,\n    END_TIME TIMESTAMP_NTZ,\n    DURATION_SECONDS NUMBER,\n    STATUS VARCHAR(20),\n    ERROR_MESSAGE VARCHAR(4000),\n    CREATED_AT TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()\n);\n\n-- 5.2 Create ETL Monitoring Procedure\nCREATE OR REPLACE PROCEDURE SP_LOG_ETL_RUN(\n    p_pipeline_name VARCHAR,\n    p_source_table VARCHAR,\n    p_target_table VARCHAR,\n    p_rows_processed NUMBER,\n    p_status VARCHAR,\n    p_error_message VARCHAR DEFAULT NULL\n)\nRETURNS VARCHAR\nLANGUAGE SQL\nAS\n$$'.\nparse error line 446 at position 72 near '<EOF>'."
+    }
+  ]
+}

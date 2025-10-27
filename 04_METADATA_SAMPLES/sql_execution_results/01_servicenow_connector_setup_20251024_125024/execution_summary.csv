@@ -1,0 +1,31 @@
+statement_num,type,status,duration,error,preview,rows,csv_file,json_file
+1,USE,FAILED,0.0,"003013 (42501): SQL access control error:
+Requested role 'ACCOUNTADMIN' is not assigned to the executing user.  Specify another role to activate.",USE ROLE ACCOUNTADMIN;,,,
+2,CREATE,FAILED,0.0,"003001 (42501): SQL access control error:
+Insufficient privileges to operate on account 'MW76572'.",CREATE DATABASE IF NOT EXISTS SERVICENOW_CONNECTOR     DATA_RETENTION_TIME_IN_DAYS = 7     COMMENT =,,,
+3,OTHER,FAILED,0.0,"002003 (02000): SQL compilation error:
+Database 'SERVICENOW_CONNECTOR' does not exist or not authorized.",GRANT OWNERSHIP ON DATABASE SERVICENOW_CONNECTOR TO ROLE SYSADMIN;,,,
+4,USE,FAILED,0.0,"002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.",USE DATABASE SERVICENOW_CONNECTOR;,,,
+5,CREATE,SUCCESS,0.38904,,CREATE SCHEMA IF NOT EXISTS RAW_DATA     DATA_RETENTION_TIME_IN_DAYS = 7     COMMENT = 'Raw ServiceN,1.0,,
+6,CREATE,SUCCESS,0.370836,,CREATE SCHEMA IF NOT EXISTS CONNECTOR_METADATA     DATA_RETENTION_TIME_IN_DAYS = 30     COMMENT = 'C,1.0,,
+7,OTHER,SUCCESS,0.384438,,GRANT USAGE ON SCHEMA RAW_DATA TO ROLE DEV_DEVELOPER;,1.0,,
+8,OTHER,FAILED,0.0,"002003 (02000): SQL compilation error:
+Role 'DEV_READER' does not exist or not authorized.",GRANT USAGE ON SCHEMA RAW_DATA TO ROLE DEV_READER;,,,
+9,OTHER,SUCCESS,0.386689,,GRANT USAGE ON SCHEMA CONNECTOR_METADATA TO ROLE DEV_DEVELOPER;,1.0,,
+10,CREATE,FAILED,0.0,"003001 (42501): SQL access control error:
+Insufficient privileges to operate on account 'MW76572'.",CREATE WAREHOUSE IF NOT EXISTS SERVICENOW_WH     WAREHOUSE_SIZE = 'SMALL'     AUTO_SUSPEND = 300  --,,,
+11,OTHER,FAILED,0.0,"002003 (02000): SQL compilation error:
+Warehouse 'SERVICENOW_WH' does not exist or not authorized.",GRANT USAGE ON WAREHOUSE SERVICENOW_WH TO ROLE DEV_DEVELOPER;,,,
+12,OTHER,FAILED,0.0,"002003 (02000): SQL compilation error:
+Warehouse 'SERVICENOW_WH' does not exist or not authorized.",GRANT USAGE ON WAREHOUSE SERVICENOW_WH TO ROLE DEV_READER;,,,
+13,OTHER,FAILED,0.0,"002003 (02000): SQL compilation error:
+Warehouse 'SERVICENOW_WH' does not exist or not authorized.",GRANT OPERATE ON WAREHOUSE SERVICENOW_WH TO ROLE SYSADMIN;,,,
+14,SELECT,SUCCESS,0.734815,,"SELECT     database_name,     database_owner,     retention_time,     comment FROM INFORMATION_SCHEM",0.0,,
+15,SELECT,SUCCESS,0.60179,,"SELECT     schema_name,     schema_owner,     retention_time,     comment FROM INFORMATION_SCHEMA.SC",2.0,stmt_015_select_20251024_125052.csv,stmt_015_select_20251024_125052.json
+16,OTHER,SUCCESS,0.368265,,SHOW WAREHOUSES LIKE 'SERVICENOW_WH';,0.0,,
+17,SELECT,SUCCESS,0.634335,,"SELECT     ""name"" AS warehouse_name,     ""size"" AS warehouse_size,     ""auto_resume"" AS auto_resume,",0.0,,
+18,USE,SUCCESS,0.624709,,USE SCHEMA CONNECTOR_METADATA;,1.0,,
+19,CREATE,SUCCESS,0.946957,,CREATE TABLE IF NOT EXISTS CONNECTOR_INSTALLATION_LOG (     log_id INTEGER AUTOINCREMENT PRIMARY KEY,1.0,,
+20,INSERT,SUCCESS,1.192441,,"INSERT INTO CONNECTOR_INSTALLATION_LOG (installation_step, step_status, notes) VALUES     ('Database",4.0,,
+21,SELECT,SUCCESS,0.266787,,SELECT '✅ Setup complete! Next: Install connector via Snowflake Marketplace' AS next_step;,1.0,stmt_021_select_20251024_125056.csv,stmt_021_select_20251024_125056.json

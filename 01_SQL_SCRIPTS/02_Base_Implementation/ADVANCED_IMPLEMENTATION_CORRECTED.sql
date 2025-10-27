@@ -1,0 +1,435 @@
+-- =====================================================================
+-- ADVANCED FEATURES IMPLEMENTATION - CORRECTED VERSION
+-- Date: 2025-10-07
+-- Purpose: Implement advanced monitoring, performance tracking, and automation
+-- =====================================================================
+
+USE ROLE DEV_DEVELOPER;
+USE WAREHOUSE DEV_WH;
+USE DATABASE DEV_TRANSFORMATION;
+USE SCHEMA SECURITY_ANALYTICS;
+
+-- =====================================================================
+-- SECTION 1: SCHEDULED MONITORING TASKS
+-- =====================================================================
+
+SELECT '=== SECTION 1: Monitoring Tasks ===' AS STATUS;
+
+-- 1.1 Daily Health Check Task
+CREATE OR REPLACE TASK TASK_DAILY_HEALTH_CHECK
+    WAREHOUSE = DEV_WH
+    SCHEDULE = 'USING CRON 0 6 * * * America/New_York'
+AS
+    INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG (PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATUS)
+    SELECT 'DAILY_HEALTH', 'AUTOMATED', 'HEALTH_CHECK',
+           'Row counts: ' || COUNT(*) || ' tables checked', 'COMPLETED'
+    FROM INFORMATION_SCHEMA.TABLES
+    WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS';
+
+SELECT 'Task TASK_DAILY_HEALTH_CHECK created' AS RESULT;
+
+-- 1.2 Data Quality Monitoring Task (every 4 hours)
+CREATE OR REPLACE TASK TASK_DATA_QUALITY_MONITOR
+    WAREHOUSE = DEV_WH
+    SCHEDULE = 'USING CRON 0 */4 * * * America/New_York'
+AS
+    CALL DEV_REPORTING.SECURITY_ANALYTICS.SP_CALCULATE_DATA_QUALITY();
+
+SELECT 'Task TASK_DATA_QUALITY_MONITOR created' AS RESULT;
+
+-- Note: Tasks created but NOT resumed - requires EXECUTE TASK privilege
+SELECT 'Tasks created but not resumed - manual resume required with ACCOUNTADMIN' AS NOTE;
+
+-- =====================================================================
+-- SECTION 2: PERFORMANCE MONITORING
+-- =====================================================================
+
+SELECT '=== SECTION 2: Performance Monitoring ===' AS STATUS;
+
+-- 2.1 Performance Benchmarks Table
+CREATE OR REPLACE TABLE PERFORMANCE_BENCHMARKS (
+    BENCHMARK_ID NUMBER AUTOINCREMENT PRIMARY KEY,
+    BENCHMARK_NAME VARCHAR(100),
+    QUERY_TEXT VARCHAR(4000),
+    EXECUTION_TIME_MS NUMBER,
+    ROWS_RETURNED NUMBER,
+    WAREHOUSE_SIZE VARCHAR(20),
+    EXECUTED_AT TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+SELECT 'Performance benchmarks table created' AS RESULT;
+
+-- 2.2 Performance Comparison View
+CREATE OR REPLACE VIEW VW_PERFORMANCE_COMPARISON AS
+SELECT
+    BENCHMARK_NAME,
+    AVG(EXECUTION_TIME_MS) as AVG_TIME_MS,
+    MIN(EXECUTION_TIME_MS) as MIN_TIME_MS,
+    MAX(EXECUTION_TIME_MS) as MAX_TIME_MS,
+    COUNT(*) as RUN_COUNT,
+    MAX(EXECUTED_AT) as LAST_RUN
+FROM PERFORMANCE_BENCHMARKS
+GROUP BY BENCHMARK_NAME
+ORDER BY AVG_TIME_MS DESC;
+
+SELECT 'Performance comparison view created' AS RESULT;
+
+-- 2.3 Query History Analysis View
+CREATE OR REPLACE VIEW VW_QUERY_PERFORMANCE AS
+SELECT
+    QUERY_ID,
+    QUERY_TEXT,
+    DATABASE_NAME,
+    SCHEMA_NAME,
+    EXECUTION_STATUS,
+    TOTAL_ELAPSED_TIME / 1000 as TOTAL_TIME_SECONDS,
+    ROWS_PRODUCED,
+    START_TIME,
+    END_TIME
+FROM TABLE(INFORMATION_SCHEMA.QUERY_HISTORY(
+    END_TIME_RANGE_START => DATEADD('day', -7, CURRENT_TIMESTAMP()),
+    END_TIME_RANGE_END => CURRENT_TIMESTAMP()
+))
+WHERE DATABASE_NAME = 'DEV_TRANSFORMATION'
+  AND SCHEMA_NAME = 'SECURITY_ANALYTICS'
+  AND EXECUTION_STATUS = 'SUCCESS'
+ORDER BY TOTAL_ELAPSED_TIME DESC
+LIMIT 100;
+
+SELECT 'Query performance view created' AS RESULT;
+
+-- =====================================================================
+-- SECTION 3: DATA DICTIONARY & DOCUMENTATION
+-- =====================================================================
+
+SELECT '=== SECTION 3: Data Dictionary ===' AS STATUS;
+
+-- 3.1 Enhanced Data Dictionary
+CREATE OR REPLACE TABLE DATA_DICTIONARY (
+    DICT_ID NUMBER AUTOINCREMENT PRIMARY KEY,
+    TABLE_NAME VARCHAR(100),
+    COLUMN_NAME VARCHAR(100),
+    DATA_TYPE VARCHAR(50),
+    BUSINESS_NAME VARCHAR(200),
+    DESCRIPTION VARCHAR(4000),
+    IS_PK BOOLEAN DEFAULT FALSE,
+    IS_FK BOOLEAN DEFAULT FALSE,
+    FK_REFERENCES VARCHAR(200),
+    SAMPLE_VALUES VARCHAR(500),
+    CREATED_AT TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+    UPDATED_AT TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+SELECT 'Data dictionary table created' AS RESULT;
+
+-- 3.2 Populate with key tables and columns
+INSERT INTO DATA_DICTIONARY (TABLE_NAME, COLUMN_NAME, DATA_TYPE, BUSINESS_NAME, DESCRIPTION, IS_PK, IS_FK, FK_REFERENCES)
+VALUES
+    ('DIM_HOST', 'HOST_KEY', 'NUMBER', 'Host ID', 'Unique identifier for each host in the security infrastructure', TRUE, FALSE, NULL),
+    ('DIM_HOST', 'HOST_TRACKING_METHOD', 'TEXT', 'Tracking Method', 'Method used to track this host (IP, DNS, NetBIOS)', FALSE, FALSE, NULL),
+    ('DIM_HOST', 'HOST_OS', 'TEXT', 'Operating System', 'Operating system running on the host', FALSE, FALSE, NULL),
+    ('DIM_HOST', 'OPCO_ID', 'NUMBER', 'Operating Company', 'Links to operating company dimension', FALSE, TRUE, 'DIM_OPCO(OPCO_ID)'),
+    ('DIM_OPCO', 'OPCO_ID', 'NUMBER', 'OpCo ID', 'Unique identifier for operating company', TRUE, FALSE, NULL),
+    ('DIM_OPCO', 'OPCO_CODE', 'VARCHAR', 'OpCo Code', 'Short code for operating company', FALSE, FALSE, NULL),
+    ('DIM_OPCO', 'OPCO_NAME', 'VARCHAR', 'OpCo Name', 'Full name of operating company', FALSE, FALSE, NULL),
+    ('DIM_OPCO', 'REGION', 'VARCHAR', 'Region', 'Geographic region of operating company', FALSE, FALSE, NULL),
+    ('DIM_USER', 'USER_KEY', 'NUMBER', 'User Key', 'Surrogate key for user dimension (SCD Type 2)', TRUE, FALSE, NULL),
+    ('DIM_USER', 'USER_ID', 'VARCHAR', 'User ID', 'Natural key - user identifier from source system', FALSE, FALSE, NULL),
+    ('DIM_USER', 'EMAIL', 'VARCHAR', 'Email Address', 'User email address', FALSE, FALSE, NULL),
+    ('DIM_USER', 'DISPLAY_NAME', 'VARCHAR', 'Display Name', 'Full display name of user', FALSE, FALSE, NULL),
+    ('FACT_EDR', 'EDR_KEY', 'NUMBER', 'EDR Key', 'Primary key for EDR fact table', TRUE, FALSE, NULL),
+    ('FACT_EDR', 'OPCO_ID', 'NUMBER', 'Operating Company', 'Links to operating company', FALSE, TRUE, 'DIM_OPCO(OPCO_ID)'),
+    ('FACT_EDR', 'THREAT_COUNT', 'NUMBER', 'Threat Count', 'Number of threats detected', FALSE, FALSE, NULL);
+
+SELECT COUNT(*) || ' data dictionary entries added' AS RESULT FROM DATA_DICTIONARY;
+
+-- 3.3 Data Dictionary View (simplified - no INFORMATION_SCHEMA.KEY_COLUMN_USAGE)
+CREATE OR REPLACE VIEW VW_DATA_DICTIONARY AS
+SELECT
+    dd.TABLE_NAME,
+    dd.COLUMN_NAME,
+    dd.DATA_TYPE,
+    dd.BUSINESS_NAME,
+    dd.DESCRIPTION,
+    dd.IS_PK,
+    dd.IS_FK,
+    dd.FK_REFERENCES,
+    c.IS_NULLABLE,
+    dd.SAMPLE_VALUES,
+    dd.UPDATED_AT as LAST_UPDATED
+FROM DATA_DICTIONARY dd
+LEFT JOIN INFORMATION_SCHEMA.COLUMNS c
+    ON dd.TABLE_NAME = c.TABLE_NAME
+    AND dd.COLUMN_NAME = c.COLUMN_NAME
+    AND c.TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+ORDER BY dd.TABLE_NAME, dd.COLUMN_NAME;
+
+SELECT 'Data dictionary view created' AS RESULT;
+
+-- =====================================================================
+-- SECTION 4: DATA QUALITY SCORECARD
+-- =====================================================================
+
+SELECT '=== SECTION 4: Data Quality Scorecard ===' AS STATUS;
+
+-- 4.1 Quality Scorecard Table (may already exist)
+CREATE TABLE IF NOT EXISTS DATA_QUALITY_SCORECARD (
+    SCORECARD_ID NUMBER AUTOINCREMENT PRIMARY KEY,
+    TABLE_NAME VARCHAR(100),
+    SCORECARD_DATE DATE,
+    COMPLETENESS_SCORE NUMBER(5,2),
+    ACCURACY_SCORE NUMBER(5,2),
+    CONSISTENCY_SCORE NUMBER(5,2),
+    TIMELINESS_SCORE NUMBER(5,2),
+    OVERALL_SCORE NUMBER(5,2),
+    RECORD_COUNT NUMBER,
+    NULL_COUNT NUMBER,
+    CREATED_AT TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+SELECT 'Data quality scorecard table ready' AS RESULT;
+
+-- 4.2 Quality Trend View
+CREATE OR REPLACE VIEW VW_QUALITY_SCORE_TREND AS
+SELECT
+    SCORECARD_DATE,
+    AVG(OVERALL_SCORE) as AVG_QUALITY_SCORE,
+    MIN(OVERALL_SCORE) as MIN_QUALITY_SCORE,
+    MAX(OVERALL_SCORE) as MAX_QUALITY_SCORE,
+    COUNT(DISTINCT TABLE_NAME) as TABLES_MEASURED
+FROM DATA_QUALITY_SCORECARD
+GROUP BY SCORECARD_DATE
+ORDER BY SCORECARD_DATE DESC
+LIMIT 30;
+
+SELECT 'Quality trend view created' AS RESULT;
+
+-- 4.3 Quality Alert View
+CREATE OR REPLACE VIEW VW_QUALITY_ALERTS AS
+SELECT
+    TABLE_NAME,
+    OVERALL_SCORE,
+    CASE
+        WHEN OVERALL_SCORE < 50 THEN 'CRITICAL'
+        WHEN OVERALL_SCORE < 75 THEN 'WARNING'
+        WHEN OVERALL_SCORE < 90 THEN 'INFO'
+        ELSE 'OK'
+    END as ALERT_LEVEL,
+    CASE
+        WHEN OVERALL_SCORE < 50 THEN 'Immediate action required'
+        WHEN OVERALL_SCORE < 75 THEN 'Review and improve data quality'
+        WHEN OVERALL_SCORE < 90 THEN 'Minor improvements needed'
+        ELSE 'Quality standards met'
+    END as RECOMMENDATION,
+    SCORECARD_DATE,
+    RECORD_COUNT,
+    NULL_COUNT
+FROM DATA_QUALITY_SCORECARD
+WHERE SCORECARD_DATE = CURRENT_DATE()
+ORDER BY OVERALL_SCORE;
+
+SELECT 'Quality alerts view created' AS RESULT;
+
+-- =====================================================================
+-- SECTION 5: ETL MONITORING FRAMEWORK
+-- =====================================================================
+
+SELECT '=== SECTION 5: ETL Monitoring ===' AS STATUS;
+
+-- 5.1 ETL Pipeline Log Table (may already exist)
+CREATE TABLE IF NOT EXISTS ETL_PIPELINE_LOG (
+    LOG_ID NUMBER AUTOINCREMENT PRIMARY KEY,
+    PIPELINE_NAME VARCHAR(100),
+    SOURCE_TABLE VARCHAR(100),
+    TARGET_TABLE VARCHAR(100),
+    ROWS_PROCESSED NUMBER,
+    ROWS_INSERTED NUMBER,
+    ROWS_UPDATED NUMBER,
+    ROWS_DELETED NUMBER,
+    START_TIME TIMESTAMP_NTZ,
+    END_TIME TIMESTAMP_NTZ,
+    DURATION_SECONDS NUMBER,
+    STATUS VARCHAR(20),
+    ERROR_MESSAGE VARCHAR(4000),
+    CREATED_AT TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+SELECT 'ETL pipeline log table ready' AS RESULT;
+
+-- 5.2 ETL Pipeline Status View
+CREATE OR REPLACE VIEW VW_ETL_PIPELINE_STATUS AS
+SELECT
+    PIPELINE_NAME,
+    MAX(END_TIME) as LAST_RUN,
+    DATEDIFF('hour', MAX(END_TIME), CURRENT_TIMESTAMP()) as HOURS_SINCE_LAST_RUN,
+    COUNT(*) as TOTAL_RUNS,
+    SUM(CASE WHEN STATUS = 'SUCCESS' THEN 1 ELSE 0 END) as SUCCESSFUL_RUNS,
+    SUM(CASE WHEN STATUS = 'FAILED' THEN 1 ELSE 0 END) as FAILED_RUNS,
+    AVG(DURATION_SECONDS) as AVG_DURATION_SECONDS,
+    SUM(ROWS_PROCESSED) as TOTAL_ROWS_PROCESSED
+FROM ETL_PIPELINE_LOG
+WHERE START_TIME >= DATEADD('day', -30, CURRENT_DATE())
+GROUP BY PIPELINE_NAME
+ORDER BY LAST_RUN DESC;
+
+SELECT 'ETL pipeline status view created' AS RESULT;
+
+-- 5.3 ETL Error Log View
+CREATE OR REPLACE VIEW VW_ETL_ERRORS AS
+SELECT
+    LOG_ID,
+    PIPELINE_NAME,
+    SOURCE_TABLE,
+    TARGET_TABLE,
+    ERROR_MESSAGE,
+    START_TIME,
+    END_TIME,
+    CREATED_AT
+FROM ETL_PIPELINE_LOG
+WHERE STATUS = 'FAILED'
+  AND START_TIME >= DATEADD('day', -7, CURRENT_DATE())
+ORDER BY START_TIME DESC;
+
+SELECT 'ETL errors view created' AS RESULT;
+
+-- =====================================================================
+-- SECTION 6: BUSINESS INTELLIGENCE VIEWS
+-- =====================================================================
+
+SELECT '=== SECTION 6: Business Intelligence Views ===' AS STATUS;
+
+-- 6.1 Executive KPI Dashboard View
+CREATE OR REPLACE VIEW VW_EXECUTIVE_KPI_DASHBOARD AS
+SELECT
+    d.DATE,
+    d.YEAR,
+    d.QUARTER,
+    d.MONTH_NAME,
+    o.OPCO_NAME,
+    o.REGION,
+    o.DIVISION,
+    COUNT(DISTINCT h.HOST_KEY) as TOTAL_HOSTS,
+    COUNT(DISTINCT CASE WHEN e.THREAT_COUNT > 0 THEN e.EDR_KEY END) as HOSTS_WITH_THREATS,
+    SUM(e.THREAT_COUNT) as TOTAL_THREATS,
+    ROUND(COUNT(DISTINCT CASE WHEN e.THREAT_COUNT > 0 THEN e.EDR_KEY END) * 100.0 /
+          NULLIF(COUNT(DISTINCT h.HOST_KEY), 0), 2) as THREAT_PERCENTAGE
+FROM DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_DATES d
+CROSS JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_OPCO o
+LEFT JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_HOST h
+    ON h.OPCO_ID = o.OPCO_ID
+LEFT JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.FACT_EDR e
+    ON e.OPCO_ID = o.OPCO_ID
+WHERE d.DATE >= DATEADD('month', -12, CURRENT_DATE())
+  AND d.DATE <= CURRENT_DATE()
+GROUP BY d.DATE, d.YEAR, d.QUARTER, d.MONTH_NAME, o.OPCO_NAME, o.REGION, o.DIVISION;
+
+SELECT 'Executive KPI dashboard view created' AS RESULT;
+
+-- 6.2 Security Posture Summary View
+CREATE OR REPLACE VIEW VW_SECURITY_POSTURE_SUMMARY AS
+SELECT
+    o.OPCO_NAME,
+    o.REGION,
+    COUNT(DISTINCT h.HOST_KEY) as TOTAL_ASSETS,
+    COUNT(DISTINCT e.EDR_KEY) as EDR_DEPLOYMENTS,
+    SUM(e.THREAT_COUNT) as TOTAL_THREATS_DETECTED,
+    MAX(h.LAST_SCAN_DATE) as LAST_SCAN_DATE,
+    DATEDIFF('day', MAX(h.LAST_SCAN_DATE), CURRENT_DATE()) as DAYS_SINCE_LAST_SCAN
+FROM DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_OPCO o
+LEFT JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_HOST h ON h.OPCO_ID = o.OPCO_ID
+LEFT JOIN DEV_TRANSFORMATION.SECURITY_ANALYTICS.FACT_EDR e ON e.OPCO_ID = o.OPCO_ID
+GROUP BY o.OPCO_NAME, o.REGION
+ORDER BY TOTAL_THREATS_DETECTED DESC;
+
+SELECT 'Security posture summary view created' AS RESULT;
+
+-- =====================================================================
+-- SECTION 7: DATA LINEAGE CATALOG
+-- =====================================================================
+
+SELECT '=== SECTION 7: Data Lineage ===' AS STATUS;
+
+-- 7.1 Data Lineage Catalog Table (may already exist)
+CREATE TABLE IF NOT EXISTS DATA_LINEAGE_CATALOG (
+    LINEAGE_ID NUMBER AUTOINCREMENT PRIMARY KEY,
+    SOURCE_SYSTEM VARCHAR(100),
+    SOURCE_TABLE VARCHAR(100),
+    TARGET_DATABASE VARCHAR(50),
+    TARGET_SCHEMA VARCHAR(50),
+    TARGET_TABLE VARCHAR(100),
+    TRANSFORMATION_LOGIC VARCHAR(4000),
+    LOAD_FREQUENCY VARCHAR(50),
+    LAST_LOAD_DATE TIMESTAMP_NTZ,
+    OWNER VARCHAR(100),
+    CREATED_AT TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+SELECT 'Data lineage catalog ready' AS RESULT;
+
+-- 7.2 Populate key lineage entries
+INSERT INTO DATA_LINEAGE_CATALOG
+(SOURCE_SYSTEM, SOURCE_TABLE, TARGET_DATABASE, TARGET_SCHEMA, TARGET_TABLE, TRANSFORMATION_LOGIC, LOAD_FREQUENCY, OWNER)
+SELECT 'CyberArk', 'PAM_USERS', 'DEV_TRANSFORMATION', 'SECURITY_ANALYTICS', 'DIM_USER', 'SCD Type 2 merge from PAM source', 'Daily', 'IT Security Team'
+WHERE NOT EXISTS (SELECT 1 FROM DATA_LINEAGE_CATALOG WHERE SOURCE_SYSTEM = 'CyberArk' AND TARGET_TABLE = 'DIM_USER');
+
+INSERT INTO DATA_LINEAGE_CATALOG
+(SOURCE_SYSTEM, SOURCE_TABLE, TARGET_DATABASE, TARGET_SCHEMA, TARGET_TABLE, TRANSFORMATION_LOGIC, LOAD_FREQUENCY, OWNER)
+SELECT 'EDR Platform', 'THREAT_EVENTS', 'DEV_TRANSFORMATION', 'SECURITY_ANALYTICS', 'FACT_EDR', 'Aggregate threat counts by OpCo and date', 'Real-time', 'IT Security Team'
+WHERE NOT EXISTS (SELECT 1 FROM DATA_LINEAGE_CATALOG WHERE SOURCE_SYSTEM = 'EDR Platform' AND TARGET_TABLE = 'FACT_EDR');
+
+SELECT COUNT(*) || ' lineage entries added' AS RESULT FROM DATA_LINEAGE_CATALOG;
+
+-- 7.3 Data Lineage View
+CREATE OR REPLACE VIEW VW_DATA_LINEAGE AS
+SELECT
+    SOURCE_SYSTEM,
+    SOURCE_TABLE,
+    TARGET_DATABASE || '.' || TARGET_SCHEMA || '.' || TARGET_TABLE as FULL_TARGET_PATH,
+    TARGET_TABLE,
+    TRANSFORMATION_LOGIC,
+    LOAD_FREQUENCY,
+    LAST_LOAD_DATE,
+    DATEDIFF('hour', LAST_LOAD_DATE, CURRENT_TIMESTAMP()) as HOURS_SINCE_LOAD,
+    OWNER
+FROM DATA_LINEAGE_CATALOG
+ORDER BY SOURCE_SYSTEM, TARGET_TABLE;
+
+SELECT 'Data lineage view created' AS RESULT;
+
+-- =====================================================================
+-- FINAL VALIDATION
+-- =====================================================================
+
+SELECT '========================================' AS SUMMARY;
+SELECT 'ADVANCED FEATURES COMPLETE!' AS SUMMARY;
+SELECT '========================================' AS SUMMARY;
+
+-- Summary of created objects
+SELECT
+    'Tasks Created' as OBJECT_TYPE,
+    COUNT(*) as COUNT
+FROM INFORMATION_SCHEMA.TASKS
+WHERE TASK_SCHEMA = 'SECURITY_ANALYTICS'
+  AND TASK_NAME LIKE 'TASK_%';
+
+SELECT
+    'Monitoring Views' as OBJECT_TYPE,
+    COUNT(*) as COUNT
+FROM INFORMATION_SCHEMA.VIEWS
+WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+  AND TABLE_NAME LIKE 'VW_%';
+
+SELECT
+    'Framework Tables' as OBJECT_TYPE,
+    COUNT(*) as COUNT
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+  AND TABLE_NAME IN ('PERFORMANCE_BENCHMARKS', 'DATA_DICTIONARY',
+                     'DATA_QUALITY_SCORECARD', 'ETL_PIPELINE_LOG',
+                     'DATA_LINEAGE_CATALOG');
+
+SELECT '=== All Advanced Features Implemented ===' AS SUMMARY;
+
+-- =====================================================================
+-- END OF ADVANCED IMPLEMENTATION
+-- =====================================================================

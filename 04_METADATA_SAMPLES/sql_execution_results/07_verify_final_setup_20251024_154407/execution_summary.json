@@ -1,0 +1,78 @@
+{
+  "script_name": "07_verify_final_setup.sql",
+  "execution_timestamp": "2025-10-24T15:44:24.753494",
+  "total_statements": 8,
+  "successful_statements": 8,
+  "failed_statements": 0,
+  "total_duration_seconds": 3.770934,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.416485,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 2,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.275386,
+      "rows": 1,
+      "preview": "USE SCHEMA SERVICENOW;"
+    },
+    {
+      "statement_num": 3,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.354429,
+      "rows": 10,
+      "preview": "SHOW TABLES IN SCHEMA DEV_TRANSFORMATION.SERVICENOW;"
+    },
+    {
+      "statement_num": 4,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.353718,
+      "rows": 7,
+      "csv_file": "stmt_004_select_20251024_154422.csv",
+      "json_file": "stmt_004_select_20251024_154422.json",
+      "preview": "SELECT * FROM CONNECTOR_CONFIG ORDER BY table_name;"
+    },
+    {
+      "statement_num": 5,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.303688,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_REPORTING;"
+    },
+    {
+      "statement_num": 6,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.331117,
+      "rows": 1,
+      "preview": "USE SCHEMA SERVICENOW;"
+    },
+    {
+      "statement_num": 7,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.327804,
+      "rows": 6,
+      "preview": "SHOW VIEWS IN SCHEMA DEV_REPORTING.SERVICENOW;"
+    },
+    {
+      "statement_num": 8,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 1.408307,
+      "rows": 2,
+      "csv_file": "stmt_008_select_20251024_154424.csv",
+      "json_file": "stmt_008_select_20251024_154424.json",
+      "preview": "SELECT     'DEV_TRANSFORMATION.SERVICENOW' AS layer,     'Tables' AS object_type,     COUNT(*) AS co"
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "constraints_summary": {},
+  "missing_keys": {},
+  "relationship_analysis": {
+    "landing_to_transform": [
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.TRELLIX",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_TRELLIX_SECURITY_ALERTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.TRELLIX",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.HIST_TRELLIX",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.TRELLIX",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_TRELLIX_ENDPOINT_STATUS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.TRELLIX",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_TRELLIX_ENDPOINTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.TRELLIX",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_TRELLIX_DATA_QUALITY",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.THREAT_INTEL_EVENTS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.FACT_THREAT_INTEL_EVENTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.THREAT_INTEL_EVENTS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.HIST_THREAT_INTEL_EVENTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.FARRANS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_FARRANS_ENDPOINT_HEALTH",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.FARRANS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_FARRANS_ALERTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.FARRANS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.FACT_FARRANS_HEALTH",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.FARRANS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_FARRANS_ENDPOINTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.FARRANS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.HIST_FARRANS_ENDPOINTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.FARRANS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_FARRANS_ALERT_SUMMARY",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.FARRANS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_FARRANS_DATA_QUALITY",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.KB",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.QUALYS_KB_CONSOLIDATED",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.KB",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.QUALYS_VULN_KB_DATA",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.MCAFEE",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_MCAFEE_SECURITY_ALERTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.MCAFEE",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_MCAFEE_ENDPOINTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.MCAFEE",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_MCAFEE_COMPLIANCE_STATUS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.MCAFEE",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.VW_MCAFEE_DATA_QUALITY",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.MCAFEE",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.HIST_MCAFEE_ENDPOINTS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.DIM_LEVIAT_USERS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_LEVIAT_USERS",
+        "confidence": "detected"
+      },
+      {
+        "source": "DEV_LANDING.SECURITY_ANALYTICS.HIST_LEVIAT_USERS",
+        "target": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.HIST_LEVIAT_USERS",
+        "confidence": "detected"
+      }
+    ],
+    "transform_to_reporting": []
+  },
+  "dimensional_model_issues": {
+    "dimensions": [
+      {
+        "name": "DIM_ANCON_USERS",
+        "rows": 995,
+        "size_mb": 0.09
+      },
+      {
+        "name": "DIM_AV_OPCO",
+        "rows": 108,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DIM_BITSIGHT_RISK_VECTORS",
+        "rows": 7,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DIM_CYBELANGEL_ALERTS",
+        "rows": 196,
+        "size_mb": 0.02
+      },
+      {
+        "name": "DIM_DATES",
+        "rows": 10000,
+        "size_mb": 0.1
+      },
+      {
+        "name": "DIM_DEFENDER_ENDPOINTS",
+        "rows": 8210,
+        "size_mb": 0.53
+      },
+      {
+        "name": "DIM_FARRANS_ENDPOINTS",
+        "rows": 741,
+        "size_mb": 0.02
+      },
+      {
+        "name": "DIM_FIXED_VULNERABILITIES",
+        "rows": 56345,
+        "size_mb": 3.5
+      },
+      {
+        "name": "DIM_HARDWARE_INVENTORY",
+        "rows": 21997,
+        "size_mb": 1.15
+      },
+      {
+        "name": "DIM_HOST",
+        "rows": 1662,
+        "size_mb": 0.03
+      },
+      {
+        "name": "DIM_HOST_ASSETS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DIM_LEVIAT_LIST_USERS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DIM_LEVIAT_USERS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DIM_MCAFEE_ENDPOINTS",
+        "rows": 292,
+        "size_mb": 0.01
+      },
+      {
+        "name": "DIM_QUALYS_SEVERITY",
+        "rows": 5,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DIM_QUALYS_VULNERABILITIES",
+        "rows": 210435,
+        "size_mb": 7.75
+      },
+      {
+        "name": "DIM_SENTINEL_VERSIONS",
+        "rows": 38,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DIM_SNOW_DEVICES",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DIM_SOPHOS_ENDPOINTS",
+        "rows": 741,
+        "size_mb": 0.02
+      },
+      {
+        "name": "DIM_SPLUNK_HOSTS",
+        "rows": 4913,
+        "size_mb": 0.05
+      },
+      {
+        "name": "DIM_SYMANTEC_ENDPOINTS",
+        "rows": 22571,
+        "size_mb": 1.26
+      },
+      {
+        "name": "DIM_TRELLIX_ENDPOINTS",
+        "rows": 34235,
+        "size_mb": 0.69
+      },
+      {
+        "name": "DIM_TRENDMICRO_VERSIONS",
+        "rows": 6,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DIM_VULNERABILITY",
+        "rows": 631305,
+        "size_mb": 10.47
+      },
+      {
+        "name": "DIM_ZEROFOX_ASSETS",
+        "rows": 121,
+        "size_mb": 0.11
+      },
+      {
+        "name": "DIM_ZSCALER_ENDPOINTS",
+        "rows": 24984,
+        "size_mb": 0.95
+      }
+    ],
+    "facts": [
+      {
+        "name": "FACT_AV_HEALTH",
+        "rows": 107,
+        "size_mb": 0.01
+      },
+      {
+        "name": "FACT_BITSIGHT_FINDINGS",
+        "rows": 1219,
+        "size_mb": 0.07
+      },
+      {
+        "name": "FACT_CYBELANGEL_THREATS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "FACT_DEFENDER_THREATS",
+        "rows": 1,
+        "size_mb": 0.0
+      },
+      {
+        "name": "FACT_FARRANS_HEALTH",
+        "rows": 741,
+        "size_mb": 0.02
+      },
+      {
+        "name": "FACT_LEVIAT_SECURITY_EVENTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "FACT_QUALYS_HOST_SCANS",
+        "rows": 833,
+        "size_mb": 0.03
+      },
+      {
+        "name": "FACT_REMEDIATION_EVENTS",
+        "rows": 697086,
+        "size_mb": 18.73
+      },
+      {
+        "name": "FACT_SCAN_EVENTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "FACT_SENTINEL_ENDPOINTS",
+        "rows": 4188,
+        "size_mb": 0.17
+      },
+      {
+        "name": "FACT_SPLUNK_ALERTS",
+        "rows": 16436,
+        "size_mb": 0.63
+      },
+      {
+        "name": "FACT_SPLUNK_ALERTS_WEEKLY",
+        "rows": 16436,
+        "size_mb": 0.67
+      },
+      {
+        "name": "FACT_SYMANTEC_THREATS",
+        "rows": 1261614,
+        "size_mb": 9.95
+      },
+      {
+        "name": "FACT_THREAT_INTEL_EVENTS",
+        "rows": 1065690,
+        "size_mb": 3.51
+      },
+      {
+        "name": "FACT_THREAT_INTEL_SUMMARY",
+        "rows": 542,
+        "size_mb": 0.02
+      },
+      {
+        "name": "FACT_TRENDMICRO_ENDPOINTS",
+        "rows": 267,
+        "size_mb": 0.01
+      },
+      {
+        "name": "FACT_VULN_SCAN",
+        "rows": 17483409,
+        "size_mb": 188.37
+      },
+      {
+        "name": "FACT_ZEROFOX_ALERTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "FACT_ZSCALER_THREATS",
+        "rows": 4802616,
+        "size_mb": 75.69
+      }
+    ],
+    "others": [
+      {
+        "name": "CISCO_AMP_DATA",
+        "rows": 4948,
+        "size_mb": 0.1
+      },
+      {
+        "name": "CLOSE_CODE_MAPPING",
+        "rows": 6,
+        "size_mb": 0.0
+      },
+      {
+        "name": "CROWDSTRIKE_ENDPOINTS",
+        "rows": 3609,
+        "size_mb": 0.14
+      },
+      {
+        "name": "CROWDSTRIKE_VERSIONS",
+        "rows": 13,
+        "size_mb": 0.0
+      },
+      {
+        "name": "DATA_QUALITY_RESULTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "ETL_ERROR_LOG",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "ETL_LOG",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_ANCON_USERS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_BITSIGHT_FINDINGS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_CISCO_AMP",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_CROWDSTRIKE_ENDPOINTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_CROWDSTRIKE_VERSIONS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_CYBELANGEL_ALERTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_CYBELANGEL_THREATS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_DEFENDER_ENDPOINTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_FARRANS_ENDPOINTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_FIXED_VULNERABILITIES",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_HOSTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_LEVIAT_USERS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_MCAFEE_ENDPOINTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_QUALYS_HOST",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_QUALYS_VULN",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_SENTINEL_CHANGES",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_SNOW",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_SOPHOS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_SPLUNK_ALERTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_SPLUNK_HOSTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_STOCK_REPORT",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_SYMANTEC_ENDPOINTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_THREAT_INTEL_EVENTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_THREAT_INTEL_SUMMARY",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_TRELLIX",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_TRENDMICRO_CHANGES",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_ZEROFOX_ALERTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_ZEROFOX_ASSETS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_ZSCALER_ENDPOINTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HIST_ZSCALER_THREATS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HOSTS",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "HOST_DIM",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "LEVIAT",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "QUALYS_CONSOLIDATED",
+        "rows": 17483409,
+        "size_mb": 221.67
+      },
+      {
+        "name": "QUALYS_CONSOLIDATED_DIM",
+        "rows": 833,
+        "size_mb": 0.03
+      },
+      {
+        "name": "QUALYS_HOST_DATA",
+        "rows": 833,
+        "size_mb": 0.04
+      },
+      {
+        "name": "QUALYS_KB_CONSOLIDATED",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "QUALYS_OS_CONSOLIDATED",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "QUALYS_VULN_KB_DATA",
+        "rows": 210538,
+        "size_mb": 7.99
+      },
+      {
+        "name": "SECURITY_ALERT_THRESHOLDS",
+        "rows": 3,
+        "size_mb": 0.0
+      },
+      {
+        "name": "SENTINEL_CONSOLIDATED",
+        "rows": 4188,
+        "size_mb": 0.16
+      },
+      {
+        "name": "SNOWCLI_EQUIVALENTS",
+        "rows": 10,
+        "size_mb": 0.0
+      },
+      {
+        "name": "SYMANTEC_CONSOLIDATED",
+        "rows": 29981,
+        "size_mb": 8.62
+      },
+      {
+        "name": "TRENDMICRO_CONSOLIDATED",
+        "rows": 267,
+        "size_mb": 0.01
+      },
+      {
+        "name": "VIEWS_CATALOG",
+        "rows": 83,
+        "size_mb": 0.08
+      },
+      {
+        "name": "VIEWS_CATALOG_WITH_SAMPLES",
+        "rows": 83,
+        "size_mb": 0.12
+      },
+      {
+        "name": "VULNERABILITY_DIM",
+        "rows": 0,
+        "size_mb": 0.0
+      },
+      {
+        "name": "ZSCALER_CONSOLIDATED",
+        "rows": 1811281,
+        "size_mb": 36.06
+      }
+    ],
+    "issues": []
+  },
+  "recommendations": []
+}

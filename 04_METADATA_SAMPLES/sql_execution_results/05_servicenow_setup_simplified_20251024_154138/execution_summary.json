@@ -1,0 +1,218 @@
+{
+  "script_name": "05_servicenow_setup_simplified.sql",
+  "execution_timestamp": "2025-10-24T15:42:00.017191",
+  "total_statements": 25,
+  "successful_statements": 8,
+  "failed_statements": 17,
+  "total_duration_seconds": 3.629457,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.591403,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 2,
+      "type": "USE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "000008 (0A000): Actual statement count 2 did not match the desired statement count 1.",
+      "preview": "USE SCHEMA SERVICENOW;  -- Already created successfully CREATE TABLE IF NOT EXISTS INCIDENTS_RAW (  "
+    },
+    {
+      "statement_num": 3,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE TABLE IF NOT EXISTS CHANGE_REQUESTS_RAW (     change_number VARCHAR(100),     sys_id VARCHAR("
+    },
+    {
+      "statement_num": 4,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE TABLE IF NOT EXISTS USERS_RAW (     user_id VARCHAR(100),     sys_id VARCHAR(100),     user_n"
+    },
+    {
+      "statement_num": 5,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE TABLE IF NOT EXISTS CONFIGURATION_ITEMS_RAW (     ci_sys_id VARCHAR(100),     name VARCHAR(50"
+    },
+    {
+      "statement_num": 6,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE TABLE IF NOT EXISTS INCIDENTS (     incident_number VARCHAR(100) PRIMARY KEY,     sys_id VARC"
+    },
+    {
+      "statement_num": 7,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE TABLE IF NOT EXISTS CHANGE_REQUESTS (     change_number VARCHAR(100) PRIMARY KEY,     sys_id "
+    },
+    {
+      "statement_num": 8,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE TABLE IF NOT EXISTS USERS (     user_id VARCHAR(100) PRIMARY KEY,     sys_id VARCHAR(100) UNI"
+    },
+    {
+      "statement_num": 9,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE TABLE IF NOT EXISTS CONFIGURATION_ITEMS (     ci_sys_id VARCHAR(100) PRIMARY KEY,     name VA"
+    },
+    {
+      "statement_num": 10,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE TABLE IF NOT EXISTS CONNECTOR_SYNC_LOG (     sync_id INTEGER AUTOINCREMENT PRIMARY KEY,     t"
+    },
+    {
+      "statement_num": 11,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE TABLE IF NOT EXISTS CONNECTOR_CONFIG (     config_id INTEGER AUTOINCREMENT PRIMARY KEY,     t"
+    },
+    {
+      "statement_num": 12,
+      "type": "INSERT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (42S02): SQL compilation error:\nTable 'CONNECTOR_CONFIG' does not exist or not authorized.",
+      "preview": "INSERT INTO CONNECTOR_CONFIG (table_name, is_enabled, sync_frequency_minutes, notes) VALUES     ('in"
+    },
+    {
+      "statement_num": 13,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.305251,
+      "rows": 1,
+      "csv_file": "stmt_013_select_20251024_154155.csv",
+      "json_file": "stmt_013_select_20251024_154155.json",
+      "preview": "SELECT '\u2705 DEV_TRANSFORMATION.SERVICENOW setup complete' AS status;"
+    },
+    {
+      "statement_num": 14,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.266356,
+      "rows": 0,
+      "preview": "SHOW TABLES IN SCHEMA DEV_TRANSFORMATION.SERVICENOW;"
+    },
+    {
+      "statement_num": 15,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.297602,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_REPORTING;"
+    },
+    {
+      "statement_num": 16,
+      "type": "USE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "000008 (0A000): Actual statement count 2 did not match the desired statement count 1.",
+      "preview": "USE SCHEMA SERVICENOW;  -- Already created successfully CREATE OR REPLACE VIEW VW_ACTIVE_INCIDENTS A"
+    },
+    {
+      "statement_num": 17,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE OR REPLACE VIEW VW_INCIDENT_METRICS_BY_PRIORITY AS SELECT     priority,     COUNT(*) AS total"
+    },
+    {
+      "statement_num": 18,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE OR REPLACE VIEW VW_CHANGE_CALENDAR AS SELECT     change_number,     short_description,     ty"
+    },
+    {
+      "statement_num": 19,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE OR REPLACE VIEW VW_CMDB_INVENTORY AS SELECT     ci_class,     category,     operational_statu"
+    },
+    {
+      "statement_num": 20,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE OR REPLACE VIEW VW_USER_ACTIVITY AS SELECT     u.user_name,     u.email,     u.department,   "
+    },
+    {
+      "statement_num": 21,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on schema 'PUBLIC'.",
+      "preview": "CREATE OR REPLACE VIEW VW_DAILY_INCIDENT_TREND AS SELECT     DATE(opened_at) AS incident_date,     C"
+    },
+    {
+      "statement_num": 22,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.765456,
+      "rows": 1,
+      "csv_file": "stmt_022_select_20251024_154158.csv",
+      "json_file": "stmt_022_select_20251024_154158.json",
+      "preview": "SELECT '\u2705 DEV_REPORTING.SERVICENOW setup complete' AS status;"
+    },
+    {
+      "statement_num": 23,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.257594,
+      "rows": 0,
+      "preview": "SHOW VIEWS IN SCHEMA DEV_REPORTING.SERVICENOW;"
+    },
+    {
+      "statement_num": 24,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.86194,
+      "rows": 3,
+      "csv_file": "stmt_024_select_20251024_154159.csv",
+      "json_file": "stmt_024_select_20251024_154159.json",
+      "preview": "SELECT 'ServiceNow Setup' AS component, 'Complete' AS status UNION ALL SELECT 'DEV_TRANSFORMATION.SE"
+    },
+    {
+      "statement_num": 25,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.283855,
+      "rows": 1,
+      "csv_file": "stmt_025_select_20251024_154200.csv",
+      "json_file": "stmt_025_select_20251024_154200.json",
+      "preview": "SELECT '\u2705 Setup complete! Next: Install Native Connector via admin' AS final_status;"
+    }
+  ]
+}

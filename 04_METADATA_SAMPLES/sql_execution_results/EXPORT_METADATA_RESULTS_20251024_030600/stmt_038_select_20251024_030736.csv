@@ -1,0 +1,2 @@
+SERVICE_NAME,SERVICE_CATEGORY,SERVICE_DESCRIPTION,IS_ACTIVE,REFRESH_FREQUENCY,DATA_STATUS,EXPORTED_AT
+Tenable,Vulnerability Management,Vulnerability assessment and management,False,Daily,No tables found,2025-10-24 06:07:35.335000+00:00

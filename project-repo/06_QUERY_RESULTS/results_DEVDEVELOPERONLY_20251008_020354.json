@@ -1,0 +1,640 @@
+{
+  "file": "PIPELINE_DEV_DEVELOPER_ONLY.sql",
+  "executed_at": "2025-10-08T02:04:08.200924",
+  "connection": {
+    "account": "mw76572.east-us-2.azure",
+    "user": "FUAD.ONATE@CompanyX.COM",
+    "authenticator": "externalbrowser",
+    "warehouse": "DEV_WH",
+    "database": "DEV_TRANSFORMATION",
+    "schema": "SECURITY_ANALYTICS",
+    "role": "DEV_DEVELOPER"
+  },
+  "statements": [
+    {
+      "num": 1,
+      "type": "USE_ROLE",
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 2,
+      "type": "USE_WAREHOUSE",
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 3,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT JSON_EDR_FORMAT\n    TYPE = JSON\n    COMPRESSION = AUTO\n    STRIP_OUTER_ARRAY = TRUE\n    STRIP_NULL_VALUES = FALSE\n    COMMENT = 'JSON format for EDR event streams';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format JSON_EDR_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 4,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT CSV_QUALYS_FORMAT\n    TYPE = CSV\n    COMPRESSION = GZIP\n    FIELD_DELIMITER = ','\n    RECORD_DELIMITER = '\\n'\n    SKIP_HEADER = 1\n    FIELD_OPTIONALLY_ENCLOSED_BY = '\"'\n    ESCAPE_UNENCLOSED_FIELD = NONE\n    TRIM_SPACE = TRUE\n    NULL_IF = ('NULL', 'null', '', '\\\\N')\n    COMMENT = 'CSV format for Qualys vulnerability exports';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format CSV_QUALYS_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 5,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT JSON_PROOFPOINT_FORMAT\n    TYPE = JSON\n    COMPRESSION = AUTO\n    STRIP_OUTER_ARRAY = TRUE\n    DATE_FORMAT = 'AUTO'\n    TIMESTAMP_FORMAT = 'AUTO'\n    COMMENT = 'JSON format for Proofpoint message logs';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format JSON_PROOFPOINT_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 6,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT PARQUET_SPLUNK_FORMAT\n    TYPE = PARQUET\n    COMPRESSION = SNAPPY\n    COMMENT = 'Parquet format for Splunk event data';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format PARQUET_SPLUNK_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 7,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT CSV_SERVICENOW_FORMAT\n    TYPE = CSV\n    COMPRESSION = GZIP\n    FIELD_DELIMITER = ','\n    SKIP_HEADER = 1\n    FIELD_OPTIONALLY_ENCLOSED_BY = '\"'\n    TRIM_SPACE = TRUE\n    NULL_IF = ('NULL', 'null', '')\n    COMMENT = 'CSV format for ServiceNow incident exports';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format CSV_SERVICENOW_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 8,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT CSV_ARCHER_FORMAT\n    TYPE = CSV\n    COMPRESSION = NONE\n    FIELD_DELIMITER = ','\n    SKIP_HEADER = 1\n    FIELD_OPTIONALLY_ENCLOSED_BY = '\"'\n    TRIM_SPACE = TRUE\n    COMMENT = 'CSV format for RSA Archer GRC exports';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format CSV_ARCHER_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 9,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT CSV_METACOMPLIANCE_FORMAT\n    TYPE = CSV\n    COMPRESSION = NONE\n    FIELD_DELIMITER = ','\n    SKIP_HEADER = 1\n    FIELD_OPTIONALLY_ENCLOSED_BY = '\"'\n    TRIM_SPACE = TRUE\n    COMMENT = 'CSV format for MetaCompliance training exports';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format CSV_METACOMPLIANCE_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 10,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_LANDING.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 11,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_CROWDSTRIKE_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    SOURCE_FILE_ROW_NUMBER NUMBER,\n    RAW_DATA VARIANT,\n    METADATA VARIANT\n)\nCOMMENT = 'Raw landing table for CrowdStrike EDR events - auto-ingested via Snowpipe';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_CROWDSTRIKE_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 12,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_SENTINELONE_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    SOURCE_FILE_ROW_NUMBER NUMBER,\n    RAW_DATA VARIANT,\n    METADATA VARIANT\n)\nCOMMENT = 'Raw landing table for SentinelOne threat events - auto-ingested via Snowpipe';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_SENTINELONE_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 13,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_QUALYS_SCANS_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    SOURCE_FILE_ROW_NUMBER NUMBER,\n    QID VARCHAR(50),\n    HOST_ID VARCHAR(100),\n    IP_ADDRESS VARCHAR(45),\n    DNS_NAME VARCHAR(500),\n    SEVERITY NUMBER,\n    CVSS_SCORE DECIMAL(4,1),\n    FIRST_DETECTED TIMESTAMP_NTZ,\n    LAST_DETECTED TIMESTAMP_NTZ,\n    STATUS VARCHAR(50),\n    RAW_DATA VARIANT\n)\nCOMMENT = 'Raw landing table for Qualys vulnerabilit",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_QUALYS_SCANS_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 14,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_PROOFPOINT_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    SOURCE_FILE_ROW_NUMBER NUMBER,\n    MESSAGE_ID VARCHAR(500),\n    MESSAGE_TIME TIMESTAMP_NTZ,\n    SENDER VARCHAR(500),\n    RECIPIENT VARCHAR(500),\n    SUBJECT VARCHAR(1000),\n    THREAT_TYPE VARCHAR(100),\n    RAW_DATA VARIANT\n)\nCOMMENT = 'Raw landing table for Proofpoint email logs - auto-ingested via Snowpipe';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_PROOFPOINT_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 15,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_SPLUNK_ALERTS_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    ALERT_ID VARCHAR(100),\n    ALERT_TIME TIMESTAMP_NTZ,\n    ALERT_NAME VARCHAR(500),\n    SEVERITY VARCHAR(50),\n    SOURCE_IP VARCHAR(45),\n    DESTINATION_IP VARCHAR(45),\n    RAW_DATA VARIANT\n)\nCOMMENT = 'Raw landing table for Splunk security alerts - auto-ingested via Snowpipe';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_SPLUNK_ALERTS_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 16,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE STG_SERVICENOW_INCIDENTS (\n    LOAD_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    INCIDENT_ID VARCHAR(100),\n    INCIDENT_NUMBER VARCHAR(100),\n    OPENED_AT TIMESTAMP_NTZ,\n    CLOSED_AT TIMESTAMP_NTZ,\n    PRIORITY VARCHAR(50),\n    CATEGORY VARCHAR(200),\n    ASSIGNED_TO VARCHAR(200),\n    SHORT_DESCRIPTION VARCHAR(5000),\n    STATE VARCHAR(50),\n    RESOLUTION_CODE VARCHAR(100)\n)\nCOMMENT = 'Staging table for ServiceNow incident exports - loaded via batch task';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table STG_SERVICENOW_INCIDENTS successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 17,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE STG_ARCHER_MATURITY (\n    LOAD_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    ASSESSMENT_ID VARCHAR(100),\n    ASSESSMENT_DATE DATE,\n    OPCO_ID VARCHAR(50),\n    NIST_FUNCTION VARCHAR(100),\n    MATURITY_LEVEL NUMBER,\n    SCORE NUMBER,\n    COMMENTS VARCHAR(5000)\n)\nCOMMENT = 'Staging table for RSA Archer maturity assessments - loaded via batch task';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table STG_ARCHER_MATURITY successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 18,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE STG_METACOMPLIANCE_TRAINING (\n    LOAD_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    USER_EMAIL VARCHAR(500),\n    COURSE_NAME VARCHAR(500),\n    COMPLETION_DATE DATE,\n    SCORE NUMBER,\n    STATUS VARCHAR(50),\n    TRAINING_TYPE VARCHAR(100)\n)\nCOMMENT = 'Staging table for MetaCompliance training completion - loaded via batch task';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table STG_METACOMPLIANCE_TRAINING successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 19,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_LANDING.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 20,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_CROWDSTRIKE_NEW\n    ON TABLE L_CROWDSTRIKE_RAW\n    COMMENT = 'CDC stream for new CrowdStrike events - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_CROWDSTRIKE_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 21,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_SENTINELONE_NEW\n    ON TABLE L_SENTINELONE_RAW\n    COMMENT = 'CDC stream for new SentinelOne events - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_SENTINELONE_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 22,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_QUALYS_NEW\n    ON TABLE L_QUALYS_SCANS_RAW\n    COMMENT = 'CDC stream for new Qualys scans - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_QUALYS_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 23,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_PROOFPOINT_NEW\n    ON TABLE L_PROOFPOINT_RAW\n    COMMENT = 'CDC stream for new Proofpoint messages - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_PROOFPOINT_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 24,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_SPLUNK_NEW\n    ON TABLE L_SPLUNK_ALERTS_RAW\n    COMMENT = 'CDC stream for new Splunk alerts - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_SPLUNK_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 25,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_TRANSFORMATION.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 26,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_TRANSFORM_CROWDSTRIKE_EDR()\nRETURNS VARCHAR\nLANGUAGE SQL\nEXECUTE AS CALLER\nAS\nBEGIN\n    LET rows_processed NUMBER DEFAULT 0;\n    INSERT INTO FACT_EDR (\n        EVENT_ID,\n        HOST_ID,\n        DATE,\n        THREAT_KEY,\n        EVENT_TYPE,\n        SEVERITY,\n        DETECTION_TIME,\n        THREAT_COUNT,\n        FILE_PATH,\n        PROCESS_NAME,\n        EDR_PLATFORM\n    )\n    SELECT\n        RAW_DATA:detection_id::VARCHAR,\n        RAW_DATA:device_id::VARCHAR,\n        ",
+      "success": true,
+      "rows": [
+        {
+          "status": "Function SP_TRANSFORM_CROWDSTRIKE_EDR successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 27,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_TRANSFORM_SENTINELONE_EDR()\nRETURNS VARCHAR\nLANGUAGE SQL\nEXECUTE AS CALLER\nAS\nBEGIN\n    LET rows_processed NUMBER DEFAULT 0;\n    INSERT INTO FACT_EDR (\n        EVENT_ID,\n        HOST_ID,\n        DATE,\n        THREAT_KEY,\n        EVENT_TYPE,\n        SEVERITY,\n        DETECTION_TIME,\n        THREAT_COUNT,\n        FILE_PATH,\n        PROCESS_NAME,\n        EDR_PLATFORM\n    )\n    SELECT\n        RAW_DATA:threatInfo.id::VARCHAR,\n        RAW_DATA:agentRealtimeInfo.agentId::",
+      "success": true,
+      "rows": [
+        {
+          "status": "Function SP_TRANSFORM_SENTINELONE_EDR successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 28,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_TRANSFORM_QUALYS_SCANS()\nRETURNS VARCHAR\nLANGUAGE SQL\nEXECUTE AS CALLER\nAS\nBEGIN\n    LET rows_processed NUMBER DEFAULT 0;\n    MERGE INTO FACT_QUALYS AS tgt\n    USING (\n        SELECT\n            QID,\n            HOST_ID,\n            TO_DATE(LAST_DETECTED) AS SCAN_DATE,\n            SEVERITY,\n            CVSS_SCORE,\n            CASE\n                WHEN STATUS = 'New' THEN 'New'\n                WHEN STATUS = 'Active' THEN 'Active'\n                WHEN STATUS = 'Re-Op",
+      "success": true,
+      "rows": [
+        {
+          "status": "Function SP_TRANSFORM_QUALYS_SCANS successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 29,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_CALCULATE_TOP13_METRICS()\nRETURNS VARCHAR\nLANGUAGE SQL\nEXECUTE AS CALLER\nAS\nBEGIN\n    LET calculation_timestamp TIMESTAMP_LTZ;\n    calculation_timestamp := CURRENT_TIMESTAMP();\n    INSERT INTO TBL_KPI_MASTER (\n        METRIC_NAME,\n        METRIC_VALUE,\n        CALCULATION_DATE,\n        NIST_FUNCTION,\n        TARGET_THRESHOLD\n    )\n    SELECT\n        'Days Since Last Ransomware',\n        DATEDIFF(DAY, MAX(DETECTION_TIME), CURRENT_DATE()),\n        :calculation_timest",
+      "success": true,
+      "rows": [
+        {
+          "status": "Function SP_CALCULATE_TOP13_METRICS successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 30,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_MONITOR_SNOWPIPE_HEALTH()\nRETURNS VARCHAR\nLANGUAGE SQL\nAS\nBEGIN\n    INSERT INTO TBL_PIPELINE_MONITORING (\n        PIPELINE_NAME,\n        PIPELINE_TYPE,\n        STATUS,\n        ROWS_PROCESSED,\n        ERROR_MESSAGE,\n        LAST_SUCCESS_TIMESTAMP\n    )\n    SELECT\n        PIPE_NAME,\n        'SNOWPIPE',\n        CASE\n            WHEN ERROR_COUNT > 0 THEN 'ERROR'\n            WHEN FILES_LOADED = 0 AND DATEDIFF(HOUR, LAST_LOAD_TIME, CURRENT_TIMESTAMP()) > 24 THEN 'WARNING",
+      "success": true,
+      "rows": [
+        {
+          "status": "Function SP_MONITOR_SNOWPIPE_HEALTH successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 31,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_MONITOR_TASK_HEALTH()\nRETURNS VARCHAR\nLANGUAGE SQL\nAS\nBEGIN\n    INSERT INTO TBL_PIPELINE_MONITORING (\n        PIPELINE_NAME,\n        PIPELINE_TYPE,\n        STATUS,\n        ERROR_MESSAGE,\n        LAST_SUCCESS_TIMESTAMP\n    )\n    SELECT\n        NAME,\n        'TASK',\n        CASE\n            WHEN STATE = 'suspended' THEN 'ERROR'\n            WHEN ERROR_CODE IS NOT NULL THEN 'ERROR'\n            WHEN DATEDIFF(HOUR, COMPLETED_TIME, CURRENT_TIMESTAMP()) > 48 THEN 'WARNING'",
+      "success": true,
+      "rows": [
+        {
+          "status": "Function SP_MONITOR_TASK_HEALTH successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 32,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_TRANSFORMATION.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 33,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_ROOT_DAILY_ORCHESTRATION\n    WAREHOUSE = DEV_WH\n    SCHEDULE = 'USING CRON 0 1 * * * America/New_York' -- Daily at 1 AM EST\nAS\n    SELECT 'Daily orchestration started' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_ROOT_DAILY_ORCHESTRATION successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 34,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_TRANSFORM_CROWDSTRIKE\n    WAREHOUSE = DEV_WH\n    SCHEDULE = '15 MINUTE'\n    WHEN SYSTEM$STREAM_HAS_DATA('DEV_LANDING.SECURITY_ANALYTICS.STREAM_CROWDSTRIKE_NEW')\nAS\n    CALL SP_TRANSFORM_CROWDSTRIKE_EDR();",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_TRANSFORM_CROWDSTRIKE successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 35,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_TRANSFORM_SENTINELONE\n    WAREHOUSE = DEV_WH\n    SCHEDULE = '15 MINUTE'\n    WHEN SYSTEM$STREAM_HAS_DATA('DEV_LANDING.SECURITY_ANALYTICS.STREAM_SENTINELONE_NEW')\nAS\n    CALL SP_TRANSFORM_SENTINELONE_EDR();",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_TRANSFORM_SENTINELONE successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 36,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_TRANSFORM_QUALYS\n    WAREHOUSE = DEV_WH\n    SCHEDULE = '60 MINUTE'\n    WHEN SYSTEM$STREAM_HAS_DATA('DEV_LANDING.SECURITY_ANALYTICS.STREAM_QUALYS_NEW')\nAS\n    CALL SP_TRANSFORM_QUALYS_SCANS();",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_TRANSFORM_QUALYS successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 37,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_INGEST_SERVICENOW\n    WAREHOUSE = DEV_WH\n    AFTER TASK_ROOT_DAILY_ORCHESTRATION\nAS\n    SELECT 'ServiceNow ingestion - waiting for stage creation' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_INGEST_SERVICENOW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 38,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_INGEST_ARCHER\n    WAREHOUSE = DEV_WH\n    AFTER TASK_ROOT_DAILY_ORCHESTRATION\nAS\n    SELECT 'Archer ingestion - waiting for stage creation' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_INGEST_ARCHER successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 39,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_INGEST_METACOMPLIANCE\n    WAREHOUSE = DEV_WH\n    AFTER TASK_ROOT_DAILY_ORCHESTRATION\nAS\n    SELECT 'MetaCompliance ingestion - waiting for stage creation' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_INGEST_METACOMPLIANCE successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 40,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_CALCULATE_TOP13_METRICS\n    WAREHOUSE = DEV_WH\n    AFTER TASK_INGEST_SERVICENOW, TASK_INGEST_ARCHER, TASK_INGEST_METACOMPLIANCE\nAS\n    CALL SP_CALCULATE_TOP13_METRICS();",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_CALCULATE_TOP13_METRICS successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 41,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TASK TASK_REFRESH_POWERBI_VIEWS\n    WAREHOUSE = DEV_WH\n    AFTER TASK_CALCULATE_TOP13_METRICS\nAS\nBEGIN\n    CREATE OR REPLACE TABLE VW_POWERBI_EXECUTIVE_DASHBOARD_MAT AS\n    SELECT * FROM VW_POWERBI_EXECUTIVE_DASHBOARD;\n    CREATE OR REPLACE TABLE VW_DATA_QUALITY_DASHBOARD_MAT AS\n    SELECT * FROM VW_DATA_QUALITY_DASHBOARD;\nEND;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_REFRESH_POWERBI_VIEWS successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 42,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_WEEKLY_HEALTH_CHECK\n    WAREHOUSE = DEV_WH\n    SCHEDULE = 'USING CRON 0 6 * * SUN America/New_York'\nAS\nBEGIN\n    INSERT INTO IMPLEMENTATION_LOG (LOG_TIMESTAMP, LOG_TYPE, MESSAGE)\n    SELECT\n        CURRENT_TIMESTAMP(),\n        'PIPELINE_HEALTH',\n        'Snowpipe Status: ' ||\n        (SELECT COUNT(*) FROM TABLE(INFORMATION_SCHEMA.PIPE_USAGE_HISTORY(DATE_RANGE_START=>DATEADD('day', -7, CURRENT_DATE())))) ||\n        ' files ingested in last 7 days';\n    INSERT INTO IMPL",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_WEEKLY_HEALTH_CHECK successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 43,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_MONITORING_HEALTH_CHECK\n    WAREHOUSE = DEV_WH\n    SCHEDULE = '30 MINUTE'\nAS\nBEGIN\n    CALL SP_MONITOR_SNOWPIPE_HEALTH();\n    CALL SP_MONITOR_TASK_HEALTH();\nEND;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_MONITORING_HEALTH_CHECK successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 44,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_TRANSFORMATION.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 45,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE TBL_PIPELINE_MONITORING (\n    MONITORING_ID NUMBER AUTOINCREMENT PRIMARY KEY,\n    CHECK_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    PIPELINE_NAME VARCHAR(200),\n    PIPELINE_TYPE VARCHAR(50), -- 'SNOWPIPE', 'TASK', 'STREAM'\n    STATUS VARCHAR(50), -- 'HEALTHY', 'WARNING', 'ERROR'\n    ROWS_PROCESSED NUMBER,\n    ERROR_MESSAGE VARCHAR(5000),\n    LAG_MINUTES NUMBER,\n    LAST_SUCCESS_TIMESTAMP TIMESTAMP_LTZ\n)\nCOMMENT = 'Pipeline health monitoring metrics';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table TBL_PIPELINE_MONITORING successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 46,
+      "type": "UNKNOWN",
+      "sql": "SELECT 'FILE_FORMATS' AS OBJECT_TYPE, COUNT(*) AS COUNT\nFROM INFORMATION_SCHEMA.FILE_FORMATS\nWHERE FILE_FORMAT_SCHEMA = 'SECURITY_ANALYTICS'\nUNION ALL\nSELECT 'LANDING_TABLES', COUNT(*)\nFROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'\nAND TABLE_CATALOG = 'DEV_LANDING'\nAND TABLE_TYPE = 'BASE TABLE'\nUNION ALL\nSELECT 'STREAMS', COUNT(*)\nFROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'\nAND TABLE_CATALOG = 'DEV_LANDING'\nAND TABLE_TYPE = 'STREAM'\nUNION ALL\nSELECT 'PROCEDURES', COUNT(*",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.INFORMATION_SCHEMA.TASKS' does not exist or not authorized."
+    },
+    {
+      "num": 47,
+      "type": "UNKNOWN",
+      "sql": "OBJECTS CREATED WITH DEV_DEVELOPER ROLE:\n\u2713 7 File Formats (JSON, CSV, Parquet)\n\u2713 8 Landing Tables (5 for Snowpipe, 3 for batch)\n\u2713 5 Streams (CDC for all landing tables)\n\u2713 5 Stored Procedures (transformations + monitoring)\n\u2713 10 Tasks (orchestration DAG)\n\u2713 1 Monitoring Table\nOBJECTS REQUIRING ACCOUNTADMIN (see PIPELINE_ACCOUNTADMIN_REQUIRED.sql):\n\u23ed 4 Storage Integrations (S3 + Azure)\n\u23ed 5 External Stages\n\u23ed 5 Snowpipes\n\u23ed 3 External Tables\nNEXT STEPS:\n1. Execute this script with DEV_DEVELOPER role \u2713\n",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'OBJECTS'."
+    },
+    {
+      "num": 48,
+      "type": "UNKNOWN",
+      "sql": "SELECT COUNT(*) FROM DEV_LANDING.SECURITY_ANALYTICS.STREAM_CROWDSTRIKE_NEW;",
+      "success": true,
+      "rows": [
+        {
+          "COUNT(*)": 0
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 49,
+      "type": "UNKNOWN",
+      "sql": "CALL DEV_TRANSFORMATION.SECURITY_ANALYTICS.SP_TRANSFORM_CROWDSTRIKE_EDR();",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "000904 (42000): Uncaught exception of type 'STATEMENT_ERROR' on line 3 at position 4 : SQL compilation error: error line 2 at position 8\ninvalid identifier 'EVENT_ID'"
+    }
+  ]
+}

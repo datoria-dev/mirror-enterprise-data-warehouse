@@ -1,0 +1,14 @@
+[
+  {
+    "COMPONENT":"ServiceNow Setup",
+    "STATUS":"Complete"
+  },
+  {
+    "COMPONENT":"DEV_TRANSFORMATION.SERVICENOW",
+    "STATUS":"0 tables"
+  },
+  {
+    "COMPONENT":"DEV_REPORTING.SERVICENOW",
+    "STATUS":"0 views"
+  }
+]

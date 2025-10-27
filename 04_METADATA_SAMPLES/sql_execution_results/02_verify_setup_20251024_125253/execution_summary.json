@@ -1,0 +1,80 @@
+{
+  "script_name": "02_verify_setup.sql",
+  "execution_timestamp": "2025-10-24T12:53:16.915283",
+  "total_statements": 8,
+  "successful_statements": 8,
+  "failed_statements": 0,
+  "total_duration_seconds": 4.594341,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.464286,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 2,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.686399,
+      "rows": 2,
+      "csv_file": "stmt_002_select_20251024_125313.csv",
+      "json_file": "stmt_002_select_20251024_125313.json",
+      "preview": "SELECT     schema_name,     schema_owner,     retention_time,     comment,     created AS schema_cre"
+    },
+    {
+      "statement_num": 3,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.449635,
+      "rows": 1,
+      "preview": "USE SCHEMA CONNECTOR_METADATA;"
+    },
+    {
+      "statement_num": 4,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.30689,
+      "rows": 6,
+      "preview": "DESCRIBE TABLE CONNECTOR_INSTALLATION_LOG;"
+    },
+    {
+      "statement_num": 5,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.457916,
+      "rows": 4,
+      "csv_file": "stmt_005_select_20251024_125314.csv",
+      "json_file": "stmt_005_select_20251024_125314.json",
+      "preview": "SELECT     log_id,     installation_step,     step_status,     execution_timestamp,     executed_by,"
+    },
+    {
+      "statement_num": 6,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.341509,
+      "rows": 2,
+      "preview": "SHOW GRANTS ON SCHEMA DEV_TRANSFORMATION.RAW_DATA;"
+    },
+    {
+      "statement_num": 7,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.372732,
+      "rows": 2,
+      "preview": "SHOW GRANTS ON SCHEMA DEV_TRANSFORMATION.CONNECTOR_METADATA;"
+    },
+    {
+      "statement_num": 8,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 1.514974,
+      "rows": 4,
+      "csv_file": "stmt_008_select_20251024_125316.csv",
+      "json_file": "stmt_008_select_20251024_125316.json",
+      "preview": "SELECT     '\u2705 RAW_DATA schema created' AS verification_item,     CASE         WHEN EXISTS (         "
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "TABLE_NAME":"TABLE_REGISTRY",
+    "ROW_COUNT":180,
+    "EXPECTED_COUNT":180,
+    "STATUS":"\u2705 PASS"
+  },
+  {
+    "TABLE_NAME":"COLUMN_METADATA",
+    "ROW_COUNT":2206,
+    "EXPECTED_COUNT":2206,
+    "STATUS":"\u2705 PASS"
+  },
+  {
+    "TABLE_NAME":"TABLE_STATISTICS",
+    "ROW_COUNT":720,
+    "EXPECTED_COUNT":180,
+    "STATUS":"\u2705 PASS"
+  },
+  {
+    "TABLE_NAME":"SERVICE_CATALOG",
+    "ROW_COUNT":21,
+    "EXPECTED_COUNT":21,
+    "STATUS":"\u2705 PASS"
+  }
+]

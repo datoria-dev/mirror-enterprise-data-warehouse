@@ -1,0 +1,32 @@
+[
+  {
+    "CRITERIA":"Execution completed successfully",
+    "EXPECTED_VALUE":"SUCCESS",
+    "ACTUAL_VALUE":"SUCCESS",
+    "TEST_RESULT":"\u2705 PASS"
+  },
+  {
+    "CRITERIA":"Tables processed > 0",
+    "EXPECTED_VALUE":"> 0",
+    "ACTUAL_VALUE":"180",
+    "TEST_RESULT":"\u2705 PASS"
+  },
+  {
+    "CRITERIA":"Columns processed > 0",
+    "EXPECTED_VALUE":"> 0",
+    "ACTUAL_VALUE":"2206",
+    "TEST_RESULT":"\u2705 PASS"
+  },
+  {
+    "CRITERIA":"Execution duration < 30 seconds",
+    "EXPECTED_VALUE":"< 30 sec",
+    "ACTUAL_VALUE":"9 sec",
+    "TEST_RESULT":"\u2705 PASS"
+  },
+  {
+    "CRITERIA":"No error message",
+    "EXPECTED_VALUE":"NULL",
+    "ACTUAL_VALUE":"(none)",
+    "TEST_RESULT":"\u2705 PASS"
+  }
+]

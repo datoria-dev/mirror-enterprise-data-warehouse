@@ -1,0 +1,146 @@
+================================================================================
+DEPLOYMENT RÁPIDO - Symantec Streamlit (Sin SnowSQL)
+================================================================================
+
+MÉTODO MÁS RÁPIDO: Usar el Editor de Snowflake Streamlit
+================================================================================
+
+PASO 1: Abrir Snowflake
+------------------------
+- Ve a: https://app.snowflake.com
+- Login con: FUAD.ONATE@CompanyX.COM (Okta SSO)
+- Selecciona cuenta: GenericCorp-CRH_LEDW
+
+
+PASO 2: Ir a Streamlit
+------------------------
+- En el menú lateral izquierdo, busca "Streamlit" o "Projects" ? "Streamlit"
+- Click en "+ Streamlit App" o "Create Streamlit App"
+
+
+PASO 3: Copiar el Código
+------------------------
+- Abre el archivo en Notepad/VSCode:
+  C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Symantec\streamlit_app.py
+
+- Selecciona TODO el código (Ctrl+A)
+- Copia (Ctrl+C)
+
+
+PASO 4: Pegar en Snowflake
+------------------------
+- En el editor de Snowflake Streamlit, borra el código de ejemplo
+- Pega tu código (Ctrl+V)
+
+
+PASO 5: Configurar
+------------------------
+Completa estos campos:
+- Name: STREAMLIT_SYMANTEC
+- Database: ITSECKPI_DB
+- Schema: ITSECKPI_SCHEMA
+- Warehouse: COMPUTE_WH
+
+
+PASO 6: Desplegar
+------------------------
+- Click en "Run" o "Deploy"
+- Espera 30-60 segundos mientras se despliega
+- La app debería cargar automáticamente
+
+
+PASO 7: Probar Download Buttons
+------------------------
+? Tab 1: Click "?? Download Coverage CSV"
+  ? Debe descargar archivo symantec_coverage.csv
+
+? Tab 2: Click "?? Download Health Status CSV"
+  ? Debe descargar archivo symantec_health.csv
+
+? Tab 3: Click "?? Download Critical Endpoints CSV"
+  ? Debe descargar archivo symantec_critical.csv
+
+
+PASO 8: Probar Refresh
+------------------------
+? Sidebar: Click "?? Refresh Now"
+  ? App debe recargar sin error
+  ? NO debe ver: "AttributeError: experimental_rerun"
+
+
+================================================================================
+PROBLEMAS COMUNES
+================================================================================
+
+Problema: "No puedo crear Streamlit apps"
+Solución: Pide permisos al admin:
+          GRANT CREATE STREAMLIT ON SCHEMA ITSECKPI_SCHEMA TO ROLE PRD_DEVELOPER;
+
+
+Problema: "No encuentro la sección Streamlit"
+Solución: Busca en: Projects ? Streamlit Apps
+          O en: Apps ? Streamlit
+
+
+Problema: "Download button no hace nada"
+Solución: 1. Abre DevTools del navegador (F12)
+          2. Ve a Console
+          3. Click en download button
+          4. Mira si hay errores
+          5. Avísame qué error aparece
+
+
+================================================================================
+CAMBIOS APLICADOS EN ESTA VERSIÓN
+================================================================================
+
+? Fix 1: st.experimental_rerun() ? st.rerun()
+         (Línea 359)
+
+? Fix 2: Agregado key único a cada download button
+         - key="download_coverage_btn" (Línea 597)
+         - key="download_health_btn" (Línea 685)
+         - key="download_critical_btn" (Línea 786)
+
+
+================================================================================
+CHECKLIST FINAL
+================================================================================
+
+Después de desplegar, verifica:
+
+[ ] App carga sin errores
+[ ] Se ven 4 tabs claramente
+[ ] Tab 1: Tabla de coverage visible
+[ ] Tab 1: Download button aparece
+[ ] Tab 1: Download button DESCARGA archivo CSV
+[ ] Tab 1: Alert de coverage aparece con color
+[ ] Tab 2: Download button descarga CSV
+[ ] Tab 3: Download button descarga CSV
+[ ] Sidebar: Refresh Now funciona (no error)
+[ ] Sidebar: Auto-refresh checkbox visible
+
+Si TODOS están marcados: ¡ÉXITO! ??
+
+
+================================================================================
+SIGUIENTE PASO
+================================================================================
+
+Una vez que Symantec funcione:
+- Desplegar las otras 10 apps con download buttons
+- Todas están en: 13_STREAMLIT_COMPLETE/
+- Todas tienen los mismos fixes aplicados
+- Mismo proceso: copiar código ? pegar ? configurar ? run
+
+
+================================================================================
+CONTACTO
+================================================================================
+
+Si encuentras problemas, avísame con:
+1. Qué paso estás haciendo
+2. Qué error aparece (screenshot o texto)
+3. En qué tab/botón ocurre
+
+¡Buena suerte! ??

@@ -1,0 +1,350 @@
+File: EXTRACT_COMPLETE_ERD_METADATA.sql
+Time: 2025-10-07T18:16:08.181439
+Success: 53/55
+
+
+[1] ✓
+SQL: USE ROLE DEV_DEVELOPER;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[2] ✓
+SQL: USE WAREHOUSE DEV_WH;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[3] ✓
+SQL: -- =====================================================================
+-- SUMMARY: Object counts a...
+Rows: 1
+Sample: {'SECTION': '=== ARCHITECTURE SUMMARY ==='}
+
+[4] ✗
+SQL: SELECT
+    'DEV_LANDING' as DATABASE_NAME,
+    (SELECT COUNT(*) FROM DEV_LANDING.INFORMATION_SCHEMA....
+Error: 002003 (42S02): SQL compilation error:
+Object 'DEV_TRANSFORMATION.INFORMATION_SCHEMA.TASKS' does not exist or not authorized.
+
+[5] ✓
+SQL: -- =====================================================================
+-- LAYER 1: DEV_LANDING - C...
+Rows: 1
+Sample: {'SECTION': '=== LAYER 1: DEV_LANDING - TABLES ==='}
+
+[6] ✓
+SQL: USE DATABASE DEV_LANDING;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[7] ✓
+SQL: USE SCHEMA SECURITY_ANALYTICS;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[8] ✓
+SQL: SELECT
+    'LANDING' as LAYER,
+    'TABLE' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,
+    ROW_CO...
+Rows: 141
+Sample: {'LAYER': 'LANDING', 'OBJECT_TYPE': 'TABLE', 'OBJECT_NAME': 'AD_COMPUTERS_ALUNGRIFFITHS', 'ROW_COUNT': '640', 'SIZE_MB': '0.01', 'COMMENT': None}
+
+[9] ✓
+SQL: SELECT '=== LAYER 1: DEV_LANDING - VIEWS ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 1: DEV_LANDING - VIEWS ==='}
+
+[10] ✓
+SQL: SELECT
+    'LANDING' as LAYER,
+    'VIEW' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,
+    COMMENT...
+Rows: 11
+Sample: {'LAYER': 'LANDING', 'OBJECT_TYPE': 'VIEW', 'OBJECT_NAME': 'QUALYS_CONSOLIDATED', 'COMMENT': None}
+
+[11] ✓
+SQL: -- =====================================================================
+-- LAYER 2: DEV_TRANSFORMAT...
+Rows: 1
+Sample: {'SECTION': '=== LAYER 2: DEV_TRANSFORMATION - DIMENSION TABLES ==='}
+
+[12] ✓
+SQL: USE DATABASE DEV_TRANSFORMATION;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[13] ✓
+SQL: USE SCHEMA SECURITY_ANALYTICS;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[14] ✓
+SQL: SELECT
+    'TRANSFORMATION' as LAYER,
+    'DIMENSION' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,...
+Rows: 32
+Sample: {'LAYER': 'TRANSFORMATION', 'OBJECT_TYPE': 'DIMENSION', 'OBJECT_NAME': 'DIM_ANCON_USERS', 'ROW_COUNT': '995', 'SIZE_MB': '0.09', 'COMMENT': 'User dimension for Ancon system users including authentication and account status'}
+
+[15] ✓
+SQL: SELECT '=== LAYER 2: DEV_TRANSFORMATION - FACT TABLES ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 2: DEV_TRANSFORMATION - FACT TABLES ==='}
+
+[16] ✓
+SQL: SELECT
+    'TRANSFORMATION' as LAYER,
+    'FACT' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,
+    ...
+Rows: 23
+Sample: {'LAYER': 'TRANSFORMATION', 'OBJECT_TYPE': 'FACT', 'OBJECT_NAME': 'FACT_AV_HEALTH', 'ROW_COUNT': '107', 'SIZE_MB': '0.01', 'COMMENT': 'Fact table for antivirus health metrics'}
+
+[17] ✓
+SQL: SELECT '=== LAYER 2: DEV_TRANSFORMATION - OTHER TABLES ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 2: DEV_TRANSFORMATION - OTHER TABLES ==='}
+
+[18] ✓
+SQL: SELECT
+    'TRANSFORMATION' as LAYER,
+    'TABLE' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,
+   ...
+Rows: 62
+Sample: {'LAYER': 'TRANSFORMATION', 'OBJECT_TYPE': 'TABLE', 'OBJECT_NAME': 'BUSINESS_RULE_VIOLATIONS', 'ROW_COUNT': '0', 'SIZE_MB': '0.00', 'COMMENT': None}
+
+[19] ✓
+SQL: SELECT '=== LAYER 2: DEV_TRANSFORMATION - VIEWS ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 2: DEV_TRANSFORMATION - VIEWS ==='}
+
+[20] ✓
+SQL: SELECT
+    'TRANSFORMATION' as LAYER,
+    'VIEW' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,
+    ...
+Rows: 50
+Sample: {'LAYER': 'TRANSFORMATION', 'OBJECT_TYPE': 'VIEW', 'OBJECT_NAME': 'CISCO_AMP_DATA', 'COMMENT': None}
+
+[21] ✓
+SQL: SELECT '=== LAYER 2: DEV_TRANSFORMATION - STORED PROCEDURES ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 2: DEV_TRANSFORMATION - STORED PROCEDURES ==='}
+
+[22] ✓
+SQL: SELECT
+    'TRANSFORMATION' as LAYER,
+    'PROCEDURE' as OBJECT_TYPE,
+    PROCEDURE_NAME as OBJECT_N...
+Rows: 15
+Sample: {'LAYER': 'TRANSFORMATION', 'OBJECT_TYPE': 'PROCEDURE', 'OBJECT_NAME': 'SP_CALCULATE_DATA_QUALITY_SCORE', 'ARGUMENT_SIGNATURE': '()', 'PROCEDURE_LANGUAGE': 'SQL'}
+
+[23] ✓
+SQL: SELECT '=== LAYER 2: DEV_TRANSFORMATION - TASKS ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 2: DEV_TRANSFORMATION - TASKS ==='}
+
+[24] ✗
+SQL: SELECT
+    'TRANSFORMATION' as LAYER,
+    'TASK' as OBJECT_TYPE,
+    TASK_NAME as OBJECT_NAME,
+    S...
+Error: 002003 (42S02): SQL compilation error:
+Object 'DEV_TRANSFORMATION.INFORMATION_SCHEMA.TASKS' does not exist or not authorized.
+
+[25] ✓
+SQL: -- =====================================================================
+-- LAYER 3: DEV_REPORTING -...
+Rows: 1
+Sample: {'SECTION': '=== LAYER 3: DEV_REPORTING - TABLES ==='}
+
+[26] ✓
+SQL: USE DATABASE DEV_REPORTING;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[27] ✓
+SQL: USE SCHEMA SECURITY_ANALYTICS;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[28] ✓
+SQL: SELECT
+    'REPORTING' as LAYER,
+    'TABLE' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,
+    ROW_...
+Rows: 18
+Sample: {'LAYER': 'REPORTING', 'OBJECT_TYPE': 'TABLE', 'OBJECT_NAME': 'BOL_CROWDSTRIKE', 'ROW_COUNT': '1203', 'SIZE_MB': '0.22', 'COMMENT': None}
+
+[29] ✓
+SQL: SELECT '=== LAYER 3: DEV_REPORTING - VIEWS (Part 1) ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 3: DEV_REPORTING - VIEWS (Part 1) ==='}
+
+[30] ✓
+SQL: SELECT
+    'REPORTING' as LAYER,
+    'VIEW' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,
+    COMME...
+Rows: 50
+Sample: {'LAYER': 'REPORTING', 'OBJECT_TYPE': 'VIEW', 'OBJECT_NAME': 'VW_AGENT_COVERAGE', 'COMMENT': 'Security client deployment coverage'}
+
+[31] ✓
+SQL: SELECT '=== LAYER 3: DEV_REPORTING - VIEWS (Part 2) ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 3: DEV_REPORTING - VIEWS (Part 2) ==='}
+
+[32] ✓
+SQL: SELECT
+    'REPORTING' as LAYER,
+    'VIEW' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,
+    COMME...
+Rows: 50
+Sample: {'LAYER': 'REPORTING', 'OBJECT_TYPE': 'VIEW', 'OBJECT_NAME': 'VW_FIXEDVULN_OS_TRENDS', 'COMMENT': 'Vulnerability trends by operating system'}
+
+[33] ✓
+SQL: SELECT '=== LAYER 3: DEV_REPORTING - VIEWS (Part 3) ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 3: DEV_REPORTING - VIEWS (Part 3) ==='}
+
+[34] ✓
+SQL: SELECT
+    'REPORTING' as LAYER,
+    'VIEW' as OBJECT_TYPE,
+    TABLE_NAME as OBJECT_NAME,
+    COMME...
+Rows: 48
+Sample: {'LAYER': 'REPORTING', 'OBJECT_TYPE': 'VIEW', 'OBJECT_NAME': 'VW_MCAFEE_EDR_COVERAGE', 'COMMENT': 'EDR coverage and compliance status metrics'}
+
+[35] ✓
+SQL: SELECT '=== LAYER 3: DEV_REPORTING - STORED PROCEDURES ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== LAYER 3: DEV_REPORTING - STORED PROCEDURES ==='}
+
+[36] ✓
+SQL: SELECT
+    'REPORTING' as LAYER,
+    'PROCEDURE' as OBJECT_TYPE,
+    PROCEDURE_NAME as OBJECT_NAME,
+...
+Rows: 10
+Sample: {'LAYER': 'REPORTING', 'OBJECT_TYPE': 'PROCEDURE', 'OBJECT_NAME': 'EXTRACT_VIEWS_WITH_SAMPLES', 'ARGUMENT_SIGNATURE': '(DATABASE_NAME VARCHAR, SCHEMA_NAME VARCHAR)', 'PROCEDURE_LANGUAGE': 'JAVASCRIPT'}
+
+[37] ✓
+SQL: -- =====================================================================
+-- KEY DIMENSION TABLES - D...
+Rows: 1
+Sample: {'SECTION': '=== KEY DIMENSIONS - DIM_OPCO ==='}
+
+[38] ✓
+SQL: USE DATABASE DEV_TRANSFORMATION;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[39] ✓
+SQL: USE SCHEMA SECURITY_ANALYTICS;
+Rows: 1
+Sample: {'status': 'Statement executed successfully.'}
+
+[40] ✓
+SQL: SELECT 'DIM_OPCO' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS...
+Rows: 8
+Sample: {'TABLE_NAME': 'DIM_OPCO', 'COLUMN_NAME': 'OPCO_ID', 'DATA_TYPE': 'NUMBER', 'IS_NULLABLE': 'NO'}
+
+[41] ✓
+SQL: SELECT '=== KEY DIMENSIONS - DIM_HOST ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== KEY DIMENSIONS - DIM_HOST ==='}
+
+[42] ✓
+SQL: SELECT 'DIM_HOST' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS...
+Rows: 8
+Sample: {'TABLE_NAME': 'DIM_HOST', 'COLUMN_NAME': 'HOST_KEY', 'DATA_TYPE': 'NUMBER', 'IS_NULLABLE': 'NO'}
+
+[43] ✓
+SQL: SELECT '=== KEY DIMENSIONS - DIM_DATES ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== KEY DIMENSIONS - DIM_DATES ==='}
+
+[44] ✓
+SQL: SELECT 'DIM_DATES' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMN...
+Rows: 8
+Sample: {'TABLE_NAME': 'DIM_DATES', 'COLUMN_NAME': 'DATE', 'DATA_TYPE': 'TIMESTAMP_NTZ', 'IS_NULLABLE': 'YES'}
+
+[45] ✓
+SQL: SELECT '=== KEY DIMENSIONS - DIM_USER ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== KEY DIMENSIONS - DIM_USER ==='}
+
+[46] ✓
+SQL: SELECT 'DIM_USER' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS...
+Rows: 7
+Sample: {'TABLE_NAME': 'DIM_USER', 'COLUMN_NAME': 'USER_KEY', 'DATA_TYPE': 'NUMBER', 'IS_NULLABLE': 'NO'}
+
+[47] ✓
+SQL: -- =====================================================================
+-- KEY FACT TABLES - Detail...
+Rows: 1
+Sample: {'SECTION': '=== KEY FACTS - FACT_EDR ==='}
+
+[48] ✓
+SQL: SELECT 'FACT_EDR' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS...
+Rows: 10
+Sample: {'TABLE_NAME': 'FACT_EDR', 'COLUMN_NAME': 'EDR_KEY', 'DATA_TYPE': 'NUMBER', 'IS_NULLABLE': 'NO'}
+
+[49] ✓
+SQL: SELECT '=== KEY FACTS - FACT_QUALYS ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== KEY FACTS - FACT_QUALYS ==='}
+
+[50] ✓
+SQL: SELECT 'FACT_QUALYS' as TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLU...
+Rows: 17
+Sample: {'TABLE_NAME': 'FACT_QUALYS', 'COLUMN_NAME': 'QUALYS_KEY', 'DATA_TYPE': 'NUMBER', 'IS_NULLABLE': 'NO'}
+
+[51] ✓
+SQL: -- =====================================================================
+-- ALL RELATIONSHIPS (PKs &...
+Rows: 1
+Sample: {'SECTION': '=== ALL PRIMARY KEYS ==='}
+
+[52] ✓
+SQL: SELECT
+    TABLE_NAME,
+    CONSTRAINT_NAME as PK_NAME
+FROM DEV_TRANSFORMATION.INFORMATION_SCHEMA.TAB...
+Rows: 72
+Sample: {'TABLE_NAME': 'BUSINESS_RULE_VIOLATIONS', 'PK_NAME': 'SYS_CONSTRAINT_d7622720-f928-4364-b856-55ac7b4aedcc'}
+
+[53] ✓
+SQL: SELECT '=== ALL FOREIGN KEYS ===' AS SECTION;
+Rows: 1
+Sample: {'SECTION': '=== ALL FOREIGN KEYS ==='}
+
+[54] ✓
+SQL: SELECT
+    TABLE_NAME,
+    CONSTRAINT_NAME as FK_NAME
+FROM DEV_TRANSFORMATION.INFORMATION_SCHEMA.TAB...
+Rows: 17
+Sample: {'TABLE_NAME': 'FACT_AV_HEALTH', 'FK_NAME': 'SYS_CONSTRAINT_316eed9c-f8dc-4796-9ed5-b1aa6d995c2a'}
+
+[55] ✓
+SQL: SELECT '=== COMPLETE METADATA EXTRACTION DONE ===' AS STATUS;
+Rows: 1
+Sample: {'STATUS': '=== COMPLETE METADATA EXTRACTION DONE ==='}

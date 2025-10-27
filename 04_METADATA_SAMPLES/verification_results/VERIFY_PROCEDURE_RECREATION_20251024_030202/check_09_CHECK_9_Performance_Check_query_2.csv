@@ -1,0 +1,6 @@
+METRIC,VALUE,UNIT
+Average Execution Duration,8.33,seconds
+Min Execution Duration,8.0,seconds
+Max Execution Duration,9.0,seconds
+Tables Per Second (Latest),22.5,tables/sec
+Columns Per Second (Latest),275.75,columns/sec

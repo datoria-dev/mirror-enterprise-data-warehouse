@@ -1,0 +1,355 @@
+{
+  "file": "CHECK_FAILED_TABLE_STRUCTURES.sql",
+  "executed_at": "2025-10-07T17:52:32.617664",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "-- Check DATA_QUALITY_SCORECARD structure\nSELECT '=== DATA_QUALITY_SCORECARD ===' AS TABLE_INFO;",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_INFO": "=== DATA_QUALITY_SCORECARD ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMNS\nWHERE TABLE_SCHEMA = 'ITS...",
+      "success": true,
+      "rows": [
+        {
+          "COLUMN_NAME": "SCORECARD_DATE",
+          "DATA_TYPE": "DATE",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "TABLE_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "TOTAL_ROWS",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "NULL_COUNT",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "DUPLICATE_COUNT",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "ORPHANED_COUNT",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "COMPLETENESS_SCORE",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "UNIQUENESS_SCORE",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "VALIDITY_SCORE",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "OVERALL_SCORE",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "CREATED_AT",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 11
+    },
+    {
+      "num": 7,
+      "sql": "-- Check ETL_PIPELINE_LOG structure\nSELECT '=== ETL_PIPELINE_LOG ===' AS TABLE_INFO;",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_INFO": "=== ETL_PIPELINE_LOG ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 8,
+      "sql": "SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMNS\nWHERE TABLE_SCHEMA = 'ITS...",
+      "success": true,
+      "rows": [
+        {
+          "COLUMN_NAME": "LOG_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "PIPELINE_NAME",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "SOURCE_TABLE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "TARGET_TABLE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "ROWS_PROCESSED",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "ERROR_MESSAGE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "CREATED_AT",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 8
+    },
+    {
+      "num": 9,
+      "sql": "-- Check FACT_EDR structure\nSELECT '=== FACT_EDR ===' AS TABLE_INFO;",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_INFO": "=== FACT_EDR ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 10,
+      "sql": "SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMNS\nWHERE TABLE_SCHEMA = 'ITS...",
+      "success": true,
+      "rows": [
+        {
+          "COLUMN_NAME": "EDR_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "COLUMN_NAME": "DATE_KEY",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "HOST_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "ENDPOINT_ID",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "EDR_PLATFORM",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "AGENT_VERSION",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "AGENT_STATUS",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "LAST_SEEN_DATE",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "THREAT_COUNT",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 10
+    },
+    {
+      "num": 11,
+      "sql": "-- Check DATA_LINEAGE_CATALOG structure\nSELECT '=== DATA_LINEAGE_CATALOG ===' AS TABLE_INFO;",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_INFO": "=== DATA_LINEAGE_CATALOG ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 12,
+      "sql": "SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE\nFROM INFORMATION_SCHEMA.COLUMNS\nWHERE TABLE_SCHEMA = 'ITS...",
+      "success": true,
+      "rows": [
+        {
+          "COLUMN_NAME": "LINEAGE_ID",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "NO"
+        },
+        {
+          "COLUMN_NAME": "SOURCE_DATABASE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "SOURCE_SCHEMA",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "SOURCE_TABLE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "TARGET_DATABASE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "TARGET_SCHEMA",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "TARGET_TABLE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "TRANSFORMATION_LOGIC",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "ETL_PROCEDURE",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "UPDATE_FREQUENCY",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "DATA_OWNER",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "COLUMN_NAME": "LAST_UPDATED",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 12
+    },
+    {
+      "num": 13,
+      "sql": "SELECT '=== STRUCTURE CHECK COMPLETE ===' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== STRUCTURE CHECK COMPLETE ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

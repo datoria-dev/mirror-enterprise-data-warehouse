@@ -1,0 +1,76 @@
+{
+  "script_name": "export_erd_data.sql",
+  "execution_timestamp": "2025-10-24T04:29:14.966271",
+  "total_statements": 7,
+  "successful_statements": 7,
+  "failed_statements": 0,
+  "total_duration_seconds": 5.05783,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.290968,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 2,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.300633,
+      "rows": 1,
+      "preview": "USE SCHEMA METADATA;"
+    },
+    {
+      "statement_num": 3,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.78402,
+      "rows": 20,
+      "csv_file": "stmt_003_select_20251024_042911.csv",
+      "json_file": "stmt_003_select_20251024_042911.json",
+      "preview": "SELECT     SERVICE_NAME,     TABLE_COUNT,     COLUMN_COUNT,     TOTAL_ROWS,     SERVICE_COLOR FROM V"
+    },
+    {
+      "statement_num": 4,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.672999,
+      "rows": 10,
+      "csv_file": "stmt_004_select_20251024_042911.csv",
+      "json_file": "stmt_004_select_20251024_042911.json",
+      "preview": "SELECT     SERVICE_NAME,     TABLE_NAME,     FULL_TABLE_NAME,     DATA_LAYER,     ROW_COUNT,     COL"
+    },
+    {
+      "statement_num": 5,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.471981,
+      "rows": 76,
+      "csv_file": "stmt_005_select_20251024_042912.csv",
+      "json_file": "stmt_005_select_20251024_042912.json",
+      "preview": "SELECT     SERVICE_NAME,     TABLE_NAME,     COLUMN_NAME,     DATA_TYPE,     KEY_INDICATOR,     ORDI"
+    },
+    {
+      "statement_num": 6,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.325329,
+      "rows": 238,
+      "csv_file": "stmt_006_select_20251024_042912.csv",
+      "json_file": "stmt_006_select_20251024_042912.json",
+      "preview": "SELECT     SERVICE_NAME,     TABLE_NAME,     COLUMN_NAME,     DATA_TYPE,     KEY_INDICATOR,     ORDI"
+    },
+    {
+      "statement_num": 7,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 2.2119,
+      "rows": 2,
+      "csv_file": "stmt_007_select_20251024_042914.csv",
+      "json_file": "stmt_007_select_20251024_042914.json",
+      "preview": "SELECT     TABLE_NAME,     DESCRIPTION,     ROW_COUNT,     COLUMN_COUNT FROM VW_ERD_METADATA_REPOSIT"
+    }
+  ]
+}

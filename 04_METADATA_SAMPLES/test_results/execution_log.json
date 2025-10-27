@@ -1,0 +1,17 @@
+[
+  {
+    "LOG_ID":1,
+    "PROCEDURE_NAME":"SP_REFRESH_METADATA",
+    "EXECUTION_START":"2025-10-24T05:04:51.234Z",
+    "EXECUTION_END":"2025-10-24T05:05:00.519Z",
+    "EXECUTION_DURATION_SECONDS":9,
+    "STATUS":"SUCCESS",
+    "TABLES_PROCESSED":180,
+    "COLUMNS_PROCESSED":2206,
+    "ROWS_PROCESSED":180,
+    "ERROR_MESSAGE":null,
+    "EXECUTION_DETAILS":"{\n  \"columns_processed\": 2206,\n  \"duration_seconds\": 9,\n  \"stats_processed\": 180,\n  \"tables_processed\": 180,\n  \"timestamp\": \"2025-10-24 05:05:00.519 Z\"\n}",
+    "EXECUTED_BY":"FUAD.ONATE@CompanyX.COM",
+    "CREATED_DATE":"2025-10-24T05:04:51.234Z"
+  }
+]

@@ -1,0 +1,442 @@
+{
+  "script_name": "CREATE_METADATA_REPOSITORY.sql",
+  "execution_timestamp": "2025-10-24T02:33:59.937748",
+  "total_statements": 52,
+  "successful_statements": 31,
+  "failed_statements": 21,
+  "total_duration_seconds": 38.290027,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.45801,
+      "rows": 1,
+      "preview": "USE ROLE DEV_DEVELOPER;"
+    },
+    {
+      "statement_num": 2,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.329845,
+      "rows": 1,
+      "preview": "USE WAREHOUSE DEV_WH;"
+    },
+    {
+      "statement_num": 3,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.577013,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 4,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.262517,
+      "rows": 1,
+      "preview": "CREATE SCHEMA IF NOT EXISTS DEV_TRANSFORMATION.METADATA     COMMENT = 'Centralized metadata reposito"
+    },
+    {
+      "statement_num": 5,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.333556,
+      "rows": 1,
+      "preview": "CREATE SCHEMA IF NOT EXISTS DEV_TRANSFORMATION.METADATA_EXPORTS     COMMENT = 'Storage for metadata "
+    },
+    {
+      "statement_num": 6,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.321712,
+      "rows": 1,
+      "preview": "USE SCHEMA METADATA;"
+    },
+    {
+      "statement_num": 7,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.15527,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE TABLE_REGISTRY (     TABLE_ID NUMBER AUTOINCREMENT PRIMARY KEY,     SERVICE_"
+    },
+    {
+      "statement_num": 8,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.941028,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE COLUMN_METADATA (     COLUMN_ID NUMBER AUTOINCREMENT PRIMARY KEY,     TABLE_"
+    },
+    {
+      "statement_num": 9,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.195446,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE PROCEDURE_EXECUTION_LOG (     LOG_ID NUMBER AUTOINCREMENT PRIMARY KEY,     P"
+    },
+    {
+      "statement_num": 10,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.686796,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE TABLE_STATISTICS (     STAT_ID NUMBER AUTOINCREMENT PRIMARY KEY,     TABLE_I"
+    },
+    {
+      "statement_num": 11,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.846559,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE SERVICE_CATALOG (     SERVICE_ID NUMBER AUTOINCREMENT PRIMARY KEY,     SERVI"
+    },
+    {
+      "statement_num": 12,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.001555,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE DATA_QUALITY_RULES (     RULE_ID NUMBER AUTOINCREMENT PRIMARY KEY,     TABLE"
+    },
+    {
+      "statement_num": 13,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.807738,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_TABLE_CATALOG AS SELECT     tr.TABLE_ID,     sc.SERVICE_NAME,     sc.SERVI"
+    },
+    {
+      "statement_num": 14,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.673841,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_COLUMN_CATALOG AS SELECT     tr.SERVICE_NAME,     tr.DATABASE_NAME,     tr"
+    },
+    {
+      "statement_num": 15,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.769909,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_SERVICE_SUMMARY AS SELECT     sc.SERVICE_NAME,     sc.SERVICE_CATEGORY,   "
+    },
+    {
+      "statement_num": 16,
+      "type": "INSERT",
+      "status": "SUCCESS",
+      "duration": 1.052312,
+      "rows": 21,
+      "preview": "INSERT INTO SERVICE_CATALOG (     SERVICE_NAME,     SERVICE_DESCRIPTION,     SERVICE_CATEGORY,     I"
+    },
+    {
+      "statement_num": 17,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 7 at position 20 near '<EOF>'.\nsyntax error line 5 at position 1 unexpected '$'.",
+      "preview": "CREATE OR REPLACE PROCEDURE SP_REFRESH_METADATA() RETURNS VARCHAR LANGUAGE SQL AS $$ DECLARE     v_l"
+    },
+    {
+      "statement_num": 18,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_start_time'.",
+      "preview": "v_start_time TIMESTAMP_LTZ := CURRENT_TIMESTAMP();"
+    },
+    {
+      "statement_num": 19,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_end_time'.",
+      "preview": "v_end_time TIMESTAMP_LTZ;"
+    },
+    {
+      "statement_num": 20,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_duration'.",
+      "preview": "v_duration NUMBER;"
+    },
+    {
+      "statement_num": 21,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_tables_processed'.",
+      "preview": "v_tables_processed NUMBER;"
+    },
+    {
+      "statement_num": 22,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_columns_processed'.",
+      "preview": "v_columns_processed NUMBER;"
+    },
+    {
+      "statement_num": 23,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_stats_processed'.",
+      "preview": "v_stats_processed NUMBER;"
+    },
+    {
+      "statement_num": 24,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_result'.",
+      "preview": "v_result VARCHAR;"
+    },
+    {
+      "statement_num": 25,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_status'.",
+      "preview": "v_status VARCHAR;"
+    },
+    {
+      "statement_num": 26,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 11 at position 6 unexpected '<EOF>'.",
+      "preview": "BEGIN     INSERT INTO PROCEDURE_EXECUTION_LOG (         PROCEDURE_NAME,         EXECUTION_START,    "
+    },
+    {
+      "statement_num": 27,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_log_id'.",
+      "preview": "v_log_id := (SELECT MAX(LOG_ID) FROM PROCEDURE_EXECUTION_LOG);"
+    },
+    {
+      "statement_num": 28,
+      "type": "DELETE",
+      "status": "SUCCESS",
+      "duration": 0.604544,
+      "rows": 0,
+      "preview": "DELETE FROM COLUMN_METADATA;"
+    },
+    {
+      "statement_num": 29,
+      "type": "DELETE",
+      "status": "SUCCESS",
+      "duration": 0.890877,
+      "rows": 0,
+      "preview": "DELETE FROM TABLE_REGISTRY;"
+    },
+    {
+      "statement_num": 30,
+      "type": "INSERT",
+      "status": "SUCCESS",
+      "duration": 3.544982,
+      "rows": 180,
+      "preview": "INSERT INTO TABLE_REGISTRY (         SERVICE_NAME,         DATABASE_NAME,         SCHEMA_NAME,      "
+    },
+    {
+      "statement_num": 31,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_tables_processed'.",
+      "preview": "v_tables_processed := (SELECT COUNT(*) FROM TABLE_REGISTRY);"
+    },
+    {
+      "statement_num": 32,
+      "type": "INSERT",
+      "status": "SUCCESS",
+      "duration": 3.921126,
+      "rows": 2206,
+      "preview": "INSERT INTO COLUMN_METADATA (         TABLE_ID,         COLUMN_NAME,         DATA_TYPE,         IS_N"
+    },
+    {
+      "statement_num": 33,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_columns_processed'.",
+      "preview": "v_columns_processed := (SELECT COUNT(*) FROM COLUMN_METADATA);"
+    },
+    {
+      "statement_num": 34,
+      "type": "INSERT",
+      "status": "SUCCESS",
+      "duration": 1.504263,
+      "rows": 180,
+      "preview": "INSERT INTO TABLE_STATISTICS (TABLE_ID, SNAPSHOT_DATE, ROW_COUNT, COLUMN_COUNT)     SELECT         t"
+    },
+    {
+      "statement_num": 35,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_stats_processed'.",
+      "preview": "v_stats_processed := (SELECT COUNT(*) FROM TABLE_STATISTICS WHERE SNAPSHOT_DATE = CURRENT_DATE());"
+    },
+    {
+      "statement_num": 36,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_end_time'.",
+      "preview": "v_end_time := CURRENT_TIMESTAMP();"
+    },
+    {
+      "statement_num": 37,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_duration'.",
+      "preview": "v_duration := DATEDIFF(second, v_start_time, v_end_time);"
+    },
+    {
+      "statement_num": 38,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_status'.",
+      "preview": "v_status := 'SUCCESS';"
+    },
+    {
+      "statement_num": 39,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_result'.",
+      "preview": "v_result := 'Metadata refresh completed successfully: ' ||                 v_tables_processed || ' t"
+    },
+    {
+      "statement_num": 40,
+      "type": "UPDATE",
+      "status": "SUCCESS",
+      "duration": 0.830817,
+      "rows": 0,
+      "preview": "UPDATE PROCEDURE_EXECUTION_LOG     SET         EXECUTION_END = CURRENT_TIMESTAMP(),         EXECUTIO"
+    },
+    {
+      "statement_num": 41,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'RETURN'.",
+      "preview": "RETURN v_result;"
+    },
+    {
+      "statement_num": 42,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'.",
+      "preview": "END;"
+    },
+    {
+      "statement_num": 43,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 1 at position 3 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'.",
+      "preview": "$$;"
+    },
+    {
+      "statement_num": 44,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.29322,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TASK TASK_DAILY_METADATA_REFRESH     WAREHOUSE = DEV_WH     SCHEDULE = 'USING CRON"
+    },
+    {
+      "statement_num": 45,
+      "type": "CALL",
+      "status": "SUCCESS",
+      "duration": 9.786573,
+      "rows": 1,
+      "csv_file": "stmt_045_call_20251024_023355.csv",
+      "json_file": "stmt_045_call_20251024_023355.json",
+      "preview": "CALL SP_REFRESH_METADATA();"
+    },
+    {
+      "statement_num": 46,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 1.714843,
+      "rows": 21,
+      "csv_file": "stmt_046_select_20251024_023357.csv",
+      "json_file": "stmt_046_select_20251024_023357.json",
+      "preview": "SELECT * FROM VW_SERVICE_SUMMARY ORDER BY SERVICE_NAME;"
+    },
+    {
+      "statement_num": 47,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.721341,
+      "rows": 180,
+      "csv_file": "stmt_047_select_20251024_023357.csv",
+      "json_file": "stmt_047_select_20251024_023357.json",
+      "preview": "SELECT * FROM VW_TABLE_CATALOG ORDER BY SERVICE_NAME, TABLE_NAME;"
+    },
+    {
+      "statement_num": 48,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.42083,
+      "rows": 76,
+      "csv_file": "stmt_048_select_20251024_023358.csv",
+      "json_file": "stmt_048_select_20251024_023358.json",
+      "preview": "SELECT * FROM VW_COLUMN_CATALOG WHERE SERVICE_NAME = 'SentinelOne' ORDER BY TABLE_NAME, ORDINAL_POSI"
+    },
+    {
+      "statement_num": 49,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.281589,
+      "rows": 1,
+      "csv_file": "stmt_049_select_20251024_023358.csv",
+      "json_file": "stmt_049_select_20251024_023358.json",
+      "preview": "SELECT     LOG_ID,     PROCEDURE_NAME,     EXECUTION_START,     EXECUTION_END,     EXECUTION_DURATIO"
+    },
+    {
+      "statement_num": 50,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.329225,
+      "rows": 1,
+      "csv_file": "stmt_050_select_20251024_023358.csv",
+      "json_file": "stmt_050_select_20251024_023358.json",
+      "preview": "SELECT     LOG_ID,     PROCEDURE_NAME,     EXECUTION_START,     EXECUTION_DURATION_SECONDS,     STAT"
+    },
+    {
+      "statement_num": 51,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.595001,
+      "rows": 1,
+      "csv_file": "stmt_051_select_20251024_023359.csv",
+      "json_file": "stmt_051_select_20251024_023359.json",
+      "preview": "SELECT     STATUS,     COUNT(*) as EXECUTION_COUNT,     AVG(EXECUTION_DURATION_SECONDS) as AVG_DURAT"
+    },
+    {
+      "statement_num": 52,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.437689,
+      "rows": 21,
+      "csv_file": "stmt_052_select_20251024_023359.csv",
+      "json_file": "stmt_052_select_20251024_023359.json",
+      "preview": "SELECT     sc.SERVICE_NAME,     COUNT(DISTINCT tr.TABLE_ID) as TABLES,     COUNT(DISTINCT cm.COLUMN_"
+    }
+  ]
+}

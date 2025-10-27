@@ -1,0 +1,20 @@
+{
+  "start_time": "2025-10-06T10:57:12.408699",
+  "phases": {
+    "backup": "SUCCESS",
+    "primary_keys": "Added 0 PKs, 10 errors",
+    "foreign_keys": "Added 0 FKs, 1 errors",
+    "documentation": "Documented 0 tables",
+    "validation_views": "Created 2 views"
+  },
+  "errors": [],
+  "summary": {
+    "total_primary_keys": 57,
+    "total_foreign_keys": 14,
+    "primary_keys_added": 0,
+    "foreign_keys_added": 0,
+    "tables_documented": 0,
+    "views_created": 2
+  },
+  "end_time": "2025-10-06T10:58:14.620349"
+}

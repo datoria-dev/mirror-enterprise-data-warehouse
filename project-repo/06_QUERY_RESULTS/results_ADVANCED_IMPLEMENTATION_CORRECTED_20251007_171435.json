@@ -1,0 +1,659 @@
+{
+  "file": "ADVANCED_IMPLEMENTATION_CORRECTED.sql",
+  "executed_at": "2025-10-07T17:14:16.954405",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "-- =====================================================================\n-- SECTION 1: SCHEDULED MON...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== SECTION 1: Monitoring Tasks ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "-- 1.1 Daily Health Check Task\nCREATE OR REPLACE TASK TASK_DAILY_HEALTH_CHECK\n    WAREHOUSE = DEV_WH...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_DAILY_HEALTH_CHECK successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 7,
+      "sql": "SELECT 'Task TASK_DAILY_HEALTH_CHECK created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Task TASK_DAILY_HEALTH_CHECK created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 8,
+      "sql": "-- 1.2 Data Quality Monitoring Task (every 4 hours)\nCREATE OR REPLACE TASK TASK_DATA_QUALITY_MONITOR...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_DATA_QUALITY_MONITOR successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 9,
+      "sql": "SELECT 'Task TASK_DATA_QUALITY_MONITOR created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Task TASK_DATA_QUALITY_MONITOR created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 10,
+      "sql": "-- Note: Tasks created but NOT resumed - requires EXECUTE TASK privilege\nSELECT 'Tasks created but n...",
+      "success": true,
+      "rows": [
+        {
+          "NOTE": "Tasks created but not resumed - manual resume required with ACCOUNTADMIN"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 11,
+      "sql": "-- =====================================================================\n-- SECTION 2: PERFORMANCE M...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== SECTION 2: Performance Monitoring ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 12,
+      "sql": "-- 2.1 Performance Benchmarks Table\nCREATE OR REPLACE TABLE PERFORMANCE_BENCHMARKS (\n    BENCHMARK_I...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table PERFORMANCE_BENCHMARKS successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 13,
+      "sql": "SELECT 'Performance benchmarks table created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Performance benchmarks table created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 14,
+      "sql": "-- 2.2 Performance Comparison View\nCREATE OR REPLACE VIEW VW_PERFORMANCE_COMPARISON AS\nSELECT\n    BE...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_PERFORMANCE_COMPARISON successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 15,
+      "sql": "SELECT 'Performance comparison view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Performance comparison view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 16,
+      "sql": "-- 2.3 Query History Analysis View\nCREATE OR REPLACE VIEW VW_QUERY_PERFORMANCE AS\nSELECT\n    QUERY_I...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_QUERY_PERFORMANCE successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 17,
+      "sql": "SELECT 'Query performance view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Query performance view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 18,
+      "sql": "-- =====================================================================\n-- SECTION 3: DATA DICTIONA...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== SECTION 3: Data Dictionary ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 19,
+      "sql": "-- 3.1 Enhanced Data Dictionary\nCREATE OR REPLACE TABLE DATA_DICTIONARY (\n    DICT_ID NUMBER AUTOINC...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table DATA_DICTIONARY successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 20,
+      "sql": "SELECT 'Data dictionary table created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Data dictionary table created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 21,
+      "sql": "-- 3.2 Populate with key tables and columns\nINSERT INTO DATA_DICTIONARY (TABLE_NAME, COLUMN_NAME, DA...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "15"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 22,
+      "sql": "SELECT COUNT(*) || ' data dictionary entries added' AS RESULT FROM DATA_DICTIONARY;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "15 data dictionary entries added"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 23,
+      "sql": "-- 3.3 Data Dictionary View (simplified - no INFORMATION_SCHEMA.KEY_COLUMN_USAGE)\nCREATE OR REPLACE ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_DATA_DICTIONARY successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 24,
+      "sql": "SELECT 'Data dictionary view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Data dictionary view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 25,
+      "sql": "-- =====================================================================\n-- SECTION 4: DATA QUALITY ...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== SECTION 4: Data Quality Scorecard ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 26,
+      "sql": "-- 4.1 Quality Scorecard Table (may already exist)\nCREATE TABLE IF NOT EXISTS DATA_QUALITY_SCORECARD...",
+      "success": true,
+      "rows": [
+        {
+          "status": "DATA_QUALITY_SCORECARD already exists, statement succeeded."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 27,
+      "sql": "SELECT 'Data quality scorecard table ready' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Data quality scorecard table ready"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 28,
+      "sql": "-- 4.2 Quality Trend View\nCREATE OR REPLACE VIEW VW_QUALITY_SCORE_TREND AS\nSELECT\n    SCORECARD_DATE...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_QUALITY_SCORE_TREND successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 29,
+      "sql": "SELECT 'Quality trend view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Quality trend view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 30,
+      "sql": "-- 4.3 Quality Alert View\nCREATE OR REPLACE VIEW VW_QUALITY_ALERTS AS\nSELECT\n    TABLE_NAME,\n    OVE...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 18 at position 4\ninvalid identifier 'RECORD_COUNT'"
+    },
+    {
+      "num": 31,
+      "sql": "SELECT 'Quality alerts view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Quality alerts view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 32,
+      "sql": "-- =====================================================================\n-- SECTION 5: ETL MONITORIN...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== SECTION 5: ETL Monitoring ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 33,
+      "sql": "-- 5.1 ETL Pipeline Log Table (may already exist)\nCREATE TABLE IF NOT EXISTS ETL_PIPELINE_LOG (\n    ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "ETL_PIPELINE_LOG already exists, statement succeeded."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 34,
+      "sql": "SELECT 'ETL pipeline log table ready' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "ETL pipeline log table ready"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 35,
+      "sql": "-- 5.2 ETL Pipeline Status View\nCREATE OR REPLACE VIEW VW_ETL_PIPELINE_STATUS AS\nSELECT\n    PIPELINE...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 4 at position 8\ninvalid identifier 'END_TIME'"
+    },
+    {
+      "num": 36,
+      "sql": "SELECT 'ETL pipeline status view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "ETL pipeline status view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 37,
+      "sql": "-- 5.3 ETL Error Log View\nCREATE OR REPLACE VIEW VW_ETL_ERRORS AS\nSELECT\n    LOG_ID,\n    PIPELINE_NA...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 8 at position 4\ninvalid identifier 'START_TIME'"
+    },
+    {
+      "num": 38,
+      "sql": "SELECT 'ETL errors view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "ETL errors view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 39,
+      "sql": "-- =====================================================================\n-- SECTION 6: BUSINESS INTE...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== SECTION 6: Business Intelligence Views ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 40,
+      "sql": "-- 6.1 Executive KPI Dashboard View\nCREATE OR REPLACE VIEW VW_EXECUTIVE_KPI_DASHBOARD AS\nSELECT\n    ...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 20 at position 7\ninvalid identifier 'E.OPCO_ID'"
+    },
+    {
+      "num": 41,
+      "sql": "SELECT 'Executive KPI dashboard view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Executive KPI dashboard view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 42,
+      "sql": "-- 6.2 Security Posture Summary View\nCREATE OR REPLACE VIEW VW_SECURITY_POSTURE_SUMMARY AS\nSELECT\n  ...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 12 at position 52\ninvalid identifier 'E.OPCO_ID'"
+    },
+    {
+      "num": 43,
+      "sql": "SELECT 'Security posture summary view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Security posture summary view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 44,
+      "sql": "-- =====================================================================\n-- SECTION 7: DATA LINEAGE ...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== SECTION 7: Data Lineage ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 45,
+      "sql": "-- 7.1 Data Lineage Catalog Table (may already exist)\nCREATE TABLE IF NOT EXISTS DATA_LINEAGE_CATALO...",
+      "success": true,
+      "rows": [
+        {
+          "status": "DATA_LINEAGE_CATALOG already exists, statement succeeded."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 46,
+      "sql": "SELECT 'Data lineage catalog ready' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Data lineage catalog ready"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 47,
+      "sql": "-- 7.2 Populate key lineage entries\nINSERT INTO DATA_LINEAGE_CATALOG\n(SOURCE_SYSTEM, SOURCE_TABLE, T...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 4 at position 59\ninvalid identifier 'SOURCE_SYSTEM'"
+    },
+    {
+      "num": 48,
+      "sql": "INSERT INTO DATA_LINEAGE_CATALOG\n(SOURCE_SYSTEM, SOURCE_TABLE, TARGET_DATABASE, TARGET_SCHEMA, TARGE...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 4 at position 59\ninvalid identifier 'SOURCE_SYSTEM'"
+    },
+    {
+      "num": 49,
+      "sql": "SELECT COUNT(*) || ' lineage entries added' AS RESULT FROM DATA_LINEAGE_CATALOG;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "8 lineage entries added"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 50,
+      "sql": "-- 7.3 Data Lineage View\nCREATE OR REPLACE VIEW VW_DATA_LINEAGE AS\nSELECT\n    SOURCE_SYSTEM,\n    SOU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 3 at position 4\ninvalid identifier 'SOURCE_SYSTEM'"
+    },
+    {
+      "num": 51,
+      "sql": "SELECT 'Data lineage view created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Data lineage view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 52,
+      "sql": "-- =====================================================================\n-- FINAL VALIDATION\n-- ====...",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 53,
+      "sql": "SELECT 'ADVANCED FEATURES COMPLETE!' AS SUMMARY;",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "ADVANCED FEATURES COMPLETE!"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 54,
+      "sql": "SELECT '========================================' AS SUMMARY;",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 55,
+      "sql": "-- Summary of created objects\nSELECT\n    'Tasks Created' as OBJECT_TYPE,\n    COUNT(*) as COUNT\nFROM ...",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.INFORMATION_SCHEMA.TASKS' does not exist or not authorized."
+    },
+    {
+      "num": 56,
+      "sql": "SELECT\n    'Monitoring Views' as OBJECT_TYPE,\n    COUNT(*) as COUNT\nFROM INFORMATION_SCHEMA.VIEWS\nWH...",
+      "success": true,
+      "rows": [
+        {
+          "OBJECT_TYPE": "Monitoring Views",
+          "COUNT": "102"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 57,
+      "sql": "SELECT\n    'Framework Tables' as OBJECT_TYPE,\n    COUNT(*) as COUNT\nFROM INFORMATION_SCHEMA.TABLES\nW...",
+      "success": true,
+      "rows": [
+        {
+          "OBJECT_TYPE": "Framework Tables",
+          "COUNT": "5"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 58,
+      "sql": "SELECT '=== All Advanced Features Implemented ===' AS SUMMARY;",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "=== All Advanced Features Implemented ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

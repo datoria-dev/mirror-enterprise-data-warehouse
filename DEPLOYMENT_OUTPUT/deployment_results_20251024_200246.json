@@ -1,0 +1,141 @@
+{
+  "timestamp": "2025-10-24T20:02:46.766231",
+  "config": {
+    "account": "mw76572.east-us-2.azure",
+    "user": "FUAD.ONATE@CompanyX.COM",
+    "authenticator": "externalbrowser",
+    "warehouse": "DEV_WH",
+    "database": "DEV_REPORTING",
+    "schema": "SECURITY_ANALYTICS",
+    "role": "DEV_DEVELOPER"
+  },
+  "dry_run": false,
+  "results": [
+    {
+      "service": "Ancon",
+      "success": true,
+      "original_lines": 1092,
+      "inlined_lines": 1092,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Ancon_streamlit_app_inlined.py"
+    },
+    {
+      "service": "BitSight",
+      "success": true,
+      "original_lines": 848,
+      "inlined_lines": 848,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\BitSight_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Cisco_AMP",
+      "success": true,
+      "original_lines": 1043,
+      "inlined_lines": 1043,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Cisco_AMP_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Crowdstrike",
+      "success": true,
+      "original_lines": 1027,
+      "inlined_lines": 1027,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Crowdstrike_streamlit_app_inlined.py"
+    },
+    {
+      "service": "CybelAngel",
+      "success": true,
+      "original_lines": 840,
+      "inlined_lines": 1593,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\CybelAngel_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Intel_Threats",
+      "success": true,
+      "original_lines": 901,
+      "inlined_lines": 901,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Intel_Threats_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Leviat",
+      "success": true,
+      "original_lines": 733,
+      "inlined_lines": 1486,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Leviat_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Proofpoint",
+      "success": true,
+      "original_lines": 847,
+      "inlined_lines": 1600,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Proofpoint_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Qualys",
+      "success": true,
+      "original_lines": 913,
+      "inlined_lines": 913,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Qualys_streamlit_app_inlined.py"
+    },
+    {
+      "service": "SentinelOne",
+      "success": true,
+      "original_lines": 754,
+      "inlined_lines": 1507,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\SentinelOne_streamlit_app_inlined.py"
+    },
+    {
+      "service": "ServiceNow",
+      "success": true,
+      "original_lines": 773,
+      "inlined_lines": 1526,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\ServiceNow_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Sophos",
+      "success": true,
+      "original_lines": 1005,
+      "inlined_lines": 1005,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Sophos_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Splunk",
+      "success": true,
+      "original_lines": 1031,
+      "inlined_lines": 1031,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Splunk_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Symantec",
+      "success": true,
+      "original_lines": 812,
+      "inlined_lines": 812,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Symantec_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Tenable",
+      "success": true,
+      "original_lines": 612,
+      "inlined_lines": 1365,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Tenable_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Trellix",
+      "success": true,
+      "original_lines": 995,
+      "inlined_lines": 995,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Trellix_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Zerofox",
+      "success": true,
+      "original_lines": 886,
+      "inlined_lines": 886,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Zerofox_streamlit_app_inlined.py"
+    },
+    {
+      "service": "Zscaler",
+      "success": true,
+      "original_lines": 1067,
+      "inlined_lines": 1067,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Zscaler_streamlit_app_inlined.py"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# Sensitive files - Do not commit to Azure DevOps
+EMAIL_*.md
+SSO_*.md
+CORPORATE_IT_SECURITY_*.md
+
+# Credentials and secrets
+*.credentials
+*.env
+.env.*
+config.json
+secrets.json
+*password*
+*secret*
+*token*
+
+# Session summaries (local work only)
+*_SESSION_SUMMARY.md
+SESSION_*.md
+STREAMLIT_APPS_EXPANSION_SESSION_*.md
+
+# Temporary work files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Query results (can be large)
+QUERY_RESULTS/*.json
+QUERY_RESULTS/*.csv

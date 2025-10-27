@@ -1,0 +1,354 @@
+{
+  "script_name": "EXPORT_METADATA_RESULTS.sql",
+  "execution_timestamp": "2025-10-24T03:07:37.741909",
+  "total_statements": 39,
+  "successful_statements": 36,
+  "failed_statements": 3,
+  "total_duration_seconds": 33.760556,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.28866,
+      "rows": 1,
+      "preview": "USE ROLE DEV_DEVELOPER;"
+    },
+    {
+      "statement_num": 2,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.380595,
+      "rows": 1,
+      "preview": "USE WAREHOUSE DEV_WH;"
+    },
+    {
+      "statement_num": 3,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.429038,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 4,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.373865,
+      "rows": 1,
+      "preview": "USE SCHEMA METADATA;"
+    },
+    {
+      "statement_num": 5,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.869948,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.SERVICE_SUMMARY_EXPORT AS SELECT     SERVICE_NAME,     TABL"
+    },
+    {
+      "statement_num": 6,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.405461,
+      "rows": 21,
+      "csv_file": "stmt_006_select_20251024_030705.csv",
+      "json_file": "stmt_006_select_20251024_030705.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.SERVICE_SUMMARY_EXPORT;"
+    },
+    {
+      "statement_num": 7,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 1.050588,
+      "rows": 1,
+      "csv_file": "stmt_007_select_20251024_030706.csv",
+      "json_file": "stmt_007_select_20251024_030706.json",
+      "preview": "SELECT     OBJECT_CONSTRUCT(         'export_date', CURRENT_TIMESTAMP(),         'total_services', C"
+    },
+    {
+      "statement_num": 8,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 2.046982,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.TABLE_CATALOG_EXPORT AS SELECT     SERVICE_NAME,     DATABA"
+    },
+    {
+      "statement_num": 9,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.493275,
+      "rows": 180,
+      "csv_file": "stmt_009_select_20251024_030709.csv",
+      "json_file": "stmt_009_select_20251024_030709.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.TABLE_CATALOG_EXPORT;"
+    },
+    {
+      "statement_num": 10,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.477256,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.SENTINELONE_COLUMNS_EXPORT AS SELECT     TABLE_NAME,     CO"
+    },
+    {
+      "statement_num": 11,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.3465,
+      "rows": 76,
+      "csv_file": "stmt_011_select_20251024_030711.csv",
+      "json_file": "stmt_011_select_20251024_030711.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.SENTINELONE_COLUMNS_EXPORT;"
+    },
+    {
+      "statement_num": 12,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.449932,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.CYBELANGEL_COLUMNS_EXPORT AS SELECT     TABLE_NAME,     COL"
+    },
+    {
+      "statement_num": 13,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.924378,
+      "rows": 112,
+      "csv_file": "stmt_013_select_20251024_030713.csv",
+      "json_file": "stmt_013_select_20251024_030713.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.CYBELANGEL_COLUMNS_EXPORT;"
+    },
+    {
+      "statement_num": 14,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.917258,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.PROOFPOINT_COLUMNS_EXPORT AS SELECT     TABLE_NAME,     COL"
+    },
+    {
+      "statement_num": 15,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.333294,
+      "rows": 23,
+      "csv_file": "stmt_015_select_20251024_030715.csv",
+      "json_file": "stmt_015_select_20251024_030715.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.PROOFPOINT_COLUMNS_EXPORT;"
+    },
+    {
+      "statement_num": 16,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.607932,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.SERVICENOW_COLUMNS_EXPORT AS SELECT     TABLE_NAME,     COL"
+    },
+    {
+      "statement_num": 17,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.333742,
+      "rows": 36,
+      "csv_file": "stmt_017_select_20251024_030717.csv",
+      "json_file": "stmt_017_select_20251024_030717.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.SERVICENOW_COLUMNS_EXPORT;"
+    },
+    {
+      "statement_num": 18,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.737599,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.LEVIAT_COLUMNS_EXPORT AS SELECT     TABLE_NAME,     COLUMN_"
+    },
+    {
+      "statement_num": 19,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.346637,
+      "rows": 146,
+      "csv_file": "stmt_019_select_20251024_030719.csv",
+      "json_file": "stmt_019_select_20251024_030719.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.LEVIAT_COLUMNS_EXPORT;"
+    },
+    {
+      "statement_num": 20,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.365768,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.TENABLE_COLUMNS_EXPORT AS SELECT     TABLE_NAME,     COLUMN"
+    },
+    {
+      "statement_num": 21,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.585903,
+      "rows": 0,
+      "preview": "SELECT * FROM METADATA_EXPORTS.TENABLE_COLUMNS_EXPORT;"
+    },
+    {
+      "statement_num": 22,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.232019,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.ALL_COLUMNS_EXPORT AS SELECT     SERVICE_NAME,     TABLE_NA"
+    },
+    {
+      "statement_num": 23,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.601275,
+      "rows": 2206,
+      "csv_file": "stmt_023_select_20251024_030724.csv",
+      "json_file": "stmt_023_select_20251024_030724.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.ALL_COLUMNS_EXPORT;"
+    },
+    {
+      "statement_num": 24,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 5 at position 12 unexpected 'SELECT'.\nsyntax error line 5 at position 29 unexpected '('.",
+      "preview": "SELECT     OBJECT_CONSTRUCT(         'extraction_date', CURRENT_TIMESTAMP(),         'services', (  "
+    },
+    {
+      "statement_num": 25,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.670051,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.PROCEDURE_EXECUTION_LOG_EXPORT AS SELECT     LOG_ID,     PR"
+    },
+    {
+      "statement_num": 26,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.328793,
+      "rows": 3,
+      "csv_file": "stmt_026_select_20251024_030727.csv",
+      "json_file": "stmt_026_select_20251024_030727.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.PROCEDURE_EXECUTION_LOG_EXPORT;"
+    },
+    {
+      "statement_num": 27,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 16 at position 14 unexpected 'ORDER'.\nsyntax error line 17 at position 8 unexpected ')'.",
+      "preview": "SELECT     OBJECT_CONSTRUCT(         'export_date', CURRENT_TIMESTAMP(),         'total_executions',"
+    },
+    {
+      "statement_num": 28,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.157252,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.EXECUTION_STATISTICS_EXPORT AS SELECT     PROCEDURE_NAME,  "
+    },
+    {
+      "statement_num": 29,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.27026,
+      "rows": 1,
+      "csv_file": "stmt_029_select_20251024_030728.csv",
+      "json_file": "stmt_029_select_20251024_030728.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.EXECUTION_STATISTICS_EXPORT;"
+    },
+    {
+      "statement_num": 30,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.589183,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.DAILY_EXECUTION_TREND_EXPORT AS SELECT     DATE(EXECUTION_S"
+    },
+    {
+      "statement_num": 31,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.285347,
+      "rows": 1,
+      "csv_file": "stmt_031_select_20251024_030730.csv",
+      "json_file": "stmt_031_select_20251024_030730.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.DAILY_EXECUTION_TREND_EXPORT;"
+    },
+    {
+      "statement_num": 32,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.531712,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.TABLE_STATISTICS_EXPORT AS SELECT     tr.SERVICE_NAME,     "
+    },
+    {
+      "statement_num": 33,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.372475,
+      "rows": 180,
+      "csv_file": "stmt_033_select_20251024_030732.csv",
+      "json_file": "stmt_033_select_20251024_030732.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.TABLE_STATISTICS_EXPORT;"
+    },
+    {
+      "statement_num": 34,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 13 at position 12 unexpected 'SELECT'.\nsyntax error line 13 at position 28 unexpected '('.",
+      "preview": "SELECT     OBJECT_CONSTRUCT(         'export_date', CURRENT_TIMESTAMP(),         'summary', OBJECT_C"
+    },
+    {
+      "statement_num": 35,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 2.069991,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.SERVICE_CATALOG_EXPORT AS SELECT     SERVICE_NAME,     SERV"
+    },
+    {
+      "statement_num": 36,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.36599,
+      "rows": 21,
+      "csv_file": "stmt_036_select_20251024_030735.csv",
+      "json_file": "stmt_036_select_20251024_030735.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.SERVICE_CATALOG_EXPORT;"
+    },
+    {
+      "statement_num": 37,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.312264,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE TABLE METADATA_EXPORTS.MISSING_SERVICES_EXPORT AS SELECT     sc.SERVICE_NAME,     "
+    },
+    {
+      "statement_num": 38,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.315758,
+      "rows": 1,
+      "csv_file": "stmt_038_select_20251024_030736.csv",
+      "json_file": "stmt_038_select_20251024_030736.json",
+      "preview": "SELECT * FROM METADATA_EXPORTS.MISSING_SERVICES_EXPORT;"
+    },
+    {
+      "statement_num": 39,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.893575,
+      "rows": 33,
+      "csv_file": "stmt_039_select_20251024_030737.csv",
+      "json_file": "stmt_039_select_20251024_030737.json",
+      "preview": "SELECT     TABLE_NAME,     ROW_COUNT,     CREATED as CREATED_DATE FROM DEV_TRANSFORMATION.INFORMATIO"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+CONFIG_ID,TABLE_NAME,IS_ENABLED,SYNC_FREQUENCY_MINUTES,LAST_SYNC_TIMESTAMP,INCREMENTAL_FIELD,NOTES,CREATED_TIMESTAMP,UPDATED_TIMESTAMP
+2,change_request,True,30,,sys_updated_on,Priority 1: Change management,2025-10-24 18:43:20.346000+00:00,2025-10-24 18:43:20.346000+00:00
+4,cmdb_ci,True,60,,sys_updated_on,Priority 1: CMDB items,2025-10-24 18:43:20.346000+00:00,2025-10-24 18:43:20.346000+00:00
+7,cmdb_rel_ci,True,60,,sys_updated_on,Priority 2: CMDB relationships,2025-10-24 18:43:20.346000+00:00,2025-10-24 18:43:20.346000+00:00
+1,incident,True,15,,sys_updated_on,Priority 1: Incident management,2025-10-24 18:43:20.346000+00:00,2025-10-24 18:43:20.346000+00:00
+3,problem,True,30,,sys_updated_on,Priority 2: Problem management,2025-10-24 18:43:20.346000+00:00,2025-10-24 18:43:20.346000+00:00
+5,sys_user,True,240,,sys_updated_on,Priority 1: Users,2025-10-24 18:43:20.346000+00:00,2025-10-24 18:43:20.346000+00:00
+6,sys_user_group,True,240,,sys_updated_on,Priority 2: User groups,2025-10-24 18:43:20.346000+00:00,2025-10-24 18:43:20.346000+00:00

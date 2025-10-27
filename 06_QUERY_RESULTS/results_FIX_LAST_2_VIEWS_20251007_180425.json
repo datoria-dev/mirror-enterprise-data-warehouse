@@ -1,0 +1,140 @@
+{
+  "file": "FIX_LAST_2_VIEWS.sql",
+  "executed_at": "2025-10-07T18:04:19.719644",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "CREATE OR REPLACE VIEW VW_ETL_ERRORS AS\nSELECT\n    LOG_ID,\n    PIPELINE_NAME,\n    SOURCE_TABLE,\n    ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_ETL_ERRORS successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "SELECT 'VW_ETL_ERRORS created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "VW_ETL_ERRORS created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 7,
+      "sql": "CREATE OR REPLACE VIEW VW_EXECUTIVE_KPI_DASHBOARD AS\nSELECT\n    d.DATE,\n    d.YEAR,\n    d.QUARTER,\n ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_EXECUTIVE_KPI_DASHBOARD successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 8,
+      "sql": "SELECT 'VW_EXECUTIVE_KPI_DASHBOARD created' AS RESULT;",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "VW_EXECUTIVE_KPI_DASHBOARD created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 9,
+      "sql": "SELECT 'VW_ETL_ERRORS' as VIEW_NAME, COUNT(*) as ROW_COUNT FROM VW_ETL_ERRORS;",
+      "success": true,
+      "rows": [
+        {
+          "VIEW_NAME": "VW_ETL_ERRORS",
+          "ROW_COUNT": "0"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 10,
+      "sql": "SELECT 'VW_EXECUTIVE_KPI_DASHBOARD' as VIEW_NAME, COUNT(*) as ROW_COUNT FROM VW_EXECUTIVE_KPI_DASHBO...",
+      "success": true,
+      "rows": [
+        {
+          "VIEW_NAME": "VW_EXECUTIVE_KPI_DASHBOARD",
+          "ROW_COUNT": "1098"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 11,
+      "sql": "SELECT '=== ALL VIEWS COMPLETE ===' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== ALL VIEWS COMPLETE ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

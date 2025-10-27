@@ -1,0 +1,16 @@
+[
+  {
+    "SCHEMA_NAME":"CONNECTOR_METADATA",
+    "SCHEMA_OWNER":"_DEV_TRANSFORMATION_OWNER",
+    "RETENTION_TIME":30,
+    "COMMENT":"Connector configuration, sync status, and metadata",
+    "SCHEMA_CREATED_TIMESTAMP":"2025-10-24T15:50:48.416Z"
+  },
+  {
+    "SCHEMA_NAME":"RAW_DATA",
+    "SCHEMA_OWNER":"_DEV_TRANSFORMATION_OWNER",
+    "RETENTION_TIME":7,
+    "COMMENT":"Raw ServiceNow tables synced by native connector",
+    "SCHEMA_CREATED_TIMESTAMP":"2025-10-24T15:50:48.005Z"
+  }
+]

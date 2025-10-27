@@ -1,0 +1,351 @@
+{
+  "file": "EXECUTE_4_ENHANCEMENTS_WORKING.sql",
+  "executed_at": "2025-10-07T15:28:27.314900",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE WAREHOUSE DEV_WH",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 3,
+      "sql": "SELECT '=== Enhancement 1: Power BI ===' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== Enhancement 1: Power BI ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "CREATE OR REPLACE VIEW VW_POWERBI_EXECUTIVE_DASHBOARD AS\nSELECT\n    d.DATE as \"Date\",\n    d.YEAR as ...",
+      "success": false,
+      "rows": [],
+      "error": "090105 (22000): Cannot perform CREATE VIEW. This session does not have a current database. Call 'USE DATABASE', or use a qualified name."
+    },
+    {
+      "num": 5,
+      "sql": "SELECT 'Power BI view created' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Power BI view created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 7,
+      "sql": "SELECT '=== Enhancement 2: Data Quality ===' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== Enhancement 2: Data Quality ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 8,
+      "sql": "CREATE TABLE IF NOT EXISTS DEV_REPORTING.SECURITY_ANALYTICS.TBL_DATA_QUALITY_METRICS (\n    METRIC_ID NUMBER AU...",
+      "success": true,
+      "rows": [
+        {
+          "status": "TBL_DATA_QUALITY_METRICS already exists, statement succeeded."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 9,
+      "sql": "SELECT 'DQ table created' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "DQ table created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 10,
+      "sql": "RETURN 'DQ metrics calculated'",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'RETURN'."
+    },
+    {
+      "num": 11,
+      "sql": "END",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 12,
+      "sql": "SELECT 'DQ procedure created' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "DQ procedure created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 13,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 14,
+      "sql": "SELECT '=== Enhancement 3: User Dimension ===' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== Enhancement 3: User Dimension ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 15,
+      "sql": "CREATE TABLE IF NOT EXISTS DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_USER (\n    USER_KEY NUMBER AUTOINCREMENT ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "DIM_USER already exists, statement succeeded."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 16,
+      "sql": "INSERT INTO DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_USER (USER_ID, EMAIL, DISPLAY_NAME, DEPARTMENT)\nSELECT '...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "0"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 17,
+      "sql": "SELECT 'User dimension created' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "User dimension created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 18,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 19,
+      "sql": "SELECT '=== Enhancement 4: Real-Time ===' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== Enhancement 4: Real-Time ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 20,
+      "sql": "CREATE TABLE IF NOT EXISTS DEV_LANDING.SECURITY_ANALYTICS.L_EDR_THREATS_REALTIME (\n    THREAT_ID VARCHAR(255),...",
+      "success": true,
+      "rows": [
+        {
+          "status": "L_EDR_THREATS_REALTIME already exists, statement succeeded."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 21,
+      "sql": "CREATE TABLE IF NOT EXISTS DEV_LANDING.SECURITY_ANALYTICS.L_CRITICAL_VULNS_REALTIME (\n    VULN_ID VARCHAR(255)...",
+      "success": true,
+      "rows": [
+        {
+          "status": "L_CRITICAL_VULNS_REALTIME already exists, statement succeeded."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 22,
+      "sql": "SELECT 'Real-time tables created' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Real-time tables created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 23,
+      "sql": "SELECT '=== VERIFICATION ===' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== VERIFICATION ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 24,
+      "sql": "SELECT '========================================' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 25,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 26,
+      "sql": "SELECT COUNT(*) as POWERBI_ROWS FROM VW_POWERBI_EXECUTIVE_DASHBOARD",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_POWERBI_EXECUTIVE_DASHBOARD' does not exist or not authorized."
+    },
+    {
+      "num": 27,
+      "sql": "SELECT COUNT(*) as DQ_METRICS FROM TBL_DATA_QUALITY_METRICS",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'TBL_DATA_QUALITY_METRICS' does not exist or not authorized."
+    },
+    {
+      "num": 28,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 29,
+      "sql": "SELECT COUNT(*) as USER_COUNT FROM DIM_USER",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DIM_USER' does not exist or not authorized."
+    },
+    {
+      "num": 30,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 31,
+      "sql": "SELECT COUNT(*) as EDR_THREATS FROM L_EDR_THREATS_REALTIME",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'L_EDR_THREATS_REALTIME' does not exist or not authorized."
+    },
+    {
+      "num": 32,
+      "sql": "SELECT COUNT(*) as CRITICAL_VULNS FROM L_CRITICAL_VULNS_REALTIME",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'L_CRITICAL_VULNS_REALTIME' does not exist or not authorized."
+    },
+    {
+      "num": 33,
+      "sql": "SELECT '========================================' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 34,
+      "sql": "SELECT 'ALL 4 ENHANCEMENTS COMPLETE!' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "ALL 4 ENHANCEMENTS COMPLETE!"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 35,
+      "sql": "SELECT '========================================' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

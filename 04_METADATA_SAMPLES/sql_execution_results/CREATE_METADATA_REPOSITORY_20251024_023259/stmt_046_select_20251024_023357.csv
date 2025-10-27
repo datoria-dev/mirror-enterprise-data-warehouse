@@ -1,0 +1,22 @@
+SERVICE_NAME,SERVICE_CATEGORY,SERVICE_DESCRIPTION,TABLE_COUNT,TOTAL_ROWS,TOTAL_COLUMNS,ACTIVE_TABLES,AVG_COLUMNS_PER_TABLE,LAST_DATA_UPDATE,REFRESH_FREQUENCY,IS_ACTIVE
+Ancon,Identity & Access,Identity and access management,8,45158.0,71,8,8.88,2025-10-18 00:26:55.132000+00:00,Daily,True
+BitSight,Threat Intelligence,Security posture rating and benchmarking,7,24401.0,48,7,6.86,2025-10-07 19:56:49.910000+00:00,Daily,True
+Cisco_AMP,Endpoint Protection,Advanced malware protection,13,987619.0,133,13,10.23,2025-10-18 00:26:58.108000+00:00,Hourly,True
+CrowdStrike,Endpoint Protection,Endpoint Detection and Response (EDR) platform,13,252480.0,238,13,18.31,2025-10-18 00:14:49.674000+00:00,Hourly,True
+CybelAngel,Threat Intelligence,Cyber threat intelligence and data leak detection,9,13328.0,112,9,12.44,2025-10-07 19:56:49.023000+00:00,Daily,True
+Defender,Endpoint Protection,Microsoft Defender endpoint security,11,221928.0,72,11,6.55,2025-10-18 00:14:49.360000+00:00,Hourly,False
+Intel_Threats,Threat Intelligence,Aggregated threat intelligence,8,17056821.0,45,8,5.63,2025-10-06 20:44:59.410000+00:00,Daily,True
+Leviat,Identity & Access,Privileged access and user monitoring,15,11984.0,146,15,9.73,2025-10-18 00:14:50.934000+00:00,Daily,True
+McAfee,Endpoint Protection,Endpoint security and threat protection,6,4380.0,35,6,5.83,2025-06-26 10:35:36.962000+00:00,Hourly,True
+Proofpoint,Email Security,Email security and threat protection,2,2688322.0,23,2,11.5,2025-10-08 05:04:17.743000+00:00,Hourly,True
+Qualys,Vulnerability Management,Vulnerability scanning and assessment,18,256391108.0,226,18,12.56,2025-10-08 05:04:17.038000+00:00,Daily,True
+SentinelOne,Endpoint Protection,Endpoint Detection and Response (EDR),11,142832.0,76,11,6.91,2025-10-08 05:04:16.458000+00:00,Hourly,True
+ServiceNow,Asset Management,IT Service Management and asset inventory,2,616250.0,36,2,18.0,2025-10-08 05:04:14.032000+00:00,Daily,True
+Sophos,Endpoint Protection,Endpoint protection and EDR,6,11115.0,32,6,5.33,2025-06-26 11:09:26.673000+00:00,Hourly,True
+Splunk,SIEM,Security Information and Event Management,12,672918.0,77,12,6.42,2025-10-18 00:26:54.871000+00:00,Real-time,False
+Symantec,Endpoint Protection,Antivirus and endpoint protection,9,33972171.0,456,9,50.67,2025-10-18 00:08:46.440000+00:00,Hourly,True
+Tenable,Vulnerability Management,Vulnerability assessment and management,0,,0,0,,,Daily,False
+Trellix,Endpoint Protection,EDR and threat detection,6,513525.0,36,6,6.0,2025-06-27 16:07:56.161000+00:00,Hourly,True
+TrendMicro,Endpoint Protection,Threat protection and endpoint security,9,12561.0,91,9,10.11,2025-06-27 16:17:35.844000+00:00,Hourly,True
+ZeroFox,Threat Intelligence,External threat monitoring and brand protection,9,10683523.0,165,9,18.33,2025-10-06 20:44:52.577000+00:00,Daily,True
+Zscaler,Cloud Security,Secure web gateway and cloud security,6,168794600.0,88,6,14.67,2025-10-17 16:29:59.516000+00:00,Hourly,False

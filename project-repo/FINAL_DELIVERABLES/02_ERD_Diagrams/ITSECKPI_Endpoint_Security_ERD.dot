@@ -1,0 +1,34 @@
+digraph ITSECKPI_Endpoint_Security {
+    rankdir=LR;
+    node [shape=rectangle, style=filled];
+
+    // Title
+    labelloc="t";
+    label="ITSECKPI - Endpoint Security\nGenerated: 2025-10-06";
+
+    // Dimensions
+    subgraph cluster_dims {
+        label="Dimensions";
+        style=filled;
+        color=lightgrey;
+        node [fillcolor=lightblue];
+
+        "DIM_HOST";
+        "DIM_CROWDSTRIKE";
+        "DIM_MCAFEE";
+        "DIM_SOPHOS";
+        "DIM_SYMANTEC";
+        "DIM_TRENDMICRO";
+    }
+
+    // Facts
+    subgraph cluster_facts {
+        label="Facts";
+        style=filled;
+        color=lightgrey;
+        node [fillcolor=lightyellow];
+
+        "FACT_AV_HEALTH";
+        "FACT_DEFENDER_ENDPOINTS";
+    }
+}

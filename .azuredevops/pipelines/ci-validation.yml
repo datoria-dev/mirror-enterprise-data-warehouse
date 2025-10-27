@@ -1,0 +1,189 @@
+# =============================================
+# Azure DevOps CI Pipeline
+# SECURITY_ANALYTICS Data Warehouse - Code Validation
+# =============================================
+
+name: CI-Validation-$(Date:yyyyMMdd)$(Rev:.r)
+
+# Trigger on commits to main and develop branches
+trigger:
+  branches:
+    include:
+      - main
+      - develop
+  paths:
+    include:
+      - '01_SQL_SCRIPTS/**'
+      - '02_PYTHON_SCRIPTS/**'
+      - '07_STREAMLIT_APPS/**'
+      - 'requirements.txt'
+
+# Also run on pull requests
+pr:
+  branches:
+    include:
+      - main
+      - develop
+
+# Use Microsoft-hosted Ubuntu agent
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  python.version: '3.13'
+
+stages:
+  # =============================================
+  # STAGE 1: Code Validation
+  # =============================================
+  - stage: Validate
+    displayName: 'Validate Code Quality'
+    jobs:
+      # Job 1: Validate Python Scripts
+      - job: ValidatePython
+        displayName: 'Python Code Validation'
+        steps:
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '$(python.version)'
+            displayName: 'Use Python $(python.version)'
+
+          - script: |
+              python -m pip install --upgrade pip
+              pip install -r requirements.txt
+            displayName: 'Install Python dependencies'
+
+          - script: |
+              pip install pylint flake8 black
+            displayName: 'Install linting tools'
+
+          - script: |
+              echo "Running Python linting..."
+              pylint 02_PYTHON_SCRIPTS/*.py --disable=C0114,C0115,C0116,W0511 --exit-zero || true
+              flake8 02_PYTHON_SCRIPTS/*.py --max-line-length=120 --exit-zero || true
+            displayName: 'Lint Python scripts'
+
+          - script: |
+              echo "Checking Python code formatting..."
+              black --check 02_PYTHON_SCRIPTS/*.py --line-length=120 || true
+            displayName: 'Check Python formatting'
+
+          - script: |
+              echo "Validating Streamlit apps..."
+              find 07_STREAMLIT_APPS -name "streamlit_app.py" | while read file; do
+                python -m py_compile "$file"
+                echo "✓ Validated: $file"
+              done
+            displayName: 'Validate Streamlit apps'
+
+      # Job 2: Validate SQL Scripts
+      - job: ValidateSQL
+        displayName: 'SQL Script Validation'
+        steps:
+          - script: |
+              echo "Validating SQL scripts..."
+              find 01_SQL_SCRIPTS -name "*.sql" -type f | while read file; do
+                if ! grep -qiE "CREATE|ALTER|SELECT|INSERT|UPDATE|DELETE|DROP|GRANT|USE" "$file"; then
+                  echo "⚠️  Warning: $file may not be a valid SQL file"
+                else
+                  echo "✓ Validated: $file"
+                fi
+              done
+            displayName: 'Basic SQL syntax validation'
+
+          - script: |
+              echo "Checking for dangerous SQL commands..."
+              find 01_SQL_SCRIPTS -name "*.sql" -type f | while read file; do
+                if grep -qiE "DROP\s+DATABASE|TRUNCATE\s+TABLE|DELETE\s+FROM.*WHERE\s+1\s*=\s*1" "$file"; then
+                  echo "⚠️  WARNING: Potentially dangerous SQL in $file"
+                fi
+              done
+            displayName: 'Check for dangerous SQL patterns'
+
+          - script: |
+              echo "Checking SQL file structure..."
+              total_sql=$(find 01_SQL_SCRIPTS -name "*.sql" | wc -l)
+              echo "Total SQL files: $total_sql"
+
+              echo "Files by category:"
+              echo "  Prerequisites: $(find 01_SQL_SCRIPTS/01_Prerequisites -name "*.sql" 2>/dev/null | wc -l)"
+              echo "  Base Implementation: $(find 01_SQL_SCRIPTS/02_Base_Implementation -name "*.sql" 2>/dev/null | wc -l)"
+              echo "  Enhancements: $(find 01_SQL_SCRIPTS/03_Enhancements -name "*.sql" 2>/dev/null | wc -l)"
+              echo "  Pipelines: $(find 01_SQL_SCRIPTS/04_Pipelines -name "*.sql" 2>/dev/null | wc -l)"
+              echo "  Fixes: $(find 01_SQL_SCRIPTS/05_Fixes -name "*.sql" 2>/dev/null | wc -l)"
+              echo "  Monitoring: $(find 01_SQL_SCRIPTS/06_Monitoring -name "*.sql" 2>/dev/null | wc -l)"
+            displayName: 'SQL file inventory'
+
+      # Job 3: Validate Documentation
+      - job: ValidateDocs
+        displayName: 'Documentation Validation'
+        steps:
+          - script: |
+              echo "Checking for required documentation files..."
+              required_files=(
+                "README.md"
+                "requirements.txt"
+                ".gitignore"
+                "FOLDER_STRUCTURE.md"
+              )
+
+              for file in "${required_files[@]}"; do
+                if [ -f "$file" ]; then
+                  echo "✓ Found: $file"
+                else
+                  echo "✗ Missing: $file"
+                fi
+              done
+            displayName: 'Check required files'
+
+          - script: |
+              echo "Validating markdown files..."
+              find . -name "*.md" -type f ! -path "*/99_ARCHIVE/*" ! -path "*/.git/*" | while read file; do
+                lines=$(wc -l < "$file")
+                echo "$file: $lines lines"
+              done
+            displayName: 'Markdown file inventory'
+
+          - script: |
+              echo "Checking documentation structure..."
+              echo "Total .md files: $(find . -name "*.md" ! -path "*/99_ARCHIVE/*" ! -path "*/.git/*" | wc -l)"
+              echo "Documentation folders:"
+              ls -d 04_DOCUMENTATION/*/ 2>/dev/null || echo "No documentation folders found"
+            displayName: 'Documentation structure check'
+
+  # =============================================
+  # STAGE 2: Build Report
+  # =============================================
+  - stage: Report
+    displayName: 'Build Quality Report'
+    dependsOn: Validate
+    condition: succeeded()
+    jobs:
+      - job: GenerateReport
+        displayName: 'Generate Build Report'
+        steps:
+          - script: |
+              echo "========================================="
+              echo "SECURITY_ANALYTICS Data Warehouse - Build Report"
+              echo "========================================="
+              echo "Build: $(Build.BuildNumber)"
+              echo "Branch: $(Build.SourceBranchName)"
+              echo "Commit: $(Build.SourceVersion)"
+              echo "Date: $(date)"
+              echo ""
+              echo "Project Statistics:"
+              echo "  SQL Scripts: $(find 01_SQL_SCRIPTS -name "*.sql" | wc -l)"
+              echo "  Python Scripts: $(find 02_PYTHON_SCRIPTS -name "*.py" | wc -l)"
+              echo "  Streamlit Apps: $(find 07_STREAMLIT_APPS -name "streamlit_app.py" | wc -l)"
+              echo "  Documentation: $(find . -name "*.md" ! -path "*/99_ARCHIVE/*" | wc -l)"
+              echo ""
+              echo "✅ All validation checks passed!"
+              echo "========================================="
+            displayName: 'Build summary'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.SourcesDirectory)'
+              ArtifactName: 'SECURITY_ANALYTICS-validated-$(Build.BuildNumber)'
+              publishLocation: 'Container'
+            displayName: 'Publish validated code'

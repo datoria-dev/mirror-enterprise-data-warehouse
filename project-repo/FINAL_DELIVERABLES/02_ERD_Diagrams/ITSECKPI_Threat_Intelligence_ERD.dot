@@ -1,0 +1,33 @@
+digraph ITSECKPI_Threat_Intelligence {
+    rankdir=LR;
+    node [shape=rectangle, style=filled];
+
+    // Title
+    labelloc="t";
+    label="ITSECKPI - Threat Intelligence\nGenerated: 2025-10-06";
+
+    // Dimensions
+    subgraph cluster_dims {
+        label="Dimensions";
+        style=filled;
+        color=lightgrey;
+        node [fillcolor=lightblue];
+
+        "DIM_CYBELANGEL_ALERTS";
+        "DIM_ZEROFOX_ALERTS";
+        "DIM_ZEROFOX_ASSETS";
+        "DIM_THREAT_INTEL";
+        "DIM_SENTINEL";
+    }
+
+    // Facts
+    subgraph cluster_facts {
+        label="Facts";
+        style=filled;
+        color=lightgrey;
+        node [fillcolor=lightyellow];
+
+        "FACT_CYBELANGEL_THREATS";
+        "FACT_THREAT_INTEL_EVENTS";
+    }
+}

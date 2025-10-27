@@ -1,0 +1,14 @@
+[
+  {
+    "TABLE_NAME":"TABLE_REGISTRY",
+    "DESCRIPTION":"Core metadata catalog table",
+    "ROW_COUNT":180,
+    "COLUMN_COUNT":14
+  },
+  {
+    "TABLE_NAME":"COLUMN_METADATA",
+    "DESCRIPTION":"Column-level metadata and statistics",
+    "ROW_COUNT":2206,
+    "COLUMN_COUNT":17
+  }
+]

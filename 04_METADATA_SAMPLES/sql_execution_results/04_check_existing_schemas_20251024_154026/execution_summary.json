@@ -1,0 +1,34 @@
+{
+  "script_name": "04_check_existing_schemas.sql",
+  "execution_timestamp": "2025-10-24T15:40:34.275621",
+  "total_statements": 3,
+  "successful_statements": 3,
+  "failed_statements": 0,
+  "total_duration_seconds": 1.418708,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.749581,
+      "rows": 16,
+      "preview": "SHOW SCHEMAS IN DATABASE DEV_LANDING;"
+    },
+    {
+      "statement_num": 2,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.316631,
+      "rows": 25,
+      "preview": "SHOW SCHEMAS IN DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 3,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.352496,
+      "rows": 17,
+      "preview": "SHOW SCHEMAS IN DATABASE DEV_REPORTING;"
+    }
+  ]
+}

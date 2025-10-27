@@ -1,0 +1,76 @@
+statement_num,type,status,duration,rows,preview,error,csv_file,json_file
+1,USE,SUCCESS,0.45801,1.0,USE ROLE DEV_DEVELOPER;,,,
+2,USE,SUCCESS,0.329845,1.0,USE WAREHOUSE DEV_WH;,,,
+3,USE,SUCCESS,0.577013,1.0,USE DATABASE DEV_TRANSFORMATION;,,,
+4,CREATE,SUCCESS,0.262517,1.0,CREATE SCHEMA IF NOT EXISTS DEV_TRANSFORMATION.METADATA     COMMENT = 'Centralized metadata reposito,,,
+5,CREATE,SUCCESS,0.333556,1.0,CREATE SCHEMA IF NOT EXISTS DEV_TRANSFORMATION.METADATA_EXPORTS     COMMENT = 'Storage for metadata ,,,
+6,USE,SUCCESS,0.321712,1.0,USE SCHEMA METADATA;,,,
+7,CREATE,SUCCESS,1.15527,1.0,"CREATE OR REPLACE TABLE TABLE_REGISTRY (     TABLE_ID NUMBER AUTOINCREMENT PRIMARY KEY,     SERVICE_",,,
+8,CREATE,SUCCESS,0.941028,1.0,"CREATE OR REPLACE TABLE COLUMN_METADATA (     COLUMN_ID NUMBER AUTOINCREMENT PRIMARY KEY,     TABLE_",,,
+9,CREATE,SUCCESS,1.195446,1.0,"CREATE OR REPLACE TABLE PROCEDURE_EXECUTION_LOG (     LOG_ID NUMBER AUTOINCREMENT PRIMARY KEY,     P",,,
+10,CREATE,SUCCESS,1.686796,1.0,"CREATE OR REPLACE TABLE TABLE_STATISTICS (     STAT_ID NUMBER AUTOINCREMENT PRIMARY KEY,     TABLE_I",,,
+11,CREATE,SUCCESS,0.846559,1.0,"CREATE OR REPLACE TABLE SERVICE_CATALOG (     SERVICE_ID NUMBER AUTOINCREMENT PRIMARY KEY,     SERVI",,,
+12,CREATE,SUCCESS,1.001555,1.0,"CREATE OR REPLACE TABLE DATA_QUALITY_RULES (     RULE_ID NUMBER AUTOINCREMENT PRIMARY KEY,     TABLE",,,
+13,CREATE,SUCCESS,0.807738,1.0,"CREATE OR REPLACE VIEW VW_TABLE_CATALOG AS SELECT     tr.TABLE_ID,     sc.SERVICE_NAME,     sc.SERVI",,,
+14,CREATE,SUCCESS,0.673841,1.0,"CREATE OR REPLACE VIEW VW_COLUMN_CATALOG AS SELECT     tr.SERVICE_NAME,     tr.DATABASE_NAME,     tr",,,
+15,CREATE,SUCCESS,0.769909,1.0,"CREATE OR REPLACE VIEW VW_SERVICE_SUMMARY AS SELECT     sc.SERVICE_NAME,     sc.SERVICE_CATEGORY,   ",,,
+16,INSERT,SUCCESS,1.052312,21.0,"INSERT INTO SERVICE_CATALOG (     SERVICE_NAME,     SERVICE_DESCRIPTION,     SERVICE_CATEGORY,     I",,,
+17,CREATE,FAILED,0.0,,CREATE OR REPLACE PROCEDURE SP_REFRESH_METADATA() RETURNS VARCHAR LANGUAGE SQL AS $$ DECLARE     v_l,"001003 (42000): SQL compilation error:
+parse error line 7 at position 20 near '<EOF>'.
+syntax error line 5 at position 1 unexpected '$'.",,
+18,OTHER,FAILED,0.0,,v_start_time TIMESTAMP_LTZ := CURRENT_TIMESTAMP();,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_start_time'.",,
+19,OTHER,FAILED,0.0,,v_end_time TIMESTAMP_LTZ;,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_end_time'.",,
+20,OTHER,FAILED,0.0,,v_duration NUMBER;,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_duration'.",,
+21,OTHER,FAILED,0.0,,v_tables_processed NUMBER;,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_tables_processed'.",,
+22,OTHER,FAILED,0.0,,v_columns_processed NUMBER;,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_columns_processed'.",,
+23,OTHER,FAILED,0.0,,v_stats_processed NUMBER;,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_stats_processed'.",,
+24,OTHER,FAILED,0.0,,v_result VARCHAR;,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_result'.",,
+25,OTHER,FAILED,0.0,,v_status VARCHAR;,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_status'.",,
+26,OTHER,FAILED,0.0,,"BEGIN     INSERT INTO PROCEDURE_EXECUTION_LOG (         PROCEDURE_NAME,         EXECUTION_START,    ","001003 (42000): SQL compilation error:
+syntax error line 11 at position 6 unexpected '<EOF>'.",,
+27,OTHER,FAILED,0.0,,v_log_id := (SELECT MAX(LOG_ID) FROM PROCEDURE_EXECUTION_LOG);,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_log_id'.",,
+28,DELETE,SUCCESS,0.604544,0.0,DELETE FROM COLUMN_METADATA;,,,
+29,DELETE,SUCCESS,0.890877,0.0,DELETE FROM TABLE_REGISTRY;,,,
+30,INSERT,SUCCESS,3.544982,180.0,"INSERT INTO TABLE_REGISTRY (         SERVICE_NAME,         DATABASE_NAME,         SCHEMA_NAME,      ",,,
+31,OTHER,FAILED,0.0,,v_tables_processed := (SELECT COUNT(*) FROM TABLE_REGISTRY);,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_tables_processed'.",,
+32,INSERT,SUCCESS,3.921126,2206.0,"INSERT INTO COLUMN_METADATA (         TABLE_ID,         COLUMN_NAME,         DATA_TYPE,         IS_N",,,
+33,OTHER,FAILED,0.0,,v_columns_processed := (SELECT COUNT(*) FROM COLUMN_METADATA);,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_columns_processed'.",,
+34,INSERT,SUCCESS,1.504263,180.0,"INSERT INTO TABLE_STATISTICS (TABLE_ID, SNAPSHOT_DATE, ROW_COUNT, COLUMN_COUNT)     SELECT         t",,,
+35,OTHER,FAILED,0.0,,v_stats_processed := (SELECT COUNT(*) FROM TABLE_STATISTICS WHERE SNAPSHOT_DATE = CURRENT_DATE());,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_stats_processed'.",,
+36,OTHER,FAILED,0.0,,v_end_time := CURRENT_TIMESTAMP();,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_end_time'.",,
+37,OTHER,FAILED,0.0,,"v_duration := DATEDIFF(second, v_start_time, v_end_time);","001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_duration'.",,
+38,OTHER,FAILED,0.0,,v_status := 'SUCCESS';,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_status'.",,
+39,OTHER,FAILED,0.0,,v_result := 'Metadata refresh completed successfully: ' ||                 v_tables_processed || ' t,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'v_result'.",,
+40,UPDATE,SUCCESS,0.830817,0.0,"UPDATE PROCEDURE_EXECUTION_LOG     SET         EXECUTION_END = CURRENT_TIMESTAMP(),         EXECUTIO",,,
+41,OTHER,FAILED,0.0,,RETURN v_result;,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'RETURN'.",,
+42,OTHER,FAILED,0.0,,END;,"001003 (42000): SQL compilation error:
+syntax error line 1 at position 0 unexpected 'END'.",,
+43,OTHER,FAILED,0.0,,$$;,"001003 (42000): SQL compilation error:
+parse error line 1 at position 3 near '<EOF>'.
+syntax error line 1 at position 1 unexpected '$'.",,
+44,CREATE,SUCCESS,0.29322,1.0,CREATE OR REPLACE TASK TASK_DAILY_METADATA_REFRESH     WAREHOUSE = DEV_WH     SCHEDULE = 'USING CRON,,,
+45,CALL,SUCCESS,9.786573,1.0,CALL SP_REFRESH_METADATA();,,stmt_045_call_20251024_023355.csv,stmt_045_call_20251024_023355.json
+46,SELECT,SUCCESS,1.714843,21.0,SELECT * FROM VW_SERVICE_SUMMARY ORDER BY SERVICE_NAME;,,stmt_046_select_20251024_023357.csv,stmt_046_select_20251024_023357.json
+47,SELECT,SUCCESS,0.721341,180.0,"SELECT * FROM VW_TABLE_CATALOG ORDER BY SERVICE_NAME, TABLE_NAME;",,stmt_047_select_20251024_023357.csv,stmt_047_select_20251024_023357.json
+48,SELECT,SUCCESS,0.42083,76.0,"SELECT * FROM VW_COLUMN_CATALOG WHERE SERVICE_NAME = 'SentinelOne' ORDER BY TABLE_NAME, ORDINAL_POSI",,stmt_048_select_20251024_023358.csv,stmt_048_select_20251024_023358.json
+49,SELECT,SUCCESS,0.281589,1.0,"SELECT     LOG_ID,     PROCEDURE_NAME,     EXECUTION_START,     EXECUTION_END,     EXECUTION_DURATIO",,stmt_049_select_20251024_023358.csv,stmt_049_select_20251024_023358.json
+50,SELECT,SUCCESS,0.329225,1.0,"SELECT     LOG_ID,     PROCEDURE_NAME,     EXECUTION_START,     EXECUTION_DURATION_SECONDS,     STAT",,stmt_050_select_20251024_023358.csv,stmt_050_select_20251024_023358.json
+51,SELECT,SUCCESS,0.595001,1.0,"SELECT     STATUS,     COUNT(*) as EXECUTION_COUNT,     AVG(EXECUTION_DURATION_SECONDS) as AVG_DURAT",,stmt_051_select_20251024_023359.csv,stmt_051_select_20251024_023359.json
+52,SELECT,SUCCESS,0.437689,21.0,"SELECT     sc.SERVICE_NAME,     COUNT(DISTINCT tr.TABLE_ID) as TABLES,     COUNT(DISTINCT cm.COLUMN_",,stmt_052_select_20251024_023359.csv,stmt_052_select_20251024_023359.json

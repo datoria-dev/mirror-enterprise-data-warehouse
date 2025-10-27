@@ -1,0 +1,136 @@
+{
+  "timestamp": "2025-10-25T19:18:36.670308",
+  "database": "DEV_REPORTING",
+  "schema": "SECURITY_ANALYTICS",
+  "total_apps": 18,
+  "successful": 18,
+  "failed": 0,
+  "deployments": [
+    {
+      "app_name": "Crowdstrike",
+      "streamlit_name": "STREAMLIT_CROWDSTRIKE",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669547",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Symantec",
+      "streamlit_name": "STREAMLIT_SYMANTEC",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669560",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Trellix",
+      "streamlit_name": "STREAMLIT_TRELLIX",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669564",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Qualys",
+      "streamlit_name": "STREAMLIT_QUALYS",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669567",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "SentinelOne",
+      "streamlit_name": "STREAMLIT_SENTINELONE",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669570",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Sophos",
+      "streamlit_name": "STREAMLIT_SOPHOS",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669573",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Splunk",
+      "streamlit_name": "STREAMLIT_SPLUNK",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669576",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Cisco_AMP",
+      "streamlit_name": "STREAMLIT_CISCO_AMP",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669580",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "CybelAngel",
+      "streamlit_name": "STREAMLIT_CYBELANGEL",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669583",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Proofpoint",
+      "streamlit_name": "STREAMLIT_PROOFPOINT",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669587",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Zerofox",
+      "streamlit_name": "STREAMLIT_ZEROFOX",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669591",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Zscaler",
+      "streamlit_name": "STREAMLIT_ZSCALER",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669595",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Ancon",
+      "streamlit_name": "STREAMLIT_ANCON",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669600",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "BitSight",
+      "streamlit_name": "STREAMLIT_BITSIGHT",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669605",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Intel_Threats",
+      "streamlit_name": "STREAMLIT_INTEL_THREATS",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669610",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Leviat",
+      "streamlit_name": "STREAMLIT_LEVIAT",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669615",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "ServiceNow",
+      "streamlit_name": "STREAMLIT_SERVICENOW",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669620",
+      "duration_seconds": 3.32
+    },
+    {
+      "app_name": "Tenable",
+      "streamlit_name": "STREAMLIT_TENABLE",
+      "success": true,
+      "timestamp": "2025-10-25T19:18:36.669626",
+      "duration_seconds": 3.32
+    }
+  ]
+}

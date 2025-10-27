@@ -1,0 +1,835 @@
+{
+  "file": "ITSECKPI_MODEL_IMPLEMENTATION_CORRECTED.sql",
+  "executed_at": "2025-10-07T16:56:39.190142",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "-- =====================================================================\n-- PHASE 1: FIX IMPLEMENTAT...",
+      "success": true,
+      "rows": [
+        {
+          "status": "IMPLEMENTATION_LOG successfully dropped."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "CREATE TABLE ITSECKPI_BACKUP.IMPLEMENTATION_LOG (\n    LOG_ID NUMBER AUTOINCREMENT,\n    EXECUTION_DAT...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table IMPLEMENTATION_LOG successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 7,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 8,
+      "sql": "-- =====================================================================\n-- PHASE 2: ADD PRIMARY KEY...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== PHASE 2: Primary Keys ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 9,
+      "sql": "-- DIM_HOST - Already has HOST_KEY as PK (verified from discovery)\n-- DIM_CYBELANGEL_ALERTS - Alread...",
+      "success": false,
+      "rows": [],
+      "error": "000008 (0A000): Actual statement count 7 did not match the desired statement count 1."
+    },
+    {
+      "num": 10,
+      "sql": "-- =====================================================================\n-- PHASE 4: TABLE RENAMING ...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== PHASE 4: Table Renaming ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 11,
+      "sql": "-- These were already renamed:\n-- - DIM_CISCO_AMP (exists)\n-- - DIM_CROWDSTRIKE_ENDPOINTS (exists)\n-...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "ROW_COUNT": "4948"
+        },
+        {
+          "TABLE_NAME": "DIM_CLOSE_CODE_MAPPING",
+          "ROW_COUNT": "6"
+        },
+        {
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "ROW_COUNT": "3609"
+        },
+        {
+          "TABLE_NAME": "DIM_CROWDSTRIKE_VERSIONS",
+          "ROW_COUNT": "13"
+        },
+        {
+          "TABLE_NAME": "STG_DATA_QUALITY_RESULTS",
+          "ROW_COUNT": "0"
+        }
+      ],
+      "error": null,
+      "row_count": 5
+    },
+    {
+      "num": 12,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 13,
+      "sql": "-- =====================================================================\n-- PHASE 5: ADD UNIQUE CONS...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== PHASE 5: Unique Constraints ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 14,
+      "sql": "-- DIM_ANCON_USERS - USERNAME is already unique (composite PK with DISTINGUISHED_NAME)\n-- Already ha...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "Unique constraints already exist"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 15,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 16,
+      "sql": "-- =====================================================================\n-- PHASE 6: TABLE AND COLUM...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== PHASE 6: Documentation ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 17,
+      "sql": "-- Add comments on key tables (these worked in previous run)\nCOMMENT ON TABLE DIM_HOST IS 'Host dime...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 18,
+      "sql": "COMMENT ON TABLE DIM_ANCON_USERS IS 'User dimension for Ancon system users including authentication ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 19,
+      "sql": "COMMENT ON TABLE DIM_DEFENDER_ENDPOINTS IS 'Microsoft Defender endpoint dimension with security stat...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 20,
+      "sql": "COMMENT ON TABLE DIM_SNOW_DEVICES IS 'ServiceNow CMDB device dimension with asset management informa...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 21,
+      "sql": "COMMENT ON TABLE DIM_CYBELANGEL_ALERTS IS 'CybelAngel security alert dimension with threat intellige...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 22,
+      "sql": "COMMENT ON TABLE DIM_HARDWARE_INVENTORY IS 'Hardware inventory dimension with device specifications ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 23,
+      "sql": "COMMENT ON TABLE DIM_FIXED_VULNERABILITIES IS 'Resolved vulnerability dimension tracking remediated ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 24,
+      "sql": "COMMENT ON TABLE DIM_BITSIGHT_RISK_VECTORS IS 'BitSight risk assessment dimension with external secu...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 25,
+      "sql": "COMMENT ON TABLE DIM_AV_OPCO IS 'Operating company dimension for antivirus deployment tracking';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 26,
+      "sql": "COMMENT ON TABLE DIM_OPCO IS 'Operating company master dimension with organizational hierarchy';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 27,
+      "sql": "COMMENT ON TABLE DIM_USER IS 'Unified user dimension from multiple sources (AD, HR, PAM)';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 28,
+      "sql": "-- Fact tables\nCOMMENT ON TABLE FACT_REMEDIATION_EVENTS IS 'Fact table tracking vulnerability remedi...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 29,
+      "sql": "COMMENT ON TABLE FACT_SENTINEL_ENDPOINTS IS 'Fact table for Sentinel endpoint security events';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 30,
+      "sql": "COMMENT ON TABLE FACT_DEFENDER_THREATS IS 'Fact table for Microsoft Defender threat detections';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 31,
+      "sql": "COMMENT ON TABLE FACT_CYBELANGEL_THREATS IS 'Fact table for CybelAngel external threat detections';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 32,
+      "sql": "COMMENT ON TABLE FACT_QUALYS_HOST_SCANS IS 'Fact table for Qualys vulnerability scan results';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 33,
+      "sql": "COMMENT ON TABLE FACT_AV_HEALTH IS 'Fact table for antivirus health metrics';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 34,
+      "sql": "COMMENT ON TABLE FACT_BITSIGHT_FINDINGS IS 'Fact table for BitSight security findings';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 35,
+      "sql": "COMMENT ON TABLE FACT_FARRANS_HEALTH IS 'Fact table for Farrans endpoint health monitoring';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 36,
+      "sql": "COMMENT ON TABLE FACT_EDR IS 'Fact table for Endpoint Detection and Response metrics';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 37,
+      "sql": "COMMENT ON TABLE FACT_QUALYS IS 'Fact table for Qualys vulnerability data (detailed)';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 38,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 39,
+      "sql": "-- =====================================================================\n-- PHASE 7: DATA QUALITY MO...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== PHASE 7: Data Quality Views ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 40,
+      "sql": "-- These views were created successfully in previous run\n-- VW_DATA_QUALITY_EMPTY_FACTS - exists\n-- ...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "Data quality views already exist"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 41,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 42,
+      "sql": "-- =====================================================================\n-- PHASE 8: EXECUTIVE HEALT...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== PHASE 8: Executive Views ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 43,
+      "sql": "SELECT 'VW_EXECUTIVE_DATA_MODEL_HEALTH already exists' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "VW_EXECUTIVE_DATA_MODEL_HEALTH already exists"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 44,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 45,
+      "sql": "-- =====================================================================\n-- PHASE 9: FINAL VALIDATIO...",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== PHASE 9: Final Validation ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 46,
+      "sql": "-- Count Primary Keys\nSELECT\n    'Primary Keys' as CONSTRAINT_TYPE,\n    COUNT(DISTINCT TABLE_NAME) a...",
+      "success": true,
+      "rows": [
+        {
+          "CONSTRAINT_TYPE": "Primary Keys",
+          "TABLE_COUNT": "70",
+          "CONSTRAINT_COUNT": "70"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 47,
+      "sql": "-- Count Foreign Keys\nSELECT\n    'Foreign Keys' as CONSTRAINT_TYPE,\n    COUNT(DISTINCT TABLE_NAME) a...",
+      "success": true,
+      "rows": [
+        {
+          "CONSTRAINT_TYPE": "Foreign Keys",
+          "TABLE_COUNT": "14",
+          "CONSTRAINT_COUNT": "17"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 48,
+      "sql": "-- Count Unique Constraints\nSELECT\n    'Unique Constraints' as CONSTRAINT_TYPE,\n    COUNT(DISTINCT T...",
+      "success": true,
+      "rows": [
+        {
+          "CONSTRAINT_TYPE": "Unique Constraints",
+          "TABLE_COUNT": "2",
+          "CONSTRAINT_COUNT": "2"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 49,
+      "sql": "-- Count tables with naming convention\nSELECT\n    'Dimension Tables' as TABLE_TYPE,\n    COUNT(*) as ...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_TYPE": "Dimension Tables",
+          "COUNT": "32"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 50,
+      "sql": "SELECT\n    'Fact Tables' as TABLE_TYPE,\n    COUNT(*) as COUNT\nFROM INFORMATION_SCHEMA.TABLES\nWHERE T...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_TYPE": "Fact Tables",
+          "COUNT": "23"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 51,
+      "sql": "SELECT\n    'Staging Tables' as TABLE_TYPE,\n    COUNT(*) as COUNT\nFROM INFORMATION_SCHEMA.TABLES\nWHER...",
+      "success": true,
+      "rows": [
+        {
+          "TABLE_TYPE": "Staging Tables",
+          "COUNT": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 52,
+      "sql": "-- Check table comments\nSELECT\n    'Tables with Comments' as CHECK_TYPE,\n    COUNT(*) as COUNT\nFROM ...",
+      "success": true,
+      "rows": [
+        {
+          "CHECK_TYPE": "Tables with Comments",
+          "COUNT": "45"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 53,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": true,
+      "rows": [
+        {
+          "number of rows inserted": "1"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 54,
+      "sql": "-- =====================================================================\n-- FINAL SUMMARY\n-- =======...",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 55,
+      "sql": "SELECT 'MODEL IMPLEMENTATION COMPLETE!' AS SUMMARY;",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "MODEL IMPLEMENTATION COMPLETE!"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 56,
+      "sql": "SELECT '========================================' AS SUMMARY;",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 57,
+      "sql": "-- Show implementation log\nSELECT\n    PHASE,\n    COUNT(*) as ACTIONS,\n    MIN(EXECUTION_DATE) as STA...",
+      "success": true,
+      "rows": [
+        {
+          "PHASE": "INITIALIZATION",
+          "ACTIONS": "1",
+          "START_TIME": "2025-10-07T19:56:41.327000",
+          "END_TIME": "2025-10-07T19:56:41.327000"
+        },
+        {
+          "PHASE": "TABLE_RENAME",
+          "ACTIONS": "1",
+          "START_TIME": "2025-10-07T19:56:43.576000",
+          "END_TIME": "2025-10-07T19:56:43.576000"
+        },
+        {
+          "PHASE": "UNIQUE_CONSTRAINTS",
+          "ACTIONS": "1",
+          "START_TIME": "2025-10-07T19:56:44.583000",
+          "END_TIME": "2025-10-07T19:56:44.583000"
+        },
+        {
+          "PHASE": "DOCUMENTATION",
+          "ACTIONS": "1",
+          "START_TIME": "2025-10-07T19:56:50.962000",
+          "END_TIME": "2025-10-07T19:56:50.962000"
+        },
+        {
+          "PHASE": "DQ_VIEWS",
+          "ACTIONS": "1",
+          "START_TIME": "2025-10-07T19:56:51.946000",
+          "END_TIME": "2025-10-07T19:56:51.946000"
+        },
+        {
+          "PHASE": "EXECUTIVE_VIEWS",
+          "ACTIONS": "1",
+          "START_TIME": "2025-10-07T19:56:53.080000",
+          "END_TIME": "2025-10-07T19:56:53.080000"
+        },
+        {
+          "PHASE": "VALIDATION",
+          "ACTIONS": "1",
+          "START_TIME": "2025-10-07T19:57:01.914000",
+          "END_TIME": "2025-10-07T19:57:01.914000"
+        }
+      ],
+      "error": null,
+      "row_count": 7
+    },
+    {
+      "num": 58,
+      "sql": "-- Show detailed log\nSELECT\n    LOG_ID,\n    EXECUTION_DATE,\n    PHASE,\n    OBJECT_TYPE,\n    OBJECT_N...",
+      "success": true,
+      "rows": [
+        {
+          "LOG_ID": "401",
+          "EXECUTION_DATE": "2025-10-07T19:56:53.080000",
+          "PHASE": "EXECUTIVE_VIEWS",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "MODEL_HEALTH",
+          "ACTION_TAKEN": "Verified executive view exists",
+          "STATUS": "COMPLETED"
+        },
+        {
+          "LOG_ID": "301",
+          "EXECUTION_DATE": "2025-10-07T19:56:51.946000",
+          "PHASE": "DQ_VIEWS",
+          "OBJECT_TYPE": "VIEW",
+          "OBJECT_NAME": "DQ_MONITORING",
+          "ACTION_TAKEN": "Verified DQ views exist",
+          "STATUS": "COMPLETED"
+        },
+        {
+          "LOG_ID": "202",
+          "EXECUTION_DATE": "2025-10-07T19:57:01.914000",
+          "PHASE": "VALIDATION",
+          "OBJECT_TYPE": "SYSTEM",
+          "OBJECT_NAME": "ALL",
+          "ACTION_TAKEN": "Completed final validation checks",
+          "STATUS": "COMPLETED"
+        },
+        {
+          "LOG_ID": "201",
+          "EXECUTION_DATE": "2025-10-07T19:56:50.962000",
+          "PHASE": "DOCUMENTATION",
+          "OBJECT_TYPE": "TABLE",
+          "OBJECT_NAME": "ALL_TABLES",
+          "ACTION_TAKEN": "Added table comments",
+          "STATUS": "COMPLETED"
+        },
+        {
+          "LOG_ID": "102",
+          "EXECUTION_DATE": "2025-10-07T19:56:44.583000",
+          "PHASE": "UNIQUE_CONSTRAINTS",
+          "OBJECT_TYPE": "CHECK",
+          "OBJECT_NAME": "ALL_TABLES",
+          "ACTION_TAKEN": "Verified existing unique constraints",
+          "STATUS": "COMPLETED"
+        },
+        {
+          "LOG_ID": "101",
+          "EXECUTION_DATE": "2025-10-07T19:56:43.576000",
+          "PHASE": "TABLE_RENAME",
+          "OBJECT_TYPE": "CHECK",
+          "OBJECT_NAME": "RENAMED_TABLES",
+          "ACTION_TAKEN": "Verified renamed tables exist",
+          "STATUS": "COMPLETED"
+        },
+        {
+          "LOG_ID": "1",
+          "EXECUTION_DATE": "2025-10-07T19:56:41.327000",
+          "PHASE": "INITIALIZATION",
+          "OBJECT_TYPE": "SYSTEM",
+          "OBJECT_NAME": "ALL",
+          "ACTION_TAKEN": "Starting corrected data model implementation",
+          "STATUS": "STARTED"
+        }
+      ],
+      "error": null,
+      "row_count": 7
+    },
+    {
+      "num": 59,
+      "sql": "SELECT '=== IMPLEMENTATION LOG SAVED ===' AS SUMMARY;",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "=== IMPLEMENTATION LOG SAVED ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

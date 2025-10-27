@@ -1,0 +1,353 @@
+// Snowflake ERD - ITSECKPI Schema
+digraph {
+	rankdir=TB
+	node [fontname=Arial shape=none]
+	graph [bgcolor=white pad=0.5 splines=ortho]
+	subgraph cluster_landing {
+		fillcolor="#FFF5F0" fontname="Arial Bold" fontsize=14 label=DEV_LANDING style=filled
+		landing_RAW_KPI_METRICS [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#FFE5CC">
+        <TR><TD COLSPAN="2" BGCOLOR="#FF9933" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>RAW_KPI_METRICS</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔑 LOAD_ID</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPI_CODE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPI_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">MEASUREMENT_DATE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">TIMESTAMP</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">SOURCE_SYSTEM</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">RAW_DATA</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARIANT</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">LOAD_TIMESTAMP</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">TIMESTAMP</FONT></TD>
+        </TR></TABLE>> shape=none]
+		landing_RAW_SYSTEM_EVENTS [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#FFE5CC">
+        <TR><TD COLSPAN="2" BGCOLOR="#FF9933" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>RAW_SYSTEM_EVENTS</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔑 EVENT_ID</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">SYSTEM_ID</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">EVENT_TYPE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">EVENT_TIMESTAMP</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">TIMESTAMP</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">EVENT_DATA</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARIANT</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">LOAD_DATE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">DATE</FONT></TD>
+        </TR></TABLE>> shape=none]
+		landing_RAW_PERFORMANCE_DATA [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#FFE5CC">
+        <TR><TD COLSPAN="2" BGCOLOR="#FF9933" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>RAW_PERFORMANCE_DATA</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔑 RECORD_ID</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">SYSTEM_ID</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">METRIC_NAME</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">METRIC_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">FLOAT</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">CAPTURE_TIME</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">TIMESTAMP</FONT></TD>
+        </TR></TABLE>> shape=none]
+	}
+	subgraph cluster_transformation {
+		fillcolor="#F0F5FF" fontname="Arial Bold" fontsize=14 label=DEV_TRANSFORMATION style=filled
+		trans_DIM_KPI [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCE5FF">
+        <TR><TD COLSPAN="2" BGCOLOR="#3399FF" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>DIM_KPI</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔑 KPI_KEY</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPI_CODE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPI_NAME</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(200)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPI_CATEGORY</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">UNIT_OF_MEASURE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">TARGET_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">IS_ACTIVE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">BOOLEAN</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">CREATED_DATE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">DATE</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">UPDATED_DATE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">DATE</FONT></TD>
+        </TR></TABLE>> shape=none]
+		trans_DIM_SYSTEM [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCE5FF">
+        <TR><TD COLSPAN="2" BGCOLOR="#3399FF" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>DIM_SYSTEM</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔑 SYSTEM_KEY</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">SYSTEM_ID</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">SYSTEM_NAME</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(200)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">SYSTEM_TYPE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">DEPARTMENT</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">IS_CRITICAL</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">BOOLEAN</FONT></TD>
+        </TR></TABLE>> shape=none]
+		trans_DIM_DATE [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCE5FF">
+        <TR><TD COLSPAN="2" BGCOLOR="#3399FF" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>DIM_DATE</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔑 DATE_KEY</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">DATE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">DATE</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">YEAR</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">QUARTER</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">MONTH</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">WEEK</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">DAY_OF_WEEK</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">IS_WEEKEND</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">BOOLEAN</FONT></TD>
+        </TR></TABLE>> shape=none]
+		trans_FACT_KPI_MEASUREMENTS [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCE5FF">
+        <TR><TD COLSPAN="2" BGCOLOR="#3399FF" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>FACT_KPI_MEASUREMENTS</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔑 MEASUREMENT_KEY</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔗 KPI_KEY</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔗 SYSTEM_KEY</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">🔗 DATE_KEY</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">ACTUAL_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">TARGET_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">VARIANCE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">VARIANCE_PCT</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(5,2)</FONT></TD>
+        </TR></TABLE>> shape=none]
+	}
+	subgraph cluster_reporting {
+		fillcolor="#F0FFF0" fontname="Arial Bold" fontsize=14 label=DEV_REPORTING style=filled
+		report_VW_KPI_DASHBOARD [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCFFCC">
+        <TR><TD COLSPAN="2" BGCOLOR="#33CC33" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>VW_KPI_DASHBOARD</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(VIEW)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPI_CODE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPI_NAME</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(200)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">CURRENT_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">TARGET_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">ACHIEVEMENT_PCT</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(5,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">TREND</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(10)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">LAST_UPDATED</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">TIMESTAMP</FONT></TD>
+        </TR></TABLE>> shape=none]
+		report_VW_SYSTEM_PERFORMANCE [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCFFCC">
+        <TR><TD COLSPAN="2" BGCOLOR="#33CC33" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>VW_SYSTEM_PERFORMANCE</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(VIEW)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">SYSTEM_NAME</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(200)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">AVG_PERFORMANCE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">MAX_PERFORMANCE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">MIN_PERFORMANCE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">TOTAL_EVENTS</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR></TABLE>> shape=none]
+		report_AGG_MONTHLY_KPI [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCFFCC">
+        <TR><TD COLSPAN="2" BGCOLOR="#33CC33" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>AGG_MONTHLY_KPI</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">YEAR_MONTH</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(7)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPI_CODE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">AVG_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">MAX_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">MIN_VALUE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">TOTAL_MEASUREMENTS</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR></TABLE>> shape=none]
+		report_RPT_EXECUTIVE_SUMMARY [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCFFCC">
+        <TR><TD COLSPAN="2" BGCOLOR="#33CC33" ALIGN="CENTER">
+        <FONT COLOR="WHITE"><B>RPT_EXECUTIVE_SUMMARY</B></FONT><BR/>
+        <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+        </TD></TR>
+        <TR>
+            <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+            <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">REPORT_DATE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">DATE</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">TOTAL_KPIS</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPIS_ON_TARGET</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">KPIS_BELOW_TARGET</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD>
+        </TR><TR>
+            <TD ALIGN="LEFT">OVERALL_PERFORMANCE</TD>
+            <TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(5,2)</FONT></TD>
+        </TR></TABLE>> shape=none]
+	}
+	landing_RAW_KPI_METRICS -> trans_DIM_KPI [label=" KPI_CODE " arrowhead=normal color="#FF9933" fontcolor="#FF9933" fontsize=8 style=dashed]
+	landing_RAW_KPI_METRICS -> trans_FACT_KPI_MEASUREMENTS [label=" Load " arrowhead=normal color="#FF9933" fontcolor="#FF9933" fontsize=8 style=dashed]
+	landing_RAW_SYSTEM_EVENTS -> trans_DIM_SYSTEM [label=" SYSTEM_ID " arrowhead=normal color="#FF9933" fontcolor="#FF9933" fontsize=8 style=dashed]
+	landing_RAW_PERFORMANCE_DATA -> trans_FACT_KPI_MEASUREMENTS [label=" Load " arrowhead=normal color="#FF9933" fontcolor="#FF9933" fontsize=8 style=dashed]
+	trans_DIM_KPI -> trans_FACT_KPI_MEASUREMENTS [label=" KPI_KEY " arrowhead=normal color="#3399FF" fontcolor="#3399FF" fontsize=8 style=solid]
+	trans_DIM_SYSTEM -> trans_FACT_KPI_MEASUREMENTS [label=" SYSTEM_KEY " arrowhead=normal color="#3399FF" fontcolor="#3399FF" fontsize=8 style=solid]
+	trans_DIM_DATE -> trans_FACT_KPI_MEASUREMENTS [label=" DATE_KEY " arrowhead=normal color="#3399FF" fontcolor="#3399FF" fontsize=8 style=solid]
+	trans_FACT_KPI_MEASUREMENTS -> report_VW_KPI_DASHBOARD [label=" Aggregate " arrowhead=normal color="#33CC33" fontcolor="#33CC33" fontsize=8 style=dotted]
+	trans_FACT_KPI_MEASUREMENTS -> report_AGG_MONTHLY_KPI [label=" Aggregate " arrowhead=normal color="#33CC33" fontcolor="#33CC33" fontsize=8 style=dotted]
+	trans_DIM_SYSTEM -> report_VW_SYSTEM_PERFORMANCE [label=" Join " arrowhead=normal color="#33CC33" fontcolor="#33CC33" fontsize=8 style=dotted]
+	trans_DIM_KPI -> report_VW_KPI_DASHBOARD [label=" Join " arrowhead=normal color="#33CC33" fontcolor="#33CC33" fontsize=8 style=dotted]
+	report_AGG_MONTHLY_KPI -> report_RPT_EXECUTIVE_SUMMARY [label=" Aggregate " arrowhead=normal color="#33CC33" fontcolor="#33CC33" fontsize=8 style=dotted]
+	subgraph cluster_legend {
+		fillcolor="#F8F8F8" label=Leyenda style=filled
+		legend [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#E0E0E0"><B>Tipos de Relación</B></TD></TR>
+            <TR><TD>Landing → Transform</TD><TD>Línea punteada naranja</TD></TR>
+            <TR><TD>Foreign Keys</TD><TD>Línea sólida azul</TD></TR>
+            <TR><TD>Transform → Report</TD><TD>Línea punteada verde</TD></TR>
+            <TR><TD>🔑</TD><TD>Primary Key</TD></TR>
+            <TR><TD>🔗</TD><TD>Foreign Key</TD></TR>
+        </TABLE>> shape=none]
+	}
+}

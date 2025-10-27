@@ -1,0 +1,9 @@
+statement_num,type,status,duration,rows,preview,csv_file,json_file
+1,USE,SUCCESS,0.464286,1,USE DATABASE DEV_TRANSFORMATION;,,
+2,SELECT,SUCCESS,0.686399,2,"SELECT     schema_name,     schema_owner,     retention_time,     comment,     created AS schema_cre",stmt_002_select_20251024_125313.csv,stmt_002_select_20251024_125313.json
+3,USE,SUCCESS,0.449635,1,USE SCHEMA CONNECTOR_METADATA;,,
+4,OTHER,SUCCESS,0.30689,6,DESCRIBE TABLE CONNECTOR_INSTALLATION_LOG;,,
+5,SELECT,SUCCESS,0.457916,4,"SELECT     log_id,     installation_step,     step_status,     execution_timestamp,     executed_by,",stmt_005_select_20251024_125314.csv,stmt_005_select_20251024_125314.json
+6,OTHER,SUCCESS,0.341509,2,SHOW GRANTS ON SCHEMA DEV_TRANSFORMATION.RAW_DATA;,,
+7,OTHER,SUCCESS,0.372732,2,SHOW GRANTS ON SCHEMA DEV_TRANSFORMATION.CONNECTOR_METADATA;,,
+8,SELECT,SUCCESS,1.514974,4,"SELECT     '✅ RAW_DATA schema created' AS verification_item,     CASE         WHEN EXISTS (         ",stmt_008_select_20251024_125316.csv,stmt_008_select_20251024_125316.json

@@ -1,0 +1,11 @@
+[
+  {
+    "SERVICE_NAME":"Tenable",
+    "SERVICE_CATEGORY":"Vulnerability Management",
+    "SERVICE_DESCRIPTION":"Vulnerability assessment and management",
+    "IS_ACTIVE":false,
+    "REFRESH_FREQUENCY":"Daily",
+    "DATA_STATUS":"No tables found",
+    "EXPORTED_AT":"2025-10-24T06:07:35.335Z"
+  }
+]

@@ -1,0 +1,35 @@
+-- ============================================
+-- Check Metadata Repository Schema
+-- ============================================
+-- Purpose: Query actual table structures to fix ERD generation script
+-- Date: 2025-10-24
+-- ============================================
+
+-- Check TABLE_REGISTRY structure
+SELECT
+    COLUMN_NAME,
+    DATA_TYPE,
+    ORDINAL_POSITION
+FROM DEV_TRANSFORMATION.INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_SCHEMA = 'METADATA'
+  AND TABLE_NAME = 'TABLE_REGISTRY'
+ORDER BY ORDINAL_POSITION;
+
+-- Check COLUMN_METADATA structure
+SELECT
+    COLUMN_NAME,
+    DATA_TYPE,
+    ORDINAL_POSITION
+FROM DEV_TRANSFORMATION.INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_SCHEMA = 'METADATA'
+  AND TABLE_NAME = 'COLUMN_METADATA'
+ORDER BY ORDINAL_POSITION;
+
+-- Check if views already exist
+SELECT
+    TABLE_NAME,
+    TABLE_TYPE
+FROM DEV_TRANSFORMATION.INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = 'METADATA'
+  AND TABLE_NAME LIKE 'VW_ERD%'
+ORDER BY TABLE_NAME;

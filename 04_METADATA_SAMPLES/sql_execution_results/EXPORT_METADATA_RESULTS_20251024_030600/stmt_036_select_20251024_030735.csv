@@ -1,0 +1,22 @@
+SERVICE_NAME,SERVICE_DESCRIPTION,SERVICE_CATEGORY,IS_ACTIVE,REFRESH_FREQUENCY,CREATED_DATE,EXPORTED_AT
+ServiceNow,IT Service Management and asset inventory,Asset Management,True,Daily,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Zscaler,Secure web gateway and cloud security,Cloud Security,False,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Proofpoint,Email security and threat protection,Email Security,True,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Cisco_AMP,Advanced malware protection,Endpoint Protection,True,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+CrowdStrike,Endpoint Detection and Response (EDR) platform,Endpoint Protection,True,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Defender,Microsoft Defender endpoint security,Endpoint Protection,False,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+McAfee,Endpoint security and threat protection,Endpoint Protection,True,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+SentinelOne,Endpoint Detection and Response (EDR),Endpoint Protection,True,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Sophos,Endpoint protection and EDR,Endpoint Protection,True,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Symantec,Antivirus and endpoint protection,Endpoint Protection,True,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Trellix,EDR and threat detection,Endpoint Protection,True,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+TrendMicro,Threat protection and endpoint security,Endpoint Protection,True,Hourly,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Ancon,Identity and access management,Identity & Access,True,Daily,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Leviat,Privileged access and user monitoring,Identity & Access,True,Daily,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Splunk,Security Information and Event Management,SIEM,False,Real-time,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+BitSight,Security posture rating and benchmarking,Threat Intelligence,True,Daily,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+CybelAngel,Cyber threat intelligence and data leak detection,Threat Intelligence,True,Daily,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Intel_Threats,Aggregated threat intelligence,Threat Intelligence,True,Daily,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+ZeroFox,External threat monitoring and brand protection,Threat Intelligence,True,Daily,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Qualys,Vulnerability scanning and assessment,Vulnerability Management,True,Daily,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00
+Tenable,Vulnerability assessment and management,Vulnerability Management,False,Daily,2025-10-24 05:33:26.728000+00:00,2025-10-24 06:07:32.894000+00:00

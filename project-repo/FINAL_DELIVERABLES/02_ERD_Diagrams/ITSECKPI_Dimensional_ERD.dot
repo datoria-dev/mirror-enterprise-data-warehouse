@@ -1,0 +1,35 @@
+digraph ITSECKPI_Dimensional {
+    rankdir=TB;
+    node [shape=rectangle, style=filled];
+
+    // Styling
+    graph [fontname="Arial", fontsize=14, bgcolor="white", pad="0.5"];
+    node [fontname="Arial", fontsize=11];
+    edge [fontname="Arial", fontsize=10];
+
+    // Title
+    labelloc="t";
+    label="ITSECKPI Dimensional Model (Star Schema)\nGenerated: 2025-10-06";
+
+    // Central fact tables
+    subgraph cluster_center {
+        label="Fact Tables (Measures)";
+        style=filled;
+        color=lightgoldenrod;
+        node [fillcolor=gold, shape=box3d];
+
+        "FACT_BITSIGHT_FINDINGS" [label="FACT_BITSIGHT_FINDINGS\n1,219 rows"];
+        "FACT_CYBELANGEL_THREATS" [label="FACT_CYBELANGEL_THREATS\n0 rows"];
+    }
+
+    // Dimension tables around the edges
+    "DIM_HOST" [label="DIM_HOST\n1,662 rows", fillcolor=lightblue];
+
+    // Star Schema Relationships
+    "DIM_HOST" -> "FACT_QUALYS" [dir=none, style=bold];
+    "DIM_QUALYS_VULN" -> "FACT_QUALYS" [dir=none, style=bold];
+    "DIM_OPCO" -> "FACT_AV_OPCO" [dir=none, style=bold];
+    "DIM_AV_PRODUCTS" -> "FACT_AV_OPCO" [dir=none, style=bold];
+    "DIM_BITSIGHT_CATEGORIES" -> "FACT_BITSIGHT_FINDINGS" [dir=none, style=bold];
+    "DIM_HOST" -> "FACT_HOST_ASSETS" [dir=none, style=bold];
+}

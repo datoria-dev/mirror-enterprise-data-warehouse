@@ -1,0 +1,593 @@
+﻿
+================================================================================
+STREAMLIT APPS DEPLOYMENT GUIDE
+================================================================================
+
+Generated: 2025-10-24 20:56:26
+Total Apps Created: 18
+
+================================================================================
+QUICK START - COPY/PASTE ORDER
+================================================================================
+
+Recommended deployment order (critical apps first):
+
+PRIORITY APPS (Do these first):
+1. Splunk
+2. Crowdstrike
+3. ServiceNow
+4. Qualys
+5. Zscaler
+6. SentinelOne
+
+OTHER APPS:
+7. Ancon
+8. BitSight
+9. Cisco_AMP
+10. CybelAngel
+11. Intel_Threats
+12. Leviat
+13. Proofpoint
+14. Sophos
+15. Symantec
+16. Tenable
+17. Trellix
+18. Zerofox
+
+================================================================================
+STEP-BY-STEP INSTRUCTIONS FOR EACH APP
+================================================================================
+
+Follow these steps for EACH app listed above:
+
+
+────────────────────────────────────────────────────────────────────────────────
+1. Splunk App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: SPLUNK_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Splunk\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Splunk Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+2. Crowdstrike App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: CROWDSTRIKE_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Crowdstrike\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Crowdstrike Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+3. ServiceNow App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: SERVICENOW_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\ServiceNow\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ ServiceNow Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+4. Qualys App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: QUALYS_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Qualys\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Qualys Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+5. Zscaler App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: ZSCALER_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Zscaler\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Zscaler Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+6. SentinelOne App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: SENTINELONE_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\SentinelOne\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ SentinelOne Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+7. Ancon App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: ANCON_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Ancon\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Ancon Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+8. BitSight App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: BITSIGHT_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\BitSight\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ BitSight Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+9. Cisco_AMP App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: CISCO_AMP_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Cisco_AMP\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Cisco_AMP Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+10. CybelAngel App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: CYBELANGEL_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\CybelAngel\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ CybelAngel Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+11. Intel_Threats App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: INTEL_THREATS_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Intel_Threats\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Intel_Threats Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+12. Leviat App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: LEVIAT_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Leviat\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Leviat Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+13. Proofpoint App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: PROOFPOINT_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Proofpoint\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Proofpoint Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+14. Sophos App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: SOPHOS_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Sophos\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Sophos Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+15. Symantec App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: SYMANTEC_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Symantec\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Symantec Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+16. Tenable App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: TENABLE_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Tenable\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Tenable Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+17. Trellix App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: TRELLIX_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Trellix\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Trellix Complete!
+
+
+────────────────────────────────────────────────────────────────────────────────
+18. Zerofox App
+────────────────────────────────────────────────────────────────────────────────
+
+SNOWFLAKE UI:
+1. Open: https://app.snowflake.com/GenericCorp/west-europe.azure/
+2. Navigate: Data > Databases > DEV_REPORTING > SECURITY_ANALYTICS > Streamlit
+3. Click: ZEROFOX_APP
+4. Click: "Edit" button (top right corner)
+
+LOCAL FILE:
+5. Open file: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Zerofox\streamlit_app.py
+6. Select ALL (Ctrl+A)
+7. Copy (Ctrl+C)
+
+PASTE TO SNOWFLAKE:
+8. In Snowflake editor: Delete any existing code
+9. Paste (Ctrl+V)
+10. Click: "Save" button
+11. Click: "Run" button
+12. Verify: App loads without errors
+
+✅ Zerofox Complete!
+
+
+================================================================================
+QUICK REFERENCE - FILE LOCATIONS
+================================================================================
+
+Splunk               -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Splunk\streamlit_app.py
+Crowdstrike          -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Crowdstrike\streamlit_app.py
+ServiceNow           -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\ServiceNow\streamlit_app.py
+Qualys               -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Qualys\streamlit_app.py
+Zscaler              -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Zscaler\streamlit_app.py
+SentinelOne          -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\SentinelOne\streamlit_app.py
+Ancon                -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Ancon\streamlit_app.py
+BitSight             -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\BitSight\streamlit_app.py
+Cisco_AMP            -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Cisco_AMP\streamlit_app.py
+CybelAngel           -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\CybelAngel\streamlit_app.py
+Intel_Threats        -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Intel_Threats\streamlit_app.py
+Leviat               -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Leviat\streamlit_app.py
+Proofpoint           -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Proofpoint\streamlit_app.py
+Sophos               -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Sophos\streamlit_app.py
+Symantec             -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Symantec\streamlit_app.py
+Tenable              -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Tenable\streamlit_app.py
+Trellix              -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Trellix\streamlit_app.py
+Zerofox              -> C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED\Zerofox\streamlit_app.py
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Problem: "ModuleNotFoundError: No module named 'plotly'"
+Solution: ✅ Apps in 08_STREAMLIT_APPS_FIXED are already cleaned!
+          Make sure you're copying from FIXED folder.
+
+Problem: App doesn't load
+Solution: 1. Check Snowflake UI for specific error message
+          2. Verify DEV_WH warehouse is running
+          3. Confirm you have correct role (DEV_DEVELOPER)
+
+Problem: Can't edit app
+Solution: 1. Verify you're logged in as fmoran@GenericCorp.com
+          2. Check your role is DEV_DEVELOPER
+          3. Confirm database permissions on DEV_REPORTING.SECURITY_ANALYTICS
+
+Problem: "Cannot read from Git repository"
+Solution: ✅ This is expected! We're doing manual deployment now.
+          Once Prabodh creates API Integration, we'll switch to Git.
+
+================================================================================
+VERIFICATION CHECKLIST
+================================================================================
+
+After deploying all apps, verify:
+
+[ ] Splunk               - Loads without errors
+[ ] Crowdstrike          - Loads without errors
+[ ] ServiceNow           - Loads without errors
+[ ] Qualys               - Loads without errors
+[ ] Zscaler              - Loads without errors
+[ ] SentinelOne          - Loads without errors
+[ ] Ancon                - Loads without errors
+[ ] BitSight             - Loads without errors
+[ ] Cisco_AMP            - Loads without errors
+[ ] CybelAngel           - Loads without errors
+[ ] Intel_Threats        - Loads without errors
+[ ] Leviat               - Loads without errors
+[ ] Proofpoint           - Loads without errors
+[ ] Sophos               - Loads without errors
+[ ] Symantec             - Loads without errors
+[ ] Tenable              - Loads without errors
+[ ] Trellix              - Loads without errors
+[ ] Zerofox              - Loads without errors
+
+
+================================================================================
+NEXT STEPS (FUTURE - AFTER API INTEGRATION)
+================================================================================
+
+Once Prabodh creates the API Integration for Azure DevOps:
+
+1. Connect each app to Git repository:
+   - Repository: https://dev.azure.com/GenericCorp-ITSecurity/ITSECKPI_Snowflake_Project
+   - Branch: main
+   - Path: 08_STREAMLIT_APPS_PROD/<ServiceName>/
+
+2. Future updates will be automatic from Git commits
+
+3. No more manual copy-paste needed!
+
+For now, manual deployment is working and functional.
+
+================================================================================
+DEPLOYMENT COMPLETED
+================================================================================
+
+Total apps ready: 18
+Source folder: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\08_STREAMLIT_APPS_FIXED
+Target database: DEV_REPORTING.SECURITY_ANALYTICS
+
+All apps are created and ready for code paste!
+
+================================================================================

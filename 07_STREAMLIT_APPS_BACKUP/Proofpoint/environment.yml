@@ -1,0 +1,12 @@
+name: app_environment
+channels:
+  - snowflake
+dependencies:
+  - streamlit
+  - snowflake-snowpark-python
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - plotly
+  - altair

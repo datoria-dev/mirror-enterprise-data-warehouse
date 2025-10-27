@@ -1,0 +1,50 @@
+{
+  "timestamp": "2025-10-25T19:12:22.074480",
+  "total_apps": 3,
+  "successful": 3,
+  "failed": 0,
+  "deployments": [
+    {
+      "app_name": "Crowdstrike",
+      "start_time": "2025-10-25T19:11:01.280528",
+      "success": true,
+      "steps": {
+        "check_files": true,
+        "upload": true,
+        "drop_existing": true,
+        "create_app": true
+      },
+      "error": null,
+      "duration_seconds": 22.07,
+      "end_time": "2025-10-25T19:11:23.348833"
+    },
+    {
+      "app_name": "Symantec",
+      "start_time": "2025-10-25T19:11:26.350143",
+      "success": true,
+      "steps": {
+        "check_files": true,
+        "upload": true,
+        "drop_existing": true,
+        "create_app": true
+      },
+      "error": null,
+      "duration_seconds": 29.73,
+      "end_time": "2025-10-25T19:11:56.079817"
+    },
+    {
+      "app_name": "Trellix",
+      "start_time": "2025-10-25T19:11:59.080556",
+      "success": true,
+      "steps": {
+        "check_files": true,
+        "upload": true,
+        "drop_existing": true,
+        "create_app": true
+      },
+      "error": null,
+      "duration_seconds": 22.99,
+      "end_time": "2025-10-25T19:12:22.073911"
+    }
+  ]
+}

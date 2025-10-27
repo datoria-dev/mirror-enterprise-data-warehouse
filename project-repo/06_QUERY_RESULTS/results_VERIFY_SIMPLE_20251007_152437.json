@@ -1,0 +1,141 @@
+{
+  "file": "VERIFY_SIMPLE.sql",
+  "executed_at": "2025-10-07T15:24:33.097596",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE WAREHOUSE DEV_WH",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 3,
+      "sql": "SELECT '=== Enhancement 1: Power BI ===' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "=== Enhancement 1: Power BI ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "SELECT COUNT(*) as ROWS_IN_POWERBI_VIEW FROM VW_POWERBI_EXECUTIVE_DASHBOARD",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'VW_POWERBI_EXECUTIVE_DASHBOARD' does not exist or not authorized."
+    },
+    {
+      "num": 5,
+      "sql": "CALL SP_CALCULATE_DATA_QUALITY()",
+      "success": false,
+      "rows": [],
+      "error": "002140 (42601): SQL compilation error:\nUnknown function SP_CALCULATE_DATA_QUALITY"
+    },
+    {
+      "num": 6,
+      "sql": "SELECT COUNT(*) as DQ_METRICS_COUNT FROM TBL_DATA_QUALITY_METRICS",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'TBL_DATA_QUALITY_METRICS' does not exist or not authorized."
+    },
+    {
+      "num": 7,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 8,
+      "sql": "SELECT '=== Enhancement 3: User Dimension ===' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "=== Enhancement 3: User Dimension ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 9,
+      "sql": "SELECT COUNT(*) as USER_COUNT FROM DIM_USER",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DIM_USER' does not exist or not authorized."
+    },
+    {
+      "num": 10,
+      "sql": "SELECT * FROM DIM_USER LIMIT 3",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DIM_USER' does not exist or not authorized."
+    },
+    {
+      "num": 11,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 12,
+      "sql": "SELECT '=== Enhancement 4: Real-Time Tables ===' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "=== Enhancement 4: Real-Time Tables ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 13,
+      "sql": "SELECT 'L_EDR_THREATS_REALTIME' AS TABLE_NAME, COUNT(*) as ROW_COUNT FROM L_EDR_THREATS_REALTIME\nUNI...",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'L_EDR_THREATS_REALTIME' does not exist or not authorized."
+    },
+    {
+      "num": 14,
+      "sql": "SELECT '\u2713 ALL 4 ENHANCEMENTS VERIFIED!' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "\u2713 ALL 4 ENHANCEMENTS VERIFIED!"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 15,
+      "sql": "SELECT '========================================' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

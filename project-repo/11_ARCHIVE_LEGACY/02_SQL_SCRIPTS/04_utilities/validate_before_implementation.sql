@@ -1,0 +1,239 @@
+-- =====================================================================
+-- PRE-IMPLEMENTATION VALIDATION SCRIPT
+-- Run this first to understand current state before making changes
+-- =====================================================================
+
+USE DATABASE DEV_TRANSFORMATION;
+USE SCHEMA SECURITY_ANALYTICS;
+
+-- =====================================================================
+-- 1. CHECK CURRENT STATE OF CONSTRAINTS
+-- =====================================================================
+
+SELECT '=== CURRENT CONSTRAINTS STATUS ===' as REPORT_SECTION;
+
+-- Check existing Primary Keys
+SELECT
+    'Primary Keys' as CONSTRAINT_TYPE,
+    COUNT(DISTINCT TABLE_NAME) as TABLE_COUNT,
+    LISTAGG(TABLE_NAME, ', ') WITHIN GROUP (ORDER BY TABLE_NAME) as TABLES_WITH_CONSTRAINT
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND CONSTRAINT_TYPE = 'PRIMARY KEY';
+
+-- Check existing Foreign Keys
+SELECT
+    'Foreign Keys' as CONSTRAINT_TYPE,
+    COUNT(DISTINCT TABLE_NAME) as TABLE_COUNT,
+    LISTAGG(TABLE_NAME, ', ') WITHIN GROUP (ORDER BY TABLE_NAME) as TABLES_WITH_CONSTRAINT
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND CONSTRAINT_TYPE = 'FOREIGN KEY';
+
+-- =====================================================================
+-- 2. IDENTIFY DIMENSION TABLES AND THEIR POTENTIAL PRIMARY KEYS
+-- =====================================================================
+
+SELECT '=== DIMENSION TABLES AND PK CANDIDATES ===' as REPORT_SECTION;
+
+SELECT
+    t.TABLE_NAME,
+    t.ROW_COUNT,
+    -- Find potential PK column
+    (SELECT LISTAGG(COLUMN_NAME, ', ') WITHIN GROUP (ORDER BY ORDINAL_POSITION)
+     FROM INFORMATION_SCHEMA.COLUMNS c
+     WHERE c.TABLE_SCHEMA = t.TABLE_SCHEMA
+     AND c.TABLE_NAME = t.TABLE_NAME
+     AND (c.COLUMN_NAME LIKE '%_ID' OR c.COLUMN_NAME LIKE '%_KEY' OR c.COLUMN_NAME = 'ID')
+     AND c.ORDINAL_POSITION <= 3) as POTENTIAL_PK_COLUMNS,
+    CASE
+        WHEN EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS tc
+                    WHERE tc.TABLE_NAME = t.TABLE_NAME
+                    AND tc.TABLE_SCHEMA = t.TABLE_SCHEMA
+                    AND tc.CONSTRAINT_TYPE = 'PRIMARY KEY')
+        THEN 'HAS PK'
+        ELSE 'NO PK'
+    END as PK_STATUS
+FROM INFORMATION_SCHEMA.TABLES t
+WHERE t.TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND t.TABLE_TYPE = 'BASE TABLE'
+AND t.TABLE_NAME LIKE 'DIM_%'
+ORDER BY t.TABLE_NAME;
+
+-- =====================================================================
+-- 3. IDENTIFY FACT TABLES AND THEIR POTENTIAL FOREIGN KEYS
+-- =====================================================================
+
+SELECT '=== FACT TABLES AND FK CANDIDATES ===' as REPORT_SECTION;
+
+SELECT
+    t.TABLE_NAME,
+    t.ROW_COUNT,
+    -- Find potential FK columns
+    (SELECT LISTAGG(COLUMN_NAME, ', ') WITHIN GROUP (ORDER BY ORDINAL_POSITION)
+     FROM INFORMATION_SCHEMA.COLUMNS c
+     WHERE c.TABLE_SCHEMA = t.TABLE_SCHEMA
+     AND c.TABLE_NAME = t.TABLE_NAME
+     AND (c.COLUMN_NAME LIKE '%_ID' OR c.COLUMN_NAME LIKE '%_KEY' OR c.COLUMN_NAME LIKE '%_DATE')
+     AND c.COLUMN_NAME NOT LIKE '%FACT%') as POTENTIAL_FK_COLUMNS,
+    CASE
+        WHEN EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS tc
+                    WHERE tc.TABLE_NAME = t.TABLE_NAME
+                    AND tc.TABLE_SCHEMA = t.TABLE_SCHEMA
+                    AND tc.CONSTRAINT_TYPE = 'FOREIGN KEY')
+        THEN 'HAS FK'
+        ELSE 'NO FK'
+    END as FK_STATUS
+FROM INFORMATION_SCHEMA.TABLES t
+WHERE t.TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND t.TABLE_TYPE = 'BASE TABLE'
+AND t.TABLE_NAME LIKE 'FACT_%'
+ORDER BY t.TABLE_NAME;
+
+-- =====================================================================
+-- 4. IDENTIFY TABLES THAT NEED RENAMING
+-- =====================================================================
+
+SELECT '=== TABLES NEEDING RENAMING ===' as REPORT_SECTION;
+
+SELECT
+    TABLE_NAME,
+    ROW_COUNT,
+    CASE
+        WHEN TABLE_NAME LIKE '%ENDPOINT%' OR TABLE_NAME LIKE '%DEVICE%' THEN 'Should be DIM_'
+        WHEN TABLE_NAME LIKE '%VERSION%' OR TABLE_NAME LIKE '%MAPPING%' THEN 'Should be DIM_'
+        WHEN TABLE_NAME LIKE '%LOG%' OR TABLE_NAME LIKE '%TEMP%' THEN 'Should be STG_'
+        WHEN TABLE_NAME LIKE '%QUALITY%' THEN 'Should be STG_'
+        ELSE 'Review manually'
+    END as SUGGESTED_PREFIX
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND TABLE_TYPE = 'BASE TABLE'
+AND TABLE_NAME NOT LIKE 'DIM_%'
+AND TABLE_NAME NOT LIKE 'FACT_%'
+AND TABLE_NAME NOT LIKE 'STG_%'
+AND TABLE_NAME NOT LIKE 'V_%'
+AND TABLE_NAME NOT LIKE 'VW_%'
+ORDER BY ROW_COUNT DESC;
+
+-- =====================================================================
+-- 5. CHECK FOR EMPTY TABLES THAT NEED ETL
+-- =====================================================================
+
+SELECT '=== EMPTY TABLES REQUIRING ETL ===' as REPORT_SECTION;
+
+SELECT
+    TABLE_NAME,
+    TABLE_TYPE,
+    CREATED,
+    LAST_ALTERED,
+    'Needs ETL Population' as ACTION_REQUIRED
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND TABLE_TYPE = 'BASE TABLE'
+AND ROW_COUNT = 0
+AND (TABLE_NAME LIKE 'FACT_%' OR TABLE_NAME LIKE 'DIM_%')
+ORDER BY TABLE_NAME;
+
+-- =====================================================================
+-- 6. ANALYZE DATA QUALITY ISSUES
+-- =====================================================================
+
+SELECT '=== DATA QUALITY ISSUES ===' as REPORT_SECTION;
+
+-- Check for potential orphaned records (example for main fact table)
+WITH orphan_check AS (
+    SELECT
+        'FACT_REMEDIATION_EVENTS -> DIM_HOST' as RELATIONSHIP,
+        COUNT(DISTINCT f.HOST_ID) as FACT_VALUES,
+        COUNT(DISTINCT d.HOST_ID) as DIM_VALUES,
+        COUNT(DISTINCT f.HOST_ID) - COUNT(DISTINCT d.HOST_ID) as POTENTIAL_ORPHANS
+    FROM FACT_REMEDIATION_EVENTS f
+    LEFT JOIN DIM_HOST d ON f.HOST_ID = d.HOST_ID
+)
+SELECT * FROM orphan_check WHERE POTENTIAL_ORPHANS > 0;
+
+-- =====================================================================
+-- 7. CHECK COLUMN DATA TYPES COMPATIBILITY
+-- =====================================================================
+
+SELECT '=== COLUMN TYPE COMPATIBILITY CHECK ===' as REPORT_SECTION;
+
+-- Check if FK columns have same data type as PK columns they should reference
+SELECT
+    'FACT_REMEDIATION_EVENTS.HOST_ID' as FK_COLUMN,
+    fc.DATA_TYPE as FK_DATA_TYPE,
+    'DIM_HOST.HOST_ID' as PK_COLUMN,
+    dc.DATA_TYPE as PK_DATA_TYPE,
+    CASE WHEN fc.DATA_TYPE = dc.DATA_TYPE THEN 'COMPATIBLE' ELSE 'MISMATCH!' END as STATUS
+FROM
+    (SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS
+     WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS' AND TABLE_NAME = 'FACT_REMEDIATION_EVENTS'
+     AND COLUMN_NAME = 'HOST_ID') fc,
+    (SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS
+     WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS' AND TABLE_NAME = 'DIM_HOST'
+     AND COLUMN_NAME = 'HOST_ID') dc;
+
+-- =====================================================================
+-- 8. SUMMARY STATISTICS
+-- =====================================================================
+
+SELECT '=== IMPLEMENTATION REQUIREMENTS SUMMARY ===' as REPORT_SECTION;
+
+SELECT
+    'Tables needing Primary Keys' as REQUIREMENT,
+    COUNT(*) as COUNT
+FROM INFORMATION_SCHEMA.TABLES t
+WHERE t.TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND t.TABLE_TYPE = 'BASE TABLE'
+AND t.TABLE_NAME LIKE 'DIM_%'
+AND NOT EXISTS (
+    SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS tc
+    WHERE tc.TABLE_NAME = t.TABLE_NAME
+    AND tc.TABLE_SCHEMA = t.TABLE_SCHEMA
+    AND tc.CONSTRAINT_TYPE = 'PRIMARY KEY'
+)
+UNION ALL
+SELECT
+    'Tables needing Foreign Keys' as REQUIREMENT,
+    COUNT(*) as COUNT
+FROM INFORMATION_SCHEMA.TABLES t
+WHERE t.TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND t.TABLE_TYPE = 'BASE TABLE'
+AND t.TABLE_NAME LIKE 'FACT_%'
+AND NOT EXISTS (
+    SELECT 1 FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS tc
+    WHERE tc.TABLE_NAME = t.TABLE_NAME
+    AND tc.TABLE_SCHEMA = t.TABLE_SCHEMA
+    AND tc.CONSTRAINT_TYPE = 'FOREIGN KEY'
+)
+UNION ALL
+SELECT
+    'Tables needing renaming' as REQUIREMENT,
+    COUNT(*) as COUNT
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND TABLE_TYPE = 'BASE TABLE'
+AND TABLE_NAME NOT LIKE 'DIM_%'
+AND TABLE_NAME NOT LIKE 'FACT_%'
+AND TABLE_NAME NOT LIKE 'STG_%'
+AND TABLE_NAME NOT LIKE 'V_%'
+AND TABLE_NAME NOT LIKE 'VW_%'
+UNION ALL
+SELECT
+    'Empty tables needing ETL' as REQUIREMENT,
+    COUNT(*) as COUNT
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = 'SECURITY_ANALYTICS'
+AND TABLE_TYPE = 'BASE TABLE'
+AND ROW_COUNT = 0
+AND (TABLE_NAME LIKE 'FACT_%' OR TABLE_NAME LIKE 'DIM_%');
+
+-- =====================================================================
+-- END OF VALIDATION SCRIPT
+-- =====================================================================
+
+SELECT
+    '*** VALIDATION COMPLETE ***' as MESSAGE,
+    'Review results above before running implementation' as NEXT_STEP,
+    CURRENT_TIMESTAMP() as VALIDATION_TIME;

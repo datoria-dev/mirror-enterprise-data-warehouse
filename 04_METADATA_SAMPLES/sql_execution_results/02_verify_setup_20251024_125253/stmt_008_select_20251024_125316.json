@@ -1,0 +1,18 @@
+[
+  {
+    "VERIFICATION_ITEM":"\u2705 RAW_DATA schema created",
+    "STATUS":"PASS \u2705"
+  },
+  {
+    "VERIFICATION_ITEM":"\u2705 CONNECTOR_METADATA schema created",
+    "STATUS":"PASS \u2705"
+  },
+  {
+    "VERIFICATION_ITEM":"\u2705 CONNECTOR_INSTALLATION_LOG table created",
+    "STATUS":"PASS \u2705"
+  },
+  {
+    "VERIFICATION_ITEM":"\u2705 Installation log has records",
+    "STATUS":"PASS \u2705 (4 records)"
+  }
+]

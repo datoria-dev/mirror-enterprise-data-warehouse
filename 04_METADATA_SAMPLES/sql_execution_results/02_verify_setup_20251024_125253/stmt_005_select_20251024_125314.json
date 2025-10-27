@@ -1,0 +1,34 @@
+[
+  {
+    "LOG_ID":4,
+    "INSTALLATION_STEP":"Permissions",
+    "STEP_STATUS":"SUCCESS",
+    "EXECUTION_TIMESTAMP":"2025-10-24T15:50:55.247Z",
+    "EXECUTED_BY":"FUAD.ONATE@CompanyX.COM",
+    "NOTES":"Granted permissions to DEV_DEVELOPER and DEV_READER roles"
+  },
+  {
+    "LOG_ID":3,
+    "INSTALLATION_STEP":"Warehouse Creation",
+    "STEP_STATUS":"SUCCESS",
+    "EXECUTION_TIMESTAMP":"2025-10-24T15:50:55.247Z",
+    "EXECUTED_BY":"FUAD.ONATE@CompanyX.COM",
+    "NOTES":"Created SERVICENOW_WH with AUTO_RESUME enabled"
+  },
+  {
+    "LOG_ID":2,
+    "INSTALLATION_STEP":"Schema Creation",
+    "STEP_STATUS":"SUCCESS",
+    "EXECUTION_TIMESTAMP":"2025-10-24T15:50:55.247Z",
+    "EXECUTED_BY":"FUAD.ONATE@CompanyX.COM",
+    "NOTES":"Created RAW_DATA and CONNECTOR_METADATA schemas"
+  },
+  {
+    "LOG_ID":1,
+    "INSTALLATION_STEP":"Database Creation",
+    "STEP_STATUS":"SUCCESS",
+    "EXECUTION_TIMESTAMP":"2025-10-24T15:50:55.247Z",
+    "EXECUTED_BY":"FUAD.ONATE@CompanyX.COM",
+    "NOTES":"Created SERVICENOW_CONNECTOR database"
+  }
+]

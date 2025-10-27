@@ -1,0 +1,24 @@
+# Standard Snowflake Streamlit Environment
+# This file defines the recommended dependencies for all SECURITY_ANALYTICS validation dashboards
+
+name: streamlit_app
+channels:
+  - snowflake
+dependencies:
+  # Core Streamlit
+  - streamlit>=1.28.0
+
+  # Snowflake connector
+  - snowflake-snowpark-python>=1.9.0
+
+  # Data manipulation
+  - pandas>=2.0.0
+  - numpy>=1.24.0
+
+  # Visualization
+  - plotly>=5.17.0
+  - altair>=5.0.0
+
+  # Optional (uncomment if needed)
+  # - matplotlib>=3.7.0
+  # - seaborn>=0.12.0

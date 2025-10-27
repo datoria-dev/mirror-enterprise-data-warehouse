@@ -1,0 +1,34 @@
+================================================================================
+AZURE DEVOPS PROJECT DESCRIPTION
+================================================================================
+
+Copy this text and paste it in the Azure DevOps Project Settings > Overview:
+
+Enterprise-grade security analytics platform delivering unified visibility across 15+ security services with 98.1% automation coverage, NIST CSF 2.0 alignment, and real-time monitoring.
+
+✅ 550+ database objects deployed across 3-layer Snowflake architecture
+✅ 94% reduction in manual operations (40hrs/week → 2.5hrs/week)
+✅ 1,820 hours saved annually - redeployable to high-value security work
+✅ 15 security services integrated (CrowdStrike, Qualys, Splunk, Zscaler, etc.)
+✅ Top 13 NIST CSF 2.0-aligned executive KPIs
+✅ 12 Streamlit dashboards for data quality monitoring
+✅ Real-time + batch ETL pipelines with Snowpipe and Snowflake Tasks
+✅ 72.3% data quality score with 100% referential integrity
+✅ 319ms average query performance
+
+Built for: GenericCorp / CompanyX Infrastructure
+Scope: DEV_LANDING → DEV_TRANSFORMATION → DEV_REPORTING
+Technology: Snowflake, Python 3.13, Streamlit, Power BI, Azure DevOps
+
+================================================================================
+HOW TO UPDATE IN AZURE DEVOPS:
+================================================================================
+
+1. Go to: https://dev.azure.com/CompanyX/GIS%20-%20ITSECKPI%20-%20DW
+2. Click on "Project settings" (gear icon at bottom left)
+3. Click on "Overview" in the left menu
+4. Click "Edit" button next to project description
+5. Paste the text above
+6. Click "Save"
+
+================================================================================

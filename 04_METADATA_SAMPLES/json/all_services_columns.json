@@ -1,0 +1,160 @@
+{
+  "extraction_date": "2025-10-24",
+  "services": {
+    "SentinelOne": {
+      "tables": {
+        "FACT_SENTINEL_ENDPOINTS": {
+          "location": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.FACT_SENTINEL_ENDPOINTS",
+          "row_count": 4188,
+          "columns": [
+            {"name": "ENDPOINT_NAME", "type": "TEXT", "nullable": "NO", "position": 1},
+            {"name": "IP_ADDRESS", "type": "TEXT", "nullable": "NO", "position": 2},
+            {"name": "LAST_LOGGED_IN_USER", "type": "TEXT", "nullable": "YES", "position": 3},
+            {"name": "LAST_ACTIVE", "type": "TIMESTAMP_NTZ", "nullable": "YES", "position": 4},
+            {"name": "AGENT_VERSION", "type": "TEXT", "nullable": "YES", "position": 5},
+            {"name": "VERSION_RELEASE_DATE", "type": "TIMESTAMP_NTZ", "nullable": "YES", "position": 6},
+            {"name": "DOMAIN", "type": "TEXT", "nullable": "YES", "position": 7},
+            {"name": "CONSOLE_VISIBLE_IP", "type": "TEXT", "nullable": "YES", "position": 8},
+            {"name": "DEVICE_TYPE", "type": "TEXT", "nullable": "YES", "position": 9},
+            {"name": "OS_VERSION", "type": "TEXT", "nullable": "YES", "position": 10},
+            {"name": "UPDATE_STATUS", "type": "BOOLEAN", "nullable": "YES", "position": 11},
+            {"name": "LOAD_TIMESTAMP", "type": "TIMESTAMP_LTZ", "nullable": "YES", "position": 12}
+          ]
+        },
+        "DIM_SENTINEL_VERSIONS": {
+          "location": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_SENTINEL_VERSIONS",
+          "row_count": 38,
+          "columns": [
+            {"name": "VERSION", "type": "TEXT", "nullable": "NO", "position": 1},
+            {"name": "VERSION_RELEASE_DATE", "type": "TIMESTAMP_NTZ", "nullable": "YES", "position": 2}
+          ]
+        }
+      }
+    },
+    "CybelAngel": {
+      "tables": {
+        "DIM_CYBELANGEL_ALERTS": {
+          "location": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_CYBELANGEL_ALERTS",
+          "row_count": 196,
+          "columns": [
+            {"name": "ALERT_KEY", "type": "TEXT", "nullable": "NO", "position": 1},
+            {"name": "INCIDENT_ID", "type": "TEXT", "nullable": "YES", "position": 2},
+            {"name": "SOURCE_NAME", "type": "TEXT", "nullable": "YES", "position": 3},
+            {"name": "STATUS", "type": "TEXT", "nullable": "YES", "position": 4},
+            {"name": "CATEGORY", "type": "TEXT", "nullable": "YES", "position": 5},
+            {"name": "CLIENT", "type": "TEXT", "nullable": "YES", "position": 6},
+            {"name": "COUNTRY", "type": "TEXT", "nullable": "YES", "position": 7},
+            {"name": "DETECTION_DATE", "type": "DATE", "nullable": "YES", "position": 8},
+            {"name": "HOSTNAME", "type": "TEXT", "nullable": "YES", "position": 9},
+            {"name": "INCIDENT_TYPE", "type": "TEXT", "nullable": "YES", "position": 10},
+            {"name": "IP_ADDRESS", "type": "TEXT", "nullable": "YES", "position": 11},
+            {"name": "SEVERITY", "type": "TEXT", "nullable": "YES", "position": 12},
+            {"name": "SOURCE", "type": "TEXT", "nullable": "YES", "position": 13},
+            {"name": "THREAT", "type": "TEXT", "nullable": "YES", "position": 14},
+            {"name": "URL", "type": "TEXT", "nullable": "YES", "position": 15},
+            {"name": "VOLUME_OF_DETECTED_DATA", "type": "NUMBER", "nullable": "YES", "position": 16},
+            {"name": "TAGS", "type": "TEXT", "nullable": "YES", "position": 17},
+            {"name": "STATUS_BOOLEAN", "type": "BOOLEAN", "nullable": "YES", "position": 18},
+            {"name": "STATUS_CHECKING_DATE", "type": "DATE", "nullable": "YES", "position": 19},
+            {"name": "LOAD_TIMESTAMP", "type": "TIMESTAMP_LTZ", "nullable": "YES", "position": 20}
+          ]
+        }
+      }
+    },
+    "Proofpoint": {
+      "tables": {
+        "PROOFPOINT_MESSAGE_LOGS": {
+          "location": "DEV_LANDING.SECURITY_ANALYTICS.PROOFPOINT_MESSAGE_LOGS",
+          "row_count": 206794,
+          "columns": [
+            {"name": "TIME", "type": "TEXT", "nullable": "YES", "position": 1},
+            {"name": "MESSAGE_ID", "type": "TEXT", "nullable": "YES", "position": 2},
+            {"name": "FROM_ADDRESS", "type": "TEXT", "nullable": "YES", "position": 3},
+            {"name": "TO_ADDRESS", "type": "TEXT", "nullable": "YES", "position": 4},
+            {"name": "SUBJECT", "type": "TEXT", "nullable": "YES", "position": 5},
+            {"name": "FINAL_ACTION", "type": "TEXT", "nullable": "YES", "position": 6},
+            {"name": "FINAL_MODULE", "type": "TEXT", "nullable": "YES", "position": 7},
+            {"name": "FINAL_RULE", "type": "TEXT", "nullable": "YES", "position": 8},
+            {"name": "SENDINGDOMAIN", "type": "TEXT", "nullable": "YES", "position": 9},
+            {"name": "RECIPIENTDOMAIN", "type": "TEXT", "nullable": "YES", "position": 10},
+            {"name": "SENDINGOPCO", "type": "TEXT", "nullable": "YES", "position": 11},
+            {"name": "RECIPIENTOPCO", "type": "TEXT", "nullable": "YES", "position": 12},
+            {"name": "PHISHINGALARMREPORT", "type": "BOOLEAN", "nullable": "YES", "position": 13}
+          ]
+        }
+      }
+    },
+    "ServiceNow": {
+      "tables": {
+        "SNOW": {
+          "location": "DEV_LANDING.SECURITY_ANALYTICS.SNOW",
+          "row_count": 24650,
+          "columns": [
+            {"name": "COMPUTER_NAME", "type": "TEXT", "nullable": "YES", "position": 1},
+            {"name": "MANUFACTURER", "type": "TEXT", "nullable": "YES", "position": 2},
+            {"name": "MODEL", "type": "TEXT", "nullable": "YES", "position": 3},
+            {"name": "BIOS_SERIAL_NUMBER", "type": "TEXT", "nullable": "YES", "position": 4},
+            {"name": "COMPUTERTYPES", "type": "TEXT", "nullable": "YES", "position": 5},
+            {"name": "COMPUTERENVIRONMENT", "type": "TEXT", "nullable": "YES", "position": 6},
+            {"name": "COMPUTERLOCATION", "type": "TEXT", "nullable": "YES", "position": 7},
+            {"name": "COMPUTERCLASSIFICATION", "type": "TEXT", "nullable": "YES", "position": 8},
+            {"name": "COMPUTERINSCOPE", "type": "TEXT", "nullable": "YES", "position": 9},
+            {"name": "PROCESSOR_TYPE", "type": "TEXT", "nullable": "YES", "position": 10},
+            {"name": "PROCESSORS", "type": "NUMBER", "nullable": "YES", "position": 11},
+            {"name": "PROCESSOR_CORES", "type": "NUMBER", "nullable": "YES", "position": 12},
+            {"name": "LOGICAL_PROCESSORS", "type": "NUMBER", "nullable": "YES", "position": 13},
+            {"name": "OPERATING_SYSTEM", "type": "TEXT", "nullable": "YES", "position": 14},
+            {"name": "DOMAIN_NAME", "type": "TEXT", "nullable": "YES", "position": 15},
+            {"name": "OSPRODUCTKEY", "type": "TEXT", "nullable": "YES", "position": 16},
+            {"name": "OSLICENSEKEY", "type": "TEXT", "nullable": "YES", "position": 17},
+            {"name": "IAASLICENSEDOS", "type": "BOOLEAN", "nullable": "YES", "position": 18},
+            {"name": "ORGANISATION", "type": "TEXT", "nullable": "YES", "position": 19},
+            {"name": "MOST_FREQUENT_USER", "type": "TEXT", "nullable": "YES", "position": 20},
+            {"name": "LAST_SCANNED", "type": "TEXT", "nullable": "YES", "position": 21},
+            {"name": "STATUS", "type": "TEXT", "nullable": "YES", "position": 22},
+            {"name": "CLIENT_VERSION", "type": "TEXT", "nullable": "YES", "position": 23},
+            {"name": "CLIENT_CONFIGURATION", "type": "TEXT", "nullable": "YES", "position": 24},
+            {"name": "MSIVERSION", "type": "TEXT", "nullable": "YES", "position": 25}
+          ]
+        }
+      }
+    },
+    "Leviat": {
+      "tables": {
+        "DIM_LEVIAT_USERS": {
+          "location": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.DIM_LEVIAT_USERS",
+          "row_count": 0,
+          "columns": [
+            {"name": "USERNAME", "type": "TEXT", "nullable": "NO", "position": 1},
+            {"name": "NAME", "type": "TEXT", "nullable": "YES", "position": 2},
+            {"name": "ACCOUNT_IS_LOCKED_OUT", "type": "BOOLEAN", "nullable": "YES", "position": 3},
+            {"name": "DISABLED", "type": "BOOLEAN", "nullable": "YES", "position": 4},
+            {"name": "EMAIL_ADDRESS", "type": "TEXT", "nullable": "YES", "position": 5},
+            {"name": "EXPIRATION_DATE", "type": "DATE", "nullable": "YES", "position": 6},
+            {"name": "FIRST_NAME", "type": "TEXT", "nullable": "YES", "position": 7},
+            {"name": "LAST_NAME", "type": "TEXT", "nullable": "YES", "position": 8},
+            {"name": "MUST_CHANGE_PASSWORD_AT_NEXT_LOGON", "type": "BOOLEAN", "nullable": "YES", "position": 9},
+            {"name": "PASSWORD_AGE_DAYS", "type": "NUMBER", "nullable": "YES", "position": 10},
+            {"name": "PASSWORD_NEVER_EXPIRES", "type": "BOOLEAN", "nullable": "YES", "position": 11},
+            {"name": "LAST_LOGON_DATE", "type": "TIMESTAMP_NTZ", "nullable": "YES", "position": 12},
+            {"name": "PASSWORD_LAST_CHANGED", "type": "TIMESTAMP_NTZ", "nullable": "YES", "position": 13},
+            {"name": "DISTINGUISHED_NAME", "type": "TEXT", "nullable": "YES", "position": 14},
+            {"name": "OPCO", "type": "TEXT", "nullable": "YES", "position": 15}
+          ]
+        },
+        "FACT_LEVIAT_SECURITY_EVENTS": {
+          "location": "DEV_TRANSFORMATION.SECURITY_ANALYTICS.FACT_LEVIAT_SECURITY_EVENTS",
+          "row_count": 0,
+          "columns": [
+            {"name": "EVENT_ID", "type": "NUMBER", "nullable": "NO", "position": 1},
+            {"name": "USERNAME", "type": "TEXT", "nullable": "YES", "position": 2},
+            {"name": "EVENT_TYPE", "type": "TEXT", "nullable": "YES", "position": 3},
+            {"name": "EVENT_TIMESTAMP", "type": "TIMESTAMP_NTZ", "nullable": "YES", "position": 4},
+            {"name": "LOCATION", "type": "TEXT", "nullable": "YES", "position": 5},
+            {"name": "LOCKOUT_DATE", "type": "TIMESTAMP_NTZ", "nullable": "YES", "position": 6}
+          ]
+        }
+      }
+    }
+  }
+}

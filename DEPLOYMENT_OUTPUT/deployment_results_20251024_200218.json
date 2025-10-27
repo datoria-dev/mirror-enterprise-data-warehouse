@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-10-24T20:02:18.972668",
+  "config": {
+    "account": "mw76572.east-us-2.azure",
+    "user": "FUAD.ONATE@CompanyX.COM",
+    "authenticator": "externalbrowser",
+    "warehouse": "DEV_WH",
+    "database": "DEV_REPORTING",
+    "schema": "SECURITY_ANALYTICS",
+    "role": "DEV_DEVELOPER"
+  },
+  "dry_run": false,
+  "results": [
+    {
+      "service": "Leviat",
+      "success": true,
+      "original_lines": 733,
+      "inlined_lines": 1486,
+      "output_file": "C:\\Users\\fonat\\OneDrive\\Documents\\GenericCorp\\Snowflake_ITSECKPI_Project_DEV\\DEPLOYMENT_OUTPUT\\Leviat_streamlit_app_inlined.py"
+    }
+  ]
+}

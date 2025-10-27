@@ -1,0 +1,118 @@
+{
+  "script_name": "GENERATE_ERD_FROM_METADATA_FIXED.sql",
+  "execution_timestamp": "2025-10-24T04:28:34.137071",
+  "total_statements": 13,
+  "successful_statements": 12,
+  "failed_statements": 1,
+  "total_duration_seconds": 8.020167,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.343543,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 2,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.306955,
+      "rows": 1,
+      "preview": "USE SCHEMA METADATA;"
+    },
+    {
+      "statement_num": 3,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.729773,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_TABLE_CATALOG AS SELECT     tr.TABLE_ID,     tr.SERVICE_NAME,     tr.D"
+    },
+    {
+      "statement_num": 4,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.728199,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_COLUMN_DETAILS AS SELECT     cm.COLUMN_ID,     cm.TABLE_ID,     tr.SER"
+    },
+    {
+      "statement_num": 5,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.834685,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_RELATIONSHIPS AS WITH potential_fks AS (     SELECT         cm.TABLE_I"
+    },
+    {
+      "statement_num": 6,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.694423,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_DATA_LINEAGE AS SELECT     l.SERVICE_NAME,     l.TABLE_NAME AS landing"
+    },
+    {
+      "statement_num": 7,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.360458,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_METADATA_REPOSITORY AS SELECT     'TABLE_REGISTRY' AS table_name,     "
+    },
+    {
+      "statement_num": 8,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.576454,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_BY_SERVICE AS SELECT     tr.SERVICE_NAME,     COUNT(DISTINCT tr.TABLE_"
+    },
+    {
+      "statement_num": 9,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.576807,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_ERD_COMPLETE_EXPORT AS SELECT     tr.SERVICE_NAME,     tr.TABLE_NAME,     "
+    },
+    {
+      "statement_num": 10,
+      "type": "SELECT",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 18 at position 0 unexpected 'UNION'.",
+      "preview": "SELECT     'erDiagram' AS mermaid_code UNION ALL SELECT     '    ' || TABLE_NAME || ' {' AS mermaid_"
+    },
+    {
+      "statement_num": 11,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.630172,
+      "rows": 20,
+      "csv_file": "stmt_011_select_20251024_042832.csv",
+      "json_file": "stmt_011_select_20251024_042832.json",
+      "preview": "SELECT     SERVICE_NAME,     table_count,     column_count,     total_rows,     pk_count,     fk_cou"
+    },
+    {
+      "statement_num": 12,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.894934,
+      "rows": 0,
+      "preview": "SELECT     tr.SERVICE_NAME,     tr.TABLE_NAME,     tr.DATABASE_NAME || '.' || tr.SCHEMA_NAME || '.' "
+    },
+    {
+      "statement_num": 13,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.343764,
+      "rows": 1,
+      "csv_file": "stmt_013_select_20251024_042834.csv",
+      "json_file": "stmt_013_select_20251024_042834.json",
+      "preview": "SELECT     '\u2705 ERD views created successfully!' AS status,     'Total of 7 views created in DEV_TRANS"
+    }
+  ]
+}

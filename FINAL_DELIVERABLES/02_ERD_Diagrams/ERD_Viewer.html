@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SECURITY_ANALYTICS ERD Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        .erd-container { border: 1px solid #ccc; padding: 10px; margin: 20px 0; }
+        .erd-title { font-weight: bold; margin-bottom: 10px; }
+        #graph { text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>SECURITY_ANALYTICS Data Model - ERD Diagrams</h1>
+
+    <div class="erd-container">
+        <div class="erd-title">Instructions:</div>
+        <ol>
+            <li>Open the .dot files in a Graphviz viewer</li>
+            <li>Or use online tool: https://dreampuf.github.io/GraphvizOnline/</li>
+            <li>Copy the .dot file content and paste to view the diagram</li>
+        </ol>
+    </div>
+
+    <div class="erd-container">
+        <div class="erd-title">Available Diagrams:</div>
+        <ul>
+            <li>ITSECKPI_Complete_ERD.dot - Full data model with all tables</li>
+            <li>ITSECKPI_Dimensional_ERD.dot - Star schema view</li>
+            <li>ITSECKPI_Endpoint_Security_ERD.dot - Endpoint protection services</li>
+            <li>ITSECKPI_Vulnerability_Management_ERD.dot - Vulnerability services</li>
+            <li>ITSECKPI_Threat_Intelligence_ERD.dot - Threat intel services</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+  {
+    "CHECK_NAME":"\u26a0\ufe0f  Tables Without Columns",
+    "ISSUE_COUNT":0
+  },
+  {
+    "CHECK_NAME":"\u26a0\ufe0f  Tables With Zero Rows",
+    "ISSUE_COUNT":102
+  },
+  {
+    "CHECK_NAME":"\u26a0\ufe0f  Columns Without Data Type",
+    "ISSUE_COUNT":0
+  },
+  {
+    "CHECK_NAME":"\u26a0\ufe0f  Unknown Service Tables",
+    "ISSUE_COUNT":0
+  }
+]

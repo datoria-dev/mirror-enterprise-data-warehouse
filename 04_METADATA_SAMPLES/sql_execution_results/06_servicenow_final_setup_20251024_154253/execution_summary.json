@@ -1,0 +1,234 @@
+{
+  "script_name": "06_servicenow_final_setup.sql",
+  "execution_timestamp": "2025-10-24T15:43:29.977689",
+  "total_statements": 27,
+  "successful_statements": 27,
+  "failed_statements": 0,
+  "total_duration_seconds": 24.418128,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.485982,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_TRANSFORMATION;"
+    },
+    {
+      "statement_num": 2,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.338058,
+      "rows": 1,
+      "preview": "USE SCHEMA SERVICENOW;"
+    },
+    {
+      "statement_num": 3,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 4.643901,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS INCIDENTS_RAW (     incident_number VARCHAR(100),     sys_id VARCHAR(100)"
+    },
+    {
+      "statement_num": 4,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.701745,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS CHANGE_REQUESTS_RAW (     change_number VARCHAR(100),     sys_id VARCHAR("
+    },
+    {
+      "statement_num": 5,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.805424,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS USERS_RAW (     user_id VARCHAR(100),     sys_id VARCHAR(100),     user_n"
+    },
+    {
+      "statement_num": 6,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.219866,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS CONFIGURATION_ITEMS_RAW (     ci_sys_id VARCHAR(100),     name VARCHAR(50"
+    },
+    {
+      "statement_num": 7,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.632221,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS INCIDENTS (     incident_number VARCHAR(100) PRIMARY KEY,     sys_id VARC"
+    },
+    {
+      "statement_num": 8,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.767948,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS CHANGE_REQUESTS (     change_number VARCHAR(100) PRIMARY KEY,     sys_id "
+    },
+    {
+      "statement_num": 9,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.859662,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS USERS (     user_id VARCHAR(100) PRIMARY KEY,     sys_id VARCHAR(100) UNI"
+    },
+    {
+      "statement_num": 10,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.893545,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS CONFIGURATION_ITEMS (     ci_sys_id VARCHAR(100) PRIMARY KEY,     name VA"
+    },
+    {
+      "statement_num": 11,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.355355,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS CONNECTOR_SYNC_LOG (     sync_id INTEGER AUTOINCREMENT PRIMARY KEY,     t"
+    },
+    {
+      "statement_num": 12,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.846639,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS CONNECTOR_CONFIG (     config_id INTEGER AUTOINCREMENT PRIMARY KEY,     t"
+    },
+    {
+      "statement_num": 13,
+      "type": "INSERT",
+      "status": "SUCCESS",
+      "duration": 0.88046,
+      "rows": 7,
+      "preview": "INSERT INTO CONNECTOR_CONFIG (table_name, is_enabled, sync_frequency_minutes, notes) VALUES     ('in"
+    },
+    {
+      "statement_num": 14,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.291257,
+      "rows": 10,
+      "preview": "SHOW TABLES IN SCHEMA DEV_TRANSFORMATION.SERVICENOW;"
+    },
+    {
+      "statement_num": 15,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.353367,
+      "rows": 1,
+      "csv_file": "stmt_015_select_20251024_154321.csv",
+      "json_file": "stmt_015_select_20251024_154321.json",
+      "preview": "SELECT '\u2705 DEV_TRANSFORMATION.SERVICENOW setup complete' AS status;"
+    },
+    {
+      "statement_num": 16,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.418944,
+      "rows": 1,
+      "preview": "USE DATABASE DEV_REPORTING;"
+    },
+    {
+      "statement_num": 17,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.335789,
+      "rows": 1,
+      "preview": "USE SCHEMA SERVICENOW;"
+    },
+    {
+      "statement_num": 18,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.948937,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_ACTIVE_INCIDENTS AS SELECT     incident_number,     short_description,    "
+    },
+    {
+      "statement_num": 19,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.928187,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_INCIDENT_METRICS_BY_PRIORITY AS SELECT     priority,     COUNT(*) AS total"
+    },
+    {
+      "statement_num": 20,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.882968,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_CHANGE_CALENDAR AS SELECT     change_number,     short_description,     ty"
+    },
+    {
+      "statement_num": 21,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.71556,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_CMDB_INVENTORY AS SELECT     ci_class,     category,     operational_statu"
+    },
+    {
+      "statement_num": 22,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.692702,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_USER_ACTIVITY AS SELECT     u.user_name,     u.email,     u.department,   "
+    },
+    {
+      "statement_num": 23,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 1.219273,
+      "rows": 1,
+      "preview": "CREATE OR REPLACE VIEW VW_DAILY_INCIDENT_TREND AS SELECT     DATE(opened_at) AS incident_date,     C"
+    },
+    {
+      "statement_num": 24,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.357252,
+      "rows": 6,
+      "preview": "SHOW VIEWS IN SCHEMA DEV_REPORTING.SERVICENOW;"
+    },
+    {
+      "statement_num": 25,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.240602,
+      "rows": 1,
+      "csv_file": "stmt_025_select_20251024_154328.csv",
+      "json_file": "stmt_025_select_20251024_154328.json",
+      "preview": "SELECT '\u2705 DEV_REPORTING.SERVICENOW setup complete' AS status;"
+    },
+    {
+      "statement_num": 26,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 1.213964,
+      "rows": 3,
+      "csv_file": "stmt_026_select_20251024_154329.csv",
+      "json_file": "stmt_026_select_20251024_154329.json",
+      "preview": "SELECT 'ServiceNow Setup' AS component, 'Complete' AS status UNION ALL SELECT 'DEV_TRANSFORMATION.SE"
+    },
+    {
+      "statement_num": 27,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.38852,
+      "rows": 1,
+      "csv_file": "stmt_027_select_20251024_154329.csv",
+      "json_file": "stmt_027_select_20251024_154329.json",
+      "preview": "SELECT '\u2705 Setup complete!' AS final_status;"
+    }
+  ]
+}

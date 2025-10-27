@@ -1,0 +1,176 @@
+﻿[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42] AUTOMATED NUMPY FIX FOR ALL STREAMLIT APPS
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42] Timestamp: 2025-10-27 16:22:42
+[2025-10-27 16:22:42] Base directory: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV
+[2025-10-27 16:22:42] Apps directory: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE
+[2025-10-27 16:22:42] Backup directory: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242
+[2025-10-27 16:22:42] Total apps to fix: 17
+[2025-10-27 16:22:42] 
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Ancon
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Ancon
+[2025-10-27 16:22:42]   📄 Original file size: 45,977 bytes
+[2025-10-27 16:22:42]   ✅ Replaced _DummyNumpy class
+[2025-10-27 16:22:42]   📄 New file size: 48,448 bytes (diff: +2,471 bytes)
+[2025-10-27 16:22:42]   ✅ File updated successfully
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: BitSight
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\BitSight
+[2025-10-27 16:22:42]   📄 Original file size: 33,608 bytes
+[2025-10-27 16:22:42]   ⚠️  Could not find _DummyNumpy class
+[2025-10-27 16:22:42]   ❌ Failed to replace _DummyNumpy class
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Cisco_AMP
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Cisco_AMP
+[2025-10-27 16:22:42]   📄 Original file size: 42,213 bytes
+[2025-10-27 16:22:42]   ✅ Replaced _DummyNumpy class
+[2025-10-27 16:22:42]   📄 New file size: 44,685 bytes (diff: +2,472 bytes)
+[2025-10-27 16:22:42]   ✅ File updated successfully
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Crowdstrike
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Crowdstrike
+[2025-10-27 16:22:42]   📄 Original file size: 41,168 bytes
+[2025-10-27 16:22:42]   ⚠️  Could not find _DummyNumpy class
+[2025-10-27 16:22:42]   ❌ Failed to replace _DummyNumpy class
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: CybelAngel
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\CybelAngel
+[2025-10-27 16:22:42]   📄 Original file size: 30,997 bytes
+[2025-10-27 16:22:42]   ⚠️  Could not find _DummyNumpy class
+[2025-10-27 16:22:42]   ❌ Failed to replace _DummyNumpy class
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Intel_Threats
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Intel_Threats
+[2025-10-27 16:22:42]   📄 Original file size: 36,220 bytes
+[2025-10-27 16:22:42]   ✅ Replaced _DummyNumpy class
+[2025-10-27 16:22:42]   📄 New file size: 38,692 bytes (diff: +2,472 bytes)
+[2025-10-27 16:22:42]   ✅ File updated successfully
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Leviat
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Leviat
+[2025-10-27 16:22:42]   📄 Original file size: 30,429 bytes
+[2025-10-27 16:22:42]   ⚠️  Could not find _DummyNumpy class
+[2025-10-27 16:22:42]   ❌ Failed to replace _DummyNumpy class
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Proofpoint
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Proofpoint
+[2025-10-27 16:22:42]   📄 Original file size: 31,118 bytes
+[2025-10-27 16:22:42]   ⚠️  Could not find _DummyNumpy class
+[2025-10-27 16:22:42]   ❌ Failed to replace _DummyNumpy class
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Qualys
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Qualys
+[2025-10-27 16:22:42]   📄 Original file size: 38,286 bytes
+[2025-10-27 16:22:42]   ✅ Replaced _DummyNumpy class
+[2025-10-27 16:22:42]   📄 New file size: 40,758 bytes (diff: +2,472 bytes)
+[2025-10-27 16:22:42]   ✅ File updated successfully
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: SentinelOne
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\SentinelOne
+[2025-10-27 16:22:42]   📄 Original file size: 29,044 bytes
+[2025-10-27 16:22:42]   ⚠️  Could not find _DummyNumpy class
+[2025-10-27 16:22:42]   ❌ Failed to replace _DummyNumpy class
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: ServiceNow
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\ServiceNow
+[2025-10-27 16:22:42]   📄 Original file size: 28,426 bytes
+[2025-10-27 16:22:42]   ⚠️  Could not find _DummyNumpy class
+[2025-10-27 16:22:42]   ❌ Failed to replace _DummyNumpy class
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Splunk
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Splunk
+[2025-10-27 16:22:42]   📄 Original file size: 45,393 bytes
+[2025-10-27 16:22:42]   ✅ Replaced _DummyNumpy class
+[2025-10-27 16:22:42]   📄 New file size: 47,865 bytes (diff: +2,472 bytes)
+[2025-10-27 16:22:42]   ✅ File updated successfully
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Symantec
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Symantec
+[2025-10-27 16:22:42]   📄 Original file size: 35,774 bytes
+[2025-10-27 16:22:42]   ✅ Replaced _DummyNumpy class
+[2025-10-27 16:22:42]   📄 New file size: 38,246 bytes (diff: +2,472 bytes)
+[2025-10-27 16:22:42]   ✅ File updated successfully
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Tenable
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Tenable
+[2025-10-27 16:22:42]   📄 Original file size: 19,921 bytes
+[2025-10-27 16:22:42]   ⚠️  Could not find _DummyNumpy class
+[2025-10-27 16:22:42]   ❌ Failed to replace _DummyNumpy class
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Trellix
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Trellix
+[2025-10-27 16:22:42]   📄 Original file size: 39,648 bytes
+[2025-10-27 16:22:42]   ✅ Replaced _DummyNumpy class
+[2025-10-27 16:22:42]   📄 New file size: 7,051 bytes (diff: -32,597 bytes)
+[2025-10-27 16:22:42]   ✅ File updated successfully
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Zerofox
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Zerofox
+[2025-10-27 16:22:42]   📄 Original file size: 35,368 bytes
+[2025-10-27 16:22:42]   ✅ Replaced _DummyNumpy class
+[2025-10-27 16:22:42]   📄 New file size: 37,840 bytes (diff: +2,472 bytes)
+[2025-10-27 16:22:42]   ✅ File updated successfully
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] Processing: Zscaler
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42]   ✅ Backup created: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242\Zscaler
+[2025-10-27 16:22:42]   📄 Original file size: 46,802 bytes
+[2025-10-27 16:22:42]   ✅ Replaced _DummyNumpy class
+[2025-10-27 16:22:42]   📄 New file size: 49,274 bytes (diff: +2,472 bytes)
+[2025-10-27 16:22:42]   ✅ File updated successfully
+[2025-10-27 16:22:42] 
+================================================================================
+[2025-10-27 16:22:42] SUMMARY
+[2025-10-27 16:22:42] ================================================================================
+[2025-10-27 16:22:42] Total apps processed: 17
+[2025-10-27 16:22:42] Successful: 9
+[2025-10-27 16:22:42] Failed: 8
+[2025-10-27 16:22:42] 
+Failed apps:
+[2025-10-27 16:22:42]   - BitSight
+[2025-10-27 16:22:42]   - Crowdstrike
+[2025-10-27 16:22:42]   - CybelAngel
+[2025-10-27 16:22:42]   - Leviat
+[2025-10-27 16:22:42]   - Proofpoint
+[2025-10-27 16:22:42]   - SentinelOne
+[2025-10-27 16:22:42]   - ServiceNow
+[2025-10-27 16:22:42]   - Tenable
+[2025-10-27 16:22:42] 
+Backups saved to: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\backups\numpy_fix_20251027_162242
+[2025-10-27 16:22:42] Log file: c:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\02_PYTHON_SCRIPTS\numpy_fix_log.txt
+[2025-10-27 16:22:42] 
+✅ Script execution completed!

@@ -1,0 +1,182 @@
+{
+  "script_name": "01_servicenow_connector_setup.sql",
+  "execution_timestamp": "2025-10-24T12:50:56.621375",
+  "total_statements": 21,
+  "successful_statements": 12,
+  "failed_statements": 9,
+  "total_duration_seconds": 6.901102,
+  "statements": [
+    {
+      "statement_num": 1,
+      "type": "USE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003013 (42501): SQL access control error:\nRequested role 'ACCOUNTADMIN' is not assigned to the executing user.  Specify another role to activate.",
+      "preview": "USE ROLE ACCOUNTADMIN;"
+    },
+    {
+      "statement_num": 2,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on account 'MW76572'.",
+      "preview": "CREATE DATABASE IF NOT EXISTS SERVICENOW_CONNECTOR     DATA_RETENTION_TIME_IN_DAYS = 7     COMMENT ="
+    },
+    {
+      "statement_num": 3,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (02000): SQL compilation error:\nDatabase 'SERVICENOW_CONNECTOR' does not exist or not authorized.",
+      "preview": "GRANT OWNERSHIP ON DATABASE SERVICENOW_CONNECTOR TO ROLE SYSADMIN;"
+    },
+    {
+      "statement_num": 4,
+      "type": "USE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed.",
+      "preview": "USE DATABASE SERVICENOW_CONNECTOR;"
+    },
+    {
+      "statement_num": 5,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.38904,
+      "rows": 1,
+      "preview": "CREATE SCHEMA IF NOT EXISTS RAW_DATA     DATA_RETENTION_TIME_IN_DAYS = 7     COMMENT = 'Raw ServiceN"
+    },
+    {
+      "statement_num": 6,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.370836,
+      "rows": 1,
+      "preview": "CREATE SCHEMA IF NOT EXISTS CONNECTOR_METADATA     DATA_RETENTION_TIME_IN_DAYS = 30     COMMENT = 'C"
+    },
+    {
+      "statement_num": 7,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.384438,
+      "rows": 1,
+      "preview": "GRANT USAGE ON SCHEMA RAW_DATA TO ROLE DEV_DEVELOPER;"
+    },
+    {
+      "statement_num": 8,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (02000): SQL compilation error:\nRole 'DEV_READER' does not exist or not authorized.",
+      "preview": "GRANT USAGE ON SCHEMA RAW_DATA TO ROLE DEV_READER;"
+    },
+    {
+      "statement_num": 9,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.386689,
+      "rows": 1,
+      "preview": "GRANT USAGE ON SCHEMA CONNECTOR_METADATA TO ROLE DEV_DEVELOPER;"
+    },
+    {
+      "statement_num": 10,
+      "type": "CREATE",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on account 'MW76572'.",
+      "preview": "CREATE WAREHOUSE IF NOT EXISTS SERVICENOW_WH     WAREHOUSE_SIZE = 'SMALL'     AUTO_SUSPEND = 300  --"
+    },
+    {
+      "statement_num": 11,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (02000): SQL compilation error:\nWarehouse 'SERVICENOW_WH' does not exist or not authorized.",
+      "preview": "GRANT USAGE ON WAREHOUSE SERVICENOW_WH TO ROLE DEV_DEVELOPER;"
+    },
+    {
+      "statement_num": 12,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (02000): SQL compilation error:\nWarehouse 'SERVICENOW_WH' does not exist or not authorized.",
+      "preview": "GRANT USAGE ON WAREHOUSE SERVICENOW_WH TO ROLE DEV_READER;"
+    },
+    {
+      "statement_num": 13,
+      "type": "OTHER",
+      "status": "FAILED",
+      "duration": 0,
+      "error": "002003 (02000): SQL compilation error:\nWarehouse 'SERVICENOW_WH' does not exist or not authorized.",
+      "preview": "GRANT OPERATE ON WAREHOUSE SERVICENOW_WH TO ROLE SYSADMIN;"
+    },
+    {
+      "statement_num": 14,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.734815,
+      "rows": 0,
+      "preview": "SELECT     database_name,     database_owner,     retention_time,     comment FROM INFORMATION_SCHEM"
+    },
+    {
+      "statement_num": 15,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.60179,
+      "rows": 2,
+      "csv_file": "stmt_015_select_20251024_125052.csv",
+      "json_file": "stmt_015_select_20251024_125052.json",
+      "preview": "SELECT     schema_name,     schema_owner,     retention_time,     comment FROM INFORMATION_SCHEMA.SC"
+    },
+    {
+      "statement_num": 16,
+      "type": "OTHER",
+      "status": "SUCCESS",
+      "duration": 0.368265,
+      "rows": 0,
+      "preview": "SHOW WAREHOUSES LIKE 'SERVICENOW_WH';"
+    },
+    {
+      "statement_num": 17,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.634335,
+      "rows": 0,
+      "preview": "SELECT     \"name\" AS warehouse_name,     \"size\" AS warehouse_size,     \"auto_resume\" AS auto_resume,"
+    },
+    {
+      "statement_num": 18,
+      "type": "USE",
+      "status": "SUCCESS",
+      "duration": 0.624709,
+      "rows": 1,
+      "preview": "USE SCHEMA CONNECTOR_METADATA;"
+    },
+    {
+      "statement_num": 19,
+      "type": "CREATE",
+      "status": "SUCCESS",
+      "duration": 0.946957,
+      "rows": 1,
+      "preview": "CREATE TABLE IF NOT EXISTS CONNECTOR_INSTALLATION_LOG (     log_id INTEGER AUTOINCREMENT PRIMARY KEY"
+    },
+    {
+      "statement_num": 20,
+      "type": "INSERT",
+      "status": "SUCCESS",
+      "duration": 1.192441,
+      "rows": 4,
+      "preview": "INSERT INTO CONNECTOR_INSTALLATION_LOG (installation_step, step_status, notes) VALUES     ('Database"
+    },
+    {
+      "statement_num": 21,
+      "type": "SELECT",
+      "status": "SUCCESS",
+      "duration": 0.266787,
+      "rows": 1,
+      "csv_file": "stmt_021_select_20251024_125056.csv",
+      "json_file": "stmt_021_select_20251024_125056.json",
+      "preview": "SELECT '\u2705 Setup complete! Next: Install connector via Snowflake Marketplace' AS next_step;"
+    }
+  ]
+}

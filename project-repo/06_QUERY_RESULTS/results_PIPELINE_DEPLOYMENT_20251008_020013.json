@@ -1,0 +1,943 @@
+{
+  "file": "DATA_PIPELINE_ARCHITECTURE.sql",
+  "executed_at": "2025-10-08T02:00:28.142073",
+  "connection": {
+    "account": "mw76572.east-us-2.azure",
+    "user": "FUAD.ONATE@CompanyX.COM",
+    "authenticator": "externalbrowser",
+    "warehouse": "DEV_WH",
+    "database": "DEV_TRANSFORMATION",
+    "schema": "SECURITY_ANALYTICS",
+    "role": "DEV_DEVELOPER"
+  },
+  "statements": [
+    {
+      "num": 1,
+      "type": "USE_ROLE",
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 2,
+      "type": "USE_WAREHOUSE",
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 3,
+      "type": "STORAGE_INTEGRATION",
+      "sql": "CREATE OR REPLACE STORAGE INTEGRATION S3_EDR_INTEGRATION\n    TYPE = EXTERNAL_STAGE\n    STORAGE_PROVIDER = S3\n    ENABLED = TRUE\n    STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::123456789012:role/snowflake-edr-role'\n    STORAGE_ALLOWED_LOCATIONS = (\n        's3://GenericCorp-security-data/edr/crowdstrike/',\n        's3://GenericCorp-security-data/edr/sentinelone/',\n        's3://GenericCorp-security-data/edr/defender/',\n        's3://GenericCorp-security-data/edr/cisco-amp/'\n    )\n    COMMENT = 'S3 integration for EDR platform data ing",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on account 'MW76572'."
+    },
+    {
+      "num": 4,
+      "type": "STORAGE_INTEGRATION",
+      "sql": "CREATE OR REPLACE STORAGE INTEGRATION S3_VULN_INTEGRATION\n    TYPE = EXTERNAL_STAGE\n    STORAGE_PROVIDER = S3\n    ENABLED = TRUE\n    STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::123456789012:role/snowflake-vuln-role'\n    STORAGE_ALLOWED_LOCATIONS = (\n        's3://GenericCorp-security-data/qualys/scans/',\n        's3://GenericCorp-security-data/qualys/agents/'\n    )\n    COMMENT = 'S3 integration for Qualys vulnerability data';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on account 'MW76572'."
+    },
+    {
+      "num": 5,
+      "type": "STORAGE_INTEGRATION",
+      "sql": "CREATE OR REPLACE STORAGE INTEGRATION AZURE_EMAIL_INTEGRATION\n    TYPE = EXTERNAL_STAGE\n    STORAGE_PROVIDER = AZURE\n    ENABLED = TRUE\n    AZURE_TENANT_ID = 'your-tenant-id'\n    STORAGE_ALLOWED_LOCATIONS = (\n        'azure://crhsecuritydata.blob.core.windows.net/proofpoint/'\n    )\n    COMMENT = 'Azure Blob integration for Proofpoint email logs';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on account 'MW76572'."
+    },
+    {
+      "num": 6,
+      "type": "STORAGE_INTEGRATION",
+      "sql": "CREATE OR REPLACE STORAGE INTEGRATION S3_SIEM_INTEGRATION\n    TYPE = EXTERNAL_STAGE\n    STORAGE_PROVIDER = S3\n    ENABLED = TRUE\n    STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::123456789012:role/snowflake-siem-role'\n    STORAGE_ALLOWED_LOCATIONS = (\n        's3://GenericCorp-security-data/splunk/alerts/',\n        's3://GenericCorp-security-data/splunk/events/'\n    )\n    COMMENT = 'S3 integration for Splunk SIEM data';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "003001 (42501): SQL access control error:\nInsufficient privileges to operate on account 'MW76572'."
+    },
+    {
+      "num": 7,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT JSON_EDR_FORMAT\n    TYPE = JSON\n    COMPRESSION = AUTO\n    STRIP_OUTER_ARRAY = TRUE\n    STRIP_NULL_VALUES = FALSE\n    COMMENT = 'JSON format for EDR event streams';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format JSON_EDR_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 8,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT CSV_QUALYS_FORMAT\n    TYPE = CSV\n    COMPRESSION = GZIP\n    FIELD_DELIMITER = ','\n    RECORD_DELIMITER = '\\n'\n    SKIP_HEADER = 1\n    FIELD_OPTIONALLY_ENCLOSED_BY = '\"'\n    ESCAPE_UNENCLOSED_FIELD = NONE\n    TRIM_SPACE = TRUE\n    NULL_IF = ('NULL', 'null', '', '\\\\N')\n    COMMENT = 'CSV format for Qualys vulnerability exports';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format CSV_QUALYS_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 9,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT JSON_PROOFPOINT_FORMAT\n    TYPE = JSON\n    COMPRESSION = AUTO\n    STRIP_OUTER_ARRAY = TRUE\n    DATE_FORMAT = 'AUTO'\n    TIMESTAMP_FORMAT = 'AUTO'\n    COMMENT = 'JSON format for Proofpoint message logs';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format JSON_PROOFPOINT_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 10,
+      "type": "FILE_FORMAT",
+      "sql": "CREATE OR REPLACE FILE FORMAT PARQUET_SPLUNK_FORMAT\n    TYPE = PARQUET\n    COMPRESSION = SNAPPY\n    COMMENT = 'Parquet format for Splunk event data';",
+      "success": true,
+      "rows": [
+        {
+          "status": "File format PARQUET_SPLUNK_FORMAT successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 11,
+      "type": "STAGE",
+      "sql": "CREATE OR REPLACE STAGE STG_CROWDSTRIKE_EDR\n    STORAGE_INTEGRATION = S3_EDR_INTEGRATION\n    URL = 's3://GenericCorp-security-data/edr/crowdstrike/'\n    FILE_FORMAT = JSON_EDR_FORMAT\n    COMMENT = 'Stage for CrowdStrike detection events';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (02000): SQL compilation error:\nIntegration 'S3_EDR_INTEGRATION' does not exist or not authorized."
+    },
+    {
+      "num": 12,
+      "type": "STAGE",
+      "sql": "CREATE OR REPLACE STAGE STG_SENTINELONE_EDR\n    STORAGE_INTEGRATION = S3_EDR_INTEGRATION\n    URL = 's3://GenericCorp-security-data/edr/sentinelone/'\n    FILE_FORMAT = JSON_EDR_FORMAT\n    COMMENT = 'Stage for SentinelOne threat events';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (02000): SQL compilation error:\nIntegration 'S3_EDR_INTEGRATION' does not exist or not authorized."
+    },
+    {
+      "num": 13,
+      "type": "STAGE",
+      "sql": "CREATE OR REPLACE STAGE STG_QUALYS_SCANS\n    STORAGE_INTEGRATION = S3_VULN_INTEGRATION\n    URL = 's3://GenericCorp-security-data/qualys/scans/'\n    FILE_FORMAT = CSV_QUALYS_FORMAT\n    COMMENT = 'Stage for Qualys vulnerability scan results';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (02000): SQL compilation error:\nIntegration 'S3_VULN_INTEGRATION' does not exist or not authorized."
+    },
+    {
+      "num": 14,
+      "type": "STAGE",
+      "sql": "CREATE OR REPLACE STAGE STG_PROOFPOINT_LOGS\n    STORAGE_INTEGRATION = AZURE_EMAIL_INTEGRATION\n    URL = 'azure://crhsecuritydata.blob.core.windows.net/proofpoint/'\n    FILE_FORMAT = JSON_PROOFPOINT_FORMAT\n    COMMENT = 'Stage for Proofpoint email message logs';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (02000): SQL compilation error:\nIntegration 'AZURE_EMAIL_INTEGRATION' does not exist or not authorized."
+    },
+    {
+      "num": 15,
+      "type": "STAGE",
+      "sql": "CREATE OR REPLACE STAGE STG_SPLUNK_ALERTS\n    STORAGE_INTEGRATION = S3_SIEM_INTEGRATION\n    URL = 's3://GenericCorp-security-data/splunk/alerts/'\n    FILE_FORMAT = PARQUET_SPLUNK_FORMAT\n    COMMENT = 'Stage for Splunk security alerts';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (02000): SQL compilation error:\nIntegration 'S3_SIEM_INTEGRATION' does not exist or not authorized."
+    },
+    {
+      "num": 16,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_LANDING.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 17,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_CROWDSTRIKE_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    SOURCE_FILE_ROW_NUMBER NUMBER,\n    RAW_DATA VARIANT,\n    METADATA VARIANT\n)\nCOMMENT = 'Raw landing table for CrowdStrike EDR events - auto-ingested via Snowpipe';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_CROWDSTRIKE_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 18,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_SENTINELONE_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    SOURCE_FILE_ROW_NUMBER NUMBER,\n    RAW_DATA VARIANT,\n    METADATA VARIANT\n)\nCOMMENT = 'Raw landing table for SentinelOne threat events - auto-ingested via Snowpipe';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_SENTINELONE_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 19,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_QUALYS_SCANS_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    SOURCE_FILE_ROW_NUMBER NUMBER,\n    QID VARCHAR(50),\n    HOST_ID VARCHAR(100),\n    IP_ADDRESS VARCHAR(45),\n    DNS_NAME VARCHAR(500),\n    SEVERITY NUMBER,\n    CVSS_SCORE DECIMAL(4,1),\n    FIRST_DETECTED TIMESTAMP_NTZ,\n    LAST_DETECTED TIMESTAMP_NTZ,\n    STATUS VARCHAR(50),\n    RAW_DATA VARIANT\n)\nCOMMENT = 'Raw landing table for Qualys vulnerabilit",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_QUALYS_SCANS_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 20,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_PROOFPOINT_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    SOURCE_FILE_ROW_NUMBER NUMBER,\n    MESSAGE_ID VARCHAR(500),\n    MESSAGE_TIME TIMESTAMP_NTZ,\n    SENDER VARCHAR(500),\n    RECIPIENT VARCHAR(500),\n    SUBJECT VARCHAR(1000),\n    THREAT_TYPE VARCHAR(100),\n    RAW_DATA VARIANT\n)\nCOMMENT = 'Raw landing table for Proofpoint email logs - auto-ingested via Snowpipe';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_PROOFPOINT_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 21,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE L_SPLUNK_ALERTS_RAW (\n    INGESTION_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    SOURCE_FILE_NAME VARCHAR(500),\n    ALERT_ID VARCHAR(100),\n    ALERT_TIME TIMESTAMP_NTZ,\n    ALERT_NAME VARCHAR(500),\n    SEVERITY VARCHAR(50),\n    SOURCE_IP VARCHAR(45),\n    DESTINATION_IP VARCHAR(45),\n    RAW_DATA VARIANT\n)\nCOMMENT = 'Raw landing table for Splunk security alerts - auto-ingested via Snowpipe';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table L_SPLUNK_ALERTS_RAW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 22,
+      "type": "SNOWPIPE",
+      "sql": "CREATE OR REPLACE PIPE PIPE_CROWDSTRIKE_EDR\n    AUTO_INGEST = TRUE\n    AWS_SNS_TOPIC = 'arn:aws:sns:us-east-1:123456789012:snowpipe-crowdstrike'\nAS\n    COPY INTO L_CROWDSTRIKE_RAW (\n        SOURCE_FILE_NAME,\n        SOURCE_FILE_ROW_NUMBER,\n        RAW_DATA,\n        METADATA\n    )\n    FROM (\n        SELECT\n            METADATA$FILENAME,\n            METADATA$FILE_ROW_NUMBER,\n            $1,\n            OBJECT_CONSTRUCT(\n                'INGESTED_BY', 'SNOWPIPE',\n                'PIPE_NAME', 'PIPE_",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001006 (22023): SQL compilation error:\ninvalid parameter 'COMMENT'"
+    },
+    {
+      "num": 23,
+      "type": "SNOWPIPE",
+      "sql": "CREATE OR REPLACE PIPE PIPE_SENTINELONE_EDR\n    AUTO_INGEST = TRUE\n    AWS_SNS_TOPIC = 'arn:aws:sns:us-east-1:123456789012:snowpipe-sentinelone'\nAS\n    COPY INTO L_SENTINELONE_RAW (\n        SOURCE_FILE_NAME,\n        SOURCE_FILE_ROW_NUMBER,\n        RAW_DATA,\n        METADATA\n    )\n    FROM (\n        SELECT\n            METADATA$FILENAME,\n            METADATA$FILE_ROW_NUMBER,\n            $1,\n            OBJECT_CONSTRUCT(\n                'INGESTED_BY', 'SNOWPIPE',\n                'PIPE_NAME', 'PIPE_",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001006 (22023): SQL compilation error:\ninvalid parameter 'COMMENT'"
+    },
+    {
+      "num": 24,
+      "type": "SNOWPIPE",
+      "sql": "CREATE OR REPLACE PIPE PIPE_QUALYS_SCANS\n    AUTO_INGEST = TRUE\n    AWS_SNS_TOPIC = 'arn:aws:sns:us-east-1:123456789012:snowpipe-qualys'\nAS\n    COPY INTO L_QUALYS_SCANS_RAW (\n        SOURCE_FILE_NAME,\n        SOURCE_FILE_ROW_NUMBER,\n        QID,\n        HOST_ID,\n        IP_ADDRESS,\n        DNS_NAME,\n        SEVERITY,\n        CVSS_SCORE,\n        FIRST_DETECTED,\n        LAST_DETECTED,\n        STATUS,\n        RAW_DATA\n    )\n    FROM (\n        SELECT\n            METADATA$FILENAME,\n            METADA",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001006 (22023): SQL compilation error:\ninvalid parameter 'COMMENT'"
+    },
+    {
+      "num": 25,
+      "type": "SNOWPIPE",
+      "sql": "CREATE OR REPLACE PIPE PIPE_PROOFPOINT_LOGS\n    AUTO_INGEST = TRUE\n    INTEGRATION = 'AZURE_EMAIL_INTEGRATION'\nAS\n    COPY INTO L_PROOFPOINT_RAW (\n        SOURCE_FILE_NAME,\n        SOURCE_FILE_ROW_NUMBER,\n        MESSAGE_ID,\n        MESSAGE_TIME,\n        SENDER,\n        RECIPIENT,\n        SUBJECT,\n        THREAT_TYPE,\n        RAW_DATA\n    )\n    FROM (\n        SELECT\n            METADATA$FILENAME,\n            METADATA$FILE_ROW_NUMBER,\n            $1:messageId::VARCHAR,\n            $1:messageTime:",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001006 (22023): SQL compilation error:\ninvalid parameter 'COMMENT'"
+    },
+    {
+      "num": 26,
+      "type": "SNOWPIPE",
+      "sql": "CREATE OR REPLACE PIPE PIPE_SPLUNK_ALERTS\n    AUTO_INGEST = TRUE\n    AWS_SNS_TOPIC = 'arn:aws:sns:us-east-1:123456789012:snowpipe-splunk'\nAS\n    COPY INTO L_SPLUNK_ALERTS_RAW (\n        SOURCE_FILE_NAME,\n        ALERT_ID,\n        ALERT_TIME,\n        ALERT_NAME,\n        SEVERITY,\n        SOURCE_IP,\n        DESTINATION_IP,\n        RAW_DATA\n    )\n    FROM (\n        SELECT\n            METADATA$FILENAME,\n            $1:alert_id::VARCHAR,\n            $1:timestamp::TIMESTAMP_NTZ,\n            $1:alert_na",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001006 (22023): SQL compilation error:\ninvalid parameter 'COMMENT'"
+    },
+    {
+      "num": 27,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_LANDING.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 28,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_CROWDSTRIKE_NEW\n    ON TABLE L_CROWDSTRIKE_RAW\n    COMMENT = 'CDC stream for new CrowdStrike events - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_CROWDSTRIKE_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 29,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_SENTINELONE_NEW\n    ON TABLE L_SENTINELONE_RAW\n    COMMENT = 'CDC stream for new SentinelOne events - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_SENTINELONE_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 30,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_QUALYS_NEW\n    ON TABLE L_QUALYS_SCANS_RAW\n    COMMENT = 'CDC stream for new Qualys scans - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_QUALYS_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 31,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_PROOFPOINT_NEW\n    ON TABLE L_PROOFPOINT_RAW\n    COMMENT = 'CDC stream for new Proofpoint messages - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_PROOFPOINT_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 32,
+      "type": "STREAM",
+      "sql": "CREATE OR REPLACE STREAM STREAM_SPLUNK_NEW\n    ON TABLE L_SPLUNK_ALERTS_RAW\n    COMMENT = 'CDC stream for new Splunk alerts - consumed by transformation tasks';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Stream STREAM_SPLUNK_NEW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 33,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_LANDING.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 34,
+      "type": "EXTERNAL_TABLE",
+      "sql": "CREATE OR REPLACE EXTERNAL TABLE EXT_SERVICENOW_INCIDENTS (\n    INCIDENT_ID VARCHAR AS (VALUE:c1::VARCHAR),\n    INCIDENT_NUMBER VARCHAR AS (VALUE:c2::VARCHAR),\n    OPENED_AT TIMESTAMP_NTZ AS (VALUE:c3::TIMESTAMP_NTZ),\n    CLOSED_AT TIMESTAMP_NTZ AS (VALUE:c4::TIMESTAMP_NTZ),\n    PRIORITY VARCHAR AS (VALUE:c5::VARCHAR),\n    CATEGORY VARCHAR AS (VALUE:c6::VARCHAR),\n    ASSIGNED_TO VARCHAR AS (VALUE:c7::VARCHAR),\n    SHORT_DESCRIPTION VARCHAR AS (VALUE:c8::VARCHAR),\n    STATE VARCHAR AS (VALUE:c9::",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (02000): SQL compilation error:\nStage 'DEV_LANDING.SECURITY_ANALYTICS.STG_SERVICENOW_EXPORTS' does not exist or not authorized."
+    },
+    {
+      "num": 35,
+      "type": "EXTERNAL_TABLE",
+      "sql": "CREATE OR REPLACE EXTERNAL TABLE EXT_ARCHER_MATURITY (\n    ASSESSMENT_ID VARCHAR AS (VALUE:c1::VARCHAR),\n    ASSESSMENT_DATE DATE AS (VALUE:c2::DATE),\n    OPCO_ID VARCHAR AS (VALUE:c3::VARCHAR),\n    NIST_FUNCTION VARCHAR AS (VALUE:c4::VARCHAR),\n    MATURITY_LEVEL NUMBER AS (VALUE:c5::NUMBER),\n    SCORE NUMBER AS (VALUE:c6::NUMBER),\n    COMMENTS VARCHAR AS (VALUE:c7::VARCHAR)\n)\nLOCATION = @STG_ARCHER_EXPORTS\nFILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)\nAUTO_REFRESH = TRUE\nREFRESH_ON_CREATE = TRUE\nC",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (02000): SQL compilation error:\nStage 'DEV_LANDING.SECURITY_ANALYTICS.STG_ARCHER_EXPORTS' does not exist or not authorized."
+    },
+    {
+      "num": 36,
+      "type": "EXTERNAL_TABLE",
+      "sql": "CREATE OR REPLACE EXTERNAL TABLE EXT_METACOMPLIANCE_TRAINING (\n    USER_EMAIL VARCHAR AS (VALUE:c1::VARCHAR),\n    COURSE_NAME VARCHAR AS (VALUE:c2::VARCHAR),\n    COMPLETION_DATE DATE AS (VALUE:c3::DATE),\n    SCORE NUMBER AS (VALUE:c4::NUMBER),\n    STATUS VARCHAR AS (VALUE:c5::VARCHAR),\n    TRAINING_TYPE VARCHAR AS (VALUE:c6::VARCHAR)\n)\nLOCATION = @STG_METACOMPLIANCE_EXPORTS\nFILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)\nAUTO_REFRESH = TRUE\nREFRESH_ON_CREATE = TRUE\nCOMMENT = 'External table for MetaC",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (02000): SQL compilation error:\nStage 'DEV_LANDING.SECURITY_ANALYTICS.STG_METACOMPLIANCE_EXPORTS' does not exist or not authorized."
+    },
+    {
+      "num": 37,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_TRANSFORMATION.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 38,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_TRANSFORM_CROWDSTRIKE_EDR()\nRETURNS VARCHAR\nLANGUAGE SQL\nEXECUTE AS CALLER\nAS\n$$\nDECLARE\n    rows_processed NUMBER DEFAULT 0;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 8 at position 36 near '<EOF>'.\nsyntax error line 6 at position 1 unexpected '$'."
+    },
+    {
+      "num": 39,
+      "type": "UNKNOWN",
+      "sql": "BEGIN\n    INSERT INTO FACT_EDR (\n        EVENT_ID,\n        HOST_ID,\n        DATE,\n        THREAT_KEY,\n        EVENT_TYPE,\n        SEVERITY,\n        DETECTION_TIME,\n        THREAT_COUNT,\n        FILE_PATH,\n        PROCESS_NAME,\n        EDR_PLATFORM\n    )\n    SELECT\n        RAW_DATA:detection_id::VARCHAR,\n        RAW_DATA:device_id::VARCHAR,\n        TO_DATE(RAW_DATA:created_timestamp::TIMESTAMP_NTZ),\n        NULL, -- Join to DIM_THREAT later\n        RAW_DATA:behavior::VARCHAR,\n        RAW_DATA:sev",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 29 at position 34 unexpected '<EOF>'."
+    },
+    {
+      "num": 40,
+      "type": "UNKNOWN",
+      "sql": "rows_processed := SQLROWCOUNT;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'rows_processed'."
+    },
+    {
+      "num": 41,
+      "type": "UNKNOWN",
+      "sql": "RETURN 'Processed ' || rows_processed || ' CrowdStrike events into FACT_EDR';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'RETURN'."
+    },
+    {
+      "num": 42,
+      "type": "UNKNOWN",
+      "sql": "END;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 43,
+      "type": "UNKNOWN",
+      "sql": "$$\nCOMMENT = 'Transform CrowdStrike raw events into FACT_EDR table';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 2 at position 65 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'."
+    },
+    {
+      "num": 44,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_TRANSFORM_QUALYS_SCANS()\nRETURNS VARCHAR\nLANGUAGE SQL\nEXECUTE AS CALLER\nAS\n$$\nDECLARE\n    rows_processed NUMBER DEFAULT 0;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 8 at position 36 near '<EOF>'.\nsyntax error line 6 at position 1 unexpected '$'."
+    },
+    {
+      "num": 45,
+      "type": "UNKNOWN",
+      "sql": "BEGIN\n    MERGE INTO FACT_QUALYS AS tgt\n    USING (\n        SELECT\n            QID,\n            HOST_ID,\n            TO_DATE(LAST_DETECTED) AS SCAN_DATE,\n            SEVERITY,\n            CVSS_SCORE,\n            CASE\n                WHEN STATUS = 'New' THEN 'New'\n                WHEN STATUS = 'Active' THEN 'Active'\n                WHEN STATUS = 'Re-Opened' THEN 'Re-Opened'\n                ELSE 'Fixed'\n            END AS STATUS,\n            FIRST_DETECTED,\n            LAST_DETECTED,\n            D",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 34 at position 149 unexpected '<EOF>'."
+    },
+    {
+      "num": 46,
+      "type": "UNKNOWN",
+      "sql": "rows_processed := SQLROWCOUNT;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'rows_processed'."
+    },
+    {
+      "num": 47,
+      "type": "UNKNOWN",
+      "sql": "RETURN 'Processed ' || rows_processed || ' Qualys scan results into FACT_QUALYS';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'RETURN'."
+    },
+    {
+      "num": 48,
+      "type": "UNKNOWN",
+      "sql": "END;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 49,
+      "type": "UNKNOWN",
+      "sql": "$$\nCOMMENT = 'Transform Qualys scan results into FACT_QUALYS table';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 2 at position 65 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'."
+    },
+    {
+      "num": 50,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_CALCULATE_TOP13_METRICS()\nRETURNS VARCHAR\nLANGUAGE SQL\nEXECUTE AS CALLER\nAS\n$$\nDECLARE\n    calculation_timestamp TIMESTAMP_LTZ;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 8 at position 40 near '<EOF>'.\nsyntax error line 6 at position 1 unexpected '$'."
+    },
+    {
+      "num": 51,
+      "type": "UNKNOWN",
+      "sql": "BEGIN\n    calculation_timestamp := CURRENT_TIMESTAMP();",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 2 at position 49 unexpected '<EOF>'."
+    },
+    {
+      "num": 52,
+      "type": "UNKNOWN",
+      "sql": "INSERT INTO TBL_KPI_MASTER (\n        METRIC_NAME,\n        METRIC_VALUE,\n        CALCULATION_DATE,\n        NIST_FUNCTION,\n        TARGET_THRESHOLD\n    )\n    SELECT\n        'Days Since Last Ransomware',\n        DATEDIFF(DAY, MAX(DETECTION_TIME), CURRENT_DATE()),\n        calculation_timestamp,\n        'ID.RM',\n        NULL\n    FROM FACT_EDR\n    WHERE THREAT_TYPE LIKE '%ransomware%';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (42S02): SQL compilation error:\nTable 'TBL_KPI_MASTER' does not exist or not authorized."
+    },
+    {
+      "num": 53,
+      "type": "UNKNOWN",
+      "sql": "INSERT INTO TBL_KPI_MASTER (\n        METRIC_NAME,\n        METRIC_VALUE,\n        CALCULATION_DATE,\n        NIST_FUNCTION,\n        TARGET_THRESHOLD\n    )\n    SELECT\n        'EDR Coverage - All Systems',\n        ROUND(\n            (COUNT(DISTINCT CASE WHEN edr_agent_status = 'Healthy' THEN host_id END) * 100.0) /\n            NULLIF(COUNT(DISTINCT host_id), 0),\n            2\n        ),\n        calculation_timestamp,\n        'PR.PT',\n        98.0\n    FROM DIM_HOST;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (42S02): SQL compilation error:\nTable 'TBL_KPI_MASTER' does not exist or not authorized."
+    },
+    {
+      "num": 54,
+      "type": "UNKNOWN",
+      "sql": "INSERT INTO TBL_KPI_MASTER (\n        METRIC_NAME,\n        METRIC_VALUE,\n        CALCULATION_DATE,\n        NIST_FUNCTION,\n        TARGET_THRESHOLD\n    )\n    SELECT\n        'Vuln-Scan Coverage',\n        ROUND(\n            (COUNT(DISTINCT CASE WHEN qualys_agent_status = 'Installed' THEN host_id END) * 100.0) /\n            NULLIF(COUNT(DISTINCT host_id), 0),\n            2\n        ),\n        calculation_timestamp,\n        'PR.IP',\n        95.0\n    FROM DIM_HOST;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (42S02): SQL compilation error:\nTable 'TBL_KPI_MASTER' does not exist or not authorized."
+    },
+    {
+      "num": 55,
+      "type": "UNKNOWN",
+      "sql": "RETURN 'Calculated Top 13 metrics successfully';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'RETURN'."
+    },
+    {
+      "num": 56,
+      "type": "UNKNOWN",
+      "sql": "END;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 57,
+      "type": "UNKNOWN",
+      "sql": "$$\nCOMMENT = 'Calculate all Top 13 executive metrics per Metrics Dictionary';",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 2 at position 74 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'."
+    },
+    {
+      "num": 58,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_TRANSFORMATION.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 59,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_ROOT_DAILY_ORCHESTRATION\n    WAREHOUSE = DEV_WH\n    SCHEDULE = 'USING CRON 0 1 * * * America/New_York' -- Daily at 1 AM EST\nAS\n    SELECT 'Daily orchestration started' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_ROOT_DAILY_ORCHESTRATION successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 60,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_TRANSFORM_CROWDSTRIKE\n    WAREHOUSE = DEV_WH\n    SCHEDULE = '15 MINUTE'\n    WHEN SYSTEM$STREAM_HAS_DATA('DEV_LANDING.SECURITY_ANALYTICS.STREAM_CROWDSTRIKE_NEW')\nAS\n    CALL SP_TRANSFORM_CROWDSTRIKE_EDR();",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_TRANSFORM_CROWDSTRIKE successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 61,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_TRANSFORM_SENTINELONE\n    WAREHOUSE = DEV_WH\n    SCHEDULE = '15 MINUTE'\n    WHEN SYSTEM$STREAM_HAS_DATA('DEV_LANDING.SECURITY_ANALYTICS.STREAM_SENTINELONE_NEW')\nAS\n    CALL SP_TRANSFORM_SENTINELONE_EDR();",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_TRANSFORM_SENTINELONE successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 62,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_TRANSFORM_QUALYS\n    WAREHOUSE = DEV_WH\n    SCHEDULE = '60 MINUTE'\n    WHEN SYSTEM$STREAM_HAS_DATA('DEV_LANDING.SECURITY_ANALYTICS.STREAM_QUALYS_NEW')\nAS\n    CALL SP_TRANSFORM_QUALYS_SCANS();",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_TRANSFORM_QUALYS successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 63,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_INGEST_SERVICENOW\n    WAREHOUSE = DEV_WH\n    AFTER TASK_ROOT_DAILY_ORCHESTRATION\nAS\n    INSERT INTO TBL_SERVICENOW_INCIDENTS\n    SELECT * FROM EXT_SERVICENOW_INCIDENTS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_INGEST_SERVICENOW successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 64,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_INGEST_ARCHER\n    WAREHOUSE = DEV_WH\n    AFTER TASK_ROOT_DAILY_ORCHESTRATION\nAS\n    INSERT INTO TBL_ARCHER_MATURITY\n    SELECT * FROM EXT_ARCHER_MATURITY;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_INGEST_ARCHER successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 65,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_INGEST_METACOMPLIANCE\n    WAREHOUSE = DEV_WH\n    AFTER TASK_ROOT_DAILY_ORCHESTRATION\nAS\n    INSERT INTO TBL_METACOMPLIANCE_TRAINING\n    SELECT * FROM EXT_METACOMPLIANCE_TRAINING;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_INGEST_METACOMPLIANCE successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 66,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_CALCULATE_TOP13_METRICS\n    WAREHOUSE = DEV_WH\n    AFTER TASK_INGEST_SERVICENOW, TASK_INGEST_ARCHER, TASK_INGEST_METACOMPLIANCE\nAS\n    CALL SP_CALCULATE_TOP13_METRICS();",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_CALCULATE_TOP13_METRICS successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 67,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TASK TASK_REFRESH_POWERBI_VIEWS\n    WAREHOUSE = DEV_WH\n    AFTER TASK_CALCULATE_TOP13_METRICS\nAS\n    BEGIN\n        CREATE OR REPLACE TABLE VW_POWERBI_EXECUTIVE_DASHBOARD_MAT AS\n        SELECT * FROM VW_POWERBI_EXECUTIVE_DASHBOARD;\n        CREATE OR REPLACE TABLE VW_DATA_QUALITY_DASHBOARD_MAT AS\n        SELECT * FROM VW_DATA_QUALITY_DASHBOARD;\n    END;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_REFRESH_POWERBI_VIEWS successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 68,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_WEEKLY_HEALTH_CHECK\n    WAREHOUSE = DEV_WH\n    SCHEDULE = 'USING CRON 0 6 * * SUN America/New_York'\nAS\n    BEGIN\n        INSERT INTO IMPLEMENTATION_LOG (LOG_TIMESTAMP, LOG_TYPE, MESSAGE)\n        SELECT\n            CURRENT_TIMESTAMP(),\n            'PIPELINE_HEALTH',\n            'Snowpipe Status: ' ||\n            (SELECT COUNT(*) FROM TABLE(INFORMATION_SCHEMA.PIPE_USAGE_HISTORY(DATE_RANGE_START=>DATEADD('day', -7, CURRENT_DATE())))) ||\n            ' files ingested in la",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_WEEKLY_HEALTH_CHECK successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 69,
+      "type": "USE_SCHEMA",
+      "sql": "USE SCHEMA DEV_TRANSFORMATION.SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 70,
+      "type": "TABLE",
+      "sql": "CREATE OR REPLACE TABLE TBL_PIPELINE_MONITORING (\n    MONITORING_ID NUMBER AUTOINCREMENT PRIMARY KEY,\n    CHECK_TIMESTAMP TIMESTAMP_LTZ DEFAULT CURRENT_TIMESTAMP(),\n    PIPELINE_NAME VARCHAR(200),\n    PIPELINE_TYPE VARCHAR(50), -- 'SNOWPIPE', 'TASK', 'STREAM'\n    STATUS VARCHAR(50), -- 'HEALTHY', 'WARNING', 'ERROR'\n    ROWS_PROCESSED NUMBER,\n    ERROR_MESSAGE VARCHAR(5000),\n    LAG_MINUTES NUMBER,\n    LAST_SUCCESS_TIMESTAMP TIMESTAMP_LTZ\n)\nCOMMENT = 'Pipeline health monitoring metrics';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Table TBL_PIPELINE_MONITORING successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 71,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_MONITOR_SNOWPIPE_HEALTH()\nRETURNS VARCHAR\nLANGUAGE SQL\nAS\n$$\nBEGIN\n    INSERT INTO TBL_PIPELINE_MONITORING (\n        PIPELINE_NAME,\n        PIPELINE_TYPE,\n        STATUS,\n        ROWS_PROCESSED,\n        ERROR_MESSAGE,\n        LAST_SUCCESS_TIMESTAMP\n    )\n    SELECT\n        PIPE_NAME,\n        'SNOWPIPE',\n        CASE\n            WHEN ERROR_COUNT > 0 THEN 'ERROR'\n            WHEN FILES_LOADED = 0 AND DATEDIFF(HOUR, LAST_LOAD_TIME, CURRENT_TIMESTAMP()) > 24 THEN 'WARN",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 30 at position 4 near '<EOF>'.\nsyntax error line 5 at position 1 unexpected '$'."
+    },
+    {
+      "num": 72,
+      "type": "UNKNOWN",
+      "sql": "$$;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 1 at position 3 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'."
+    },
+    {
+      "num": 73,
+      "type": "PROCEDURE",
+      "sql": "CREATE OR REPLACE PROCEDURE SP_MONITOR_TASK_HEALTH()\nRETURNS VARCHAR\nLANGUAGE SQL\nAS\n$$\nBEGIN\n    INSERT INTO TBL_PIPELINE_MONITORING (\n        PIPELINE_NAME,\n        PIPELINE_TYPE,\n        STATUS,\n        ERROR_MESSAGE,\n        LAST_SUCCESS_TIMESTAMP\n    )\n    SELECT\n        NAME,\n        'TASK',\n        CASE\n            WHEN STATE = 'suspended' THEN 'ERROR'\n            WHEN ERROR_CODE IS NOT NULL THEN 'ERROR'\n            WHEN DATEDIFF(HOUR, COMPLETED_TIME, CURRENT_TIMESTAMP()) > 48 THEN 'WARNI",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 31 at position 4 near '<EOF>'.\nsyntax error line 5 at position 1 unexpected '$'."
+    },
+    {
+      "num": 74,
+      "type": "UNKNOWN",
+      "sql": "$$;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nparse error line 1 at position 3 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'."
+    },
+    {
+      "num": 75,
+      "type": "TASK",
+      "sql": "CREATE OR REPLACE TASK TASK_MONITORING_HEALTH_CHECK\n    WAREHOUSE = DEV_WH\n    SCHEDULE = '30 MINUTE'\nAS\n    BEGIN\n        CALL SP_MONITOR_SNOWPIPE_HEALTH();\n        CALL SP_MONITOR_TASK_HEALTH();\n    END;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Task TASK_MONITORING_HEALTH_CHECK successfully created."
+        }
+      ],
+      "row_count": 1,
+      "error": null
+    },
+    {
+      "num": 76,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_REFRESH_POWERBI_VIEWS RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 77,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_CALCULATE_TOP13_METRICS RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 78,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_INGEST_METACOMPLIANCE RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 79,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_INGEST_ARCHER RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 80,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_INGEST_SERVICENOW RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 81,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_TRANSFORM_QUALYS RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 82,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_TRANSFORM_SENTINELONE RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 83,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_TRANSFORM_CROWDSTRIKE RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 84,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_WEEKLY_HEALTH_CHECK RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 85,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_MONITORING_HEALTH_CHECK RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 86,
+      "type": "TASK_RESUME",
+      "sql": "ALTER TASK TASK_ROOT_DAILY_ORCHESTRATION RESUME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "091089 (23001): Cannot execute task , EXECUTE TASK privilege must be granted to owner role"
+    },
+    {
+      "num": 87,
+      "type": "UNKNOWN",
+      "sql": "SELECT\n    NAME,\n    STATE,\n    SCHEDULE,\n    WAREHOUSE\nFROM INFORMATION_SCHEMA.TASKS\nWHERE DATABASE_NAME = 'DEV_TRANSFORMATION'\nAND SCHEMA_NAME = 'SECURITY_ANALYTICS'\nORDER BY NAME;",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.INFORMATION_SCHEMA.TASKS' does not exist or not authorized."
+    },
+    {
+      "num": 88,
+      "type": "UNKNOWN",
+      "sql": "DATA FLOW ARCHITECTURE:\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502                    REAL-TIME INGESTION LAYER                    \u2502\n\u2502  (Snowpipe - Event-Driven, Auto-Scaling)                        \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n         \u2502\n         \u251c\u2500 S3 Events \u2192 PIPE_CROWDSTRIKE_EDR \u2192 L_CROWDSTRIKE_RAW\n         \u251c\u2500 S3 Events \u2192 PIPE_SENTINELONE_EDR \u2192 L_SENTINELONE_RAW\n         \u251c\u2500 S3 Events \u2192 PIPE_QUALYS_SCANS \u2192 L_QUALYS_SCANS_RAW\n",
+      "success": false,
+      "rows": [],
+      "row_count": 0,
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'DATA'."
+    }
+  ]
+}

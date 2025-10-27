@@ -1,0 +1,140 @@
+﻿================================================================================
+STREAMLIT APPS AUDIT
+================================================================================
+
+[WARN] Ancon
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Ancon\streamlit_app.py
+   Syntax: OK
+   Title: Ancon Security Dashboard
+   Has CPR prefix: No
+
+[WARN] BitSight
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\BitSight\streamlit_app.py
+   Syntax: OK
+   Title: BitSight Security Dashboard
+   Has CPR prefix: No
+
+[WARN] Cisco_AMP
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Cisco_AMP\streamlit_app.py
+   Syntax: OK
+   Title: Cisco AMP Dashboard
+   Has CPR prefix: No
+
+[WARN] Crowdstrike
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Crowdstrike\streamlit_app.py
+   Syntax: OK
+   Title: CrowdStrike EDR Dashboard
+   Has CPR prefix: No
+
+[WARN] CybelAngel
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\CybelAngel\streamlit_app.py
+   Syntax: OK
+   Title: CybelAngel Threat Intelligence
+   Has CPR prefix: No
+
+[WARN] Intel_Threats
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Intel_Threats\streamlit_app.py
+   Syntax: OK
+   Title: Threat Intelligence Dashboard
+   Has CPR prefix: No
+
+[WARN] Leviat
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Leviat\streamlit_app.py
+   Syntax: OK
+   Title: Leviat IAM Dashboard
+   Has CPR prefix: No
+
+[WARN] Proofpoint
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Proofpoint\streamlit_app.py
+   Syntax: OK
+   Title: Proofpoint Email Security
+   Has CPR prefix: No
+
+[WARN] Qualys
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Qualys\streamlit_app.py
+   Syntax: OK
+   Title: Qualys Security Dashboard
+   Has CPR prefix: No
+
+[WARN] SentinelOne
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\SentinelOne\streamlit_app.py
+   Syntax: OK
+   Title: SentinelOne EDR Dashboard
+   Has CPR prefix: No
+
+[WARN] ServiceNow
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\ServiceNow\streamlit_app.py
+   Syntax: OK
+   Title: ServiceNow ITSM Dashboard
+   Has CPR prefix: No
+
+[WARN] Sophos
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Sophos\streamlit_app.py
+   Syntax: OK
+   Title: Sophos Security Dashboard
+   Has CPR prefix: No
+
+[WARN] Splunk
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Splunk\streamlit_app.py
+   Syntax: OK
+   Title: Splunk Security Dashboard
+   Has CPR prefix: No
+
+[WARN] Symantec
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Symantec\streamlit_app.py
+   Syntax: OK
+   Title: Symantec EDR Dashboard
+   Has CPR prefix: No
+
+[WARN] Tenable
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Tenable\streamlit_app.py
+   Syntax: OK
+   Title: Tenable Vulnerability Dashboard
+   Has CPR prefix: No
+
+[WARN] Trellix
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Trellix\streamlit_app.py
+   Syntax: OK
+   Title: Trellix EDR Dashboard
+   Has CPR prefix: No
+
+[WARN] Zerofox
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Zerofox\streamlit_app.py
+   Syntax: OK
+   Title: ZeroFox Digital Risk Protection
+   Has CPR prefix: No
+
+[WARN] Zscaler
+   Path: C:\Users\fonat\Documents\MYORG_LOCAL\Snowflake_ITSECKPI_Project_DEV\13_STREAMLIT_COMPLETE\Zscaler\streamlit_app.py
+   Syntax: OK
+   Title: Zscaler Security Dashboard
+   Has CPR prefix: No
+
+================================================================================
+SUMMARY
+================================================================================
+Total apps: 18
+Files found: 18/18
+Valid syntax: 18/18
+Has CPR prefix: 0/18
+
+APPS MISSING CPR PREFIX:
+  [WARN] Ancon: 'Ancon Security Dashboard'
+  [WARN] BitSight: 'BitSight Security Dashboard'
+  [WARN] Cisco_AMP: 'Cisco AMP Dashboard'
+  [WARN] Crowdstrike: 'CrowdStrike EDR Dashboard'
+  [WARN] CybelAngel: 'CybelAngel Threat Intelligence'
+  [WARN] Intel_Threats: 'Threat Intelligence Dashboard'
+  [WARN] Leviat: 'Leviat IAM Dashboard'
+  [WARN] Proofpoint: 'Proofpoint Email Security'
+  [WARN] Qualys: 'Qualys Security Dashboard'
+  [WARN] SentinelOne: 'SentinelOne EDR Dashboard'
+  [WARN] ServiceNow: 'ServiceNow ITSM Dashboard'
+  [WARN] Sophos: 'Sophos Security Dashboard'
+  [WARN] Splunk: 'Splunk Security Dashboard'
+  [WARN] Symantec: 'Symantec EDR Dashboard'
+  [WARN] Tenable: 'Tenable Vulnerability Dashboard'
+  [WARN] Trellix: 'Trellix EDR Dashboard'
+  [WARN] Zerofox: 'ZeroFox Digital Risk Protection'
+  [WARN] Zscaler: 'Zscaler Security Dashboard'
+

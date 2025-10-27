@@ -1,0 +1,41 @@
+statement_num,type,status,duration,rows,preview,error,csv_file,json_file
+1,USE,SUCCESS,0.591403,1.0,USE DATABASE DEV_TRANSFORMATION;,,,
+2,USE,FAILED,0.0,,USE SCHEMA SERVICENOW;  -- Already created successfully CREATE TABLE IF NOT EXISTS INCIDENTS_RAW (  ,000008 (0A000): Actual statement count 2 did not match the desired statement count 1.,,
+3,CREATE,FAILED,0.0,,"CREATE TABLE IF NOT EXISTS CHANGE_REQUESTS_RAW (     change_number VARCHAR(100),     sys_id VARCHAR(","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+4,CREATE,FAILED,0.0,,"CREATE TABLE IF NOT EXISTS USERS_RAW (     user_id VARCHAR(100),     sys_id VARCHAR(100),     user_n","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+5,CREATE,FAILED,0.0,,"CREATE TABLE IF NOT EXISTS CONFIGURATION_ITEMS_RAW (     ci_sys_id VARCHAR(100),     name VARCHAR(50","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+6,CREATE,FAILED,0.0,,"CREATE TABLE IF NOT EXISTS INCIDENTS (     incident_number VARCHAR(100) PRIMARY KEY,     sys_id VARC","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+7,CREATE,FAILED,0.0,,"CREATE TABLE IF NOT EXISTS CHANGE_REQUESTS (     change_number VARCHAR(100) PRIMARY KEY,     sys_id ","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+8,CREATE,FAILED,0.0,,"CREATE TABLE IF NOT EXISTS USERS (     user_id VARCHAR(100) PRIMARY KEY,     sys_id VARCHAR(100) UNI","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+9,CREATE,FAILED,0.0,,"CREATE TABLE IF NOT EXISTS CONFIGURATION_ITEMS (     ci_sys_id VARCHAR(100) PRIMARY KEY,     name VA","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+10,CREATE,FAILED,0.0,,"CREATE TABLE IF NOT EXISTS CONNECTOR_SYNC_LOG (     sync_id INTEGER AUTOINCREMENT PRIMARY KEY,     t","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+11,CREATE,FAILED,0.0,,"CREATE TABLE IF NOT EXISTS CONNECTOR_CONFIG (     config_id INTEGER AUTOINCREMENT PRIMARY KEY,     t","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+12,INSERT,FAILED,0.0,,"INSERT INTO CONNECTOR_CONFIG (table_name, is_enabled, sync_frequency_minutes, notes) VALUES     ('in","002003 (42S02): SQL compilation error:
+Table 'CONNECTOR_CONFIG' does not exist or not authorized.",,
+13,SELECT,SUCCESS,0.305251,1.0,SELECT '✅ DEV_TRANSFORMATION.SERVICENOW setup complete' AS status;,,stmt_013_select_20251024_154155.csv,stmt_013_select_20251024_154155.json
+14,OTHER,SUCCESS,0.266356,0.0,SHOW TABLES IN SCHEMA DEV_TRANSFORMATION.SERVICENOW;,,,
+15,USE,SUCCESS,0.297602,1.0,USE DATABASE DEV_REPORTING;,,,
+16,USE,FAILED,0.0,,USE SCHEMA SERVICENOW;  -- Already created successfully CREATE OR REPLACE VIEW VW_ACTIVE_INCIDENTS A,000008 (0A000): Actual statement count 2 did not match the desired statement count 1.,,
+17,CREATE,FAILED,0.0,,"CREATE OR REPLACE VIEW VW_INCIDENT_METRICS_BY_PRIORITY AS SELECT     priority,     COUNT(*) AS total","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+18,CREATE,FAILED,0.0,,"CREATE OR REPLACE VIEW VW_CHANGE_CALENDAR AS SELECT     change_number,     short_description,     ty","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+19,CREATE,FAILED,0.0,,"CREATE OR REPLACE VIEW VW_CMDB_INVENTORY AS SELECT     ci_class,     category,     operational_statu","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+20,CREATE,FAILED,0.0,,"CREATE OR REPLACE VIEW VW_USER_ACTIVITY AS SELECT     u.user_name,     u.email,     u.department,   ","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+21,CREATE,FAILED,0.0,,"CREATE OR REPLACE VIEW VW_DAILY_INCIDENT_TREND AS SELECT     DATE(opened_at) AS incident_date,     C","003001 (42501): SQL access control error:
+Insufficient privileges to operate on schema 'PUBLIC'.",,
+22,SELECT,SUCCESS,0.765456,1.0,SELECT '✅ DEV_REPORTING.SERVICENOW setup complete' AS status;,,stmt_022_select_20251024_154158.csv,stmt_022_select_20251024_154158.json
+23,OTHER,SUCCESS,0.257594,0.0,SHOW VIEWS IN SCHEMA DEV_REPORTING.SERVICENOW;,,,
+24,SELECT,SUCCESS,0.86194,3.0,"SELECT 'ServiceNow Setup' AS component, 'Complete' AS status UNION ALL SELECT 'DEV_TRANSFORMATION.SE",,stmt_024_select_20251024_154159.csv,stmt_024_select_20251024_154159.json
+25,SELECT,SUCCESS,0.283855,1.0,SELECT '✅ Setup complete! Next: Install Native Connector via admin' AS final_status;,,stmt_025_select_20251024_154200.csv,stmt_025_select_20251024_154200.json

@@ -1,0 +1,37 @@
+[
+  {
+    "METRIC":"Total Services Detected",
+    "VALUE":"20",
+    "UNIT":""
+  },
+  {
+    "METRIC":"Total Tables Loaded",
+    "VALUE":"180",
+    "UNIT":"tables"
+  },
+  {
+    "METRIC":"Total Columns Loaded",
+    "VALUE":"2206",
+    "UNIT":"columns"
+  },
+  {
+    "METRIC":"Total Statistics Created",
+    "VALUE":"180",
+    "UNIT":"snapshots"
+  },
+  {
+    "METRIC":"Execution Duration",
+    "VALUE":"9",
+    "UNIT":"seconds"
+  },
+  {
+    "METRIC":"Total Rows in All Tables",
+    "VALUE":"32587645",
+    "UNIT":"rows"
+  },
+  {
+    "METRIC":"Execution Status",
+    "VALUE":"SUCCESS",
+    "UNIT":""
+  }
+]

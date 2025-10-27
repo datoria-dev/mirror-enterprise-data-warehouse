@@ -1,0 +1,173 @@
+SERVICE_SUMMARY_JSON
+"{
+  ""export_date"": ""2025-10-24 06:07:05.889 Z"",
+  ""services"": [
+    {
+      ""active_tables"": 13,
+      ""avg_columns_per_table"": 1.023000000000000e+01,
+      ""service_name"": ""Cisco_AMP"",
+      ""table_count"": 13,
+      ""total_columns"": 133,
+      ""total_rows"": 987619
+    },
+    {
+      ""active_tables"": 12,
+      ""avg_columns_per_table"": 6.420000000000000e+00,
+      ""service_name"": ""Splunk"",
+      ""table_count"": 12,
+      ""total_columns"": 77,
+      ""total_rows"": 672918
+    },
+    {
+      ""active_tables"": 13,
+      ""avg_columns_per_table"": 1.831000000000000e+01,
+      ""service_name"": ""CrowdStrike"",
+      ""table_count"": 13,
+      ""total_columns"": 238,
+      ""total_rows"": 252480
+    },
+    {
+      ""active_tables"": 6,
+      ""avg_columns_per_table"": 6.000000000000000e+00,
+      ""service_name"": ""Trellix"",
+      ""table_count"": 6,
+      ""total_columns"": 36,
+      ""total_rows"": 513525
+    },
+    {
+      ""active_tables"": 15,
+      ""avg_columns_per_table"": 9.730000000000000e+00,
+      ""service_name"": ""Leviat"",
+      ""table_count"": 15,
+      ""total_columns"": 146,
+      ""total_rows"": 11984
+    },
+    {
+      ""active_tables"": 8,
+      ""avg_columns_per_table"": 5.630000000000000e+00,
+      ""service_name"": ""Intel_Threats"",
+      ""table_count"": 8,
+      ""total_columns"": 45,
+      ""total_rows"": 17056821
+    },
+    {
+      ""active_tables"": 9,
+      ""avg_columns_per_table"": 1.833000000000000e+01,
+      ""service_name"": ""ZeroFox"",
+      ""table_count"": 9,
+      ""total_columns"": 165,
+      ""total_rows"": 10683523
+    },
+    {
+      ""active_tables"": 6,
+      ""avg_columns_per_table"": 1.467000000000000e+01,
+      ""service_name"": ""Zscaler"",
+      ""table_count"": 6,
+      ""total_columns"": 88,
+      ""total_rows"": 168794600
+    },
+    {
+      ""active_tables"": 2,
+      ""avg_columns_per_table"": 1.800000000000000e+01,
+      ""service_name"": ""ServiceNow"",
+      ""table_count"": 2,
+      ""total_columns"": 36,
+      ""total_rows"": 616250
+    },
+    {
+      ""active_tables"": 2,
+      ""avg_columns_per_table"": 1.150000000000000e+01,
+      ""service_name"": ""Proofpoint"",
+      ""table_count"": 2,
+      ""total_columns"": 23,
+      ""total_rows"": 2688322
+    },
+    {
+      ""active_tables"": 11,
+      ""avg_columns_per_table"": 6.550000000000000e+00,
+      ""service_name"": ""Defender"",
+      ""table_count"": 11,
+      ""total_columns"": 72,
+      ""total_rows"": 221928
+    },
+    {
+      ""active_tables"": 9,
+      ""avg_columns_per_table"": 1.244000000000000e+01,
+      ""service_name"": ""CybelAngel"",
+      ""table_count"": 9,
+      ""total_columns"": 112,
+      ""total_rows"": 13328
+    },
+    {
+      ""active_tables"": 11,
+      ""avg_columns_per_table"": 6.910000000000000e+00,
+      ""service_name"": ""SentinelOne"",
+      ""table_count"": 11,
+      ""total_columns"": 76,
+      ""total_rows"": 142832
+    },
+    {
+      ""active_tables"": 9,
+      ""avg_columns_per_table"": 5.067000000000000e+01,
+      ""service_name"": ""Symantec"",
+      ""table_count"": 9,
+      ""total_columns"": 456,
+      ""total_rows"": 33972171
+    },
+    {
+      ""active_tables"": 7,
+      ""avg_columns_per_table"": 6.860000000000000e+00,
+      ""service_name"": ""BitSight"",
+      ""table_count"": 7,
+      ""total_columns"": 48,
+      ""total_rows"": 24401
+    },
+    {
+      ""active_tables"": 6,
+      ""avg_columns_per_table"": 5.330000000000000e+00,
+      ""service_name"": ""Sophos"",
+      ""table_count"": 6,
+      ""total_columns"": 32,
+      ""total_rows"": 11115
+    },
+    {
+      ""active_tables"": 0,
+      ""service_name"": ""Tenable"",
+      ""table_count"": 0,
+      ""total_columns"": 0
+    },
+    {
+      ""active_tables"": 18,
+      ""avg_columns_per_table"": 1.256000000000000e+01,
+      ""service_name"": ""Qualys"",
+      ""table_count"": 18,
+      ""total_columns"": 226,
+      ""total_rows"": 256391108
+    },
+    {
+      ""active_tables"": 6,
+      ""avg_columns_per_table"": 5.830000000000000e+00,
+      ""service_name"": ""McAfee"",
+      ""table_count"": 6,
+      ""total_columns"": 35,
+      ""total_rows"": 4380
+    },
+    {
+      ""active_tables"": 9,
+      ""avg_columns_per_table"": 1.011000000000000e+01,
+      ""service_name"": ""TrendMicro"",
+      ""table_count"": 9,
+      ""total_columns"": 91,
+      ""total_rows"": 12561
+    },
+    {
+      ""active_tables"": 8,
+      ""avg_columns_per_table"": 8.880000000000001e+00,
+      ""service_name"": ""Ancon"",
+      ""table_count"": 8,
+      ""total_columns"": 71,
+      ""total_rows"": 45158
+    }
+  ],
+  ""total_services"": 21
+}"

@@ -1,0 +1,3104 @@
+{
+  "file": "EXTRACT_ERD_METADATA.sql",
+  "executed_at": "2025-10-07T18:12:56.523145",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE ROLE DEV_DEVELOPER;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE WAREHOUSE DEV_WH;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "-- =====================================================================\n-- LAYER 1: DEV_LANDING (La...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 1: DEV_LANDING ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "-- Landing tables\nUSE DATABASE DEV_LANDING;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "SELECT\n    'LANDING' as LAYER,\n    TABLE_NAME,\n    ROW_COUNT,\n    BYTES\nFROM INFORMATION_SCHEMA.TABL...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ALUNGRIFFITHS",
+          "ROW_COUNT": "640",
+          "BYTES": "14336"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_AMAT",
+          "ROW_COUNT": "16939",
+          "BYTES": "492032"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ANCON",
+          "ROW_COUNT": "842",
+          "BYTES": "22528"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_APG",
+          "ROW_COUNT": "6656",
+          "BYTES": "218112"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ASHGROVE",
+          "ROW_COUNT": "1282",
+          "BYTES": "38400"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_BELGIUM",
+          "ROW_COUNT": "767",
+          "BYTES": "19968"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRHPP_NET",
+          "ROW_COUNT": "6",
+          "BYTES": "2560"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_CORP",
+          "ROW_COUNT": "20",
+          "BYTES": "3072"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_NET",
+          "ROW_COUNT": "10",
+          "BYTES": "2560"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_UNI_COM",
+          "ROW_COUNT": "915",
+          "BYTES": "26624"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DD_MM_YYYY",
+          "ROW_COUNT": "12179",
+          "BYTES": "310272"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DENMARK",
+          "ROW_COUNT": "724",
+          "BYTES": "18944"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DEV_CRH_UNI_NET",
+          "ROW_COUNT": "158",
+          "BYTES": "6656"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_EMAT",
+          "ROW_COUNT": "6650",
+          "BYTES": "145408"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_EMAT_CRHPP_NET",
+          "ROW_COUNT": "101",
+          "BYTES": "6144"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_EMAT_HCL",
+          "ROW_COUNT": "34040",
+          "BYTES": "2154496"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_EU_CRH_CORP_NET",
+          "ROW_COUNT": "404",
+          "BYTES": "13312"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_FERROBETON_COMPUTE",
+          "ROW_COUNT": "215",
+          "BYTES": "7168"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_FERROBETON_SERVERS",
+          "ROW_COUNT": "9",
+          "BYTES": "2560"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_LEVIAT",
+          "ROW_COUNT": "2996",
+          "BYTES": "72704"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_MM_DD_YYYY",
+          "ROW_COUNT": "43335",
+          "BYTES": "1374208"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_NETHERLANDS",
+          "ROW_COUNT": "251",
+          "BYTES": "8192"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_NORTHSTONE",
+          "ROW_COUNT": "738",
+          "BYTES": "21504"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_PHILIPINES",
+          "ROW_COUNT": "1033",
+          "BYTES": "29184"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_POLISH_COMPUTERS",
+          "ROW_COUNT": "1202",
+          "BYTES": "30720"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_POLISH_SERVERS",
+          "ROW_COUNT": "76",
+          "BYTES": "4096"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_SLOVAKIA",
+          "ROW_COUNT": "94",
+          "BYTES": "4096"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_TARMAC",
+          "ROW_COUNT": "4790",
+          "BYTES": "100352"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_UBAB",
+          "ROW_COUNT": "242",
+          "BYTES": "8704"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_UKRAINE",
+          "ROW_COUNT": "342",
+          "BYTES": "9216"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_USERS",
+          "ROW_COUNT": "46504",
+          "BYTES": "5646848"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AG_MVISION_SERVERS",
+          "ROW_COUNT": "215",
+          "BYTES": "13312"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AG_MVISION_WORKSTATIONS",
+          "ROW_COUNT": "969",
+          "BYTES": "49152"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AG_SECURE_ENDPOINT_SERVERS",
+          "ROW_COUNT": "198",
+          "BYTES": "21504"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AG_SECURE_ENDPOINT_WORKSTATIONS",
+          "ROW_COUNT": "994",
+          "BYTES": "93184"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AMAT",
+          "ROW_COUNT": "15905",
+          "BYTES": "1671168"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AMAT_MVISION_SERVERS",
+          "ROW_COUNT": "1462",
+          "BYTES": "81408"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AMAT_MVISION_WORKSTATIONS",
+          "ROW_COUNT": "12813",
+          "BYTES": "658944"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AMAT_SECURE_ENDPOINT_SERVERS",
+          "ROW_COUNT": "1338",
+          "BYTES": "107008"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AMAT_SECURE_ENDPOINT_WORKSTATION",
+          "ROW_COUNT": "14011",
+          "BYTES": "1225728"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AMP_DD_MM_YYYY",
+          "ROW_COUNT": "32671",
+          "BYTES": "700928"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AMP_MM_DD_YYYY",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AMP_VERSIONS",
+          "ROW_COUNT": "38",
+          "BYTES": "1536"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "ANCON",
+          "ROW_COUNT": "995",
+          "BYTES": "113152"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "APG_AMP",
+          "ROW_COUNT": "4644",
+          "BYTES": "556544"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "APG_ENS_PRODUCT_DEPLOYMENT",
+          "ROW_COUNT": "292",
+          "BYTES": "7680"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AV_TREND",
+          "ROW_COUNT": "107",
+          "BYTES": "5120"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "BITSIGHTFINDINGS",
+          "ROW_COUNT": "1219",
+          "BYTES": "58368"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "ROW_COUNT": "1203",
+          "BYTES": "233984"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE_OLD",
+          "ROW_COUNT": "1113",
+          "BYTES": "229888"
+        }
+      ],
+      "error": null,
+      "row_count": 141
+    },
+    {
+      "num": 7,
+      "sql": "-- Landing table structures\nSELECT\n    'LANDING' as LAYER,\n    TABLE_NAME,\n    COLUMN_NAME,\n    ORDI...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ALUNGRIFFITHS",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ALUNGRIFFITHS",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ALUNGRIFFITHS",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ALUNGRIFFITHS",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_AMAT",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_AMAT",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_AMAT",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_AMAT",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ANCON",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ANCON",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ANCON",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ANCON",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_APG",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_APG",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_APG",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_APG",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ASHGROVE",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ASHGROVE",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ASHGROVE",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_ASHGROVE",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_BELGIUM",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_BELGIUM",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_BELGIUM",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_BELGIUM",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRHPP_NET",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRHPP_NET",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRHPP_NET",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRHPP_NET",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_CORP",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_CORP",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_CORP",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_CORP",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_NET",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_NET",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_NET",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_NET",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_UNI_COM",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_UNI_COM",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_UNI_COM",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_CRH_UNI_COM",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DD_MM_YYYY",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DD_MM_YYYY",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DD_MM_YYYY",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DD_MM_YYYY",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DD_MM_YYYY",
+          "COLUMN_NAME": "SOURCE_NAME",
+          "ORDINAL_POSITION": "5",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DENMARK",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DENMARK",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DENMARK",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DENMARK",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "LANDING",
+          "TABLE_NAME": "AD_COMPUTERS_DEV_CRH_UNI_NET",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 2365
+    },
+    {
+      "num": 8,
+      "sql": "-- =====================================================================\n-- LAYER 2: DEV_TRANSFORMAT...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 2: DEV_TRANSFORMATION ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 9,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 10,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 11,
+      "sql": "-- All tables in transformation\nSELECT\n    'TRANSFORMATION' as LAYER,\n    TABLE_NAME,\n    TABLE_TYPE...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "995",
+          "BYTES": "98816",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "108",
+          "BYTES": "2560",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "7",
+          "BYTES": "2048",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "4948",
+          "BYTES": "100352",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CLOSE_CODE_MAPPING",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "6",
+          "BYTES": "2048",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "3609",
+          "BYTES": "148480",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_VERSIONS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "13",
+          "BYTES": "2048",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "196",
+          "BYTES": "20992",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_DATES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "10000",
+          "BYTES": "107008",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "8210",
+          "BYTES": "553984",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "741",
+          "BYTES": "18944",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "56345",
+          "BYTES": "3671552",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "21997",
+          "BYTES": "1209856",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_HOST",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1662",
+          "BYTES": "31232",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_HOST_ASSETS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_LEVIAT_LIST_USERS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_LEVIAT_USERS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_MCAFEE_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "292",
+          "BYTES": "8192",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_OPCO",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "3",
+          "BYTES": "3072",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_QUALYS_SEVERITY",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "5",
+          "BYTES": "4608",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_QUALYS_VULNERABILITIES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "210435",
+          "BYTES": "8131072",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SENTINEL_VERSIONS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "38",
+          "BYTES": "2048",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SOPHOS_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "741",
+          "BYTES": "26112",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SPLUNK_HOSTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "4913",
+          "BYTES": "56320",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SYMANTEC_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "22571",
+          "BYTES": "1325056",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_TRELLIX_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "34235",
+          "BYTES": "722944",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_TRENDMICRO_VERSIONS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "6",
+          "BYTES": "1024",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_USER",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1",
+          "BYTES": "2560",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_VULNERABILITY",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "631305",
+          "BYTES": "10981888",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ZEROFOX_ASSETS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "121",
+          "BYTES": "112640",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ZSCALER_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "24984",
+          "BYTES": "997376",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "107",
+          "BYTES": "7680",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1219",
+          "BYTES": "71680",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1",
+          "BYTES": "2560",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_EDR",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "20",
+          "BYTES": "3584",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "741",
+          "BYTES": "17408",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_INCIDENTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_LEVIAT_SECURITY_EVENTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_PATCHES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_QUALYS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "20",
+          "BYTES": "5120",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_QUALYS_HOST_SCANS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "833",
+          "BYTES": "28160",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "697086",
+          "BYTES": "19635200",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_SCAN_EVENTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "4188",
+          "BYTES": "173056",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_SPLUNK_ALERTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "16436",
+          "BYTES": "657408",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_SPLUNK_ALERTS_WEEKLY",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "16436",
+          "BYTES": "703488",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_SYMANTEC_THREATS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1261614",
+          "BYTES": "10429952",
+          "TABLE_CATEGORY": "FACT"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_THREAT_INTEL_EVENTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1065690",
+          "BYTES": "3679232",
+          "TABLE_CATEGORY": "FACT"
+        }
+      ],
+      "error": null,
+      "row_count": 117
+    },
+    {
+      "num": 12,
+      "sql": "-- All columns in transformation\nSELECT\n    'TRANSFORMATION' as LAYER,\n    TABLE_NAME,\n    COLUMN_NA...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "USERNAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "DISTINGUISHED_NAME",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "EMAIL_ADDRESS",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "NAME",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "FIRST_NAME",
+          "ORDINAL_POSITION": "5",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "LAST_NAME",
+          "ORDINAL_POSITION": "6",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "DISPLAY_NAME",
+          "ORDINAL_POSITION": "7",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "ACCOUNT_IS_LOCKED_OUT",
+          "ORDINAL_POSITION": "8",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "DISABLED",
+          "ORDINAL_POSITION": "9",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "EXPIRATION_DATE",
+          "ORDINAL_POSITION": "10",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_AGE_DAYS",
+          "ORDINAL_POSITION": "11",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_EXPIRATION_DATE",
+          "ORDINAL_POSITION": "12",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_LAST_CHANGED",
+          "ORDINAL_POSITION": "13",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_NEVER_EXPIRES",
+          "ORDINAL_POSITION": "14",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "PASSWORD_NOT_REQUIRED",
+          "ORDINAL_POSITION": "15",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "USER_CANNOT_CHANGE_PASSWORD",
+          "ORDINAL_POSITION": "16",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "LAST_LOGON_DATE",
+          "ORDINAL_POSITION": "17",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "MUST_CHANGE_PASSWORD",
+          "ORDINAL_POSITION": "18",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "BAD_PASSWORD_ATTEMPTS",
+          "ORDINAL_POSITION": "19",
+          "DATA_TYPE": "NUMBER",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "ORDINAL_POSITION": "20",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "COLUMN_NAME": "OPCO_NAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "COLUMN_NAME": "REGION",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "COLUMN_NAME": "CATEGORY",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "COLUMN_NAME": "RISK_VECTOR_LABEL",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "COLUMN_NAME": "CATEGORY",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "COLUMN_NAME": "RECOMMENDED_ACTION",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "COLUMN_NAME": "CONNECTOR_GUID",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "COLUMN_NAME": "HOSTNAME",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "COLUMN_NAME": "LAST_SEEN",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "NO",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "COLUMN_NAME": "CONNECTOR_VERSION",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "COLUMN_NAME": "OPERATING_SYSTEM",
+          "ORDINAL_POSITION": "5",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "COLUMN_NAME": "IS_ACTIVE",
+          "ORDINAL_POSITION": "6",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "ORDINAL_POSITION": "7",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CLOSE_CODE_MAPPING",
+          "COLUMN_NAME": "CLOSE_CODE",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CLOSE_CODE_MAPPING",
+          "COLUMN_NAME": "IS_SUCCESSFUL",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CLOSE_CODE_MAPPING",
+          "COLUMN_NAME": "CATEGORY",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "HOST_ID",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "NO",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "HOSTNAME",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "PLATFORM",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "OS_VERSION",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "OS_PRODUCT_NAME",
+          "ORDINAL_POSITION": "5",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "LAST_SEEN",
+          "ORDINAL_POSITION": "6",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "FIRST_SEEN",
+          "ORDINAL_POSITION": "7",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "SENSOR_VERSION",
+          "ORDINAL_POSITION": "8",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "STATUS",
+          "ORDINAL_POSITION": "9",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "CLOUD_PROVIDER",
+          "ORDINAL_POSITION": "10",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "LAST_LOGGED_IN_USER",
+          "ORDINAL_POSITION": "11",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "LAST_USER_LOGIN",
+          "ORDINAL_POSITION": "12",
+          "DATA_TYPE": "TIMESTAMP_NTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "IS_ACTIVE",
+          "ORDINAL_POSITION": "13",
+          "DATA_TYPE": "BOOLEAN",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "COLUMN_NAME": "LOAD_TIMESTAMP",
+          "ORDINAL_POSITION": "14",
+          "DATA_TYPE": "TIMESTAMP_LTZ",
+          "IS_NULLABLE": "YES",
+          "TABLE_CATEGORY": "DIMENSION"
+        }
+      ],
+      "error": null,
+      "row_count": 1249
+    },
+    {
+      "num": 13,
+      "sql": "-- Primary Keys in transformation\nSELECT\n    'TRANSFORMATION' as LAYER,\n    tc.TABLE_NAME,\n    tc.CO...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "BUSINESS_RULE_VIOLATIONS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_d7622720-f928-4364-b856-55ac7b4aedcc",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DATA_DICTIONARY",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_e9318577-05bd-485f-928c-cb8907ced63f",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DATA_LINEAGE_CATALOG",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_3736c61b-d817-4005-b56b-220e1e60e98e",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DATA_QUALITY_RULES",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_f9b11cfe-e0a5-43df-9627-8fe708325bd9",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ANCON_USERS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_ade6c731-4cf5-4958-b375-24aa74b612e6",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_AV_OPCO",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_b2b9dda5-13d0-4749-bae8-31361f4861e0",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_BITSIGHT_RISK_VECTORS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_e3d0f813-bed3-4aaf-9744-9591a8708025",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CISCO_AMP",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_cfd3108c-e8b0-451a-bfe9-7253b8976bda",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_01ee7cd6-7767-44f5-831b-cd4e71f9efd0",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CROWDSTRIKE_VERSIONS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_cc9fe9eb-dbdc-40ac-8f4f-c506f06c281b",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_CYBELANGEL_ALERTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_7c7e579c-bf03-475b-a709-2627a375d3da",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_DATES",
+          "CONSTRAINT_NAME": "PK_DIM_DATES",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_DEFENDER_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_9548420f-1950-47d6-8447-dc89418779ac",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_FARRANS_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_adc52d4b-5f89-465d-a0ba-453b58c5ae12",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_FIXED_VULNERABILITIES",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_49d23797-6825-48af-8e42-b8e56b26b09e",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_HARDWARE_INVENTORY",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_2267681d-a711-475f-8417-ba7c5f2cda33",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_HOST",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_db048608-61d4-49de-885b-9c027c782c54",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_HOST_ASSETS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_8d118836-0b92-414a-9a31-93acbae263f5",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_LEVIAT_LIST_USERS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_2ce9fa8f-404d-4621-b64c-4bc29df0b6a3",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_LEVIAT_USERS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_f2d395bc-25b7-43ee-b9de-6d6a567247d9",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_MCAFEE_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_3851c5c0-b85e-438b-b57c-3d08cbfcfc61",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_OPCO",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_bc5ef3de-de33-4ac3-9f2c-17acbff85248",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_QUALYS_SEVERITY",
+          "CONSTRAINT_NAME": "PK_DIM_QUALYS_SEVERITY",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_QUALYS_VULNERABILITIES",
+          "CONSTRAINT_NAME": "PK_DIM_QUALYS_VULNERABILITIES",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SENTINEL_VERSIONS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_506969f3-7702-480d-8847-7bdcbd08b13c",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SNOW_DEVICES",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_9bc8de6c-6f4c-40ac-9f1e-f15020444d9d",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SOPHOS_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_fef62632-4fa1-45f5-a7d6-abe502a12793",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SPLUNK_HOSTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_6419c46a-0296-44cd-bd83-a9a68da092bb",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_SYMANTEC_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_cdc14658-e1c2-44c9-9e54-f0a30e7c98f6",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_TRELLIX_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_badb0b14-b43a-44a2-a596-a501123f927b",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_TRENDMICRO_VERSIONS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_b0944b44-36e2-4ae5-9520-9d92638cc36f",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_USER",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_78aa64a4-5351-4c33-8db3-d58bd877ac0d",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_VULNERABILITY",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_a0a319c5-2ff5-4532-a4c4-0760460ab842",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ZEROFOX_ASSETS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_d2bc34e5-dd04-49db-ad69-c9e32d49ef63",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "DIM_ZSCALER_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_23737a03-e722-4c75-a2c9-83daaf9b9de7",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "EMPTY_TABLES_REPORT",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_51614c2e-7fa6-4afa-abfa-050d2cd9a31b",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "ETL_ERROR_LOG",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_c384970d-a043-4d93-9331-be23c9a314a2",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "ETL_LOG",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_6d2335e8-c6ac-40c9-b595-87cbdcd2e25f",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "ETL_ORCHESTRATION_LOG",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_4a4bdbad-bb94-4da2-bb9b-849c18a385d5",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_ef59479a-45b0-47f9-b07f-e051d4ea853b",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_4633d829-2b6d-4679-bff2-9d19abb122ab",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_5848f719-2b11-4d16-b2ad-29d6def04831",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_13f08dbe-c166-4299-8dd9-66ff68188bf1",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_EDR",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_eba5b0eb-a13d-40fe-9d06-f686bd5205cd",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_8f016373-481f-4c92-9dcf-bf6e8f82b51a",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_INCIDENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_83020f82-dabd-4125-b7b7-b55015030cad",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_LEVIAT_SECURITY_EVENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_001b8b3c-09a0-46b9-a327-7aaa2c882e25",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_PATCHES",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_8933d89b-b260-4e2c-8099-7f45ed2b7450",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_QUALYS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_da1c5f4b-1087-41e5-8a21-7d10d694f1df",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_QUALYS_HOST_SCANS",
+          "CONSTRAINT_NAME": "PK_FACT_QUALYS_HOST_SCANS",
+          "CONSTRAINT_TYPE": "PRIMARY KEY"
+        }
+      ],
+      "error": null,
+      "row_count": 72
+    },
+    {
+      "num": 14,
+      "sql": "-- Foreign Keys in transformation\nSELECT\n    'TRANSFORMATION' as LAYER,\n    tc.TABLE_NAME,\n    tc.CO...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_AV_HEALTH",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_316eed9c-f8dc-4796-9ed5-b1aa6d995c2a",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_BITSIGHT_FINDINGS",
+          "CONSTRAINT_NAME": "FK_BITSIGHT_FINDINGS_RISK_VECTOR",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "CONSTRAINT_NAME": "FK_CYBELANGEL_ALERT",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_CYBELANGEL_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_b483d57f-9541-4112-8410-327ccaa429b7",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_DEFENDER_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_a976c77a-92f2-422d-86ff-8e9285daba04",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_FARRANS_HEALTH",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_d4c348c3-29b1-4b79-9f39-c473accd6d04",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_LEVIAT_SECURITY_EVENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_4ecc3082-e85a-4a23-bea2-c308c46be058",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "CONSTRAINT_NAME": "FK_REMEDIATION_EVENTS_ASSET",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_REMEDIATION_EVENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_59a712f7-370b-4cdc-a4b8-093b4704bb40",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_SCAN_EVENTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_1a837367-8635-4aa8-b543-ffe12a5926fa",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_SENTINEL_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_42a63b51-9721-40ec-ad4a-54358dc4dccc",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_SYMANTEC_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_aa619af0-f24d-4634-bea4-dfb97de67fbf",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_TRENDMICRO_ENDPOINTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_4f4add3b-3315-4858-a2de-d7dd3a89aeeb",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_VULN_SCAN",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_306c9961-300d-444e-9821-54aaab305c28",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_VULN_SCAN",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_d3217656-3e4f-4965-be07-4b1400d9f1f2",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_ZEROFOX_ALERTS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_db19597b-d79c-41c4-9ef5-651ff9b2efe5",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        },
+        {
+          "LAYER": "TRANSFORMATION",
+          "TABLE_NAME": "FACT_ZSCALER_THREATS",
+          "CONSTRAINT_NAME": "SYS_CONSTRAINT_61a7e1e8-03cc-46c4-b1aa-c35f16bca8be",
+          "CONSTRAINT_TYPE": "FOREIGN KEY"
+        }
+      ],
+      "error": null,
+      "row_count": 17
+    },
+    {
+      "num": 15,
+      "sql": "-- =====================================================================\n-- LAYER 3: DEV_REPORTING (...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== LAYER 3: DEV_REPORTING ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 16,
+      "sql": "USE DATABASE DEV_REPORTING;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 17,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 18,
+      "sql": "-- Reporting tables\nSELECT\n    'REPORTING' as LAYER,\n    TABLE_NAME,\n    TABLE_TYPE,\n    ROW_COUNT,\n...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "1203",
+          "BYTES": "233984"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "DASHBOARD_ACCESS_AUDIT",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "FIXEDVULNERABILITIES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "46349",
+          "BYTES": "13268992"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "HOSTS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "84745",
+          "BYTES": "7448064"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "KB",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "131106",
+          "BYTES": "41953280"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "KPI_DEFINITIONS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "5",
+          "BYTES": "4608"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "PROJECTS_OVERVIEW",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "3840",
+          "BYTES": "133120"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "REPORT_EXECUTION_LOG",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "R_COMPLIANCE_SCORECARD",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "R_EXECUTIVE_DASHBOARD",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "R_INCIDENT_TRENDS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "R_VULNERABILITY_SUMMARY",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "S1_VERSIONS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "103",
+          "BYTES": "8192"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "TBL_DATA_QUALITY_METRICS",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "7",
+          "BYTES": "2560"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "TBL_DATA_QUALITY_SCORES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "TBL_KPI_MASTER",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "3",
+          "BYTES": "7168"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "USER_REPORT_FAVORITES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "0",
+          "BYTES": "0"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "VULNERABILITIES",
+          "TABLE_TYPE": "BASE TABLE",
+          "ROW_COUNT": "980867",
+          "BYTES": "27332096"
+        }
+      ],
+      "error": null,
+      "row_count": 18
+    },
+    {
+      "num": 19,
+      "sql": "-- Reporting table structures\nSELECT\n    'REPORTING' as LAYER,\n    TABLE_NAME,\n    COLUMN_NAME,\n    ...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "HOSTNAME",
+          "ORDINAL_POSITION": "1",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "LAST_SEEN",
+          "ORDINAL_POSITION": "2",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "FIRST_SEEN",
+          "ORDINAL_POSITION": "3",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "PLATFORM",
+          "ORDINAL_POSITION": "4",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "OS_VERSION",
+          "ORDINAL_POSITION": "5",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "OS_BUILD",
+          "ORDINAL_POSITION": "6",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "OS_PRODUCT_NAME",
+          "ORDINAL_POSITION": "7",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "KERNEL_VERSION",
+          "ORDINAL_POSITION": "8",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "MODEL",
+          "ORDINAL_POSITION": "9",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "MANUFACTURER",
+          "ORDINAL_POSITION": "10",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "TYPE",
+          "ORDINAL_POSITION": "11",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "CHASSIS",
+          "ORDINAL_POSITION": "12",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "LAST_REBOOT",
+          "ORDINAL_POSITION": "13",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "OU",
+          "ORDINAL_POSITION": "14",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "SITE",
+          "ORDINAL_POSITION": "15",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "PREVENTION_POLICY",
+          "ORDINAL_POSITION": "16",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "RESPONSE_POLICY",
+          "ORDINAL_POSITION": "17",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "SENSOR_UPDATE_POLICY",
+          "ORDINAL_POSITION": "18",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "USB_DEVICE_POLICY",
+          "ORDINAL_POSITION": "19",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "KUBERNETES_ADMISSION_CONTROL_POLICY",
+          "ORDINAL_POSITION": "20",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "HOST_ID",
+          "ORDINAL_POSITION": "21",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "LOCAL_IP",
+          "ORDINAL_POSITION": "22",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "CONNECTION_IP",
+          "ORDINAL_POSITION": "23",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "DEFAULT_GATEWAY_IP",
+          "ORDINAL_POSITION": "24",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "EXTERNAL_IP",
+          "ORDINAL_POSITION": "25",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "DOMAIN",
+          "ORDINAL_POSITION": "26",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "MAC_ADDRESS",
+          "ORDINAL_POSITION": "27",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "CONNECTION_MAC_ADDRESS",
+          "ORDINAL_POSITION": "28",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "STATUS",
+          "ORDINAL_POSITION": "29",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "CPUID",
+          "ORDINAL_POSITION": "30",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "SERIAL_NUMBER",
+          "ORDINAL_POSITION": "31",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "SENSOR_VERSION",
+          "ORDINAL_POSITION": "32",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "SENSOR_TAGS",
+          "ORDINAL_POSITION": "33",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "CLOUD_SERVICE_PROVIDER",
+          "ORDINAL_POSITION": "34",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "CLOUD_SERVICE_ACCOUNT_ID",
+          "ORDINAL_POSITION": "35",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "CLOUD_SERVICE_INSTANCE_ID",
+          "ORDINAL_POSITION": "36",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "CLOUD_SERVICE_ZONE_GROUP",
+          "ORDINAL_POSITION": "37",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "KUBERNETES_CLUSTER_ID",
+          "ORDINAL_POSITION": "38",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "KUBERNETES_SERVER_GIT_VERSION",
+          "ORDINAL_POSITION": "39",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "KUBERNETES_SERVER_VERSION",
+          "ORDINAL_POSITION": "40",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "RFM",
+          "ORDINAL_POSITION": "41",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "LINUX_SENSOR_MODE",
+          "ORDINAL_POSITION": "42",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "DEPLOYMENT_TYPE",
+          "ORDINAL_POSITION": "43",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "EMAIL",
+          "ORDINAL_POSITION": "44",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "POD_ID",
+          "ORDINAL_POSITION": "45",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "POD_NAME",
+          "ORDINAL_POSITION": "46",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "POD_NAMESPACE",
+          "ORDINAL_POSITION": "47",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "POD_LABELS",
+          "ORDINAL_POSITION": "48",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "POD_ANNOTATIONS",
+          "ORDINAL_POSITION": "49",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        },
+        {
+          "LAYER": "REPORTING",
+          "TABLE_NAME": "BOL_CROWDSTRIKE",
+          "COLUMN_NAME": "POD_IP4",
+          "ORDINAL_POSITION": "50",
+          "DATA_TYPE": "TEXT",
+          "IS_NULLABLE": "YES"
+        }
+      ],
+      "error": null,
+      "row_count": 321
+    },
+    {
+      "num": 20,
+      "sql": "-- Reporting views (for reference)\nSELECT\n    'REPORTING' as LAYER,\n    TABLE_NAME as VIEW_NAME,\n   ...",
+      "success": true,
+      "rows": [
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_AGENT_COVERAGE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_ANCON_ACCOUNT_COMPLIANCE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_ANCON_COMPLIANCE_SETTINGS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_ANCON_SECURITY_ALERTS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_ANCON_SECURITY_METRICS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_AV_COMPLIANCE_SETTINGS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_AV_CURRENT_EDR_COMPLIANCE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_AV_EXECUTIVE_SUMMARY",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_AV_HEALTH_BREAKDOWN",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_AV_REGIONAL_TREND",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_BITSIGHT_CRITICAL_FINDINGS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_BITSIGHT_RISK_COMPLIANCE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_BITSIGHT_RISK_TREND",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_BITSIGHT_RISK_VECTOR_ANALYSIS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_BITSIGHT_VENDOR_RISK",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CISCO_AMP_COMPLIANCE_SETTINGS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CISCO_AMP_COVERAGE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CISCO_AMP_ENDPOINT_HEALTH",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CISCO_AMP_OS_COVERAGE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CISCO_AMP_VERSION_COMPLIANCE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CROWDSTRIKE_CLOUD_COVERAGE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CROWDSTRIKE_COMPLIANCE_SETTINGS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CROWDSTRIKE_COVERAGE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CROWDSTRIKE_ENDPOINT_RISK",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CROWDSTRIKE_USER_ACTIVITY",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CROWDSTRIKE_VERSION_COMPLIANCE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CYBELANGEL_COMPLIANCE_SETTINGS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CYBELANGEL_CRITICAL_EXPOSURES",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CYBELANGEL_EXPOSURE_TREND",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CYBELANGEL_REMEDIATION_PERFORMANCE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CYBELANGEL_RISK_SUMMARY",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_CYBELANGEL_SOURCE_ANALYSIS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_DEFENDER_AGENT_HEALTH",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_DEFENDER_COMPLIANCE_THRESHOLDS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_DEFENDER_DEVICE_COMPLIANCE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_DEFENDER_EDR_COVERAGE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_DEFENDER_OS_SECURITY",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_DEFENDER_RANSOMWARE_TRACKING",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_DEFENDER_RESPONSE_METRICS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_DEFENDER_THREAT_SUMMARY",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FARRANS_COMPLIANCE_STATUS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FARRANS_COMPLIANCE_THRESHOLDS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FARRANS_HEALTH_SUMMARY",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FARRANS_INACTIVE_ALERTS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FARRANS_OS_PROTECTION",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FARRANS_PROTECTION_COVERAGE",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FARRANS_USER_ACTIVITY",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FIXEDVULN_AGE_ANALYSIS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FIXEDVULN_COMPLIANCE_THRESHOLDS",
+          "OBJECT_TYPE": "VIEW"
+        },
+        {
+          "LAYER": "REPORTING",
+          "VIEW_NAME": "VW_FIXEDVULN_EFFICIENCY_TRENDS",
+          "OBJECT_TYPE": "VIEW"
+        }
+      ],
+      "error": null,
+      "row_count": 148
+    },
+    {
+      "num": 21,
+      "sql": "-- =====================================================================\n-- CROSS-LAYER RELATIONSHIP...",
+      "success": true,
+      "rows": [
+        {
+          "SECTION": "=== CROSS-LAYER LINEAGE ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 22,
+      "sql": "USE DATABASE DEV_TRANSFORMATION;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 23,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 24,
+      "sql": "SELECT\n    SOURCE_DATABASE,\n    SOURCE_SCHEMA,\n    SOURCE_TABLE,\n    TARGET_DATABASE,\n    TARGET_SCH...",
+      "success": true,
+      "rows": [
+        {
+          "SOURCE_DATABASE": "DEV_LANDING",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "L_CROWDSTRIKE_HOSTS",
+          "TARGET_DATABASE": "DEV_TRANSFORMATION",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "DIM_HOST",
+          "TRANSFORMATION_LOGIC": "Merge CrowdStrike endpoints",
+          "UPDATE_FREQUENCY": "Daily"
+        },
+        {
+          "SOURCE_DATABASE": "DEV_LANDING",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "L_EDR_THREATS_REALTIME",
+          "TARGET_DATABASE": "DEV_TRANSFORMATION",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "FACT_EDR",
+          "TRANSFORMATION_LOGIC": "Aggregate threat counts by host and date",
+          "UPDATE_FREQUENCY": "Real-time"
+        },
+        {
+          "SOURCE_DATABASE": "DEV_LANDING",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "L_PAM_USERS",
+          "TARGET_DATABASE": "DEV_TRANSFORMATION",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "DIM_USER",
+          "TRANSFORMATION_LOGIC": "SCD Type 2 merge from PAM source",
+          "UPDATE_FREQUENCY": "Daily"
+        },
+        {
+          "SOURCE_DATABASE": "DEV_LANDING",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "L_QUALYS_HOSTS",
+          "TARGET_DATABASE": "DEV_TRANSFORMATION",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "DIM_HOST",
+          "TRANSFORMATION_LOGIC": "Deduplicate and normalize host data",
+          "UPDATE_FREQUENCY": "Daily"
+        },
+        {
+          "SOURCE_DATABASE": "DEV_LANDING",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "L_QUALYS_HOST_DETECTIONS",
+          "TARGET_DATABASE": "DEV_TRANSFORMATION",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "FACT_QUALYS",
+          "TRANSFORMATION_LOGIC": "Create host-vulnerability relationships",
+          "UPDATE_FREQUENCY": "Daily"
+        },
+        {
+          "SOURCE_DATABASE": "DEV_LANDING",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "L_QUALYS_VULNERABILITIES",
+          "TARGET_DATABASE": "DEV_TRANSFORMATION",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "DIM_QUALYS_VULN",
+          "TRANSFORMATION_LOGIC": "Map QID to CVE and severity",
+          "UPDATE_FREQUENCY": "Daily"
+        },
+        {
+          "SOURCE_DATABASE": "DEV_LANDING",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "L_TENABLE_ASSETS",
+          "TARGET_DATABASE": "DEV_TRANSFORMATION",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "DIM_HOST",
+          "TRANSFORMATION_LOGIC": "Merge Tenable assets with hosts",
+          "UPDATE_FREQUENCY": "Daily"
+        },
+        {
+          "SOURCE_DATABASE": "DEV_LANDING",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "L_ZEROFOX_ALERTS",
+          "TARGET_DATABASE": "DEV_TRANSFORMATION",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "FACT_ZEROFOX",
+          "TRANSFORMATION_LOGIC": "Transform threat intelligence alerts",
+          "UPDATE_FREQUENCY": "Daily"
+        },
+        {
+          "SOURCE_DATABASE": "DEV_TRANSFORMATION",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "DIM_HOST",
+          "TARGET_DATABASE": "DEV_REPORTING",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "R_EXECUTIVE_DASHBOARD",
+          "TRANSFORMATION_LOGIC": "Calculate endpoint metrics",
+          "UPDATE_FREQUENCY": "Daily"
+        },
+        {
+          "SOURCE_DATABASE": "DEV_TRANSFORMATION",
+          "SOURCE_SCHEMA": "SECURITY_ANALYTICS",
+          "SOURCE_TABLE": "FACT_QUALYS",
+          "TARGET_DATABASE": "DEV_REPORTING",
+          "TARGET_SCHEMA": "SECURITY_ANALYTICS",
+          "TARGET_TABLE": "R_VULNERABILITY_SUMMARY",
+          "TRANSFORMATION_LOGIC": "Aggregate by date and severity",
+          "UPDATE_FREQUENCY": "Daily"
+        }
+      ],
+      "error": null,
+      "row_count": 10
+    },
+    {
+      "num": 25,
+      "sql": "SELECT '=== ERD METADATA EXTRACTION COMPLETE ===' AS STATUS;",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== ERD METADATA EXTRACTION COMPLETE ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

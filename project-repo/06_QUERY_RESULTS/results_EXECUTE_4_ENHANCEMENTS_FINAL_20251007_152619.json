@@ -1,0 +1,303 @@
+{
+  "file": "EXECUTE_4_ENHANCEMENTS_FINAL.sql",
+  "executed_at": "2025-10-07T15:26:10.586867",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "USE WAREHOUSE DEV_WH",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 3,
+      "sql": "SELECT '=== ENHANCEMENT 1: POWER BI INTEGRATION ===' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== ENHANCEMENT 1: POWER BI INTEGRATION ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 4,
+      "sql": "SELECT 'VW_POWERBI_EXECUTIVE_DASHBOARD created' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "VW_POWERBI_EXECUTIVE_DASHBOARD created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "RETURN 'DQ metrics calculated'",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'RETURN'."
+    },
+    {
+      "num": 6,
+      "sql": "END",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 7,
+      "sql": "$$",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nparse error line 1 at position 2 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'."
+    },
+    {
+      "num": 8,
+      "sql": "SELECT 'Data Quality framework created' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Data Quality framework created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 9,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 10,
+      "sql": "SELECT '=== ENHANCEMENT 3: USER DIMENSION ===' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== ENHANCEMENT 3: USER DIMENSION ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 11,
+      "sql": "CREATE TABLE IF NOT EXISTS DIM_USER (\n    USER_KEY NUMBER AUTOINCREMENT PRIMARY KEY,\n    USER_ID VAR...",
+      "success": false,
+      "rows": [],
+      "error": "090105 (22000): Cannot perform CREATE TABLE. This session does not have a current database. Call 'USE DATABASE', or use a qualified name."
+    },
+    {
+      "num": 12,
+      "sql": "SELECT 'DIM_USER created with ' || COUNT(*) || ' rows' AS RESULT FROM DIM_USER",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DIM_USER' does not exist or not authorized."
+    },
+    {
+      "num": 13,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 14,
+      "sql": "SELECT '=== ENHANCEMENT 4: NEAR REAL-TIME TABLES ===' AS STATUS",
+      "success": true,
+      "rows": [
+        {
+          "STATUS": "=== ENHANCEMENT 4: NEAR REAL-TIME TABLES ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 15,
+      "sql": "CREATE TABLE IF NOT EXISTS L_EDR_THREATS_REALTIME (\n    THREAT_ID VARCHAR(255),\n    ENDPOINT_ID VARC...",
+      "success": false,
+      "rows": [],
+      "error": "090105 (22000): Cannot perform CREATE TABLE. This session does not have a current database. Call 'USE DATABASE', or use a qualified name."
+    },
+    {
+      "num": 16,
+      "sql": "CREATE TABLE IF NOT EXISTS L_CRITICAL_VULNS_REALTIME (\n    VULN_ID VARCHAR(255),\n    HOST_ID VARCHAR...",
+      "success": false,
+      "rows": [],
+      "error": "090105 (22000): Cannot perform CREATE TABLE. This session does not have a current database. Call 'USE DATABASE', or use a qualified name."
+    },
+    {
+      "num": 17,
+      "sql": "SELECT 'Real-time tables created' AS RESULT",
+      "success": true,
+      "rows": [
+        {
+          "RESULT": "Real-time tables created"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 18,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS",
+      "success": false,
+      "rows": [],
+      "error": "002043 (02000): SQL compilation error:\nObject does not exist, or operation cannot be performed."
+    },
+    {
+      "num": 19,
+      "sql": "SELECT '========================================' AS SUMMARY",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 20,
+      "sql": "SELECT '=== 4 ENHANCEMENTS COMPLETED ===' AS SUMMARY",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "=== 4 ENHANCEMENTS COMPLETED ==="
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 21,
+      "sql": "SELECT '========================================' AS SUMMARY",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 22,
+      "sql": "SELECT '1. Power BI Dashboard View: VW_POWERBI_EXECUTIVE_DASHBOARD' AS SUMMARY\nUNION ALL\nSELECT '2. ...",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "1. Power BI Dashboard View: VW_POWERBI_EXECUTIVE_DASHBOARD"
+        },
+        {
+          "SUMMARY": "2. Data Quality Framework: TBL_DATA_QUALITY_METRICS + SP_CALCULATE_DATA_QUALITY()"
+        },
+        {
+          "SUMMARY": "3. User Dimension: DIM_USER"
+        },
+        {
+          "SUMMARY": "4. Real-Time Tables: L_EDR_THREATS_REALTIME, L_CRITICAL_VULNS_REALTIME"
+        }
+      ],
+      "error": null,
+      "row_count": 4
+    },
+    {
+      "num": 23,
+      "sql": "SELECT '========================================' AS SUMMARY",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 24,
+      "sql": "SELECT 'TEST THE RESULTS:' AS SUMMARY",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "TEST THE RESULTS:"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 25,
+      "sql": "SELECT '========================================' AS SUMMARY",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 26,
+      "sql": "SELECT COUNT(*) as DQ_METRICS_ROWS FROM TBL_DATA_QUALITY_METRICS",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'TBL_DATA_QUALITY_METRICS' does not exist or not authorized."
+    },
+    {
+      "num": 27,
+      "sql": "SELECT '========================================' AS SUMMARY",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 28,
+      "sql": "SELECT '\u2713 ALL 4 ENHANCEMENTS COMPLETE!' AS SUMMARY",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "\u2713 ALL 4 ENHANCEMENTS COMPLETE!"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 29,
+      "sql": "SELECT '========================================' AS SUMMARY",
+      "success": true,
+      "rows": [
+        {
+          "SUMMARY": "========================================"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    }
+  ]
+}

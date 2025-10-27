@@ -1,0 +1,184 @@
+digraph "Snowflake ERD - ITSECKPI Schema" {
+    rankdir=TB;
+    node [shape=none fontname=Arial];
+    graph [bgcolor=white pad=0.5 splines=ortho];
+
+    // ========================================
+    // DEV_LANDING Layer
+    // ========================================
+    subgraph cluster_landing {
+        label="DEV_LANDING";
+        style=filled;
+        fillcolor="#FFF5F0";
+        fontsize=14;
+        fontname="Arial Bold";
+
+        // RAW_KPI_METRICS Table
+        landing_RAW_KPI_METRICS [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#FFE5CC">
+            <TR><TD COLSPAN="2" BGCOLOR="#FF9933" ALIGN="CENTER">
+            <FONT COLOR="WHITE"><B>RAW_KPI_METRICS</B></FONT><BR/>
+            <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+            </TD></TR>
+            <TR>
+                <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+                <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+            </TR>
+            <TR><TD ALIGN="LEFT">LOAD_ID</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">KPI_CODE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">KPI_VALUE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">MEASUREMENT_DATE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">TIMESTAMP</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">SOURCE_SYSTEM</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">RAW_DATA</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARIANT</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">LOAD_TIMESTAMP</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">TIMESTAMP</FONT></TD></TR>
+        </TABLE>>];
+
+        // RAW_SYSTEM_EVENTS Table
+        landing_RAW_SYSTEM_EVENTS [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#FFE5CC">
+            <TR><TD COLSPAN="2" BGCOLOR="#FF9933" ALIGN="CENTER">
+            <FONT COLOR="WHITE"><B>RAW_SYSTEM_EVENTS</B></FONT><BR/>
+            <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+            </TD></TR>
+            <TR>
+                <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+                <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+            </TR>
+            <TR><TD ALIGN="LEFT">EVENT_ID</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">SYSTEM_ID</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">EVENT_TYPE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">EVENT_TIMESTAMP</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">TIMESTAMP</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">EVENT_DATA</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARIANT</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">LOAD_DATE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">DATE</FONT></TD></TR>
+        </TABLE>>];
+    }
+
+    // ========================================
+    // DEV_TRANSFORMATION Layer
+    // ========================================
+    subgraph cluster_transformation {
+        label="DEV_TRANSFORMATION";
+        style=filled;
+        fillcolor="#F0F5FF";
+        fontsize=14;
+        fontname="Arial Bold";
+
+        // DIM_KPI Table
+        trans_DIM_KPI [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCE5FF">
+            <TR><TD COLSPAN="2" BGCOLOR="#3399FF" ALIGN="CENTER">
+            <FONT COLOR="WHITE"><B>DIM_KPI</B></FONT><BR/>
+            <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+            </TD></TR>
+            <TR>
+                <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+                <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+            </TR>
+            <TR><TD ALIGN="LEFT">KPI_KEY</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">KPI_CODE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">KPI_NAME</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(200)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">KPI_CATEGORY</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">UNIT_OF_MEASURE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">TARGET_VALUE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">IS_ACTIVE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">BOOLEAN</FONT></TD></TR>
+        </TABLE>>];
+
+        // DIM_SYSTEM Table
+        trans_DIM_SYSTEM [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCE5FF">
+            <TR><TD COLSPAN="2" BGCOLOR="#3399FF" ALIGN="CENTER">
+            <FONT COLOR="WHITE"><B>DIM_SYSTEM</B></FONT><BR/>
+            <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+            </TD></TR>
+            <TR>
+                <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+                <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+            </TR>
+            <TR><TD ALIGN="LEFT">SYSTEM_KEY</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">SYSTEM_ID</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">SYSTEM_NAME</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(200)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">SYSTEM_TYPE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">DEPARTMENT</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(100)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">IS_CRITICAL</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">BOOLEAN</FONT></TD></TR>
+        </TABLE>>];
+
+        // FACT_KPI_MEASUREMENTS Table
+        trans_FACT_KPI_MEASUREMENTS [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCE5FF">
+            <TR><TD COLSPAN="2" BGCOLOR="#3399FF" ALIGN="CENTER">
+            <FONT COLOR="WHITE"><B>FACT_KPI_MEASUREMENTS</B></FONT><BR/>
+            <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+            </TD></TR>
+            <TR>
+                <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+                <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+            </TR>
+            <TR><TD ALIGN="LEFT">MEASUREMENT_KEY</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">KPI_KEY</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">SYSTEM_KEY</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">DATE_KEY</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">ACTUAL_VALUE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">TARGET_VALUE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">VARIANCE_PCT</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(5,2)</FONT></TD></TR>
+        </TABLE>>];
+    }
+
+    // ========================================
+    // DEV_REPORTING Layer
+    // ========================================
+    subgraph cluster_reporting {
+        label="DEV_REPORTING";
+        style=filled;
+        fillcolor="#F0FFF0";
+        fontsize=14;
+        fontname="Arial Bold";
+
+        // VW_KPI_DASHBOARD View
+        report_VW_KPI_DASHBOARD [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCFFCC">
+            <TR><TD COLSPAN="2" BGCOLOR="#33CC33" ALIGN="CENTER">
+            <FONT COLOR="WHITE"><B>VW_KPI_DASHBOARD</B></FONT><BR/>
+            <FONT COLOR="WHITE" POINT-SIZE="9">(VIEW)</FONT>
+            </TD></TR>
+            <TR>
+                <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+                <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+            </TR>
+            <TR><TD ALIGN="LEFT">KPI_CODE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">KPI_NAME</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(200)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">CURRENT_VALUE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">TARGET_VALUE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">ACHIEVEMENT_PCT</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(5,2)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">TREND</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(10)</FONT></TD></TR>
+        </TABLE>>];
+
+        // AGG_MONTHLY_KPI Table
+        report_AGG_MONTHLY_KPI [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#CCFFCC">
+            <TR><TD COLSPAN="2" BGCOLOR="#33CC33" ALIGN="CENTER">
+            <FONT COLOR="WHITE"><B>AGG_MONTHLY_KPI</B></FONT><BR/>
+            <FONT COLOR="WHITE" POINT-SIZE="9">(TABLE)</FONT>
+            </TD></TR>
+            <TR>
+                <TD BGCOLOR="#E8E8E8"><B>Column</B></TD>
+                <TD BGCOLOR="#E8E8E8"><B>Type</B></TD>
+            </TR>
+            <TR><TD ALIGN="LEFT">YEAR_MONTH</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(7)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">KPI_CODE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">VARCHAR(50)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">AVG_VALUE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">MAX_VALUE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">MIN_VALUE</TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NUMBER(18,2)</FONT></TD></TR>
+        </TABLE>>];
+    }
+
+    // ========================================
+    // Relationships
+    // ========================================
+
+    // Landing -> Transformation
+    landing_RAW_KPI_METRICS -> trans_DIM_KPI [label=" KPI_CODE " style=dashed color="#FF9933" fontsize=8 fontcolor="#FF9933"];
+    landing_RAW_KPI_METRICS -> trans_FACT_KPI_MEASUREMENTS [label=" Load " style=dashed color="#FF9933" fontsize=8 fontcolor="#FF9933"];
+    landing_RAW_SYSTEM_EVENTS -> trans_DIM_SYSTEM [label=" SYSTEM_ID " style=dashed color="#FF9933" fontsize=8 fontcolor="#FF9933"];
+
+    // Transformation relationships (Star Schema)
+    trans_DIM_KPI -> trans_FACT_KPI_MEASUREMENTS [label=" KPI_KEY " style=solid color="#3399FF" fontsize=8 fontcolor="#3399FF"];
+    trans_DIM_SYSTEM -> trans_FACT_KPI_MEASUREMENTS [label=" SYSTEM_KEY " style=solid color="#3399FF" fontsize=8 fontcolor="#3399FF"];
+
+    // Transformation -> Reporting
+    trans_FACT_KPI_MEASUREMENTS -> report_VW_KPI_DASHBOARD [label=" Aggregate " style=dotted color="#33CC33" fontsize=8 fontcolor="#33CC33"];
+    trans_FACT_KPI_MEASUREMENTS -> report_AGG_MONTHLY_KPI [label=" Aggregate " style=dotted color="#33CC33" fontsize=8 fontcolor="#33CC33"];
+    trans_DIM_KPI -> report_VW_KPI_DASHBOARD [label=" Join " style=dotted color="#33CC33" fontsize=8 fontcolor="#33CC33"];
+}

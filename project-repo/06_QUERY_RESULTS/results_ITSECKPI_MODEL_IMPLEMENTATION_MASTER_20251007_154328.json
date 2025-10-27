@@ -1,0 +1,1249 @@
+{
+  "file": "FINAL_DELIVERABLES\\04_SQL_Scripts\\ITSECKPI_MODEL_IMPLEMENTATION_MASTER.sql",
+  "executed_at": "2025-10-07T15:42:47.894688",
+  "statements": [
+    {
+      "num": 1,
+      "sql": "-- =====================================================================\n-- PHASE 1: BACKUP AND PREP...",
+      "success": true,
+      "rows": [
+        {
+          "status": "ITSECKPI_BACKUP already exists, statement succeeded."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 2,
+      "sql": "-- Backup critical tables before changes\nCREATE TABLE IF NOT EXISTS DEV_TRANSFORMATION.ITSECKPI_BACK...",
+      "success": true,
+      "rows": [
+        {
+          "status": "IMPLEMENTATION_LOG already exists, statement succeeded."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 3,
+      "sql": "-- Log start of implementation\nINSERT INTO DEV_TRANSFORMATION.ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PH...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 4,
+      "sql": "-- =====================================================================\n-- PHASE 2: ADD PRIMARY KEY...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 5,
+      "sql": "USE SCHEMA SECURITY_ANALYTICS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 6,
+      "sql": "-- 2.1 DIM_DATES - Date dimension primary key\nALTER TABLE DIM_DATES ADD CONSTRAINT PK_DIM_DATES\nPRIM...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'DATE_KEY'"
+    },
+    {
+      "num": 7,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 8,
+      "sql": "-- 2.2 DIM_HOST - Host dimension primary key\nALTER TABLE DIM_HOST ADD CONSTRAINT PK_DIM_HOST\nPRIMARY...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'HOST_ID'"
+    },
+    {
+      "num": 9,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 10,
+      "sql": "-- 2.3 DIM_ANCON_USERS - User dimension primary key\nALTER TABLE DIM_ANCON_USERS ADD CONSTRAINT PK_DI...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'USER_ID'"
+    },
+    {
+      "num": 11,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 12,
+      "sql": "-- 2.4 DIM_DEFENDER_ENDPOINTS - Endpoint dimension primary key\nALTER TABLE DIM_DEFENDER_ENDPOINTS AD...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'ENDPOINT_ID'"
+    },
+    {
+      "num": 13,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 14,
+      "sql": "-- 2.5 DIM_SNOW_DEVICES - Device dimension primary key\nALTER TABLE DIM_SNOW_DEVICES ADD CONSTRAINT P...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'DEVICE_ID'"
+    },
+    {
+      "num": 15,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 16,
+      "sql": "-- 2.6 DIM_CYBELANGEL_ALERTS - Alert dimension primary key\nALTER TABLE DIM_CYBELANGEL_ALERTS ADD CON...",
+      "success": false,
+      "rows": [],
+      "error": "001451 (42601): SQL compilation error:\nprimary key already exists for table 'DIM_CYBELANGEL_ALERTS'"
+    },
+    {
+      "num": 17,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 18,
+      "sql": "-- 2.7 DIM_HARDWARE_INVENTORY - Hardware dimension primary key\nALTER TABLE DIM_HARDWARE_INVENTORY AD...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'HARDWARE_ID'"
+    },
+    {
+      "num": 19,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 20,
+      "sql": "-- 2.8 DIM_FIXED_VULNERABILITIES - Vulnerability dimension primary key\nALTER TABLE DIM_FIXED_VULNERA...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'VULNERABILITY_ID'"
+    },
+    {
+      "num": 21,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 22,
+      "sql": "-- 2.9 DIM_FARRANS_ENDPOINTS - Farrans endpoint dimension primary key\nALTER TABLE DIM_FARRANS_ENDPOI...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'ENDPOINT_ID'"
+    },
+    {
+      "num": 23,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 24,
+      "sql": "-- 2.10 DIM_BITSIGHT_RISK_VECTORS - Bitsight risk dimension primary key\nALTER TABLE DIM_BITSIGHT_RIS...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'RISK_VECTOR_ID'"
+    },
+    {
+      "num": 25,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 26,
+      "sql": "-- 2.11 DIM_AV_OPCO - Operating company dimension primary key\nALTER TABLE DIM_AV_OPCO ADD CONSTRAINT...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'OPCO_ID'"
+    },
+    {
+      "num": 27,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 28,
+      "sql": "-- Add PKs for remaining dimension tables\n-- Note: Update column names based on actual table structu...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'HOST_ID'"
+    },
+    {
+      "num": 29,
+      "sql": "ALTER TABLE FACT_REMEDIATION_EVENTS ADD CONSTRAINT FK_REMEDIATION_DATE\nFOREIGN KEY (DATE_KEY) REFERE...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'DATE_KEY'"
+    },
+    {
+      "num": 30,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 31,
+      "sql": "-- 3.2 FACT_SENTINEL_ENDPOINTS\nALTER TABLE FACT_SENTINEL_ENDPOINTS ADD CONSTRAINT FK_SENTINEL_DEVICE...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'DEVICE_ID'"
+    },
+    {
+      "num": 32,
+      "sql": "ALTER TABLE FACT_SENTINEL_ENDPOINTS ADD CONSTRAINT FK_SENTINEL_DATE\nFOREIGN KEY (DATE_KEY) REFERENCE...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'DATE_KEY'"
+    },
+    {
+      "num": 33,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 34,
+      "sql": "-- 3.3 FACT_DEFENDER_THREATS\nALTER TABLE FACT_DEFENDER_THREATS ADD CONSTRAINT FK_DEFENDER_DEVICE\nFOR...",
+      "success": false,
+      "rows": [],
+      "error": "001431 (42601): SQL compilation error:\ncolumn 'DEVICE_ID' does not exist"
+    },
+    {
+      "num": 35,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 36,
+      "sql": "-- 3.4 FACT_CYBELANGEL_THREATS\nALTER TABLE FACT_CYBELANGEL_THREATS ADD CONSTRAINT FK_CYBELANGEL_ALER...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 37,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 38,
+      "sql": "-- 3.5 FACT_QUALYS_HOST_SCANS\nALTER TABLE FACT_QUALYS_HOST_SCANS ADD CONSTRAINT FK_QUALYS_HOST\nFOREI...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'HOST_KEY'"
+    },
+    {
+      "num": 39,
+      "sql": "ALTER TABLE FACT_QUALYS_HOST_SCANS ADD CONSTRAINT FK_QUALYS_DATE\nFOREIGN KEY (SCAN_DATE_KEY) REFEREN...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'SCAN_DATE_KEY'"
+    },
+    {
+      "num": 40,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 41,
+      "sql": "-- 3.6 FACT_AV_HEALTH\nALTER TABLE FACT_AV_HEALTH ADD CONSTRAINT FK_AV_OPCO\nFOREIGN KEY (OPCO_ID) REF...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'OPCO_ID'"
+    },
+    {
+      "num": 42,
+      "sql": "ALTER TABLE FACT_AV_HEALTH ADD CONSTRAINT FK_AV_DATE\nFOREIGN KEY (DATE_KEY) REFERENCES DIM_DATES(DAT...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'DATE_KEY'"
+    },
+    {
+      "num": 43,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 44,
+      "sql": "-- 3.7 FACT_BITSIGHT_FINDINGS\nALTER TABLE FACT_BITSIGHT_FINDINGS ADD CONSTRAINT FK_BITSIGHT_RISK\nFOR...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'RISK_VECTOR_ID'"
+    },
+    {
+      "num": 45,
+      "sql": "ALTER TABLE FACT_BITSIGHT_FINDINGS ADD CONSTRAINT FK_BITSIGHT_DATE\nFOREIGN KEY (FINDING_DATE_KEY) RE...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'FINDING_DATE_KEY'"
+    },
+    {
+      "num": 46,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 47,
+      "sql": "-- 3.8 FACT_FARRANS_HEALTH\nALTER TABLE FACT_FARRANS_HEALTH ADD CONSTRAINT FK_FARRANS_ENDPOINT\nFOREIG...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 13\ninvalid identifier 'ENDPOINT_ID'"
+    },
+    {
+      "num": 48,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 49,
+      "sql": "-- =====================================================================\n-- PHASE 4: RENAME NON-STAN...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 50,
+      "sql": "ALTER TABLE CROWDSTRIKE_ENDPOINTS RENAME TO DIM_CROWDSTRIKE_ENDPOINTS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 51,
+      "sql": "ALTER TABLE CROWDSTRIKE_VERSIONS RENAME TO DIM_CROWDSTRIKE_VERSIONS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 52,
+      "sql": "ALTER TABLE CLOSE_CODE_MAPPING RENAME TO DIM_CLOSE_CODE_MAPPING;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 53,
+      "sql": "-- Create backward compatibility views\nCREATE OR REPLACE VIEW CISCO_AMP_DATA AS SELECT * FROM DIM_CI...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View CISCO_AMP_DATA successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 54,
+      "sql": "CREATE OR REPLACE VIEW CROWDSTRIKE_ENDPOINTS AS SELECT * FROM DIM_CROWDSTRIKE_ENDPOINTS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "View CROWDSTRIKE_ENDPOINTS successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 55,
+      "sql": "CREATE OR REPLACE VIEW CROWDSTRIKE_VERSIONS AS SELECT * FROM DIM_CROWDSTRIKE_VERSIONS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "View CROWDSTRIKE_VERSIONS successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 56,
+      "sql": "CREATE OR REPLACE VIEW CLOSE_CODE_MAPPING AS SELECT * FROM DIM_CLOSE_CODE_MAPPING;",
+      "success": true,
+      "rows": [
+        {
+          "status": "View CLOSE_CODE_MAPPING successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 57,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 58,
+      "sql": "-- 4.2 Rename staging tables\nALTER TABLE DATA_QUALITY_RESULTS RENAME TO STG_DATA_QUALITY_RESULTS;",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 59,
+      "sql": "ALTER TABLE N8N_LOG RENAME TO STG_N8N_LOG;",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nTable 'DEV_TRANSFORMATION.SECURITY_ANALYTICS.N8N_LOG' does not exist or not authorized."
+    },
+    {
+      "num": 60,
+      "sql": "ALTER TABLE N8N_LOG_TEMP RENAME TO STG_N8N_LOG_TEMP;",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nTable 'DEV_TRANSFORMATION.SECURITY_ANALYTICS.N8N_LOG_TEMP' does not exist or not authorized."
+    },
+    {
+      "num": 61,
+      "sql": "-- Create backward compatibility views\nCREATE OR REPLACE VIEW DATA_QUALITY_RESULTS AS SELECT * FROM ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View DATA_QUALITY_RESULTS successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 62,
+      "sql": "CREATE OR REPLACE VIEW N8N_LOG AS SELECT * FROM STG_N8N_LOG;",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.SECURITY_ANALYTICS.STG_N8N_LOG' does not exist or not authorized."
+    },
+    {
+      "num": 63,
+      "sql": "CREATE OR REPLACE VIEW N8N_LOG_TEMP AS SELECT * FROM STG_N8N_LOG_TEMP;",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.SECURITY_ANALYTICS.STG_N8N_LOG_TEMP' does not exist or not authorized."
+    },
+    {
+      "num": 64,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 65,
+      "sql": "-- =====================================================================\n-- PHASE 5: ADD UNIQUE CONS...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'HOST_NAME'"
+    },
+    {
+      "num": 66,
+      "sql": "ALTER TABLE DIM_ANCON_USERS ADD CONSTRAINT UK_DIM_ANCON_USER_EMAIL\nUNIQUE (USER_EMAIL) RELY;",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'USER_EMAIL'"
+    },
+    {
+      "num": 67,
+      "sql": "ALTER TABLE DIM_SNOW_DEVICES ADD CONSTRAINT UK_DIM_SNOW_DEVICE_SERIAL\nUNIQUE (SERIAL_NUMBER) RELY;",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'SERIAL_NUMBER'"
+    },
+    {
+      "num": 68,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 69,
+      "sql": "-- =====================================================================\n-- PHASE 6: CREATE INDEXES ...",
+      "success": false,
+      "rows": [],
+      "error": "391420 (0A000): Table 'FACT_REMEDIATION_EVENTS' is not a hybrid table."
+    },
+    {
+      "num": 70,
+      "sql": "CREATE INDEX IF NOT EXISTS IDX_FACT_REMEDIATION_DATE ON FACT_REMEDIATION_EVENTS(DATE_KEY);",
+      "success": false,
+      "rows": [],
+      "error": "391420 (0A000): Table 'FACT_REMEDIATION_EVENTS' is not a hybrid table."
+    },
+    {
+      "num": 71,
+      "sql": "CREATE INDEX IF NOT EXISTS IDX_FACT_SENTINEL_DEVICE ON FACT_SENTINEL_ENDPOINTS(DEVICE_ID);",
+      "success": false,
+      "rows": [],
+      "error": "391420 (0A000): Table 'FACT_SENTINEL_ENDPOINTS' is not a hybrid table."
+    },
+    {
+      "num": 72,
+      "sql": "CREATE INDEX IF NOT EXISTS IDX_FACT_QUALYS_HOST ON FACT_QUALYS_HOST_SCANS(HOST_KEY);",
+      "success": false,
+      "rows": [],
+      "error": "391420 (0A000): Table 'FACT_QUALYS_HOST_SCANS' is not a hybrid table."
+    },
+    {
+      "num": 73,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 74,
+      "sql": "-- =====================================================================\n-- PHASE 7: ADD TABLE AND C...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 75,
+      "sql": "COMMENT ON TABLE DIM_HOST IS 'Host dimension containing all servers, workstations, and computing dev...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 76,
+      "sql": "COMMENT ON TABLE DIM_ANCON_USERS IS 'User dimension for Ancon system users including authentication ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 77,
+      "sql": "COMMENT ON TABLE DIM_DEFENDER_ENDPOINTS IS 'Microsoft Defender endpoint dimension with security stat...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 78,
+      "sql": "COMMENT ON TABLE DIM_SNOW_DEVICES IS 'ServiceNow CMDB device dimension with asset management informa...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 79,
+      "sql": "COMMENT ON TABLE DIM_CYBELANGEL_ALERTS IS 'CybelAngel security alert dimension with threat intellige...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 80,
+      "sql": "COMMENT ON TABLE DIM_HARDWARE_INVENTORY IS 'Hardware inventory dimension with device specifications ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 81,
+      "sql": "COMMENT ON TABLE DIM_FIXED_VULNERABILITIES IS 'Resolved vulnerability dimension tracking remediated ...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 82,
+      "sql": "COMMENT ON TABLE DIM_BITSIGHT_RISK_VECTORS IS 'BitSight risk assessment dimension with external secu...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 83,
+      "sql": "COMMENT ON TABLE DIM_AV_OPCO IS 'Operating company dimension for antivirus deployment tracking';",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 84,
+      "sql": "-- Document fact tables\nCOMMENT ON TABLE FACT_REMEDIATION_EVENTS IS 'Fact table tracking vulnerabili...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 85,
+      "sql": "COMMENT ON TABLE FACT_SENTINEL_ENDPOINTS IS 'Fact table for Sentinel endpoint security events. Grain...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 86,
+      "sql": "COMMENT ON TABLE FACT_DEFENDER_THREATS IS 'Fact table for Microsoft Defender threat detections. Grai...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 87,
+      "sql": "COMMENT ON TABLE FACT_CYBELANGEL_THREATS IS 'Fact table for CybelAngel external threat detections. G...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 88,
+      "sql": "COMMENT ON TABLE FACT_QUALYS_HOST_SCANS IS 'Fact table for Qualys vulnerability scan results. Grain:...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 89,
+      "sql": "COMMENT ON TABLE FACT_AV_HEALTH IS 'Fact table for antivirus health metrics. Grain: daily snapshot p...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 90,
+      "sql": "COMMENT ON TABLE FACT_BITSIGHT_FINDINGS IS 'Fact table for BitSight security findings. Grain: one ro...",
+      "success": true,
+      "rows": [
+        {
+          "status": "Statement executed successfully."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 91,
+      "sql": "-- Document key columns\nCOMMENT ON COLUMN FACT_REMEDIATION_EVENTS.HOST_ID IS 'Foreign key to DIM_HOS...",
+      "success": false,
+      "rows": [],
+      "error": "002001 (02000): SQL compilation error:\nObject 'HOST_ID' does not exist or not authorized."
+    },
+    {
+      "num": 92,
+      "sql": "COMMENT ON COLUMN FACT_REMEDIATION_EVENTS.DATE_KEY IS 'Foreign key to DIM_DATES. Date when remediati...",
+      "success": false,
+      "rows": [],
+      "error": "002001 (02000): SQL compilation error:\nObject 'DATE_KEY' does not exist or not authorized."
+    },
+    {
+      "num": 93,
+      "sql": "COMMENT ON COLUMN FACT_REMEDIATION_EVENTS.VULNERABILITY_ID IS 'Foreign key to DIM_FIXED_VULNERABILIT...",
+      "success": false,
+      "rows": [],
+      "error": "002001 (02000): SQL compilation error:\nObject 'VULNERABILITY_ID' does not exist or not authorized."
+    },
+    {
+      "num": 94,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 95,
+      "sql": "-- =====================================================================\n-- PHASE 8: CREATE DATA QUA...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 7 at position 24\ninvalid identifier 'F.HOST_ID'"
+    },
+    {
+      "num": 96,
+      "sql": "-- Create view to monitor empty fact tables\nCREATE OR REPLACE VIEW VW_DATA_QUALITY_EMPTY_FACTS AS\nSE...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_DATA_QUALITY_EMPTY_FACTS successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 97,
+      "sql": "-- Create view to monitor dimension completeness\nCREATE OR REPLACE VIEW VW_DATA_QUALITY_DIM_COMPLETE...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_DATA_QUALITY_DIM_COMPLETENESS successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 98,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 99,
+      "sql": "-- =====================================================================\n-- PHASE 9: CREATE ETL POPU...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nparse error line 7 at position 22 near '<EOF>'.\nsyntax error line 5 at position 1 unexpected '$'."
+    },
+    {
+      "num": 100,
+      "sql": "BEGIN\n    -- Populate FACT_CYBELANGEL_THREATS if empty\n    IF (SELECT COUNT(*) FROM FACT_CYBELANGEL_...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 3 at position 8 unexpected 'SELECT'.\nsyntax error line 3 at position 21 unexpected '*'.\nsyntax error line 5 at position 8 unexpected 'SELECT'."
+    },
+    {
+      "num": 101,
+      "sql": "v_message := 'Populated FACT_CYBELANGEL_THREATS';",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_message'."
+    },
+    {
+      "num": 102,
+      "sql": "END IF;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 103,
+      "sql": "-- Populate FACT_LEVIAT_SECURITY_EVENTS if empty\n    IF (SELECT COUNT(*) FROM FACT_LEVIAT_SECURITY_E...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'IF'."
+    },
+    {
+      "num": 104,
+      "sql": "v_message := v_message || '; Populated FACT_LEVIAT_SECURITY_EVENTS';",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'v_message'."
+    },
+    {
+      "num": 105,
+      "sql": "END IF;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 106,
+      "sql": "RETURN v_message;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'RETURN'."
+    },
+    {
+      "num": 107,
+      "sql": "END;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 108,
+      "sql": "$$;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nparse error line 1 at position 3 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'."
+    },
+    {
+      "num": 109,
+      "sql": "-- Create procedure to refresh dimension tables\nCREATE OR REPLACE PROCEDURE SP_REFRESH_DIMENSIONS()\n...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nparse error line 30 at position 80 near '<EOF>'.\nsyntax error line 5 at position 1 unexpected '$'."
+    },
+    {
+      "num": 110,
+      "sql": "RETURN 'Dimensions refreshed successfully';",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'RETURN'."
+    },
+    {
+      "num": 111,
+      "sql": "END;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected 'END'."
+    },
+    {
+      "num": 112,
+      "sql": "$$;",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nparse error line 1 at position 3 near '<EOF>'.\nsyntax error line 1 at position 1 unexpected '$'."
+    },
+    {
+      "num": 113,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 114,
+      "sql": "-- =====================================================================\n-- PHASE 10: CREATE MONITOR...",
+      "success": true,
+      "rows": [
+        {
+          "status": "View VW_EXECUTIVE_DATA_MODEL_HEALTH successfully created."
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 115,
+      "sql": "-- Create relationship mapping view\nCREATE OR REPLACE VIEW VW_TABLE_RELATIONSHIPS AS\nSELECT\n    tc.T...",
+      "success": false,
+      "rows": [],
+      "error": "002003 (42S02): SQL compilation error:\nObject 'DEV_TRANSFORMATION.INFORMATION_SCHEMA.KEY_COLUMN_USAGE' does not exist or not authorized."
+    },
+    {
+      "num": 116,
+      "sql": "INSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, ACTION_TAKEN, STATU...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 117,
+      "sql": "-- =====================================================================\n-- PHASE 11: FINAL VALIDATI...",
+      "success": true,
+      "rows": [
+        {
+          "REPORT_SECTION": "VALIDATION RESULTS"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 118,
+      "sql": "-- Check Primary Keys\nSELECT\n    'Primary Keys Added' as CHECK_TYPE,\n    COUNT(DISTINCT TABLE_NAME) ...",
+      "success": true,
+      "rows": [
+        {
+          "CHECK_TYPE": "Primary Keys Added",
+          "COUNT": "70",
+          "STATUS": "PASSED"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 119,
+      "sql": "-- Check Foreign Keys\nSELECT\n    'Foreign Keys Added' as CHECK_TYPE,\n    COUNT(DISTINCT TABLE_NAME) ...",
+      "success": true,
+      "rows": [
+        {
+          "CHECK_TYPE": "Foreign Keys Added",
+          "COUNT": "14",
+          "STATUS": "PASSED"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 120,
+      "sql": "-- Check renamed tables\nSELECT\n    'Tables Following Naming Convention' as CHECK_TYPE,\n    COUNT(*) ...",
+      "success": true,
+      "rows": [
+        {
+          "CHECK_TYPE": "Tables Following Naming Convention",
+          "COUNT": "56",
+          "STATUS": "CHECK MANUALLY"
+        }
+      ],
+      "error": null,
+      "row_count": 1
+    },
+    {
+      "num": 121,
+      "sql": "-- Log completion\nINSERT INTO ITSECKPI_BACKUP.IMPLEMENTATION_LOG\n(PHASE, OBJECT_TYPE, OBJECT_NAME, A...",
+      "success": false,
+      "rows": [],
+      "error": "000904 (42000): SQL compilation error: error line 2 at position 8\ninvalid identifier 'OBJECT_TYPE'"
+    },
+    {
+      "num": 122,
+      "sql": "-- Show implementation summary\nSELECT\n    PHASE,\n    COUNT(*) as ACTIONS_TAKEN,\n    MAX(EXECUTION_DA...",
+      "success": true,
+      "rows": [],
+      "error": null,
+      "row_count": 0
+    },
+    {
+      "num": 123,
+      "sql": "-- =====================================================================\n-- PHASE 12: ROLLBACK SCRIP...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nparse error line 8 at position 36 near '<EOF>'."
+    },
+    {
+      "num": 124,
+      "sql": "-- Remove all primary keys\nSELECT 'ALTER TABLE ' || TABLE_NAME || ' DROP CONSTRAINT ' || CONSTRAINT_...",
+      "success": true,
+      "rows": [
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_ZSCALER_THREATS DROP CONSTRAINT SYS_CONSTRAINT_cc3e11c5-e3cf-435d-9361-d30b3da53ce1;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_DATES DROP CONSTRAINT PK_DIM_DATES;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_ZEROFOX_ASSETS DROP CONSTRAINT SYS_CONSTRAINT_d2bc34e5-dd04-49db-ad69-c9e32d49ef63;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_ANCON_USERS DROP CONSTRAINT SYS_CONSTRAINT_ade6c731-4cf5-4958-b375-24aa74b612e6;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE MONITORING_ALERTS DROP CONSTRAINT SYS_CONSTRAINT_d4f8bf09-a6e5-4dc1-aa82-7ac4ad027069;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_HOST_ASSETS DROP CONSTRAINT SYS_CONSTRAINT_8d118836-0b92-414a-9a31-93acbae263f5;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_MCAFEE_ENDPOINTS DROP CONSTRAINT SYS_CONSTRAINT_3851c5c0-b85e-438b-b57c-3d08cbfcfc61;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE LEVIAT DROP CONSTRAINT SYS_CONSTRAINT_7cb76895-2742-4f72-bedc-1c98dbc9ab1f;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_USER DROP CONSTRAINT SYS_CONSTRAINT_78aa64a4-5351-4c33-8db3-d58bd877ac0d;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_LEVIAT_SECURITY_EVENTS DROP CONSTRAINT SYS_CONSTRAINT_001b8b3c-09a0-46b9-a327-7aaa2c882e25;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_SOPHOS_ENDPOINTS DROP CONSTRAINT SYS_CONSTRAINT_fef62632-4fa1-45f5-a7d6-abe502a12793;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_SPLUNK_HOSTS DROP CONSTRAINT SYS_CONSTRAINT_6419c46a-0296-44cd-bd83-a9a68da092bb;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_SPLUNK_ALERTS_WEEKLY DROP CONSTRAINT PK_FACT_SPLUNK_ALERTS_WEEKLY;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_AV_OPCO DROP CONSTRAINT SYS_CONSTRAINT_b2b9dda5-13d0-4749-bae8-31361f4861e0;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_FARRANS_HEALTH DROP CONSTRAINT SYS_CONSTRAINT_8f016373-481f-4c92-9dcf-bf6e8f82b51a;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_BITSIGHT_RISK_VECTORS DROP CONSTRAINT SYS_CONSTRAINT_e3d0f813-bed3-4aaf-9744-9591a8708025;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_SNOW_DEVICES DROP CONSTRAINT SYS_CONSTRAINT_9bc8de6c-6f4c-40ac-9f1e-f15020444d9d;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_SPLUNK_ALERTS DROP CONSTRAINT SYS_CONSTRAINT_0ce26ee8-99fc-40d6-9c89-44cdc5f8fd8b;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_FIXED_VULNERABILITIES DROP CONSTRAINT SYS_CONSTRAINT_49d23797-6825-48af-8e42-b8e56b26b09e;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_LEVIAT_LIST_USERS DROP CONSTRAINT SYS_CONSTRAINT_2ce9fa8f-404d-4621-b64c-4bc29df0b6a3;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_INCIDENTS DROP CONSTRAINT SYS_CONSTRAINT_83020f82-dabd-4125-b7b7-b55015030cad;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_TRENDMICRO_VERSIONS DROP CONSTRAINT SYS_CONSTRAINT_b0944b44-36e2-4ae5-9520-9d92638cc36f;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_THREAT_INTEL_SUMMARY DROP CONSTRAINT SYS_CONSTRAINT_a80b0777-fe93-4f9c-9de6-542bbc6bdca9;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DATA_QUALITY_RULES DROP CONSTRAINT SYS_CONSTRAINT_f9b11cfe-e0a5-43df-9627-8fe708325bd9;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_SYMANTEC_ENDPOINTS DROP CONSTRAINT SYS_CONSTRAINT_cdc14658-e1c2-44c9-9e54-f0a30e7c98f6;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_VULNERABILITY DROP CONSTRAINT SYS_CONSTRAINT_a0a319c5-2ff5-4532-a4c4-0760460ab842;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE QUALYS_VULN_KB_DATA DROP CONSTRAINT SYS_CONSTRAINT_d4c14442-c4e4-439f-babc-471bee6b36e8;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_QUALYS_SEVERITY DROP CONSTRAINT PK_DIM_QUALYS_SEVERITY;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_SENTINEL_ENDPOINTS DROP CONSTRAINT SYS_CONSTRAINT_2f7e3356-c10f-462c-ba03-44458a6b787c;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DATA_LINEAGE_CATALOG DROP CONSTRAINT SYS_CONSTRAINT_3736c61b-d817-4005-b56b-220e1e60e98e;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_EDR DROP CONSTRAINT SYS_CONSTRAINT_eba5b0eb-a13d-40fe-9d06-f686bd5205cd;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_AV_HEALTH DROP CONSTRAINT SYS_CONSTRAINT_ef59479a-45b0-47f9-b07f-e051d4ea853b;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE ETL_ERROR_LOG DROP CONSTRAINT SYS_CONSTRAINT_c384970d-a043-4d93-9331-be23c9a314a2;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_QUALYS_HOST_SCANS DROP CONSTRAINT PK_FACT_QUALYS_HOST_SCANS;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_QUALYS DROP CONSTRAINT SYS_CONSTRAINT_da1c5f4b-1087-41e5-8a21-7d10d694f1df;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_FARRANS_ENDPOINTS DROP CONSTRAINT SYS_CONSTRAINT_adc52d4b-5f89-465d-a0ba-453b58c5ae12;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE SECURITY_ALERT_THRESHOLDS DROP CONSTRAINT SYS_CONSTRAINT_818fe8de-1dd9-4967-9a0c-144efd5f10cf;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE VULNERABILITY_DIM DROP CONSTRAINT SYS_CONSTRAINT_5f38d9ae-c9ca-4ac5-83e3-34bb4d4f45ec;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_THREAT_INTEL_EVENTS DROP CONSTRAINT SYS_CONSTRAINT_a0aee164-5fa0-44d1-a828-5c13a1880819;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_TRENDMICRO_ENDPOINTS DROP CONSTRAINT SYS_CONSTRAINT_d41695eb-08e6-49f5-8435-895d1f2ce713;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_CISCO_AMP DROP CONSTRAINT SYS_CONSTRAINT_cfd3108c-e8b0-451a-bfe9-7253b8976bda;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_LEVIAT_USERS DROP CONSTRAINT SYS_CONSTRAINT_f2d395bc-25b7-43ee-b9de-6d6a567247d9;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_SENTINEL_VERSIONS DROP CONSTRAINT SYS_CONSTRAINT_506969f3-7702-480d-8847-7bdcbd08b13c;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_CYBELANGEL_ALERTS DROP CONSTRAINT SYS_CONSTRAINT_7c7e579c-bf03-475b-a709-2627a375d3da;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_REMEDIATION_EVENTS DROP CONSTRAINT SYS_CONSTRAINT_06ef600a-c3b5-46a8-9be2-35155e075282;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_OPCO DROP CONSTRAINT SYS_CONSTRAINT_bc5ef3de-de33-4ac3-9f2c-17acbff85248;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_CROWDSTRIKE_ENDPOINTS DROP CONSTRAINT SYS_CONSTRAINT_01ee7cd6-7767-44f5-831b-cd4e71f9efd0;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_CROWDSTRIKE_VERSIONS DROP CONSTRAINT SYS_CONSTRAINT_cc9fe9eb-dbdc-40ac-8f4f-c506f06c281b;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE DIM_HARDWARE_INVENTORY DROP CONSTRAINT SYS_CONSTRAINT_2267681d-a711-475f-8417-ba7c5f2cda33;"
+        },
+        {
+          "ROLLBACK_SCRIPT": "ALTER TABLE FACT_PATCHES DROP CONSTRAINT SYS_CONSTRAINT_8933d89b-b260-4e2c-8099-7f45ed2b7450;"
+        }
+      ],
+      "error": null,
+      "row_count": 70
+    },
+    {
+      "num": 125,
+      "sql": "-- Restore original table names\nALTER TABLE DIM_CISCO_AMP RENAME TO CISCO_AMP_DATA;",
+      "success": false,
+      "rows": [],
+      "error": "002002 (42710): SQL compilation error:\nObject 'CISCO_AMP_DATA' already exists."
+    },
+    {
+      "num": 126,
+      "sql": "ALTER TABLE DIM_CROWDSTRIKE_ENDPOINTS RENAME TO CROWDSTRIKE_ENDPOINTS;",
+      "success": false,
+      "rows": [],
+      "error": "002002 (42710): SQL compilation error:\nObject 'CROWDSTRIKE_ENDPOINTS' already exists."
+    },
+    {
+      "num": 127,
+      "sql": "*/\n\n-- =====================================================================\n-- END OF IMPLEMENTATIO...",
+      "success": false,
+      "rows": [],
+      "error": "001003 (42000): SQL compilation error:\nsyntax error line 1 at position 0 unexpected '*'."
+    }
+  ]
+}

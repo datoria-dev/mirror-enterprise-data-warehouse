@@ -1,0 +1,9 @@
+{
+  "user": "fuad.onate@oldcastle.com",
+  "authenticator": "externalbrowser",
+  "account": "YOUR_ACCOUNT_IDENTIFIER",
+  "warehouse": "DEV_WH",
+  "database": "DEV_TRANSFORMATION",
+  "schema": "METADATA",
+  "role": "DEV_DEVELOPER"
+}

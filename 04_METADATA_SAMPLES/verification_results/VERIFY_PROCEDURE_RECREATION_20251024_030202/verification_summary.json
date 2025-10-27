@@ -1,0 +1,422 @@
+{
+  "script_name": "VERIFY_PROCEDURE_RECREATION.sql",
+  "execution_timestamp": "2025-10-24T03:02:20.777222",
+  "total_checks": 11,
+  "total_queries": 24,
+  "successful_queries": 24,
+  "failed_queries": 0,
+  "total_duration_seconds": 12.454124,
+  "checks": [
+    {
+      "check_num": 0,
+      "check_name": "SETUP",
+      "queries": [
+        {
+          "check_num": 0,
+          "check_name": "SETUP",
+          "query_num": 1,
+          "query_type": "USE",
+          "status": "SUCCESS",
+          "duration": 0.266956,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_00_SETUP_query_1.csv",
+          "json_file": "check_00_SETUP_query_1.json",
+          "preview": "USE ROLE DEV_DEVELOPER;"
+        },
+        {
+          "check_num": 0,
+          "check_name": "SETUP",
+          "query_num": 2,
+          "query_type": "USE",
+          "status": "SUCCESS",
+          "duration": 0.23359,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_00_SETUP_query_2.csv",
+          "json_file": "check_00_SETUP_query_2.json",
+          "preview": "USE WAREHOUSE DEV_WH;"
+        },
+        {
+          "check_num": 0,
+          "check_name": "SETUP",
+          "query_num": 3,
+          "query_type": "USE",
+          "status": "SUCCESS",
+          "duration": 0.264876,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_00_SETUP_query_3.csv",
+          "json_file": "check_00_SETUP_query_3.json",
+          "preview": "USE DATABASE DEV_TRANSFORMATION;"
+        },
+        {
+          "check_num": 0,
+          "check_name": "SETUP",
+          "query_num": 4,
+          "query_type": "USE",
+          "status": "SUCCESS",
+          "duration": 0.31684,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_00_SETUP_query_4.csv",
+          "json_file": "check_00_SETUP_query_4.json",
+          "preview": "USE SCHEMA METADATA;"
+        }
+      ],
+      "total_queries": 4,
+      "successful_queries": 4,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 1,
+      "check_name": "CHECK 1: Verify Procedure Exists",
+      "queries": [
+        {
+          "check_num": 1,
+          "check_name": "CHECK 1: Verify Procedure Exists",
+          "query_num": 1,
+          "query_type": "SHOW",
+          "status": "SUCCESS",
+          "duration": 0.255513,
+          "rows": 1,
+          "columns": 16,
+          "csv_file": "check_01_CHECK_1_Verify_Procedure_Exists_query_1.csv",
+          "json_file": "check_01_CHECK_1_Verify_Procedure_Exists_query_1.json",
+          "preview": "SHOW PROCEDURES LIKE 'SP_REFRESH_METADATA';"
+        }
+      ],
+      "total_queries": 1,
+      "successful_queries": 1,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 2,
+      "check_name": "CHECK 2: Verify Procedure Signature",
+      "queries": [
+        {
+          "check_num": 2,
+          "check_name": "CHECK 2: Verify Procedure Signature",
+          "query_num": 1,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 5.139037,
+          "rows": 1,
+          "columns": 7,
+          "csv_file": "check_02_CHECK_2_Verify_Procedure_Signature_query_1.csv",
+          "json_file": "check_02_CHECK_2_Verify_Procedure_Signature_query_1.json",
+          "preview": "SELECT     '\u2705 PROCEDURE DETAILS' as CHECK_NAME,     PROCEDURE_NAME,     ARGUMENT_SIGNATURE as ARGUME"
+        }
+      ],
+      "total_queries": 1,
+      "successful_queries": 1,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 3,
+      "check_name": "CHECK 3: View Most Recent Execution Log",
+      "queries": [
+        {
+          "check_num": 3,
+          "check_name": "CHECK 3: View Most Recent Execution Log",
+          "query_num": 1,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.255917,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_03_CHECK_3_View_Most_Recent_Execution_Log_query_1.csv",
+          "json_file": "check_03_CHECK_3_View_Most_Recent_Execution_Log_query_1.json",
+          "preview": "SELECT '\u2705 CHECK 3: MOST RECENT EXECUTION' as CHECK_NAME;"
+        },
+        {
+          "check_num": 3,
+          "check_name": "CHECK 3: View Most Recent Execution Log",
+          "query_num": 2,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.239384,
+          "rows": 1,
+          "columns": 11,
+          "csv_file": "check_03_CHECK_3_View_Most_Recent_Execution_Log_query_2.csv",
+          "json_file": "check_03_CHECK_3_View_Most_Recent_Execution_Log_query_2.json",
+          "preview": "SELECT     LOG_ID,     PROCEDURE_NAME,     EXECUTION_START,     EXECUTION_END,     EXECUTION_DURATIO"
+        }
+      ],
+      "total_queries": 2,
+      "successful_queries": 2,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 4,
+      "check_name": "CHECK 4: Compare Execution History",
+      "queries": [
+        {
+          "check_num": 4,
+          "check_name": "CHECK 4: Compare Execution History",
+          "query_num": 1,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.260331,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_04_CHECK_4_Compare_Execution_History_query_1.csv",
+          "json_file": "check_04_CHECK_4_Compare_Execution_History_query_1.json",
+          "preview": "SELECT '\u2705 CHECK 4: EXECUTION HISTORY' as CHECK_NAME;"
+        },
+        {
+          "check_num": 4,
+          "check_name": "CHECK 4: Compare Execution History",
+          "query_num": 2,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.256768,
+          "rows": 3,
+          "columns": 9,
+          "csv_file": "check_04_CHECK_4_Compare_Execution_History_query_2.csv",
+          "json_file": "check_04_CHECK_4_Compare_Execution_History_query_2.json",
+          "preview": "SELECT     LOG_ID,     EXECUTION_START,     EXECUTION_DURATION_SECONDS,     STATUS,     TABLES_PROCE"
+        }
+      ],
+      "total_queries": 2,
+      "successful_queries": 2,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 5,
+      "check_name": "CHECK 5: Verify Metadata Tables Are Populated",
+      "queries": [
+        {
+          "check_num": 5,
+          "check_name": "CHECK 5: Verify Metadata Tables Are Populated",
+          "query_num": 1,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.240084,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_05_CHECK_5_Verify_Metadata_Tables_Are_Populated_query_1.csv",
+          "json_file": "check_05_CHECK_5_Verify_Metadata_Tables_Are_Populated_query_1.json",
+          "preview": "SELECT '\u2705 CHECK 5: METADATA TABLES POPULATED' as CHECK_NAME;"
+        },
+        {
+          "check_num": 5,
+          "check_name": "CHECK 5: Verify Metadata Tables Are Populated",
+          "query_num": 2,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.306707,
+          "rows": 4,
+          "columns": 4,
+          "csv_file": "check_05_CHECK_5_Verify_Metadata_Tables_Are_Populated_query_2.csv",
+          "json_file": "check_05_CHECK_5_Verify_Metadata_Tables_Are_Populated_query_2.json",
+          "preview": "SELECT     'TABLE_REGISTRY' as TABLE_NAME,     COUNT(*) as ROW_COUNT,     180 as EXPECTED_COUNT,    "
+        }
+      ],
+      "total_queries": 2,
+      "successful_queries": 2,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 6,
+      "check_name": "CHECK 6: Verify Execution Details (JSON)",
+      "queries": [
+        {
+          "check_num": 6,
+          "check_name": "CHECK 6: Verify Execution Details (JSON)",
+          "query_num": 1,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.269065,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_06_CHECK_6_Verify_Execution_Details_JSON_query_1.csv",
+          "json_file": "check_06_CHECK_6_Verify_Execution_Details_JSON_query_1.json",
+          "preview": "SELECT '\u2705 CHECK 6: EXECUTION DETAILS JSON' as CHECK_NAME;"
+        },
+        {
+          "check_num": 6,
+          "check_name": "CHECK 6: Verify Execution Details (JSON)",
+          "query_num": 2,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.671862,
+          "rows": 1,
+          "columns": 6,
+          "csv_file": "check_06_CHECK_6_Verify_Execution_Details_JSON_query_2.csv",
+          "json_file": "check_06_CHECK_6_Verify_Execution_Details_JSON_query_2.json",
+          "preview": "SELECT     LOG_ID,     EXECUTION_DETAILS:tables_processed::NUMBER as TABLES_FROM_JSON,     EXECUTION"
+        }
+      ],
+      "total_queries": 2,
+      "successful_queries": 2,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 7,
+      "check_name": "CHECK 7: Verify Services Detected",
+      "queries": [
+        {
+          "check_num": 7,
+          "check_name": "CHECK 7: Verify Services Detected",
+          "query_num": 1,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.393746,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_07_CHECK_7_Verify_Services_Detected_query_1.csv",
+          "json_file": "check_07_CHECK_7_Verify_Services_Detected_query_1.json",
+          "preview": "SELECT '\u2705 CHECK 7: SERVICES DETECTED' as CHECK_NAME;"
+        },
+        {
+          "check_num": 7,
+          "check_name": "CHECK 7: Verify Services Detected",
+          "query_num": 2,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.372933,
+          "rows": 20,
+          "columns": 3,
+          "csv_file": "check_07_CHECK_7_Verify_Services_Detected_query_2.csv",
+          "json_file": "check_07_CHECK_7_Verify_Services_Detected_query_2.json",
+          "preview": "SELECT     SERVICE_NAME,     COUNT(*) as TABLE_COUNT,     SUM(ROW_COUNT) as TOTAL_ROWS FROM TABLE_RE"
+        }
+      ],
+      "total_queries": 2,
+      "successful_queries": 2,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 8,
+      "check_name": "CHECK 8: Verify Views Are Working",
+      "queries": [
+        {
+          "check_num": 8,
+          "check_name": "CHECK 8: Verify Views Are Working",
+          "query_num": 1,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.801973,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_08_CHECK_8_Verify_Views_Are_Working_query_1.csv",
+          "json_file": "check_08_CHECK_8_Verify_Views_Are_Working_query_1.json",
+          "preview": "SELECT '\u2705 CHECK 8: VIEWS WORKING' as CHECK_NAME;"
+        },
+        {
+          "check_num": 8,
+          "check_name": "CHECK 8: Verify Views Are Working",
+          "query_num": 2,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.241016,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_08_CHECK_8_Verify_Views_Are_Working_query_2.csv",
+          "json_file": "check_08_CHECK_8_Verify_Views_Are_Working_query_2.json",
+          "preview": "SELECT COUNT(*) as SERVICE_COUNT FROM VW_SERVICE_SUMMARY;"
+        },
+        {
+          "check_num": 8,
+          "check_name": "CHECK 8: Verify Views Are Working",
+          "query_num": 3,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.300196,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_08_CHECK_8_Verify_Views_Are_Working_query_3.csv",
+          "json_file": "check_08_CHECK_8_Verify_Views_Are_Working_query_3.json",
+          "preview": "SELECT COUNT(*) as TABLE_COUNT FROM VW_TABLE_CATALOG;"
+        },
+        {
+          "check_num": 8,
+          "check_name": "CHECK 8: Verify Views Are Working",
+          "query_num": 4,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.324163,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_08_CHECK_8_Verify_Views_Are_Working_query_4.csv",
+          "json_file": "check_08_CHECK_8_Verify_Views_Are_Working_query_4.json",
+          "preview": "SELECT COUNT(*) as COLUMN_COUNT FROM VW_COLUMN_CATALOG;"
+        }
+      ],
+      "total_queries": 4,
+      "successful_queries": 4,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 9,
+      "check_name": "CHECK 9: Performance Check",
+      "queries": [
+        {
+          "check_num": 9,
+          "check_name": "CHECK 9: Performance Check",
+          "query_num": 1,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.23378,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_09_CHECK_9_Performance_Check_query_1.csv",
+          "json_file": "check_09_CHECK_9_Performance_Check_query_1.json",
+          "preview": "SELECT '\u2705 CHECK 9: PERFORMANCE METRICS' as CHECK_NAME;"
+        },
+        {
+          "check_num": 9,
+          "check_name": "CHECK 9: Performance Check",
+          "query_num": 2,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.234569,
+          "rows": 5,
+          "columns": 3,
+          "csv_file": "check_09_CHECK_9_Performance_Check_query_2.csv",
+          "json_file": "check_09_CHECK_9_Performance_Check_query_2.json",
+          "preview": "WITH latest_execution AS (     SELECT         TABLES_PROCESSED,         COLUMNS_PROCESSED,         E"
+        }
+      ],
+      "total_queries": 2,
+      "successful_queries": 2,
+      "failed_queries": 0
+    },
+    {
+      "check_num": 10,
+      "check_name": "CHECK 10: Final Summary",
+      "queries": [
+        {
+          "check_num": 10,
+          "check_name": "CHECK 10: Final Summary",
+          "query_num": 1,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.296542,
+          "rows": 1,
+          "columns": 1,
+          "csv_file": "check_10_CHECK_10_Final_Summary_query_1.csv",
+          "json_file": "check_10_CHECK_10_Final_Summary_query_1.json",
+          "preview": "SELECT '\ud83d\udcca FINAL SUMMARY' as CHECK_NAME;"
+        },
+        {
+          "check_num": 10,
+          "check_name": "CHECK 10: Final Summary",
+          "query_num": 2,
+          "query_type": "SELECT",
+          "status": "SUCCESS",
+          "duration": 0.278276,
+          "rows": 1,
+          "columns": 6,
+          "csv_file": "check_10_CHECK_10_Final_Summary_query_2.csv",
+          "json_file": "check_10_CHECK_10_Final_Summary_query_2.json",
+          "preview": "WITH latest_execution AS (     SELECT         STATUS,         TABLES_PROCESSED,         COLUMNS_PROC"
+        }
+      ],
+      "total_queries": 2,
+      "successful_queries": 2,
+      "failed_queries": 0
+    }
+  ]
+}
